@@ -118,14 +118,27 @@ header h1 a {
     text-indent: -9999px;
 }
 
-nav{
-	padding-top: 10px;
-	float: right;
+nav {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 4rem;
+}
+	
+nav ul li {  
+	display: inline;
+	margin-right: 15px;
 }
 
-nav a{
-	padding-right: 10px;
-	color: #ababab;
+nav ul li a {  
+	font-size: 1.8rem;
+	padding: 3px 10px;
+	background-color: #fff;
+	border-radius: 2px;
+}
+
+nav ul li a:hover {  
+	background-color: #ddd;
+	text-decoration: none;
 }
 
 p.standfirst{
