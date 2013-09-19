@@ -79,22 +79,23 @@
 
 						<p>Computers are simultaneously boosted and hindered by their rapid obsolescence. So while the line-mode browser is a mere 20 years old (as of the writing of this), it's only viewable (and barely usable) on the odd terminal here in the closet of CERN. We've come so far in so few years that we're on the cusp of not being able to interact with the very software that got us here. As folks who believe deeply in — and owe much to — the web, this pains us. In rebuilding / simulating this origin browser, we hope to achieve a few goals.</p>
 
-						<p>First, we want to provide context for the web of today. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back, at will, and remember our roots. It's especially nice (and fun) to be able to use that old tech to peer at what we've built today.</p>
+						<p>First, we want to provide context for the web of today. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back, at will, and remember our roots.</p>
 
-						<p>Which brings us to the second reason: we want a version of the browser that anyone can run and furthermore, point at contemporary websites. Our line-mode browser not only allows you to view the first web pages ever placed online (on these very servers), but will also render, as accurately as possible, any other website to which it's pointed. It may not always be pretty, but it's usually entertaining.</p>
+						<p>Which brings us to the second reason: we want a version of the line-mode browser that anyone can run and, furthermore, point at contemporary websites. Our line-mode browser simulator not only allows you to view the first web pages ever placed online (on these very servers!), but will also render — as accurately as possible — any other website to which it's pointed. It may not always be pretty, but it's usually entertaining. (And heck, the web was never really meant to be that pretty, right?<sup>1</sup>)</p>
 
 
 						<h3>Our Rules</h3>
 
-						<p>In simulating the line-mode browser, we had a couple rules.</p>
+						<p>In simulating the line-mode browser, we had a couple of rules.</p>
 
-						<p>We had to be as true to the original engine as possible. That meant not adding features or improving the display of elements in any way. </p>
+						<p>We wanted to be as true to the original rendering engine as possible. That meant not adding features or improving the display of elements in any way different than the original.</p>
+						<p>[[other rules]]</p>
 
 
 						<h3>What tech did we use?</h3>
-						<p>Fundamentally: we wrote an old browser in a new browser. Here's the details.</p>
+						<p>Basically: We wrote an old browser in a new browser. Here's the details.</p>
 
-						<p>The approach we centered on was to use a proxy node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
+						<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
 
 						<p>In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline). But, importantly, we leave the script, link and style elements in place. <em>Why?</em> we hear you ask. Because, dear reader, the original line mode browser would display contents of those tags. Its parsing rule was to strip the start and end tags off unknown elements, but display their content inline. So it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them. It may look messy but we're being as true as possible to the way the line-mode browser worked.</p>
 						
@@ -102,17 +103,25 @@
 
 						<p>The browser then parses the document, applies the CSS and runs the JavaScript, so you the user can experience the awesomeness that was the line mode browser.</p>
 
-						<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects for example the command line that is fixed at the bottom of the content. This would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
+						<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Techincally, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
 
 						<h3>What hacks did we use?</h3>
-						<p>Hacks! We do not hack. OK, we did some hacky things, but all in all nothing particularly grubby.</p>
-						<p>As mentioned, we used some JavaScript for calculating some aspects of the page layout, due to the lack of widespread support for features we’d otherwise use in CSS to do this instead of JavaScript.  </p>
+						<p>Hacks! We do not hack. OK, maybe we did some hacky things, but thankfully nothing particularly grubby.</p>
+						<p>As mentioned, we used some JavaScript for calculating certain aspects of the page layout. We'd have preferred to have done this in pure CSS.</p>
 
 						<h3>Will what we built today be usable in 10 years? </h3>
-						<p>We hope so! One of the things we wanted to do is emulate how the LMB would handle today’s web content, and while the average 1.2MB of content today’s web page would more than swamp the memory available to these early browser.</p>
-						<p>But I think that what we built this with, HTML, CSS and JavaScript, will be around for many more than 10 years. At least we hope so!</p>
+						<p>We hope so! One of the things we wanted to do is emulate how the line-mode browser would handle today’s web content. Even though, technically, the original line-mode terminals would choke on today's heavy pages — we're averaging about 1.2MB of content per page.</p>
+
+						<p>But we think — are pretty certain — that this bundle of HTML, CSS and JavaScript will be usable for more than 10 years. At least we hope so!</p>
 
 					</article>
+
+					<div class="footnotes d-all">
+						<h3>Footnotes</h3>
+						<ol>
+							<li>OK — that not <em>entirreeeeely</em> true. Remember how we said this wasn't the first browser? Well, the first browser was very pretty, and very graphical. It ran on the NeXT desktop and not only had style sheet support (!!) but also handled vector graphics.</li>
+						</ol>
+					</div>
 				</section>
 		</div>
 		
