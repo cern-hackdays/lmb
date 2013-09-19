@@ -28,6 +28,7 @@ html {
 	width: 80ch;
 	height: 37.5em; /* 25 lines */
 	margin: 0 auto;
+	padding-bottom: 1.5em;
 	overflow: hidden;
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
