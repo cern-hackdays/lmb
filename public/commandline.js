@@ -23,7 +23,7 @@ function run(command, e) {
 }
 
 document.body.onkeydown = function (e) {
-  if (e.which === 13) {
+  if (e.keyCode === 13) {
     console.log('I AM GO DOWN FOR JOHN');
     var current = document.body.scrollTop;
     window.scrollTo(0, current + window.innerHeight);
