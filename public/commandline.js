@@ -34,6 +34,14 @@ document.documentElement.onkeydown = function (e) {
   	pagedown();
   	e.preventDefault();
   }
+};
+
+document.documentElement.onclick = function () {
+  cmd.focus();
+};
+
+document.documentElement.onfocus = function () {
+  cmd.focus();
 }
 
 var commands = {
@@ -41,8 +49,7 @@ var commands = {
     window.scrollTo(0, 0);
   },
   list: function () {
-    // TODO list history of visited urls
-    // localStorage
+    // list all available links
   },
   help: function () {
 
@@ -56,10 +63,12 @@ var commands = {
     history.back();
   },
   recall: function () {
-    // jump to history
+    // TODO list history of visited urls
+    // localStorage
   },
   quit: function () {
     alert("I'm not a quiter.");
+    return false;
   }
 }
 
