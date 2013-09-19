@@ -24,7 +24,7 @@ img, video, audio, svg, canvas, iframe, isindex {
 
 html, body, head, title,
 h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
-div, section, aside, header, footer {
+div, section, aside, header, footer, dl {
 	display: block;
 }
 
@@ -151,4 +151,11 @@ button {display: none}
 	width: 51ch;
 	background: black;
 	border: 0;
+}
+
+#blocker {
+	position: absolute;
+	margin: 0 auto;
+	z-index: 9;
+	top: 0;
 }
