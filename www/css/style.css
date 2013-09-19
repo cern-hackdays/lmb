@@ -142,6 +142,12 @@ nav ul li a:hover {
 	text-decoration: none;
 }
 
+nav ul li.lmb { 
+	clear: both;
+	display: block;
+	margin-bottom: 20px;
+}
+
 p.standfirst{
 	font-weight: bold;
 }
@@ -150,12 +156,12 @@ p.standfirst{
 	margin-top: 30px;
 }
 
-ul li{
+ul li {
 	margin-bottom: 10px;
 	list-style: none;
 }
 
-ul li a{
+ul li a {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-size: 1.3rem;
 	font-weight: bold;
