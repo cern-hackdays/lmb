@@ -1,3 +1,23 @@
+function run(command, e) {
+  if (commands[command]) {
+    commands[command]()
+  }
+
+  if ((/^[0-9]+$/).test(command)) {
+    // TODO open the nth link
+    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
+  }
+
+  // else don't prevent default
+}
+
+function pagedown() {
+  var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
+  console.log('I AM GO DOWN FOR JOHN');
+  var current = document.body.scrollTop;
+  scrollTo(0, current + lineHeight * 23);
+}
+
 var cmd = document.querySelector('#command input');
 
 cmd.onkeydown = function (e) {
@@ -12,19 +32,6 @@ cmd.onkeydown = function (e) {
     }
   }
 };
-
-function run(command, e) {
-  if (commands[command]) {
-    commands[command]()
-  }
-
-  if ((/^[0-9]+$/).test(command)) {
-    // TODO open the nth link
-    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
-  }
-
-  // else don't prevent default
-}
 
 document.documentElement.onkeydown = function (e) {
   if (e.keyCode === 13) {
@@ -64,15 +71,13 @@ var commands = {
   }
 }
 
-function pagedown() {
-	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
-	console.log('I AM GO DOWN FOR JOHN');
-	var current = document.body.scrollTop;
-	scrollTo(0, current + lineHeight * 23);
-}
-
 // alias
 commands.t = commands.top;
 commands.T = commands.top;
 commands.q = commands.quit;
 commands.Quit = commands.quit;
+
+// restore the super old html tags
+'plaintext listing h0 hp1 hp2'.replace(/\w+/g, function (a) {
+  document.createElement(a);
+});
