@@ -92,7 +92,3 @@ hp1:first-letter, hp2:first-letter {
 form {display: none}
 
 input {display: none}
-
-#command input {
-	display: inline;
-}
