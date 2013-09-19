@@ -16,6 +16,7 @@ function proxy(req, res, next) {
       if (!error && response.statusCode == 200) {
         // console.log(body)
         res.write(body + css + js);
+        res.end();
       }
     })
 
