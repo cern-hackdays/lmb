@@ -44,21 +44,27 @@ html {
 	text-shadow: 0 0 10px;
 	word-wrap: break-word;
 	font-family: icomoon, monospace;
+	line-height: 1.5em;
 }
 
-	html * {
-		font: inherit !important;
-	}
+
+html * {
+	font: inherit !important;
+}
 
 head {
 	background: black;
 }
 
 title {
-	padding-bottom: 1em; 
+	/*padding-bottom: 1em;*/
 	/* one line of space after title - using padding, since line
-	   must always appear. if h1 next, should show 2 blank lines */	
+	   must always appear. if h1 next, should show 2 blank lines */
 	text-align: right;
+}
+
+body {
+	padding-top: 1.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,8 +87,8 @@ a {
 }
 
 p {
-	margin-top: 1em; 
-	/* paragraph has one line after... but <P> was used more as a 
+	margin-top: 1em;
+	/* paragraph has one line after... but <P> was used more as a
 	   separator than a wrapper... so using margin-top instead    */
 }
 
