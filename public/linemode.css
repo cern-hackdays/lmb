@@ -1,78 +1,98 @@
- * {display: inline;
-cursor: hidden}
+* {
+	display: inline;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+}
 
-img, video, audio, svg, canvas {display: none}
-
-isindex {display: none}
+img, video, audio, svg, canvas, iframe, isindex {
+	display: none;
+}
 
 html {
-background-color: #ffffff; }
+	background: black;
+	width: 60em; /* fallback, temp, change it when we have the actual font */
+	width: 80ch;
+	margin: 0 auto;
+	line-height: 1.5;
+}
 
-head {display: block;
-display: block;
-background: black;
-color: lime;
-font-family: monospace;
-font-size: 1em;
-width: 60em;
-margin: 0 auto;
+head {
+	display: block;
+	background: black;
+	color: lime;
+	font-family: monospace;
 }
 
 title {
 	display: block;
-text-align: right; }
-
-body {
-display: block;
-background: black;
-color: lime;
-font-family: monospace;
-font-size: 1em;
-width: 60em;
-margin: 0 auto;
-padding-top: 5em
+	text-align: right;
 }
 
-html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl dd, dt, pre {
-display: block;
-font-size: inherit; 
+body {
+	display: block;
+	background: black;
+	color: lime;
+	font-family: monospace;
+	padding-top: 1.5em; /* 1 * line-height */
+}
+
+html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre {
+	display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {
-text-align: center;
-text-transform: uppercase
+	margin-top: 1.5em; /* 1 * line-height */
+	text-align: center;
+	text-transform: uppercase;
 }
+
 div, section, aside, header, footer {
-display: block;
+	display: block;
 }
 
 table {
-display: block
+	display: block;
 }
 
 a, b, strong, em, i, span {
-display: inline
+	display: inline;
 }
 
-a:link, a:visited, a:active, a:hover {
+a {
 	text-decoration: none;
-	color: lime
+	color: inherit;
 }
 
-/*counters for the link*/
+
+/* Definition lists */
+dt, dd {
+	display: inline-block;
+	vertical-align: top;
+}
+
+dt {
+	width: 30ch;
+}
+
+dd {
+	width: 50ch;
+}
+
+/* Counters for the link */
 
 body {
-	counter-reset: section
-}
-
-a:after {
-  counter-increment: section;      /* Increment the section counter */
-  content: "[" counter(section) "]"; /* Display the counter */;
-padding-left: .5em
+	counter-reset: section;
 }
 
 pre, xmp {display: block; white-space: pre}
 
-hp1:first-letter, hp2:first-letter {text-transform: uppercase}
+hp1:first-letter, hp2:first-letter {
+	text-transform: uppercase
+}
+
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
+form {display: none}
+
+input {display: none}

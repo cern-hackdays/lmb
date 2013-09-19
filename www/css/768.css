@@ -1,0 +1,36 @@
+/* Query Styles for 768px and up */
+
+.headfill { height: 500px; }
+
+.wrapper{
+	width: 700px;
+	min-width: 700px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 72px;
+	font-size: 10rem;
+	line-height: 90px;
+	line-height: 9rem;
+	text-align: center;
+}
+
+h2{
+	font-size: 3rem;
+	margin-bottom: 5rem;
+	margin-top: 3rem;
+	line-height: 36px;
+	line-height: 3.6rem;
+	text-align: center;
+}
+
+header {
+    padding: 40px 0;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+    margin-bottom: 1.8rem;
+}

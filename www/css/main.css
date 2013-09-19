@@ -1,0 +1,52 @@
+/* 
+
+Developed by Mark Boulton Design for COMPANY
+Web site: http://markboultondesign.com
+Twitter: http://twitter.com/markboultondsg
+Author: YOU
+
+INDEX
+1. Reset
+2. Clearfix
+3. Styles (for 320 and up)
+4. Queries
+
+GUIDELINES
+• Keep declarations flush left.
+• Example declaration:
+	
+	.something,
+	.something-else {
+		display: block;
+	}
+
+• Use pixels and progress to rems (font-size has been adjusted to 62.5% in the reset). 
+  More info: http://snook.ca/archives/html_and_css/font-size-with-rem
+  Example:
+
+	body { font-size: 14px; font-size: 1.4rem; }
+
+• Width in px or %. Heights auto or rems (with px fallback).
+• ANNOTATE!
+
+/* 1. Reset ------------------------------ */
+@import url('reset.css');
+
+/* 2. Clearfix ------------------------------ */
+
+/* 3. Styles ----------------------------- */
+@import url('style.css');
+
+/* 4. Queries ---------------------------- */
+
+/* Mobile Landscape */
+@import url('320.css') only screen and (min-width: 320px);
+
+/* Tablet */
+@import url('768.css') only screen and (min-width: 768px);
+
+/* Desktop and Tablet Landscape */
+@import url('1024.css') only screen and (min-width: 1024px);
+
+/* Large Desktop */
+@import url('1440.css') only screen and (min-width: 1440px);
