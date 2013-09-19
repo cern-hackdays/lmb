@@ -16,7 +16,7 @@ function run(command, e) {
 
   if ((/^[0-9]+$/).test(command)) {
     // TODO open the nth link
-    console.log('GOTO ' + document.querySelectorAll('a')[command * 1].href);
+    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
   }
 
   // else don't prevent default
