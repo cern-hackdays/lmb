@@ -81,6 +81,7 @@ var linemoder = {
 		var links = document.getElementsByTagName("a");
 		for (var i=1; i <= links.length; i++){
 			links[i-1].text = links[i-1].text + " [" + i + "]";
+			links[i-1].name = i;
 		}
 	}
 }
