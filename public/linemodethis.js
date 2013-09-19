@@ -34,6 +34,12 @@ var linemoder = {
 		};
 
 		//now remove inline style
+		
+		var inlineStyled = document.querySelectorAll("[style]")
+		
+		for (var i=0; i < inlineStyled.length; i++) {
+			inlineStyled[i].removeAttribute("style")
+		};
 
 	},
 
