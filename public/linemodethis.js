@@ -9,6 +9,7 @@ var linemoder = {
 		linemoder.addLinemodeStyle();
 		linemoder.allowAncientHTML();
 		linemoder.recognizeAnchors();
+		linemoder.insertEOF();
 		linemoder.addCommandLine();
 
 	},
@@ -80,10 +81,15 @@ var linemoder = {
 
 	recognizeAnchors: function() {
 		var links = document.getElementsByTagName("a");
-		for (var i=1; i <= links.length; i++){
-			links[i-1].text = links[i-1].text + " [" + i + "]";
-			links[i-1].name = i;
+		for (var i=0; i < links.length; i++){
+			var j = i+1; 
+			links[i].innerHTML = links[i].innerHTML + " [" + j + "]";
+			links[i].name = j;
 		}
+	},
+
+	insertEOF: function() {
+
 	}
 }
 
