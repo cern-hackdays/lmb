@@ -1,0 +1,30 @@
+/* Query Styles for 320px and up */
+
+h1 {
+	text-align: left;	
+}
+
+h2{
+	font-size: 20px;
+	font-size: 2rem;
+	margin: 1em 0 0.5rem 0;
+	line-height: 26px;
+	line-height: 2.6rem;
+	text-align: left;
+}
+
+header {
+    padding: 50px 10px 0;
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+    margin-bottom: 1.1rem;
+}
+
+h3 {
+	font-size: 21px;
+	font-size: 2.1rem;
+	margin-bottom: 1.1rem;
+}
