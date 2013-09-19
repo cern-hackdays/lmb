@@ -103,6 +103,7 @@ a:hover {
 	margin: 0 auto;
 }
 
+
 cite, nav, footer p{
 	font-family: 'PT Sans Caption', sans-serif;
 	font-size: 1rem;
@@ -125,7 +126,7 @@ nav {
 }
 	
 nav ul li {  
-	display: inline;
+	display: inline-block;
 	margin-right: 15px;
 }
 

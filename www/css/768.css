@@ -8,6 +8,8 @@
 	margin: 0 auto;
 }
 
+#content { margin-top: -200px; background-color: #f7f7f7; padding: 20px; border-radius: 3px; }
+
 h1 {
 	font-size: 72px;
 	font-size: 10rem;
