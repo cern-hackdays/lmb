@@ -29,7 +29,7 @@
 				<!--h4 class="date">Geneva, 30 April 2013</h4-->
 
 				<h1>Making of LMB 2013</h1>
-				<h2>Rebuilding a tin shack using carbon fiber while juggling atop a moving bus — +handlebarmustache</h2>
+				<h2>Rebuilding 20 year old software in a modern day browser</h2>
 				<nav>
 					<ul>
 						<li class="lmb"><a href="../../public/index.html">Launch Line Mode Browser</a></li>
@@ -61,6 +61,7 @@
 						<p>Which brings us to the second reason: we want a version of the line-mode browser that anyone can run and, furthermore, point at contemporary websites. Our line-mode browser simulator not only allows you to view the first web pages ever placed online (on these very servers!), but will also render — as accurately as possible — any other website to which it's pointed. It may not always be pretty, but it's usually entertaining. (And heck, the web was never really meant to be that pretty, right?<sup>1</sup>)</p>
 
 
+						<img src="../img/makingof-04.jpg" />
 						<h3>Our Rules</h3>
 
 						<p>In simulating the line-mode browser, we had a couple of rules.</p>
@@ -69,7 +70,11 @@
 						<p>[[other rules]]</p>
 
 
+						<div class="d1 d-floatleft">
+							<img src="../img/makingof-02.jpg" />
+						</div>
 						<h3>What tech did we use?</h3>
+
 						<p>Basically: We wrote an old browser in a new browser. Here's the details.</p>
 
 						<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
@@ -82,6 +87,10 @@
 
 						<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Techincally, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
 
+
+						<div class="d1 d-floatleft">
+							<img src="../img/makingof-01.jpg" />
+						</div>
 						<h3>What hacks did we use?</h3>
 						<p>Hacks! We do not hack. OK, maybe we did some hacky things, but thankfully nothing particularly grubby.</p>
 						<p>As mentioned, we used some JavaScript for calculating certain aspects of the page layout. We'd have preferred to have done this in pure CSS.</p>
