@@ -1,0 +1,42 @@
+<TITLE>CommandLine -- /LineMode</TITLE>
+<NEXTID 3>
+<H1>Command line syntax</H1>The syntax is:
+<XMP>		www [options]  [docaddress [keywords]]
+
+</XMP>With no arguments, the <A NAME=1 HREF=QuickGuide.html>www</A> shell command allows you to browse from
+the system default page,  /usr/lib/WWW/default.html.<P>
+Options should be specified before other arguments. Currently options
+available are:-
+<DL>
+<DT>-n 
+<DD>Non-interactive mode.  Outputs the formatted document to the standard
+output, then exits.  Pages are delimited with form feed (FF) characters.
+<DT>-pn
+<DD> where n is a number, specifies the page length. Without a number,
+makes the page length infinite. Default is 23. 
+<DT>-v
+<DD> Verbose mode: Gives a running commentary on the program's attempts
+to read data in various ways.If present, the next argument is the
+hypertext address of  the document at which you want to start browsing.
+You may want to define an alias for www followed by name of your favourite
+index.
+<DT>-na
+<DD> Hides anchor positions in the text. Useful, when printing out
+the document.
+<DT><A NAME=2>-a  format</A>
+<DD> Specifies the printf -style format string to be used when
+printing references. Must contain the two characters "%d"  where the
+numbers should occur.  Be sure to escape or quote any special characters
+you use.  For example under unix (where ^[ stands for ESCape):
+</DL>
+
+<XMP>				www -a \<%d\>
+				www -a " (Type %d)"
+				www -a "^[[1m[%d]^[[m"
+
+</XMP>Any further command line arguments are taken as keywords. The first
+argument must refer to an index in this case. The index is serached
+for entries matching the keywords, and a list of matching entries
+is displayed. ______________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>
