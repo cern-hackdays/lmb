@@ -2,7 +2,7 @@
 
 .headfill { height: 250px; }
 
-#content { margin-top: -70px; background-color: #f7f7f7; padding: 20px; border-radius: 3px; }
+#content { margin-top: -70px; background-color: #f7f7f7; padding: 25px; border-radius: 3px; overflow: hidden; }
 
 h1 {
 	text-align: left;	
