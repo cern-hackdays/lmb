@@ -215,3 +215,34 @@ img{
 	margin-top: 40px;
 	border-top: 1px solid #ccc;
 }
+
+/* ----- Interviews Page  ----------- */
+
+
+.member-data {
+	float: left;
+	display: flex;
+	display: -webkit-flex;
+	width: 100%;
+	padding-bottom: 2em;
+	margin: 2em 0;
+	border-bottom: 1px solid #CCC;
+}
+.member-data figure {
+	float: left;
+	width: 30%;
+	padding-right: 3%;
+}
+dl.vcard {
+	flex: auto;
+	-webkit-flex: auto;
+}
+
+dl.vcard dt {
+	font-weight: bold;
+}
+dl.vcard dd {
+	padding-bottom: 0.3em;
+}
+
+p.question {font-weight: bold; font-size: 110%;}
