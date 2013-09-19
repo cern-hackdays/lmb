@@ -61,3 +61,5 @@ var commands = {
 // alias
 commands.t = commands.top;
 commands.T = commands.top;
+commands.q = commands.quit;
+commands.Quit = commands.quit;
