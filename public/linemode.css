@@ -3,10 +3,21 @@
 	padding: 0;
 	margin: 0;
 	font: inherit;
+	color: inherit;
 }
 
 img, video, audio, svg, canvas, iframe, isindex {
 	display: none;
+}
+
+html, body, head, title,
+h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
+div, section, aside, header, footer {
+	display: block;
+}
+
+a, b, strong, em, i, span {
+	display: inline;
 }
 
 html {
@@ -18,52 +29,35 @@ html {
 }
 
 head {
-	display: block;
 	background: black;
 	color: lime;
 	font-family: monospace;
 }
 
 title {
-	display: block;
 	text-align: right;
 }
 
 body {
-	display: block;
+	padding-top: 1.5em; /* 1 * line-height */
 	background: black;
 	color: lime;
 	font-family: monospace;
-	padding-top: 1.5em; /* 1 * line-height */
-}
-
-html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre {
-	display: block;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 1.5em; /* 1 * line-height */
-	text-align: center;
 	text-transform: uppercase;
 }
 
-div, section, aside, header, footer {
-	display: block;
-}
-
-table {
-	display: block;
-}
-
-a, b, strong, em, i, span {
-	display: inline;
+h1 {
+	text-align: center;
 }
 
 a {
 	text-decoration: none;
 	color: inherit;
 }
-
 
 /* Definition lists */
 dt, dd {
@@ -85,10 +79,13 @@ body {
 	counter-reset: section;
 }
 
-pre, xmp {display: block; white-space: pre}
+pre, xmp {
+	display: block;
+	white-space: pre;
+}
 
 hp1:first-letter, hp2:first-letter {
-	text-transform: uppercase
+	text-transform: uppercase;
 }
 
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
