@@ -2,9 +2,8 @@
   "name": "line-mode-browser",
   "version": "0.12.0",
   "description": "A simulation of the first (actually second) WWW browser.",
-  "main": "gruntfile.js",
+  "main": "index.js",
   "dependencies": {
-    "grunt": "~0.4.1",
     "harp": "~0.9.3",
     "request": "~2.27.0",
     "connect": "~2.9.0"
