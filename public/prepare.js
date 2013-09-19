@@ -1,6 +1,6 @@
 (function () {
 
-var commandline = '<form id=command><label>[ref.number], Quit, or Help: <input autofocus></label></form><link rel=stylesheet class=ignore href=cmd.css type=text/css><script src=commandline.js></script>';
+var commandline = '<form id=command><label>&lt;ref.number&gt;, Quit, or Help: <input autofocus></label></form><link rel=stylesheet class=ignore href=cmd.css type=text/css><script src=commandline.js></script>';
 
 var prepare = (function ($, location) {
   // strip particular elements
@@ -16,7 +16,8 @@ var prepare = (function ($, location) {
   });
 
   // all documents have an [END] at the...
-  $('body').append('<pre id="lmb-footer">\n\n     [END]</pre>'); // TODO parser question?
+  // TODO parser question?
+  $('body').append('<pre id="lmb-footer">\n\n     [END]</pre>');
 
   // insert command prompt
   $('body').append(commandline);
