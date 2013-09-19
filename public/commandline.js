@@ -34,7 +34,7 @@ var commands = {
   },
   back: function () {
     // FIXME does back take you "back" to the history/help/etc?
-    window.back();
+    history.back();
   },
   recall: function () {
     // jump to history
