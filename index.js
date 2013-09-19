@@ -35,7 +35,7 @@ function proxy(req, res, next) {
 connect()
   .use(function (req, res, next) {
     console.log(req.headers);
-    if (req.url === '/referer' && req.headers.referer) {
+    if ((req.url === '/referer' || req.url === '/referrer') && req.headers.referer) {
       res.writeHead(302, { location: '/proxy?url=' + req.headers.referer });
       res.end();
     } else {
