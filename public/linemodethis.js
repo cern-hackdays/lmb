@@ -89,7 +89,9 @@ var linemoder = {
 	},
 
 	insertEOF: function() {
-
+		var eof = document.createElement("footer");
+		eof.innerHTML ="[EOF]";
+		document.getElementsByTagName("body")[0].appendChild(eof);
 	}
 }
 
