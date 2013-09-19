@@ -1,7 +1,9 @@
  * {display: inline;
-cursor: hidden}
+/*cursor: none*/}
 
 img, video, audio, svg, canvas, iframe {display: none}
+
+video > * , audio > *, canvas > *, iframe > * {display: inline}
 
 isindex {display: none}
 
@@ -76,3 +78,7 @@ pre, xmp {display: block; white-space: pre}
 hp1:first-letter, hp2:first-letter {text-transform: uppercase}
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
+form {display: none;}
+
+label {
+display: inline}
