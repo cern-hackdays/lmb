@@ -83,7 +83,7 @@ var linemoder = {
 		var links = document.getElementsByTagName("a");
 		for (var i=0; i < links.length; i++){
 			var j = i+1; 
-			links[i].innerHTML = links[i].innerHTML + " [" + j + "]";
+			links[i].innerHTML = links[i].innerHTML + "[" + j + "]";
 			links[i].name = j;
 		}
 	},
