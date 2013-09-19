@@ -23,8 +23,10 @@ function proxy(req, res, next) {
         $ = prepare($, '/proxy?url=' + base);
         res.write($.html());
         res.end();
-      } else {
+      } else if (response) {
         res.end(JSON.stringify({ error: error, status: response.statusCode }));
+      } else {
+        res.end(err.toString('utf8'))
       }
     })
   } else {
