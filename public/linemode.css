@@ -70,15 +70,7 @@ body {
 	counter-reset: section;
 }
 
-a:after {
-	counter-increment: section;      /* Increment the section counter */
-	content: "[" counter(section) "]"; /* Display the counter */;
-}
-
-pre, xmp {
-	display: block;
-	white-space: pre;
-}
+pre, xmp {display: block; white-space: pre}
 
 hp1:first-letter, hp2:first-letter {
 	text-transform: uppercase
@@ -87,3 +79,5 @@ hp1:first-letter, hp2:first-letter {
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
 form {display: none}
+
+input {display: none}
