@@ -1,0 +1,11 @@
+#command {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#command input {
+  display: inline !important;
+  padding: 20px;
+}
