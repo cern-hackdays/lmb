@@ -10,5 +10,4 @@ CERN Line Mode Browser simulation.
 # Install
 
 1. Clone this repo
-2. Install
 2. Run `grunt`
