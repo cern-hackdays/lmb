@@ -24,7 +24,7 @@ function run(command, e) {
 
 document.body.onkeydown = function (e) {
   if (e.keyCode === 13) {
-  	commands.pagedown();
+  	pagedown();
   	e.preventDefault();
   }
 }
@@ -53,14 +53,15 @@ var commands = {
   },
   quit: function () {
     alert("I'm not a quiter.");
-  },
-  pagedown: function () {
-    var lineHeight = parseInt(getComputedStyle(document.body).lineHeight);
-    	
-    console.log('I AM GO DOWN FOR JOHN');
-    var current = document.body.scrollTop;
-    scrollTo(0, current + lineHeight * 23);1
   }
+}
+
+function pagedown() {
+	var lineHeight = parseInt(getComputedStyle(document.body).lineHeight);
+		
+	console.log('I AM GO DOWN FOR JOHN');
+	var current = document.body.scrollTop;
+	scrollTo(0, current + lineHeight * 23);
 }
 
 // alias
