@@ -9,6 +9,7 @@ var linemoder = {
 		linemoder.addLinemodeStyle();
 		linemoder.allowAncientHTML();
 		linemoder.recognizeAnchors();
+		linemoder.removeReplacedElements();
 		linemoder.insertEOF();
 		linemoder.addCommandLine();
 
@@ -34,9 +35,9 @@ var linemoder = {
 		};
 
 		//now remove inline style
-		
+
 		var inlineStyled = document.querySelectorAll("[style]")
-		
+
 		for (var i=0; i < inlineStyled.length; i++) {
 			inlineStyled[i].removeAttribute("style")
 		};
@@ -85,20 +86,34 @@ var linemoder = {
 		for(var i=0;i<e.length;i++){document.createElement(e[i])}
 	},
 
-	recognizeAnchors: function() {
-		var links = document.getElementsByTagName("a");
-		for (var i=0; i < links.length; i++){
-			var j = i+1; 
-			links[i].innerHTML = links[i].innerHTML + "[" + j + "]";
-			links[i].name = j;
-		}
-	},
+	// recognizeAnchors: function() {
+	// 	var links = document.getElementsByTagName("a");
+	// 	for (var i=0; i < links.length; i++){
+	// 		var j = i+1;
+	// 		links[i].innerHTML = links[i].innerHTML + "[" + j + "]";
+	// 		links[i].name = j;
+	// 	}
+	// },
 
-	insertEOF: function() {
-		var eof = document.createElement("footer");
-		eof.innerHTML ="[EOF]";
-		document.getElementsByTagName("body")[0].appendChild(eof);
+	// insertEOF: function() {
+	// 	var eof = document.createElement("footer");
+	// 	eof.innerHTML ="[END]";
+	// 	document.getElementsByTagName("body")[0].appendChild(eof);
+	// },
+
+
+	removeReplacedElements: function() {
+		var e = "img,video,audio,svg,canvas,iframe".split(',');
+		for(var i=0; i<e.length; i++){
+			var elements = document.getElementsByTagName(e[i]);
+			for (var j=0; j < elements.length; j++){
+				while(elements[j].lastChild) {
+					elements[j].parentNode.insertBefore(elements[j].lastChild, elements[j]);
+				}
+			}
+		}
 	}
+
 }
 
 linemoder.init();

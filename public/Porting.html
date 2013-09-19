@@ -1,0 +1,22 @@
+<TITLE>Porting -- /LineMode</TITLE>
+<NEXTID 3>
+<H1>Porting to a new machine</H1>Read this secion if the browser has not already been ported to a binary-compatible
+machine.We assume you have a unix-like environment, including some
+sort of C (either Kernigan and Ritchie or ANSI) compiler, and a socket
+library supporting TCP/IP communications.  The browser has been ported
+to many systems, and so you should not have much trouble with a new
+one.
+<UL>
+<LI>Make a new subdirectory under WWW/LineMode/Implementation for your
+combination of machine and operating system. 
+<LI>Copy the Makefile from another (similar) machine's subdirectory.
+<LI>Modify the Makefile as necessary to compile and install on your system.
+This involves selecting the compiler command, flags, etc, to be used,
+and specifying directory names. See the file Implementation/CommonMakefile
+which is included in the Makefile. Type  "make" to generate an executable
+file.
+<LI>Mail the Makefile, and any other changes you found were necessary,
+back to us for the use of others. This is <A NAME=1 HREF=http://info.cern.ch/hypertext/Copyright.html>mandatory</A>
+</UL>Now <A NAME=2 HREF=Installation.html#8>install the software</A> . _________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

@@ -11,6 +11,19 @@ body {
 	color: rgb(98,98,98);
 }
 
+sup { 
+	height: 0; 
+	line-height: 1;
+	bottom: 1em;
+	font-size: .7em;
+	color: #666;
+	position: relative;
+}
+
+sup a { padding: 3px; -webkit-transition-property: color; -webkit-transition-duration: 0.3s; -webkit-transition-timing-function: ease; }
+sup a:hover { border: 0; }
+
+
 h1, h2, h3{
 	font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -103,6 +116,17 @@ a:hover {
 	margin: 0 auto;
 }
 
+.footnotes {
+	font-size: .8em;
+	border-top: 2px dotted #fff;
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+.footnotes h3 { 
+	font-size: 1.4em;
+}
+
 
 cite, nav, footer p{
 	font-family: 'PT Sans Caption', sans-serif;
@@ -142,6 +166,12 @@ nav ul li a:hover {
 	text-decoration: none;
 }
 
+nav ul li.lmb { 
+	clear: both;
+	display: block;
+	margin-bottom: 20px;
+}
+
 p.standfirst{
 	font-weight: bold;
 }
@@ -150,12 +180,12 @@ p.standfirst{
 	margin-top: 30px;
 }
 
-ul li{
+ul li {
 	margin-bottom: 10px;
 	list-style: none;
 }
 
-ul li a{
+ul li a {
 	font-family: 'PT Sans Caption', sans-serif;
 	font-size: 1.3rem;
 	font-weight: bold;

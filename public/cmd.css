@@ -1,14 +1,16 @@
 #command {
 	position: fixed;
-	bottom: 0;
+	top: 36em; /* 24 lines */
 	left: 50%;
 	right: 50%;
 	margin: 0 -45ch;
+	height: 9999px;
 	background: black;
+  display: inline-block;
 }
 
 #command input {
-	display: inline-block;
+  display: inline-block;
 	width: 51ch;
 	background: black;
 	border: 0;

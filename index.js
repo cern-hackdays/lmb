@@ -1,22 +1,20 @@
 var request = require('request'),
     connect = require('connect'),
     cors = require('cors'),
-    parse = require('url').parse;
+    cheerio = require('cheerio'),
+    parse = require('url').parse,
+    prepare = require('./public/prepare');
 
 function proxy(req, res, next) {
   var url = parse(req.url, true);
 
   if (url.pathname === '/proxy') {
-   // var x = request(url.query.url);
-    var css = '<link class=ignore rel=stylesheet href=linemode.css type=text/css>'
-    var js = '<script class=ignore src=linemodethis.js></script>'
-    //req.pipe(x);
-    //x.pipe(res);
-
-    request(url.query.url, function (error, response, body) {
+    var path = url.query.url;
+    request(path, function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        // console.log(body)
-        res.write(body + css + js);
+        $ = cheerio.load(body);
+        $ = prepare($);
+        res.write($.html());
         res.end();
       }
     })

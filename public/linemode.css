@@ -1,3 +1,12 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+}
+
 * {
 	display: inline;
 	padding: 0;
@@ -6,9 +15,11 @@
 	color: inherit;
 }
 
-img, video, audio, svg, canvas, iframe, isindex, object {
+/*
+img, video, audio, svg, canvas, iframe, isindex {
 	display: none;
 }
+*/
 
 html, body, head, title,
 h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
@@ -24,15 +35,22 @@ html {
 	background: black;
 	width: 60em; /* fallback, temp, change it when we have the actual font */
 	width: 80ch;
+	height: 37.5em; /* 25 lines */
 	margin: 0 auto;
+	padding-bottom: 1.5em;
 	overflow: hidden;
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
+	word-wrap: break-word;
+	font-family: icomoon, monospace;
 }
+
+	html * {
+		font: inherit !important;
+	}
 
 head {
 	background: black;
-	font-family: monospace;
 }
 
 title {
@@ -41,7 +59,6 @@ title {
 
 body {
 	padding-top: 1.5em; /* 1 * line-height */
-	font-family: monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -94,5 +111,3 @@ form {display: none}
 input {display: none}
 
 button {display: none}
-
-
