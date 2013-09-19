@@ -1,6 +1,8 @@
 (function () {
 
-var commandline = '<form id=command><label>&lt;ref.number&gt;, Quit, or Help: <input autofocus></label></form><link rel=stylesheet class=ignore href=cmd.css type=text/css><script src=commandline.js></script>';
+var commandline = ['<form id=command><label>&lt;ref.number&gt;, Quit, or Help: <input autofocus></label></form>',
+  '<script src=blocker.js></script>',
+  '<script src=commandline.js></script>'].join('');
 
 var prepare = (function ($, location) {
   // strip particular elements
@@ -22,7 +24,7 @@ var prepare = (function ($, location) {
   // insert command prompt
   $('body').append(commandline);
 
-  // styles
+  // styles (early to attempt to avoid FOUC)
   $('body').prepend('<link class=ignore rel=stylesheet href=linemode.css type=text/css>');
 
   // link numbering
