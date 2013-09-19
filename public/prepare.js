@@ -7,7 +7,7 @@ var prepare = (function ($, location) {
   $('style,iframe,frame,frameset,img,hr,br').remove();
   $('link[rel=stylesheet]').remove();
   $('[style]').each(function () {
-    $(this).attr
+    $(this).removeAttr('style');
   });
 
   // expose the content of scripts
