@@ -1,5 +1,7 @@
 * {
 	display: inline;
+	padding: 0;
+	margin: 0;
 }
 
 img, video, audio, svg, canvas, iframe, isindex {
@@ -8,6 +10,10 @@ img, video, audio, svg, canvas, iframe, isindex {
 
 html {
 	background: black;
+	width: 60em; /* fallback, temp, change it when we have the actual font */
+	width: 80ch;
+	margin: 0 auto;
+	line-height: 1.5;
 }
 
 head {
@@ -15,9 +21,6 @@ head {
 	background: black;
 	color: lime;
 	font-family: monospace;
-	font-size: 1em;
-	width: 60em;
-	margin: 0 auto;
 }
 
 title {
@@ -30,19 +33,17 @@ body {
 	background: black;
 	color: lime;
 	font-family: monospace;
-	font-size: 1em;
-	width: 60em;
-	margin: 0 auto;
-	padding-top: 5em
+	padding-top: 1.5em; /* 1 * line-height */
 }
 
 html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl dd, dt, pre {
 	display: block;
 	font-size: inherit; 
-	font-weight: normal
+	font-weight: normal;
 }
 
 h1, h2, h3, h4, h5, h6 {
+	margin-top: 1.5em; /* 1 * line-height */
 	text-align: center;
 	text-transform: uppercase;
 }
