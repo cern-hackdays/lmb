@@ -81,3 +81,9 @@ commands.Quit = commands.quit;
 'plaintext listing h0 hp1 hp2'.replace(/\w+/g, function (a) {
   document.createElement(a);
 });
+
+window.onload = function () {
+  setTimeout(function () {
+    window.scrollTo(0,0);
+  }, 0);
+};
