@@ -9,6 +9,7 @@ var linemoder = {
 		linemoder.addLinemodeStyle();
 		linemoder.allowAncientHTML();
 		linemoder.recognizeAnchors();
+		linemoder.removeReplacedElements();
 		linemoder.insertEOF();
 		linemoder.addCommandLine();
 
@@ -98,7 +99,21 @@ var linemoder = {
 		var eof = document.createElement("footer");
 		eof.innerHTML ="[EOF]";
 		document.getElementsByTagName("body")[0].appendChild(eof);
+	},
+
+
+	removeReplacedElements: function() {
+		var e = "img,video,audio,svg,canvas,iframe".split(',');
+		for(var i=0; i<e.length; i++){
+			var elements = document.getElementsByTagName(e[i]);
+			for (var j=0; j < elements.length; j++){
+				while(elements[j].lastChild) {
+					elements[j].parentNode.insertBefore(elements[j].lastChild, elements[j]);
+				}
+			}
+		}
 	}
+
 }
 
 linemoder.init();

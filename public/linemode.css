@@ -6,9 +6,11 @@
 	color: inherit;
 }
 
-img, video, audio, svg, canvas, iframe, isindex, object {
+/*
+img, video, audio, svg, canvas, iframe, isindex {
 	display: none;
 }
+*/
 
 html, body, head, title,
 h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
