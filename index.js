@@ -1,5 +1,6 @@
 var request = require('request'),
     connect = require('connect'),
+    cors = require('cors'),
     parse = require('url').parse;
 
 function proxy(req, res, next) {
@@ -19,16 +20,7 @@ function proxy(req, res, next) {
         res.end();
       }
     })
-
-
-
-
-
-
-
-
-  } 
-  else {
+  } else {
     next();
   }
 }
@@ -37,4 +29,4 @@ connect()
   .use(connect.static('public'))
   // TODO add cors
   .use(proxy)
-  .listen(process.env.PORT || 8000, function() { console.log('Running local server http://localhost:8000') });
+  .listen(process.env.PORT || 8000);

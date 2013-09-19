@@ -6,7 +6,8 @@
   "dependencies": {
     "harp": "~0.9.3",
     "request": "~2.27.0",
-    "connect": "~2.9.0"
+    "connect": "~2.9.0",
+    "cors": "~1.0.1"
   },
   "devDependencies": {},
   "scripts": {
