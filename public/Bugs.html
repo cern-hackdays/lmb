@@ -1,0 +1,95 @@
+<TITLE>Line Mode Browser bugs</TITLE>
+<NEXTID 7>
+<H1>Bugs and Improvements needed</H1>The following are known bugs in the<A NAME=5 HREF=QuickGuide.html> line mode browser</A> , and improvements
+which we have in mind. See also the list of<A NAME=4 HREF=Features.html> features added.</A><P>
+ 
+<H2>Known Bugs :-</H2>
+<H2>Improvements for the near future :-</H2>Should we always put a CR/LF after the prompt, to allow a long list
+of keywords (Peter Dobberstein and DESY colleagues: yes)? Advantage:
+one can always type in many keywords. Disadvantage: one less line
+of text on the screen.<P>
+Better error reporting. Difficult when many possible paths have been
+tried. Save log of attempts? Portability of error message generation?<P>
+Allow the user to print a document, after they have located it.  At
+least allow them to save the contents in a file, which they can then
+send to the printer.<P>
+If a keyword search is not found, the anchors from the previous document
+are lost.<P>
+In UNIX a document address given as a command line arguement is parsed
+relative to the current directory.  A similar thing needs to be applied
+for VMS and MVS environments.<P>
+Keep all anchor information, incase user returns to a previous node,
+then the information is automatically available.<P>
+Try to use ^z key and predefined keys like F10 to exit from the program.<P>
+Ask user about strange formats. Unable to deal with anything other
+then HTML and plaintext files. Offer to display it as plaintext, store
+the file somewhere, or print out on a default printer. Create a new
+tag  
+<XMP>
+            <OUTLINE> and </OUTLINE>.
+
+</XMP>These are placed around a paragraph and effects any headings contained
+within them, removing all blank lines above and below, and not allowing
+capitalization. Also, maybe use this tag to indicate that the position
+of the anchors should be at the start of the line, infront of the
+sensitive text.<P>
+Compare LineMode Parser and the NeXT Parser, and produce with Tim
+a common module that can be used by both browsers, and maybe for the
+Mac version aswell.  Also will provide access to the Internet News.<P>
+Develop a scrolling system. After the file contents have been formatted
+they are stored in the double linked list buffer which allows easy
+access to the formatted data. <P>
+When looking at a list of items, like for example in VMNEWS, where
+each item is an anchor, maybe offer the option of "NEXT" to move on
+to the next article. This could also apply in YELLOW PAGES.<P>
+With the -p option, when redirecting output to the printer, the form
+feed character needs to used. Also assume a page size of 66 lines
+when printing, if no other has been given.
+<H2>Other Improvements :-                      </H2>Pick up the size of a file before trying to store in a buffer. If
+too large only read in part of the file, and then only call up the
+file again if the user requires more data. For example in the case
+of  'http://crnvmc/FIND/DESY?NNEWS8' and then reference number [3].<P>
+If the user needs to print out documents when following links, instead
+of inserting anchor numbers, insert page numbers of the destination
+nodes, as they would appear in the printed document. Do this by first
+following the links with no output on the screen, reading all the
+files into the buffer and calculating the page numbers. Then go through
+the path again, with output directed to the printer, inserting the
+correspondng page numbers rather than the anchor numbers.<P>
+Offer a command line option so that the user can select their own
+way of  highlighting the anchors. One suggestion being to use [[ ]].<P>
+Apply glossary first line indent code to produce ordered lists.<P>
+Deal with lists within lists.<P>
+At the end of a document, produce the last page if the user presses
+return.<P>
+Put some form of paging into reference and recall lists.<P>
+Offer a no blank line spacing option.<P>
+Use cursor functions. (termcap)<P>
+Change code to look like a 'more' or 'less' program. Public copies
+of this program may be available from Antonio Pastore or Roberto Divia.<P>
+Offer some kind of editing of the style sheet to the user.
+<H2>Users Comments</H2>Highlight headings.<P>
+When PHONE BOOK becomes available, maybe move anchor numbers to the
+left hand side, rather than after the sensitive text.(Not really a
+good idea with VMNEWS or YELLOW PAGES because the anchors will be
+next to other numbers and may look confusing). If numbers are going
+to be left justified and the anchor text is in a heading, maybe rewrite
+the HTML as follows to indicate the change in the position of the
+anchor numbers. Where we use now
+<XMP>          <H2><A HREF=.....>......</A></H2>
+
+</XMP>we could use
+<XMP>          <H2 HREF=.......>.....</H2>.
+
+</XMP>In YELLOW PAGES, when looking to find out more details of a number
+of a person by selecting the anchor, the number does not go through
+with it. Maybe invent a new tag which tells the parser to take the
+sensitive text through with it to the top of the next document or
+maybe Bernd should change the files.<P>
+Be careful of keyword searches inside FIND as they can be confusing
+as to whether the search is the whole of FIND or just a sub-section
+of it.<P>
+Maybe allow the users to give parameters for the groups they require
+inside FIND. For example 'http:crnvmc/FIND/PUB+USER?TAPE+COPY'.
+<H2>Documentation</H2>The documentation should be written in <A NAME=2 HREF=http://info.cern.ch/hypertext/WWW/FileFormat.html> html form. </A><P>
+There are some documentation style ideas in the file<A NAME=3 HREF=http://info.cern.ch/hypertext/WWW/LineMode/DocIdeas.html> DocIdeas.html.</A>
