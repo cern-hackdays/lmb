@@ -41,6 +41,7 @@ html {
 	overflow: hidden;
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
+	text-shadow: 0 0 10px;
 	word-wrap: break-word;
 	font-family: icomoon, monospace;
 }
