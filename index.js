@@ -5,6 +5,19 @@ var request = require('request'),
     path = require('path'),
     prepare = require('./public/prepare'),
     urlparse = require('url')
+    serve = require('./serve');
+
+function inject(body, base) {
+  if (body.toUpperCase().indexOf('<BODY') === -1) { // damn bodyless things...
+    body = '<body>' + body + '</body>';
+  }
+
+  $ = cheerio.load(body);
+  $ = prepare($, base ? '/proxy?url=' + base : '', require('url'));
+  // FIXME escape & but don't bork the command line
+
+  return $.html();
+}
 
 function proxy(req, res, next) {
   var url = parse(req.url, true);
@@ -14,14 +27,11 @@ function proxy(req, res, next) {
     var base = urlparse.parse(url).protocol + '//' + urlparse.parse(url).hostname
 
     request(url, function (error, response, body) {
+      base = response.request.uri.href;
+      console.log(base);
       if (!error && response.statusCode == 200) {
-        if (body.toUpperCase().indexOf('<BODY') === -1) { // damn bodyless things...
-          body = '<body>' + body + '</body>';
-        }
-
-        $ = cheerio.load(body);
-        $ = prepare($, '/proxy?url=' + base);
-        res.write($.html());
+        var html = inject(body);
+        res.write(html); //.replace(/&/g, '&amp;'));
         res.end();
       } else if (response) {
         res.end(JSON.stringify({ error: error, status: response.statusCode }));
@@ -36,7 +46,6 @@ function proxy(req, res, next) {
 
 connect()
   .use(function (req, res, next) {
-    console.log(req.headers);
     if ((req.url === '/referer' || req.url === '/referrer') && req.headers.referer) {
       res.writeHead(302, { location: '/proxy?url=' + req.headers.referer });
       res.end();
@@ -45,6 +54,7 @@ connect()
     }
     next();
   })
+  .use(serve('public/www', inject))
   .use(connect.static('public'))
   .use(proxy)
   .listen(process.env.PORT || 8000);

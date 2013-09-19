@@ -2,7 +2,7 @@
 
 var commandline = '<form id=command><label>&lt;ref.number&gt;, Quit, or Help: <input autofocus></label></form><link rel=stylesheet class=ignore href=cmd.css type=text/css><script src=commandline.js></script>';
 
-var prepare = (function ($, location) {
+var prepare = (function ($, location, url) {
   // strip particular elements
   $('style,iframe,frame,frameset,img,hr,br').remove();
   $('link[rel=stylesheet]').remove();
@@ -31,7 +31,21 @@ var prepare = (function ($, location) {
     $el.append('[' + (i+1) + ']');
 
     var href = $el.attr('href');
-    $el.attr('href', location + href);
+    // console.log(href);
+
+    // if (href.slice(0, 2) === '//') {
+    //   href = 'http:' + href;
+    // }
+
+    // if (href.slice(0, 1) === '/') {
+    //   href = href.slice(1);
+    // }
+
+    // console.log(location + href);
+
+
+    console.log(url.resolve(location, href));
+    $el.attr('href', url.resolve(location, href));
   });
 
   // node compat
