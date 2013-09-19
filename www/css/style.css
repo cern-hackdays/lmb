@@ -1,0 +1,196 @@
+/* General Styles (all sizes)
+
+/* General Typography ------------------------------ */
+
+body {
+	font-family: 'PT Serif', serif;
+	font-size: 16px;
+	font-size: 1.6rem;
+	line-height: 20px;
+	line-height: 2rem;
+	color: rgb(98,98,98);
+}
+
+h1, h2, h3{
+	font-family: 'PT Sans Narrow', sans-serif;
+}
+
+h1 {
+	font-size: 72px;
+	font-size: 4.5rem;
+    line-height: 5rem;
+	color: rgb(56,56,56);
+	text-align: center;
+}
+
+h2 {
+	font-size: 18px;
+	text-align: center;
+	font-weight: normal;
+	margin-bottom: 20px;
+	margin-bottom: 5rem;
+	color: #626262;
+}
+
+h3 {
+	font-size: 24px;
+	font-size: 2.4rem;
+	margin-bottom: 16px;
+	margin-bottom: 1.6rem;
+	margin-top: 21px;
+	margin-top: 2.1rem;
+	color: rgb(56,56,56);
+}
+
+p {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+    margin-bottom: 1.3rem;
+}
+
+h4 {
+	font-family: 'PT Serif', serif;
+	font-size: 11px;
+	font-size: 1.1rem;
+	text-align: center;
+	font-weight: normal;
+	color: #ABABAB;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+blockquote {
+	margin: 0 2em 1em;
+	color: #333;
+}
+
+cite {
+	display: inline-block;
+	margin-bottom: 10px;
+	line-height: 1.6;
+}
+
+h2 + *, h3 + *, h4 + * {
+	margin-top: 20px;
+	margin-top: 2rem;
+}
+
+h2 + p, h3 + p, h4 + p {
+	margin-top: 0;
+}
+
+a {
+	color: rgb(77,148,204);
+	text-decoration: none;
+}
+
+a:hover {
+	color: rgb(37,108,164);
+	text-decoration: underline;
+}
+
+/* Layout ------------------------------ */
+
+.wrapper{
+	width: 300px;
+	margin: 0 auto;
+}
+
+cite, nav, footer p{
+	font-family: 'PT Sans Caption', sans-serif;
+	font-size: 1rem;
+	font-style: normal;
+}
+
+header h1 a {
+    background: url("../images/logo.png") no-repeat;
+    background-position: center;
+    display: block;
+    height: 130px;
+    margin: 0;
+    text-indent: -9999px;
+}
+
+nav{
+	padding-top: 10px;
+	float: right;
+}
+
+nav a{
+	padding-right: 10px;
+	color: #ababab;
+}
+
+p.standfirst{
+	font-weight: bold;
+}
+
+.related{
+	margin-top: 30px;
+}
+
+ul li{
+	margin-bottom: 10px;
+	list-style: none;
+}
+
+ul li a{
+	font-family: 'PT Sans Caption', sans-serif;
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+footer{
+	margin: 40px 0;
+}
+
+footer p{
+	text-align: center;
+	margin-bottom: 0;
+}
+
+img{
+	width: 99%;
+	height: auto;
+	border: 3px solid #eeeeee;
+}
+
+.date{
+	margin-top: 10px;
+}
+
+.button {
+	font-family: 'PT Sans Narrow', sans-serif;
+	
+	-moz-box-shadow:inset 0px 1px 0px 1px #76aacc;
+	-webkit-box-shadow:inset 0px 1px 0px 1px #76aacc;
+	box-shadow:inset 0px 1px 0px 1px #76aacc;
+	
+	background-color:#4d95cc;
+	
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	
+	border-radius:6px;
+	border:1px solid #4c94c7;
+	
+	display:inline-block;
+	color:#ffffff;
+	padding:6px 24px;
+	text-decoration:none;
+}
+
+.button:hover {
+	background-color:#4d95cc;
+}
+
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+
+#info {
+	margin-top: 40px;
+	border-top: 1px solid #ccc;
+}
