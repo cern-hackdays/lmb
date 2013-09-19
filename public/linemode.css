@@ -1,0 +1,78 @@
+ * {display: inline;
+cursor: hidden}
+
+img, video, audio, svg, canvas {display: none}
+
+isindex {display: none}
+
+html {
+background-color: #ffffff; }
+
+head {display: block;
+display: block;
+background: black;
+color: lime;
+font-family: monospace;
+font-size: 1em;
+width: 60em;
+margin: 0 auto;
+}
+
+title {
+	display: block;
+text-align: right; }
+
+body {
+display: block;
+background: black;
+color: lime;
+font-family: monospace;
+font-size: 1em;
+width: 60em;
+margin: 0 auto;
+padding-top: 5em
+}
+
+html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl dd, dt, pre {
+display: block;
+font-size: inherit; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+text-align: center;
+text-transform: uppercase
+}
+div, section, aside, header, footer {
+display: block;
+}
+
+table {
+display: block
+}
+
+a, b, strong, em, i, span {
+display: inline
+}
+
+a:link, a:visited, a:active, a:hover {
+	text-decoration: none;
+	color: lime
+}
+
+/*counters for the link*/
+
+body {
+	counter-reset: section
+}
+
+a:after {
+  counter-increment: section;      /* Increment the section counter */
+  content: "[" counter(section) "]"; /* Display the counter */;
+padding-left: .5em
+}
+
+pre, xmp {display: block; white-space: pre}
+
+hp1:first-letter, hp2:first-letter {text-transform: uppercase}
+/*should only  work for first character without intervening elements e.g. not <hp1><p>*/
+
