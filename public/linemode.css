@@ -13,6 +13,7 @@
 	margin: 0;
 	font: inherit;
 	color: inherit;
+	line-height: normal;
 }
 
 /*
@@ -39,7 +40,6 @@ html {
 	margin: 0 auto;
 	padding-bottom: 1.5em;
 	overflow: hidden;
-	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
 	text-shadow: 0 0 10px;
 	word-wrap: break-word;
@@ -55,20 +55,24 @@ head {
 }
 
 title {
+	padding-bottom: 1em; 
+	/* one line of space after title - using padding, since line
+	   must always appear. if h1 next, should show 2 blank lines */	
 	text-align: right;
 }
 
-body {
-	padding-top: 1.5em; /* 1 * line-height */
-}
-
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 1.5em; /* 1 * line-height */
-	text-transform: uppercase;
+	margin-top: 0;
 }
 
 h1 {
+	margin: 1em 0; /* 1 line of space above and below h1 only */
 	text-align: center;
+	text-transform: uppercase;  /* only h1, h2 all caps */
+}
+
+h2 {
+	text-transform: uppercase; /* only h1, h2 all caps */
 }
 
 a {
@@ -76,36 +80,48 @@ a {
 	color: inherit;
 }
 
+p {
+	margin-top: 1em; 
+	/* paragraph has one line after... but <P> was used more as a 
+	   separator than a wrapper... so using margin-top instead    */
+}
+
+ol, ul, dl {
+	margin:1em 0; /* list style has 1 line of space above and below */
+}
+
 /* Definition lists */
 dt, dd {
 	display: inline-block;
 	vertical-align: top;
+	margin:1em 0; /* list style has 1 line of space above and below */
 }
 
 dt {
-	width: 30ch;
+	width: 20ch;
+	margin-left: 7ch;
 }
 
 dd {
 	width: 50ch;
 }
 
-/* Counters for the link */
-
-body {
-	counter-reset: section;
-}
 
 pre, xmp {
 	display: block;
 	white-space: pre;
 }
 
+address {
+	display:block;
+	text-align:right;
+}
+
+/*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 hp1:first-letter, hp2:first-letter {
 	text-transform: uppercase;
 }
 
-/*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
 form {display: none}
 
