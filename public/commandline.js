@@ -103,5 +103,5 @@ window.onload = function () {
   //test
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
   
-  document.documentElement.lastElementChild.style.paddingBottom = innerHeight - 25 * lineHeight;
+  document.body.lastElementChild.style.paddingBottom = innerHeight - 24 * lineHeight;
 };
