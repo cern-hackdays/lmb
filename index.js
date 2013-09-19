@@ -8,8 +8,8 @@ function proxy(req, res, next) {
 
   if (url.pathname === '/proxy') {
    // var x = request(url.query.url);
-    var css = '<link rel=stylesheet href=linemode.css type=text/css>'
-    var js = '<script src=linemodethis.js></script>'
+    var css = '<link class=ignore rel=stylesheet href=linemode.css type=text/css>'
+    var js = '<script class=ignore src=linemodethis.js></script>'
     //req.pipe(x);
     //x.pipe(res);
 
