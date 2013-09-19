@@ -18,7 +18,10 @@ var linemoder = {
 		var styleSheets = document.querySelectorAll("link[rel=stylesheet]");
 		
 		for (var i=0; i < styleSheets.length; i++) {
-			styleSheets[i].parentNode.removeChild(styleSheets[i])
+			if (styleSheets[i].href.indexOf("linemode.css") == -1)
+			{ 
+				styleSheets[i].parentNode.removeChild(styleSheets[i])
+			}
 		};
 		
 		styleSheets = document.querySelectorAll("style");
