@@ -8,13 +8,14 @@ function proxy(req, res, next) {
   if (url.pathname === '/proxy') {
    // var x = request(url.query.url);
     var css = '<link rel=stylesheet href=http://rawgithub.com/cern-hackdays/lmb/master/public/linemode.css type=text/css>'
+    var js = '<script src=http://rawgithub.com/cern-hackdays/lmb/master/public/linemodethis.js></script>'
     //req.pipe(x);
     //x.pipe(res);
 
     request(url.query.url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
         // console.log(body)
-        res.write(body + css)
+        res.write(body + css + js);
       }
     })
 
