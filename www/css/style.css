@@ -116,6 +116,10 @@ a:hover {
 	margin: 0 auto;
 }
 
+.lmblaunch { text-align: center; font-family: 'PT Sans Narrow', sans-serif; font-size: 1.8rem; }
+.lmblaunch a { padding: 20px; background-color: #fff; border-radius: 3px; }
+.lmblaunch a:hover { text-decoration: none; background-color: #ddd; }
+
 .footnotes {
 	font-size: .8em;
 	border-top: 2px dotted #fff;
