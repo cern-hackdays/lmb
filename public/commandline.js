@@ -26,11 +26,15 @@ function run(command, e) {
   // else don't prevent default
 }
 
-document.body.onkeydown = function (e) {
+document.documentElement.onkeydown = function (e) {
   if (e.keyCode === 13) {
   	pagedown();
   	e.preventDefault();
   }
+}
+
+document.documentElement.onclick = function () {
+  cmd.focus();
 }
 
 var commands = {
