@@ -17,7 +17,7 @@ var prepare = (function ($, location) {
 
   // all documents have an [END] at the...
   // TODO parser question?
-  $('body').append('<pre id="lmb-footer">\n\n     [END]</pre>');
+  $('body').append('<pre id="lmb-footer">\n\n     [End]</pre>');
 
   // insert command prompt
   $('body').append(commandline);
