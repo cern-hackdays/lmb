@@ -1,11 +1,15 @@
 var cmd = document.querySelector('#command input');
 
 cmd.onkeydown = function (e) {
-  if (e.keyCode === 13 && this.value) {
-    e.preventDefault();
-    e.stopPropagation();
-    run(this.value, e);
-    this.value = '';
+  if (e.keyCode === 13) {
+    if (this.value) {
+      e.preventDefault();
+      e.stopPropagation();
+      run(this.value, e);
+      this.value = '';
+    } else {
+      pagedown();
+    }
   }
 };
 
@@ -58,7 +62,7 @@ var commands = {
 
 function pagedown() {
 	var lineHeight = parseInt(getComputedStyle(document.body).lineHeight);
-		
+
 	console.log('I AM GO DOWN FOR JOHN');
 	var current = document.body.scrollTop;
 	scrollTo(0, current + lineHeight * 23);
