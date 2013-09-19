@@ -57,7 +57,7 @@ var commands = {
 }
 
 function pagedown() {
-	var lineHeight = parseInt(getComputedStyle(document.body).lineHeight);
+	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 		
 	console.log('I AM GO DOWN FOR JOHN');
 	var current = document.body.scrollTop;
