@@ -25,6 +25,7 @@ html {
 	width: 60em; /* fallback, temp, change it when we have the actual font */
 	width: 80ch;
 	margin: 0 auto;
+	overflow: hidden;
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
 }
