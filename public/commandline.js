@@ -3,18 +3,23 @@ var cmd = document.querySelector('#command input');
 cmd.onkeydown = function (e) {
   if (e.keyCode === 13) {
     e.preventDefault();
-    run(this.value);
+    e.stopPropagation();
+    run(this.value, e);
     this.value = '';
   }
 };
 
-function run(command) {
-  if (commands[command]) return commands[command]()
+function run(command, e) {
+  if (commands[command]) {
+    commands[command]()
+  }
 
   if ((/^[0-9]+$/).test(command)) {
     // TODO open the nth link
-    console.log('GOTO ' + document.querySelectorAll('a')[command * 1].href);
+    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
   }
+
+  // else don't prevent default
 }
 
 document.body.onkeydown = function (e) {
@@ -56,3 +61,5 @@ var commands = {
 // alias
 commands.t = commands.top;
 commands.T = commands.top;
+commands.q = commands.quit;
+commands.Quit = commands.quit;
