@@ -12,16 +12,16 @@
 
 h1 {
 	font-size: 72px;
-	font-size: 10rem;
+	font-size: 7rem;
 	line-height: 90px;
-	line-height: 9rem;
+	line-height: 7rem;
 	text-align: center;
 }
 
 h2{
 	font-size: 3rem;
 	margin-bottom: 5rem;
-	margin-top: 3rem;
+	margin-top: 0rem;
 	line-height: 36px;
 	line-height: 3.6rem;
 	text-align: center;

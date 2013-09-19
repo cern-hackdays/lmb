@@ -8,7 +8,7 @@
 <!-- CONTROL SCALE FOR MOBILE DEVICES IF NEEDED -->
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
 
-<title>Making Of LMB 2013</title>
+<title>Behind the scenes building a line-mode browser in 2013</title>
 
 <link href="../css/gridset.css" rel="stylesheet" />
 <link href="../css/main.css" rel="stylesheet" />
@@ -64,20 +64,39 @@
 				</nav>
 
 					<article>
-						<div class="d1">
-							<p class="standfirst">On September 19 and 20, twelve web developers, designers, writers, standardistas, and technologists descended upon CERN on the border of Switzerland to rebuild the line-mode browser. This is their story.</p>
+						<div class="d-all">
+							<p class="standfirst">In late September, 2013, twelve web developers, designers, writers, standardistas, and technologists descended upon CERN — the birthplace of WWW and HTTP and the web browser — to spend two days rebuilding the line-mode browser. This is our story.</p>
 						</div>
-						<div class="d2">
-						<p>This is our post-mortum on the project — what did we learn, what did we hack, what did we drink, what did we use to build this thing. </p>
-						</div>
+						
 					</article>
 					
 					
 					<article class="d-all">
 
-						<h3>What tech did we use?</h3>
+						<h3>Preservationistas</h3>
 
-						<p>The approach we took eventually was to use a proxy node server, that allowed us to request arbitrary web resources (we’d run into CORS problems with many sites). In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline), but, importantly, leaving the script, link and style elements in place, because the original line mode browser would display their contents (its parsing rule was to strip the start and end tags off unknown elements, but display their content inline, so it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them).</p>
+						<p>We hear you ask: <em>This is silly; why take on such a challenge?</em></p> 
+
+						<p>Computers are simultaneously boosted and hindered by their rapid obsolescence. So while the line-mode browser is a mere 20 years old (as of the writing of this), it's only viewable (and barely usable) on the odd terminal here in the closet of CERN. We've come so far in so few years that we're on the cusp of not being able to interact with the very software that got us here. As folks who believe deeply in — and owe much to — the web, this pains us. In rebuilding / simulating this origin browser, we hope to achieve a few goals.</p>
+
+						<p>First, we want to provide context for the web of today. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back, at will, and remember our roots. It's especially nice (and fun) to be able to use that old tech to peer at what we've built today.</p>
+
+						<p>Which brings us to the second reason: we want a version of the browser that anyone can run and furthermore, point at contemporary websites. Our line-mode browser not only allows you to view the first web pages ever placed online (on these very servers), but will also render, as accurately as possible, any other website to which it's pointed. It may not always be pretty, but it's usually entertaining.</p>
+
+
+						<h3>Our Rules</h3>
+
+						<p>In simulating the line-mode browser, we had a couple rules.</p>
+
+						<p>We had to be as true to the original engine as possible. That meant not adding features or improving the display of elements in any way. </p>
+
+
+						<h3>What tech did we use?</h3>
+						<p>Fundamentally: we wrote an old browser in a new browser. Here's the details.</p>
+
+						<p>The approach we centered on was to use a proxy node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
+
+						<p>In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline). But, importantly, we leave the script, link and style elements in place. <em>Why?</em> we hear you ask. Because, dear reader, the original line mode browser would display contents of those tags. Its parsing rule was to strip the start and end tags off unknown elements, but display their content inline. So it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them. It may look messy but we're being as true as possible to the way the line-mode browser worked.</p>
 						
 						<p>After the DOM was changed like this, we add the CSS and JavaScript for the emulation, then serialise the document back into a string, and then send this to the browser.</p>
 
