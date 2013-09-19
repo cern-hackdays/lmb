@@ -26,10 +26,12 @@ html {
 	background: black;
 	width: 60em; /* fallback, temp, change it when we have the actual font */
 	width: 80ch;
+	height: 37.5em; /* 25 lines */
 	margin: 0 auto;
 	overflow: hidden;
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
+	word-wrap: break-word;
 }
 
 head {

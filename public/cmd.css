@@ -1,6 +1,6 @@
 #command {
 	position: fixed;
-	bottom: 0;
+	top: 36em; /* 24 lines */
 	left: 50%;
 	right: 50%;
 	margin: 0 -45ch;
