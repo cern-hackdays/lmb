@@ -5,7 +5,7 @@ function run(command, e) {
 
   if ((/^[0-9]+$/).test(command)) {
     // TODO open the nth link
-    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
+    window.location = document.querySelectorAll('a')[(command * 1) - 1].href;
   }
 
   // else don't prevent default
@@ -28,19 +28,6 @@ cmd.onkeydown = function (e) {
     this.value = '';
   }
 };
-
-function run(command, e) {
-  if (commands[command]) {
-    commands[command]()
-  }
-
-  if ((/^[0-9]+$/).test(command)) {
-    // TODO open the nth link
-    console.log('GOTO ' + document.querySelectorAll('a')[(command * 1) - 1].href);
-  }
-
-  // else don't prevent default
-}
 
 document.documentElement.onkeydown = function (e) {
   if (e.keyCode === 13) {
@@ -78,7 +65,7 @@ var commands = {
 
 function pagedown() {
 	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
-		
+
 	console.log('I AM GO DOWN FOR JOHN');
 	var current = document.body.scrollTop;
 	scrollTo(0, current + lineHeight * 23);
@@ -99,9 +86,9 @@ window.onload = function () {
   setTimeout(function () {
     window.scrollTo(0,0);
   }, 0);
-  
+
   //test
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
-  
+
   document.body.lastElementChild.style.paddingBottom = innerHeight - 24 * lineHeight;
 };

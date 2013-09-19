@@ -10,12 +10,20 @@ function proxy(req, res, next) {
 
   if (url.pathname === '/proxy') {
     var path = url.query.url;
+    var base = path.split('/').slice(0, -1).join('/') + '/';
+
     request(path, function (error, response, body) {
       if (!error && response.statusCode == 200) {
+        if (body.toUpperCase().indexOf('<BODY') === -1) { // damn bodyless things...
+          body = '<body>' + body + '</body>';
+        }
+
         $ = cheerio.load(body);
-        $ = prepare($);
+        $ = prepare($, '/proxy?url=' + base);
         res.write($.html());
         res.end();
+      } else {
+        res.end(JSON.stringify({ error: error, status: response.statusCode }));
       }
     })
   } else {
