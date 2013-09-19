@@ -64,7 +64,7 @@ title {
 }
 
 body {
-	padding-top: 1.5em;
+	/*padding-top: 1.5em;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -134,3 +134,21 @@ form {display: none}
 input {display: none}
 
 button {display: none}
+
+#command {
+	position: fixed;
+	top: 36em; /* 24 lines */
+	left: 50%;
+	right: 50%;
+	margin: 0 -40ch;
+	height: 9999px;
+	background: black;
+  display: inline-block;
+}
+
+#command input {
+  display: inline-block;
+	width: 51ch;
+	background: black;
+	border: 0;
+}
