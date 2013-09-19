@@ -40,7 +40,8 @@ function draw() {
 
   console.log(coords);
 
-  ctx.clearRect(coords.x * 80, coords.y * 24, 80, 24);
+  ctx.clearRect(coords.x * 8, coords.y * 24, 8, 24);
+  // ctx.clearRect(coords.x * 80, coords.y * 24, 80, 24);
 
   position++;
 
