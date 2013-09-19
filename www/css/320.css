@@ -2,19 +2,21 @@
 
 .headfill { height: 250px; }
 
-#content { margin-top: -70px; background-color: #f7f7f7; padding: 20px; border-radius: 3px; }
+#content { margin-top: -70px; background-color: #f7f7f7; padding: 25px; border-radius: 3px; overflow: hidden; }
 
 h1 {
-	text-align: left;	
+	text-align: center;
+	font-size: 3rem;
+	line-height: 2rem;
 }
 
 h2{
 	font-size: 20px;
 	font-size: 2rem;
-	margin: 1em 0 0.5rem 0;
+	margin: 1em 0 4rem 0;
 	line-height: 26px;
 	line-height: 2.6rem;
-	text-align: left;
+	text-align: center;
 }
 
 header {
