@@ -68,100 +68,31 @@
 							<p class="standfirst">On September 19 and 20, twelve web developers, designers, writers, standardistas, and technologists descended upon CERN on the border of Switzerland to rebuild the line-mode browser. This is their story.</p>
 						</div>
 						<div class="d2">
-						<p>British physicist Tim Berners-Lee invented the web at CERN in 1989. The project, which Berners-Lee named "World Wide Web", was originally conceived and developed to meet the demand for information sharing between physicists in universities and institutes around the world.</p>
+						<p>This is our post-mortum on the project — what did we learn, what did we hack, what did we drink, what did we use to build this thing. </p>
 						</div>
 					</article>
 					
 					
 					<article class="d-all">
-						<p>Other information retrieval systems that used the internet - such as WAIS and Gopher - were available at the time, but the web's simplicity along with the fact that the technology was royalty free led to its rapid adoption and development.</p>
-						<p><em>“There is no sector of society that has not been transformed by the invention, in a physics laboratory, of the web”</em>, says Rolf Heuer, CERN Director-General. <em>“From research to business and education, the web has been reshaping the way we communicate, work, innovate and live. The web is a powerful example of the way that basic research benefits humankind.”</em></p>
-						<p>The first website at CERN - and in the world - was dedicated to the World Wide Web project itself and was hosted on Berners-Lee's NeXT computer. The website described the basic features of the web; how to access other people's documents and how to set up your own server. Although the NeXT machine - the original web server - is still at CERN, sadly the world's first website is no longer online at its original address. </p>
-						<p>To mark the anniversary of the publication of the document that made web technology free for everyone to use, CERN is starting a project to restore the first website and to preserve the digital assets that are associated with the birth of the web. To learn more about the project and the first website, visit <a href="http://first-website.web.cern.ch">http://first-website.web.cern.ch</a></p>
-					</article>
-					
-					<ul class="d1">
-						<li><a href="http://first-website.web.cern.ch">Read about the restoration project</a></li>
-						<li><a href="http://info.cern.ch/hypertext/WWW/TheProject.html">Browse the first website</a></li>
-					</ul>
-						
-						
-					<ul class="d2">	
-						<li><a href="http://home.web.cern.ch/cern-people/opinion/2013/04/open-internet-and-web">Vinton Cerf on the architecture, connectivity and openness of the web</a></li>
-						<li><a href="http://home.web.cern.ch/cern-people/opinion/2013/04/twenty-years-free-and-open-www">Robert Cailliau on the birth of the web, early brainstorming sessions and "how to spread this thing"</a></li>
-					</ul>
-					
-					
-					
-					<article id="info" class="d-all">
-						<h2>Info.cern.ch - the world’s first website</h2>
-						<p>British physicist Tim Berners-Lee invented the World Wide Web at CERN in 1989.  To document the project he created the world’s first website, info.cern.ch </p>
-					</article>
 
-					<article class="d-all">
-						<h3>The birth of the web</h3>
+						<h3>What tech did we use?</h3>
+
+						<p>The approach we took eventually was to use a proxy node server, that allowed us to request arbitrary web resources (we’d run into CORS problems with many sites). In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline), but, importantly, leaving the script, link and style elements in place, because the original line mode browser would display their contents (its parsing rule was to strip the start and end tags off unknown elements, but display their content inline, so it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them).</p>
 						
-						<div class="d1 d-floatleft">
-							<img src="images/tbl.jpg" />
-							<cite>Berners-Lee running WorldWideWeb software at CERN in 1994</cite>
-						</div>
-						
-						<p>In March 1989, British physicist Tim Berners-Lee wrote a proposal to develop a distributed information system for CERN physicists and engineers. It described a way of managing information about the accelerators and experiments at the laboratory using a system of documents linked together and accessible via the internet. His supervisor, Mike Sendall, wrote “vague, but exciting” on the cover of the proposal, and, with those words, gave the green light to an information revolution.</p>
-						
-						<p>Berners-Lee saw the working structure of CERN as a "web" whose interconnections evolve with time. Large, collaborative projects at CERN, such as the Large Electron-Positron collider (LEP), predecessor of the Large Hadron Collider (LHC) - created vast amounts of information that needed to be accessible to large numbers of people. What was needed, wrote Berners-Lee, was “a pool of information which could grow and evolve with the organisation and the projects it describes”.</p>
-						
-						<p><a href="http://www.w3.org/History/1989/proposal.html">Read the proposal in full</a>
-						
-						<div class="d2 d-floatright">
-							<img src="images/proposal-cover.jpg" />
-							<cite>The cover page of "Information Management: A proposal" by Tim Berners-Lee in March 1989. His supervisor, Mike Sendall, has written "vague, but exciting" at the top of the page. <a href="http://cds.cern.ch/record/1164396">See full size version</a></cite>
-						</div>
-						
-						<h3>The internet and hypertext</h3>
-						
-						<p>In 1989 the internet was already a mature set of protocols that enabled data to be transferred between and within different networks in small "packets". The internet was used as a foundation for uses such as email and file transfer systems such as the then-popular Gopher.</p>
-						
-						<p>A community of enthusiasts was sharing ideas on how to create "hypertext" systems that featured links between documents. HyperCard for the Apple Macintosh was a popular early example of a working hypertext system that featured links between "cards".</p>
-						
-						<p>With WorldWideWeb, Berners-Lee used the internet to create a networked hypertext system that allowed CERN physicists to read and publish documents, and to create links between and within them.</p>
-						
-						<h3>The WWW team</h3>
-						
-						<p>Belgian systems engineer Robert Cailliau joined the World Wide Web (WWW) project and soon became its number one advocate, fighting for resources for the project. A small team of students joined the project over the next couple of years, working on short-term contracts to contribute to code and protocols.</p>
-						
-						<h3>The first website</h3>
-						
-						<p>The world’s first website was about the WWW project itself.</p>
-						
-						 <p>Visitors could learn more about the web, access technical details for creating their own web page, and even find an explanation on how to search for information. There are no screenshots of this original page and, in any case, changes were made daily to the information available on the page as the WWW project developed.</p>
-						
-						<p>See a 1993 copy of this first website at its original address, <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">http://info.cern.ch/hypertext/WWW/TheProject.html</a>.
-						
-						 <h3>What NeXT?</h3>
-						
-						<div class="d1 d-floatleft">
-							<img src="images/nextmachine.jpg" />
-							<cite>The first web server: Tim Berners-Lee used this NeXT computer in 1990 to develop and run the first WWW server, multimedia browser and web editor</cite>
-						</div>
-						
-						<p>Berners-Lee developed WorldWideWeb software on a NeXT computer, a model developed, manufactured, and sold from 1988 until 1990 by the NeXT Inc. company founded by Apple co-founder Steve Jobs. The NeXT had a 305 millimetre die-cast magnesium, cube-shaped, black case, which led to the machine being informally referred to as "The Cube". It cost US$6500.</p>
-						
-						<p>Though the NeXT did not prove a commercial success, the machines were way ahead of their time, offering interfaces and tools that are familiar to computer users 20 years later. Berners-Lee used the advanced operating system NeXTSTEP to rapidly develop a working prototype server and browser. The original browser was called "WorldWideWeb" but later renamed Nexus to avoid confusion with the information space.</p>
-						
-						<h3>The universal line-mode browser</h3>
-						
-						<p>A website is like a telephone; if there is just one it is not much use. Berners-Lee's team needed to send out server and browser software so that people could set up their own websites. The NeXT systems were far advanced over the computers people generally had at their disposal, so less sophisticated software was needed for distribution.</p>
-						
-						<p>By spring of 1991, testing was underway on a universal line-mode browser that allowed people to access the web, regardless of the kind of computer system used. The browser was designed to work simply by typing commands. There was no mouse and no graphics, but it allowed anyone with an internet connection to access the web.</p>
-						
-						<p>It was a core principal of the web that content should be universally accessible: someone using a crude browser could access the same content as users of advanced browsers such as Nexus, complete with mouse and graphical capabilities.</p>
-						
-						<p>Berners-Lee also set up a system so that people who didn’t have a browser could surf the web: simply email the CERN server with a web address (URL) and you would receive an email back with the content from the URL in the body of the email.</p>
-						
-						<h3>The web explodes</h3>
-						
-						<p>On 30 April 1993, CERN made the source code of WorldWideWeb available on a royalty-free basis; the software was free for anyone to use, and remains so today. Web usage exploded as people started setting up their own servers and websites. By late 1993 there were over 500 known web servers, and the WWW accounted for 1% of internet traffic, which seemed a lot in those days (the rest was remote access, e-mail and file transfer). Twenty years on, there are an estimated 630 million websites online.</p>
-						
+						<p>After the DOM was changed like this, we add the CSS and JavaScript for the emulation, then serialise the document back into a string, and then send this to the browser.</p>
+
+						<p>The browser then parses the document, applies the CSS and runs the JavaScript, so you the user can experience the awesomeness that was the line mode browser.</p>
+
+						<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects for example the command line that is fixed at the bottom of the content. This would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
+
+						<h3>What hacks did we use?</h3>
+						<p>Hacks! We do not hack. OK, we did some hacky things, but all in all nothing particularly grubby.</p>
+						<p>As mentioned, we used some JavaScript for calculating some aspects of the page layout, due to the lack of widespread support for features we’d otherwise use in CSS to do this instead of JavaScript.  </p>
+
+						<h3>Will what we built today be usable in 10 years? </h3>
+						<p>We hope so! One of the things we wanted to do is emulate how the LMB would handle today’s web content, and while the average 1.2MB of content today’s web page would more than swamp the memory available to these early browser.</p>
+						<p>But I think that what we built this with, HTML, CSS and JavaScript, will be around for many more than 10 years. At least we hope so!</p>
+
 					</article>
 				</section>
 		</div>
