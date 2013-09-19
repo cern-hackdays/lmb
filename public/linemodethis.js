@@ -19,7 +19,7 @@ var linemoder = {
 		var styleSheets = document.querySelectorAll("link[rel=stylesheet]");
 
 		for (var i=0; i < styleSheets.length; i++) {
-			if ((' ' + styleSheets[i].className + ' ').index(' ignore ') === -1) {
+			if ((' ' + styleSheets[i].className + ' ').indexOf(' ignore ') === -1) {
 				styleSheets[i].parentNode.removeChild(styleSheets[i])
 			}
 		};
@@ -27,7 +27,7 @@ var linemoder = {
 		styleSheets = document.querySelectorAll("style");
 
 		for (var i=0; i < styleSheets.length; i++) {
-			if ((' ' + styleSheets[i].className + ' ').index(' ignore ') === -1) {
+			if ((' ' + styleSheets[i].className + ' ').indexOf(' ignore ') === -1) {
 				styleSheets[i].parentNode.removeChild(styleSheets[i]);
 			}
 		};
@@ -42,7 +42,7 @@ var linemoder = {
 		var scripts = document.querySelectorAll("script");
 
 		for (var i=0; i < scripts.length; i++) {
-			if ((' ' + scripts[i].className + ' ').index(' ignore ') === -1) {
+			if ((' ' + scripts[i].className + ' ').indexOf(' ignore ') === -1) {
 				//don't remove this script
 				scripts[i].parentNode.removeChild(scripts[i])
 			}
