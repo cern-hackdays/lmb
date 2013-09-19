@@ -64,6 +64,21 @@ a {
 	color: inherit;
 }
 
+
+/* Definition lists */
+dt, dd {
+	display: inline-block;
+	vertical-align: top;
+}
+
+dt {
+	width: 30ch;
+}
+
+dd {
+	width: 50ch;
+}
+
 /* Counters for the link */
 
 body {
