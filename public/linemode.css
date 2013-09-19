@@ -6,7 +6,7 @@
 	color: inherit;
 }
 
-img, video, audio, svg, canvas, iframe, isindex {
+img, video, audio, svg, canvas, iframe, isindex, object {
 	display: none;
 }
 
