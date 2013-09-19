@@ -1,0 +1,31 @@
+{
+  "name": "line-mode-browser",
+  "version": "0.12.0",
+  "description": "A simulation of the first (actually second) WWW browser.",
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "harp": "~0.9.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cern-hackdays/lmb.git"
+  },
+  "keywords": [
+    "cern",
+    "line",
+    "mode",
+    "browser"
+  ],
+  "author": "Brian LeRoux && Remy Sharp",
+  "license": "Apache2",
+  "readmeFilename": "README.md",
+  "gitHead": "2531cf37169f4838fb9df997e718eef401d259e2",
+  "bugs": {
+    "url": "https://github.com/cern-hackdays/lmb/issues"
+  }
+}
