@@ -1,7 +1,7 @@
  * {display: inline;
 cursor: hidden}
 
-img, video, audio, svg, canvas {display: none}
+img, video, audio, svg, canvas, iframe {display: none}
 
 isindex {display: none}
 
@@ -36,6 +36,7 @@ padding-top: 5em
 html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl dd, dt, pre {
 display: block;
 font-size: inherit; 
+font-weight: normal
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,7 +69,6 @@ body {
 a:after {
   counter-increment: section;      /* Increment the section counter */
   content: "[" counter(section) "]"; /* Display the counter */;
-padding-left: .5em
 }
 
 pre, xmp {display: block; white-space: pre}
