@@ -1,3 +1,12 @@
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot');
+	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.woff') format('woff'),
+		url('fonts/icomoon.ttf') format('truetype'),
+		url('fonts/icomoon.svg#icomoon') format('svg');
+}
+
 * {
 	display: inline;
 	padding: 0;
@@ -33,7 +42,7 @@ html {
 	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
 	word-wrap: break-word;
-	font-family: monospace;
+	font-family: icomoon, monospace;
 }
 
 	html * {
