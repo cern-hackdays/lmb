@@ -24,8 +24,8 @@ function exit() {
 }
 
 function getCords(position) {
-  var x = position % 80,
-      y = position / 80 | 0;
+  var x = position % (80 / 2),
+      y = position / (80 / 2) | 0;
 
   return {
     x: x,
@@ -34,14 +34,10 @@ function getCords(position) {
 }
 
 function draw() {
-  if (run) requestAnimationFrame(draw);
+  if (run) setTimeout(draw, 0);
 
   var coords = getCords(position);
-
-  console.log(coords);
-
-  ctx.clearRect(coords.x * 8, coords.y * 24, 8, 24);
-  // ctx.clearRect(coords.x * 80, coords.y * 24, 80, 24);
+  ctx.clearRect(coords.x * 8 * 2, coords.y * 24, 8 * 2, 24);
 
   position++;
 
