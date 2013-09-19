@@ -37,7 +37,7 @@ body {
 	padding-top: 1.5em; /* 1 * line-height */
 }
 
-html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl dd, dt, pre {
+html, h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre {
 	display: block;
 }
 
@@ -83,6 +83,7 @@ pre, xmp {
 hp1:first-letter, hp2:first-letter {
 	text-transform: uppercase
 }
+
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
 form {display: none}
