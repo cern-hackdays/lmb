@@ -11,9 +11,18 @@ cmd.onkeydown = function (e) {
 function run(command) {
   if (commands[command]) return commands[command]()
 
-  if (command.test(/^[0-9]+$/)) {
+  if ((/^[0-9]+$/).test(command)) {
     // TODO open the nth link
-    console.log('GOTO ' + document.querySelector('a')[command].href);
+    console.log('GOTO ' + document.querySelectorAll('a')[command * 1].href);
+  }
+}
+
+document.body.onkeydown = function (e) {
+  if (e.which === 13) {
+    console.log('I AM GO DOWN FOR JOHN');
+    var current = document.body.scrollTop;
+    window.scrollTo(0, current + window.innerHeight);
+    e.preventDefault();
   }
 }
 
