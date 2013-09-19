@@ -1,17 +1,17 @@
 var request = require('request'),
     connect = require('connect'),
-    cors = require('cors'),
     cheerio = require('cheerio'),
     parse = require('url').parse,
     path = require('path'),
-    prepare = require('./public/prepare');
+    prepare = require('./public/prepare'),
+    urlparse = require('url')
 
 function proxy(req, res, next) {
   var url = parse(req.url, true);
 
   if (url.pathname === '/proxy') {
     var url = url.query.url;
-    var base = path.normalize(url) + '/';
+    var base = urlparse.parse(url).protocol + '//' + urlparse.parse(url).hostname
 
     request(url, function (error, response, body) {
       if (!error && response.statusCode == 200) {
@@ -44,6 +44,5 @@ connect()
     next();
   })
   .use(connect.static('public'))
-  // TODO add cors
   .use(proxy)
   .listen(process.env.PORT || 8000);
