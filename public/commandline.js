@@ -103,4 +103,9 @@ window.onload = function () {
   setTimeout(function () {
     window.scrollTo(0,0);
   }, 0);
+  
+  //test
+  var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
+  
+  document.documentElement.lastElementChild.style.paddingBottom = innerHeight - 25 * lineHeight;
 };
