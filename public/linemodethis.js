@@ -7,6 +7,7 @@ var linemoder = {
 		
 		linemoder.removeStyle();
 		linemoder.addLinemodeStyle();
+		linemoder.allowAncientHTML();
 		linemoder.addCommandLine();
 		
 	},
@@ -65,6 +66,11 @@ var linemoder = {
 	
 	addCommandLine: function(){
 		//add the elements for the command line
+	},
+
+	allowAncientHTML: function(){
+		var e = "plaintext,listing,h0,hp1,hp2".split(',');
+		for(var i=0;i<e.length;i++){document.createElement(e[i])}
 	}
 }
 
