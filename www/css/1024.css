@@ -1,5 +1,7 @@
 /* Query Styles for 1024px and up */
 
+.headfill { height: 600px; }
+
 .wrapper{
 	width: 768px;
 	margin: 0 auto;

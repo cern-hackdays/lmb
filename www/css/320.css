@@ -1,5 +1,7 @@
 /* Query Styles for 320px and up */
 
+.headfill { height: 250px; }
+
 h1 {
 	text-align: left;	
 }

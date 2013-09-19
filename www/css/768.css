@@ -1,5 +1,7 @@
 /* Query Styles for 768px and up */
 
+.headfill { height: 500px; }
+
 .wrapper{
 	width: 700px;
 	min-width: 700px;
