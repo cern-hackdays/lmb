@@ -46,6 +46,7 @@ document.documentElement.onfocus = function () {
 
 var commands = {
   top: function () {
+    blocker();
     window.scrollTo(0, 0);
   },
   list: function () {
@@ -73,9 +74,9 @@ var commands = {
 }
 
 function pagedown() {
+  blocker();
 	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-	console.log('I AM GO DOWN FOR JOHN');
 	var current = document.body.scrollTop;
 	scrollTo(0, current + lineHeight * 23);
 }
@@ -91,7 +92,10 @@ commands.Quit = commands.quit;
   document.createElement(a);
 });
 
+blocker(); // do the character by character "rendering"
+
 window.onload = function () {
+
   setTimeout(function () {
     window.scrollTo(0,0);
   }, 0);
