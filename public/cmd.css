@@ -6,6 +6,7 @@
 }
 
 #command input {
-  display: inline !important;
-  padding: 20px;
+  display: inline;
+  background: black;
+  border: 0;
 }

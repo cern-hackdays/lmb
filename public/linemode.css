@@ -3,6 +3,7 @@
 	padding: 0;
 	margin: 0;
 	font: inherit;
+	color: inherit;
 }
 
 img, video, audio, svg, canvas, iframe, isindex {
