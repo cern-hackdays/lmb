@@ -87,3 +87,6 @@ hp1:first-letter, hp2:first-letter {
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
 
 form {display: none}
+
+input {display: none}
+
