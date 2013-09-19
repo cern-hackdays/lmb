@@ -29,7 +29,6 @@ cmd.onkeydown = function (e) {
   }
 };
 
-<<<<<<< HEAD
 function run(command, e) {
   if (commands[command]) {
     commands[command]()
@@ -43,10 +42,7 @@ function run(command, e) {
   // else don't prevent default
 }
 
-document.body.onkeydown = function (e) {
-=======
 document.documentElement.onkeydown = function (e) {
->>>>>>> 1cb3dbe7940fc51cdf37e7da7cfbfb2d3653383b
   if (e.keyCode === 13) {
   	pagedown();
   	e.preventDefault();
