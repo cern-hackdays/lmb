@@ -11,6 +11,19 @@ body {
 	color: rgb(98,98,98);
 }
 
+sup { 
+	height: 0; 
+	line-height: 1;
+	bottom: 1em;
+	font-size: .7em;
+	color: #666;
+	position: relative;
+}
+
+sup a { padding: 3px; -webkit-transition-property: color; -webkit-transition-duration: 0.3s; -webkit-transition-timing-function: ease; }
+sup a:hover { border: 0; }
+
+
 h1, h2, h3{
 	font-family: 'PT Sans Narrow', sans-serif;
 }
@@ -101,6 +114,17 @@ a:hover {
 .wrapper{
 	width: 300px;
 	margin: 0 auto;
+}
+
+.footnotes {
+	font-size: .8em;
+	border-top: 2px dotted #fff;
+	padding-top: 20px;
+	margin-top: 20px;
+}
+
+.footnotes h3 { 
+	font-size: 1.4em;
 }
 
 
