@@ -147,5 +147,5 @@ window.onload = function () {
 // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
 (function(){
 	var maxLineHeight = innerHeight / 25;
-	document.documentElement.style.fontSize = --(maxLineHeight / 1.5) + 'px';
+	document.documentElement.style.fontSize = maxLineHeight / 1.5 + 'px';
 })();
