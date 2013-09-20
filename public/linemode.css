@@ -1,10 +1,10 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.ttf') format('truetype'),
-		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-family: 'cern';
+	src:url('fonts/cern-terminal.eot');
+	src:url('fonts/cern-terminal.eot?#iefix') format('embedded-opentype'),
+		url('fonts/cern-terminal.woff') format('woff'),
+		url('fonts/cern-terminal.ttf') format('truetype'),
+		url('fonts/cern-terminal.svg#icomoon') format('svg');
 }
 
 * {
@@ -43,7 +43,7 @@ html {
 	color: hsl(150, 100%, 50%);
 	text-shadow: 0 0 10px;
 	word-wrap: break-word;
-	font-family: icomoon, monospace;
+	font-family: cern, monospace;
 	line-height: 1.5em;
 }
 
@@ -106,8 +106,8 @@ dt, dd {
 	vertical-align: top;
 }
 
-dt:not(:first-child),
-dd:not(:first-child) {
+dt:not(:first-of-type),
+dd:not(:first-of-type) {
 	margin-top: 1.5em;
 }
 
@@ -187,7 +187,52 @@ button {display: none}
 #cmd-cursor {
 	display: block;
 	margin-left: -1px; /* sit over the real cursor in content editable */
-	
+
 	background: hsl(150, 100%, 50%);
 	box-shadow: 0 0 5px;
+}
+
+/*#cmd-cursor.wait {
+  -webkit-animation: blink 2s linear 0s infinite;
+  -moz-animation: blink 2s linear 0s infinite;
+  -ms-animation: blink 2s linear 0s infinite;
+  -o-animation: blink 2s linear 0s infinite;
+  animation: blink 2s linear 0s infinite;
+}
+
+@-webkit-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-moz-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-ms-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-o-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+*/
+
+#command.hide * {
+	visibility: hidden;
 }

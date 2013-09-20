@@ -83,6 +83,13 @@ var commands = {
   },
   list: function () {
     // list all available links
+	// show 2 blank lines then
+	//       HYPERTEXT REFERENCES :=
+	// then 1 blank line, then list of links in this format:
+	//      [n]       [href value (relative or absolute)]
+	// if no links, show 2 blank lines then
+	//      NO HYPERTEXT REFERENCES HAVE APPEARED IN THE DOCUMENT YET
+	// then 3 blank links
   },
   help: function () {
 	// LMB had help in the compiled code, contained logic
@@ -103,19 +110,26 @@ var commands = {
   recall: function () {
     // TODO list history of visited urls
     // localStorage
+	// output with 2 blank lines then 
+	//             HISTORY OF PREVIOUS NODES :- 
+	// then 3 blank lines then
+	//      %2d)       %s
+	// where %2d is a number and %s is the title,
+	// if no title then href
+	// then insert 3 blank lines
   },
   quit: function () {
-    alert("I'm not a quiter.");
+    alert("I'm not a quitter.");
     return false;
   }
 }
 
 function pagedown() {
   blocker();
-	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
+  var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-	var current = document.body.scrollTop;
-	scrollTo(0, current + lineHeight * 23);
+  var current = document.body.scrollTop;
+  scrollTo(0, current + lineHeight * 23);
 }
 
 // alias
@@ -141,11 +155,15 @@ window.onload = function () {
   //test
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-  document.body.lastElementChild.style.paddingBottom = innerHeight - 24 * lineHeight;
+  document.getElementById('lmb-footer').style.paddingBottom = innerHeight - 24 * lineHeight;
 };
 
 // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
-(function(){
-	var maxLineHeight = innerHeight / 25;
-	document.documentElement.style.fontSize = maxLineHeight / 1.5 + 'px';
+(window.adjustFontSize = function (){
+	var maxLineHeight = innerHeight / 25,
+      size = Math.floor(maxLineHeight / 1.5);
+	document.documentElement.style.fontSize = size  + 'px';
+  blocker.size(size);
 })();
+
+addEventListener('resize', adjustFontSize);
