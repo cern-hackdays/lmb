@@ -5,7 +5,8 @@ var request = require('request'),
     path = require('path'),
     urlparse = require('url'),
     prepare = require('./prepare'),
-    serve = require('./serve');
+    serve = require('./serve'),
+    fs = require('fs');
 
 function inject(body, base) {
   if (body.toUpperCase().indexOf('<BODY') === -1) { // damn bodyless things...
@@ -62,4 +63,8 @@ connect()
   .use(serve('/www/', 'public', inject))
   .use(connect.static('public'))
   .use(proxy)
+  .use(function (req, res) {
+    res.writeHead(404);
+    fs.createReadStream('public/Error404.html').pipe(res);
+  })
   .listen(process.env.PORT || 8000);
