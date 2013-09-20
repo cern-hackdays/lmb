@@ -7,7 +7,7 @@ module.exports = function prepare ($, location) {
                      '<script src=/js/commandline.js></script>'].join('');
 
   // strip particular elements
-  $('style,iframe,frame,frameset,img,hr,br').remove();
+  $('style,iframe,frame,frameset,img,hr,br,video').remove();
   $('link[rel=stylesheet]').remove();
   $('[style]').each(function () {
     $(this).removeAttr('style');

@@ -167,6 +167,17 @@ commands.b = commands.back;
   document.createElement(a);
 });
 
+var e = 'img,video,audio,svg,canvas,iframe'.split(',');
+for(var i=0; i<e.length; i++){
+  var elements = document.getElementsByTagName(e[i]);
+  for (var j=0; j < elements.length; j++){
+    while(elements[j].lastChild) {
+      elements[j].parentNode.insertBefore(elements[j].lastChild, elements[j]);
+    }
+  }
+}
+
+
 cmd.focus(); // force focus to the contenteditable
 
 window.onload = function () {
