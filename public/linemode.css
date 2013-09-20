@@ -128,7 +128,7 @@ address {
 }
 
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
-hp1:first-letter, hp2:first-letter {
+hp1, hp2 {
 	text-transform: uppercase;
 }
 
