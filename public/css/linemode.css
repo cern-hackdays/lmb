@@ -167,7 +167,7 @@ hp1, hp2 {
 }
 
 
-form, input, button, select {display: none}
+form, input, button, select, textarea {display: none}
 
 #command {
 	position: fixed;
