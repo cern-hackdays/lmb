@@ -19,19 +19,11 @@ function pagedown() {
 }
 
 function getValue() {
-  if (cmd.nodeName === 'INPUT') {
-    return cmd.value;
-  } else {
-    return cmd.innerHTML;
-  }
+  return cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'];
 }
 
 function setValue(v) {
-  if (cmd.nodeName === 'INPUT') {
-    cmd.value = v;
-  } else {
-    cmd.innerHTML = v;
-  }
+  cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'] = v;
 }
 
 
@@ -151,3 +143,9 @@ window.onload = function () {
 
   document.body.lastElementChild.style.paddingBottom = innerHeight - 24 * lineHeight;
 };
+
+// Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
+(function(){
+	var maxLineHeight = innerHeight / 25;
+	document.documentElement.style.fontSize = --(maxLineHeight / 1.5) + 'px';
+})();
