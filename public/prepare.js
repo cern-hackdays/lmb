@@ -4,7 +4,7 @@ var commandline = ['<form id=command><label><span class="cmd-prompt">&lt;ref.num
   '<script src=commandline.js></script>',].join('');
 
 module.exports = function ($, location) {
-  
+
   // strip particular elements
   $('style,iframe,frame,frameset,img,hr,br').remove();
   $('link[rel=stylesheet]').remove();
@@ -12,22 +12,22 @@ module.exports = function ($, location) {
     $(this).removeAttr('style');
   });
 
-  
+
   // expose the content of scripts
   $('script').each(function () {
     $(this).attr('type', 'text/plain');
   });
 
-  
+
   // all documents have an [END] at the...
   // TODO parser question?
   $('body').append('<pre id="lmb-footer">\n\n     [End]</pre>');
 
-  
+
   // insert command prompt
   $('body').append(commandline);
 
-  
+
   // styles (early to attempt to avoid FOUC)
   $('body').prepend('<link class=ignore rel=stylesheet href=linemode.css type=text/css>');
 
@@ -37,27 +37,29 @@ module.exports = function ($, location) {
     var $el = $(this);
     $el.append('[' + (i+1) + ']');
 
-    var href = $el.attr('href');
-    href = 'about'
-    var url = require('querystring').parse(location)['/proxy?url'] // brian.io/whatever/whatevers
-    var host = require('url').parse(url).hostname                  // brian.io
-    var protocol = require('url').parse(url).protocol
+    if (location) {
+      var href = $el.attr('href');
+      href = 'about'
+      var url = require('querystring').parse(location)['/proxy?url'] // brian.io/whatever/whatevers
+      var host = require('url').parse(url).hostname                  // brian.io
+      var protocol = require('url').parse(url).protocol
 
 
-    // order important here
-    if (href === '/') href = protocol + '//' + host    
-    if (href.toString().slice(0, 2) === '//') href = protocol + href;
-    if (href.slice(0, 1) === '/') href = protocol + '//' +  host + href
-    // FIXME this is brittle and will break on deep links
-    if (href.slice(0, protocol.length) != protocol) href = protocol + '//' + host + '/' +  href 
-    
-    // final rewrite to proxy url
-    href = '/proxy?url=' + href
+      // order important here
+      if (href === '/') href = protocol + '//' + host
+      if (href.toString().slice(0, 2) === '//') href = protocol + href;
+      if (href.slice(0, 1) === '/') href = protocol + '//' +  host + href
+      // FIXME this is brittle and will break on deep links
+      if (href.slice(0, protocol.length) != protocol) href = protocol + '//' + host + '/' +  href
+
+      // final rewrite to proxy url
+      href = '/proxy?url=' + href
 
 
 
-    // set the proper rewritten url
-    $el.attr('href', href);
+      // set the proper rewritten url
+      $el.attr('href', href);
+    }
   });
 
   // node compat
