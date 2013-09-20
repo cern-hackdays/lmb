@@ -155,7 +155,7 @@ window.onload = function () {
   //test
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-  document.body.lastElementChild.style.paddingBottom = innerHeight - 24 * lineHeight;
+  document.getElementById('lmb-footer').style.paddingBottom = innerHeight - 24 * lineHeight;
 };
 
 // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
