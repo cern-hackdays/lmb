@@ -156,7 +156,7 @@ button {display: none}
 
 #command input {
 	display: inline-block;
-	width: 51ch;
+	width: 51ch; /* 80 - 29 */
 	background: black;
 	border: 0;
 }
@@ -181,9 +181,9 @@ button {display: none}
 }
 
 #cmd-cursor {
-	display: block;
+	position: absolute;
+	left: 29ch;
 	margin-left: -1px; /* sit over the real cursor in content editable */
-
 	background: hsl(150, 100%, 50%);
 	box-shadow: 0 0 5px;
 }

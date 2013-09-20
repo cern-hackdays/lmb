@@ -26,7 +26,6 @@ function setValue(v) {
   cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'] = v;
 }
 
-
 var cmd = document.querySelector('#cmd-input'),
     cursor = document.querySelector('#cmd-cursor'),
     cursors = {
@@ -39,14 +38,20 @@ var cmd = document.querySelector('#cmd-input'),
 
 function typing() {
   clearTimeout(typingTimer);
+  
   typingTimer = setTimeout(function () {
     cursor.className = 'wait';
   }, 200);
   cursor.className = '';
 }
 
+cmd.oninput = function () {
+	cursor.style.marginLeft = getValue().length;
+}
+
 cmd.onkeydown = function (e) {
   typing();
+  
   var val = getValue();
 
   if (e.keyCode === 13 && val) {
@@ -54,7 +59,8 @@ cmd.onkeydown = function (e) {
     e.stopPropagation();
     run(val, e);
     setValue(val);
-  } else if (cursors[e.keyCode]) {
+  }
+  else if (cursors[e.keyCode]) {
     // junk it and don't allow
     e.preventDefault();
     e.stopPropagation();
