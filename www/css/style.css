@@ -163,6 +163,10 @@ a:hover {
 	cursor: text;
 }
 
+ul.generalresources { 
+	
+}
+
 
 cite, nav, footer p{
 	font-family: 'PT Sans Caption', sans-serif;
@@ -290,6 +294,10 @@ img{
 
 /* ----- Interviews Page  ----------- */
 
+.testimony {
+	clear: both;
+	padding: 1em 0;
+}
 
 .member-data {
 	width: 100%;
