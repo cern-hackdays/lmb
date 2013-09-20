@@ -1,3 +1,29 @@
+function setPrompt ($) {
+	var prompt = "";
+
+	if (document.querySelectorAll('isindex').length > 0){
+		prompt = prompt + 'K &lt;keywords&gt;, ';
+	}
+	if (document.querySelectorAll('a').length > 0){
+		prompt = prompt + '&lt;ref.number&gt;, ';
+	}
+	if (history.length > 1){
+		prompt = prompt + 'Back, ';
+	}
+	/* 
+		if (!end_of_file){
+			printf("&lt;RETURN&gt; for more, ");
+			length_of_prompt = length_of_prompt + 19;
+		}
+	*/
+	if (prompt.length <= 47){
+		prompt = prompt + 'Quit, ';
+	}
+	prompt = prompt + 'or Help: ';
+
+	document.querySelector('.cmd-prompt').innerHTML = prompt;
+}
+
 function run(command, e) {
   if (commands[command]) {
     commands[command]()
@@ -153,6 +179,8 @@ blocker(); // do the character by character "rendering"
 cmd.focus(); // force focus to the contenteditable
 
 window.onload = function () {
+
+  setPrompt();
 
   setTimeout(function () {
     window.scrollTo(0,0);
