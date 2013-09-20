@@ -29,8 +29,8 @@ function proxy(req, res, next) {
     request(url, function (error, response, body) {
       base = response.request.uri.href;
       if (!error && response.statusCode == 200) {
-        var html = inject(body, base);
-        res.write(html); //.replace(/&/g, '&amp;'));
+        var html = inject(body.replace(/&/g, '&amp;'), base);
+        res.write(html);
         res.end();
       } else if (response) {
         res.end(JSON.stringify({ error: error, status: response.statusCode }));

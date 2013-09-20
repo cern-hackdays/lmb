@@ -34,3 +34,11 @@ h3 {
 	font-size: 2.1rem;
 	margin-bottom: 1.1rem;
 }
+
+
+/* INTERVIEWS */
+.member-data figure {
+	flex: 50%;
+	-webkit-flex: 50%;
+	-moz-flex: 50%;
+}
