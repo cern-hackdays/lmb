@@ -163,13 +163,14 @@ button {display: none}
 
 #command {
 	position: fixed;
+	display: block;
 	top: 36em; /* 24 lines */
 	left: 50%;
 	right: 50%;
 	margin: 0 -40ch;
 	height: 9999px;
 	background: black;
-  display: inline-block;
+	white-space: nowrap;
 }
 
 #command input {
@@ -200,7 +201,7 @@ button {display: none}
 
 #cmd-cursor {
 	position: absolute;
-	left: 29ch;
+	left: 36ch;
 	margin-left: -1px; /* sit over the real cursor in content editable */
 	background: hsl(150, 100%, 50%);
 	box-shadow: 0 0 5px;
