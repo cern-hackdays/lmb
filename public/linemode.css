@@ -181,7 +181,7 @@ button {display: none}
 }
 
 #blocker {
-	position: absolute;
+	position: fixed;
 	margin: 0 auto;
 	z-index: 9;
 	top: 0;
