@@ -201,7 +201,7 @@ button {display: none}
 
 #cmd-cursor {
 	position: absolute;
-	left: 29ch;
+	left: 36ch;
 	margin-left: -1px; /* sit over the real cursor in content editable */
 	background: hsl(150, 100%, 50%);
 	box-shadow: 0 0 5px;
