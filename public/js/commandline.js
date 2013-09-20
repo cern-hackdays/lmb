@@ -25,11 +25,11 @@ function setPrompt ($) {
 	if (prompt.length <= 47){
 		prompt = prompt + 'Quit, ';
 	}
-	
+
 	prompt = prompt + 'or Help: ';
-	
+
 	promptElement.innerHTML = prompt;
-	
+
 	// Adjust style
 	cursor.style.left = promptElement.textContent.length + 1 + 'ch';
 }
@@ -115,7 +115,9 @@ var commands = {
 	window.location = '/www/help.html';
   },
   home: function () {
-    // TODO
+	// Should use history, once that's implemented
+	// Brute force for now, 1st web page is HOME!
+	window.location = '/www/index.html';
   },
   alias: function () {
     // TODO
