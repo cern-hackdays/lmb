@@ -47,6 +47,11 @@ html {
 	line-height: 1.5em;
 }
 
+body {
+		height: 37.5em; /* 25 lines */
+
+}
+
 
 html * {
 	font: inherit !important;
@@ -146,16 +151,80 @@ button {display: none}
   display: inline-block;
 }
 
-#command input {
+/*#command input {
   display: inline-block;
 	width: 51ch;
 	background: black;
 	border: 0;
 }
-
+*/
 #blocker {
 	position: absolute;
 	margin: 0 auto;
 	z-index: 9;
 	top: 0;
+}
+
+#command span {
+	display: inline-block;
+}
+
+#cmd-input {
+	min-width: 1px;
+	cursor: text;
+	overflow: hidden;
+	outline: 0;
+}
+
+#cmd-input:focus,
+#cmd-input:active {
+	cursor: none;
+}
+
+#cmd-cursor {
+	display: block;
+  margin-left: -1px; /* sit over the real cursor in content editable */
+
+	background: hsl(150, 100%, 50%);
+	box-shadow: 0 0 1px;
+}
+
+#cmd-cursor.wait {
+  -webkit-animation: blink 2s linear 0s infinite;
+  -moz-animation: blink 2s linear 0s infinite;
+  -ms-animation: blink 2s linear 0s infinite;
+  -o-animation: blink 2s linear 0s infinite;
+  animation: blink 2s linear 0s infinite;
+}
+
+@-webkit-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-moz-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-ms-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
+}
+
+@-o-keyframes blink {
+  0%   { background: #0a0 }
+  47%  { background: hsl(150, 100%, 50%); }
+  50%  { background: #000; box-shadow: none; }
+  97%  { background: #000; box-shadow: none; }
+  100% { background: hsl(150, 100%, 50%); }
 }

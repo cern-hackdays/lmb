@@ -18,14 +18,54 @@ function pagedown() {
   scrollTo(0, current + lineHeight * 23);
 }
 
-var cmd = document.querySelector('#command input');
+function getValue() {
+  if (cmd.nodeName === 'INPUT') {
+    return cmd.value;
+  } else {
+    return cmd.innerHTML;
+  }
+}
+
+function setValue(v) {
+  if (cmd.nodeName === 'INPUT') {
+    cmd.value = v;
+  } else {
+    cmd.innerHTML = v;
+  }
+}
+
+
+var cmd = document.querySelector('#cmd-input'),
+    cursor = document.querySelector('#cmd-cursor'),
+    cursors = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    },
+    typingTimer = null;
+
+function typing() {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(function () {
+    cursor.className = 'wait';
+  }, 200);
+  cursor.className = '';
+}
 
 cmd.onkeydown = function (e) {
-  if (e.keyCode === 13 && this.value) {
+  typing();
+  var val = getValue();
+
+  if (e.keyCode === 13 && val) {
     e.preventDefault();
     e.stopPropagation();
-    run(this.value, e);
-    this.value = '';
+    run(val, e);
+    setValue(val);
+  } else if (cursors[e.keyCode]) {
+    // junk it and don't allow
+    e.preventDefault();
+    e.stopPropagation();
   }
 };
 

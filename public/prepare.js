@@ -1,6 +1,6 @@
 (function () {
 
-var commandline = ['<form id=command><label>&lt;ref.number&gt;, Quit, or Help: <input autofocus></label></form>',
+var commandline = ['<form id=command><label><span class="cmd-prompt">&lt;ref.number&gt;, Quit, or Help: </span><span autofocus autocapitalize=off spellcheck=false autocorrect=off contenteditable id="cmd-input"></span><span class=wait id="cmd-cursor">&nbsp;</span><input hidden autofocus></label></form>',
   '<script src=blocker.js></script>',
   '<script src=commandline.js></script>'].join('');
 
