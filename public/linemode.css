@@ -168,7 +168,7 @@ button {display: none}
 	top: 0;
 }
 
-#command span {
+#command input {
 	display: inline-block;
 }
 
