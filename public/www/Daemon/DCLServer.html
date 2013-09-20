@@ -1,0 +1,62 @@
+<TITLE>A W3 server usingVMS DCL language</TITLE>
+<NEXTID 5>
+<H1>DCL Server</H1>It is possible to write a W3 server in DCL, the VMS command interpreter
+language. This has the advantage (over C for example) of quick prototyping
+and easy access to the VMS systems functions available in DCL.  Seee
+also:<P>
+The <A NAME=4 HREF=http://kviexp.kvi.nl/www_server.html>KVI WWW server</A>.
+<H2>Server structure</H2>The server must run in a DCL environment. That is, if it is run as
+a detached process, this must be done by running LOGINOUT.EXE with
+a command file as input. That command file will run the server executable
+WWW_SERVER.EXE.<P>
+The WWW_SERVER.EXE program will loop waiting for connection from a
+W3 client. When it gets one, it calls a DCL command of your choice
+(defined at WWW_SERVER.EXE compile time) passsing it the device name
+of the channel for communication with the client, the document id
+requested, and search terms if any. The DCL command (here we assume
+it is a call to a command file) analyses the request and returns the
+result ot the client through the given channel.<P>
+The WWW_SERVER.EXE program may also be run from the command line for
+testing:
+<XMP>
+  $ g :== $disk$whatever:[full.dir.spec]www_server.exe
+  $ g -a *:8000 -v
+</XMP>Note here the server <A NAME=0 HREF=User/CommandLine.html>command line options</A> which are the same as for
+the basic W3 daemon. The -a option specifies the port number to listen
+on as 8000. Note the process needs some sort of privilege to run with
+port numbers below 1024. the -v option turns on diagnostic output
+to the terminal.
+<H2>Source</H2>The source files all can be taken from the regualar WWWDaemon_v.vv.tar.Z
+distribution file except:
+<DL>
+<DT><A NAME=1 HREF=Implementation/DCLServer.c>DCLServer.c</A>
+<DD> The C code module which calls the DCL file. A #define
+in this module defines the DCL file name.
+<DT><A NAME=2 HREF=Implementation/docdbgate.com>docdbgate.com</A>
+<DD> An example DCL command file (developped for the FNAl
+DOCDB gateway in fact).
+<DT><A NAME=3 HREF=Implementation/DCLServer.mms>The MMS file</A>
+<DD> The MMS (VMS Module Managment System) description file
+which contains the command to build the server. If you don't have
+MMS, you can probably figure out how to build it by reading this file.
+</DL>
+
+<H2>Writing the DCL file</H2>When you write the DCL file, you should bear in mind that the W3 protocol
+is a telnet-style protocol, and requires each line to be terminated
+with a CR, LF pair. (Carriage Return, Line feed, ASCII 13,10). The
+example code shows how you can append a CRLF pair  to the end of a
+DCL output line.<P>
+The first parameter passed to the command file is the device name
+of the internet socket. This must be opened for write by the DCL file.
+Thanks to Jonathan Streets (FNAL) for figuring that bit out.
+<H2>Building the server</H2>To make the WWW_SERVER.EXE file, you run MMS with the macro MULTINET=1
+defined. Put the MMS file as descrip.mms in the same directory.
+<XMP>
+           $ MMS/macro=(multinet=1)
+</XMP>The code has been tested with Multinet/TCP-IP. If you run it with
+UCX or WIN_TCP, you should define one of those instead of MULTINET.
+(see the descrip file.) This code worked with MULTINET -- it is possible
+that the method of getting the socket device name and passing it to
+the DCL file doesn't work with UCX or WIN_TCP. (The code as is has
+been slightly stripped down scince the last tes, so any typos are
+mine - TBL)

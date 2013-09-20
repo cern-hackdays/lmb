@@ -1,0 +1,58 @@
+<TITLE>Overview -- /Daemon</TITLE>
+<NEXTID 25>
+<H1>W3 Server Software</H1>A <A NAME=23 HREF=../TheProject.html>W3</A> server, like the ftp <A NAME=19 HREF=../Terms.html#daemon>daemon</A> , is a program which responds to
+an incoming tcp connection and provides a service to the caller.There
+are many varieties of W3 server software to serve different forms
+of data. 
+<H2>The basic daemon</H2>The basic W3  daemon program serves files already in hypertext or
+plain text.  This daemon then is used as a basis for many other types
+of server and gateway.    Documentation includes:
+<UL>
+<LI><A NAME=1 HREF=User/Guide.html>User guide</A> . 
+<LI><A NAME=18 HREF=Basic.html>Internals</A> -- a description of the code.
+</UL>Much of the above may also apply in whole or part to other servers
+mentioned below.  Whatever server you are running, you will probably
+be interested in:
+<UL>
+<LI><A NAME=21 HREF=../Tools/Overview.html>Tools for information providers</A>
+</UL>
+<H2>Making a new server</H2>This daemon is often used as a basis for a more specific server for
+a given application.  A server which allows a world of data to be
+seen as part of the W3 universe is known as a gateway.  (Most servers
+could therefore be regarded as gateways, but the term implies some
+conversion or mapping between dissimilar worlds) .  For  short tutorials
+with examples, see:
+<UL>
+<LI><A NAME=15 HREF=JanetAndJohn.html>Writing a server in C</A>
+<LI><A NAME=22 HREF=../Provider/ShellScript.html>Writing a server as a script</A>
+</UL>It is a good idea to pick the basic daemon or one of the servers below
+as a starting point when making a new server.
+<H2><A NAME=20>Other servers and Gateways</A></H2>These are servers which provide data extracted from other systems.
+they are built using code from the basic daemon, or scripts.
+<DL>
+<DT><A NAME=9 HREF=../FIND/Overview.html>FIND gateway</A> 
+<DD>for CERN/VM XFIND which calls a REXX exec to get the
+information from the XFIND system running on the CERNVM mainframe.
+<DT><A NAME=14 HREF=../VMSHelp/Overview.html>VMS Help gateway</A>
+<DD> This allows any VMS help files to be made available
+to WWW clients. Runs on VAX/VMS.
+<DT><A NAME=12 HREF=WAISGate.html>WAISGate</A>
+<DD> A gateway to information available using the W.A.I.S. protocol.
+<DT><A NAME=DCL HREF=DCLServer.html>DCLServer</A>
+<DD> A server for VMS systems which allows you to write a gateway
+to your own favorite information system using DCL.
+<DT><A NAME=16 HREF=System33/Gateway.html>System33</A>
+<DD> A (big) csh script server providing data including Xerox
+System33 documents, man pages in plain text, phone numbers, etc. etc...!
+<DT><A NAME=17 HREF=Oracle/Overview.html>Oracle</A>
+<DD> A generic server to oracle. Could be used as a basis for gateways
+to specific Oracle databases.
+<DT><A NAME=24 HREF=Geography/Overview.html>Geography</A>
+<DD>Gateway to the 
+</DL>
+Geography server at U Michigan
+<DL>
+<DT>
+</DL>
+
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL</A>

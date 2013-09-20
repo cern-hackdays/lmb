@@ -1,0 +1,90 @@
+<TITLE>RadioButtons -- /Provider</TITLE>
+<NEXTID 7>
+<H1>Serving multiple selections</H1>
+<H2>Selections</H2>When a W3 server offers the user a choice of options, typically it
+will do this with a hypertext page with pointers to virtual pages
+whos addresses contain a coded version of the option that the user
+has selected. (See <A NAME=4 HREF=ExistingData.html>making a server for existing data</A>)<P>
+So, for example the page /calendar may ask "which page do you want?"
+and have several anchors to point to pages /calendar/monday, calendar
+tuesday, etc. (see <A NAME=1 HREF=Example1/Calendar.html>example</A>)
+<H2>Multiple selections</H2>This can be extended to multiple selections. (See <A NAME=2 HREF=Example2/Case.html>Example case</A>). In
+this case, the address fo a document may contain a serious of options
+separated for example by "plus" signs.<P>
+Suppose that in <A NAME=3 HREF=Example2/Case.html>Gary's example</A>,  we represent the particle types by
+short acronymous:
+<XMP>	> GH	_  GAUGE AND HIGGS BOSONS
+	> LU	_  LIGHT UNFLAVORED MESONS
+	...
+	> BB	_  BOTTOM (BEAUTY) BARYON
+	> ET	_  SEARCHES FOR FREE QUARKS, ..., COMPOSITENESS, ETC.
+
+</XMP>and then suppose that the initial page is called /query. Query itself
+is not an index because there is not enough information for the search.
+The user is given a list of choices pointing to nodes named /query/GH
+etc.<P>
+This is a straightforward selection. Once he has selected GH, for
+example, he can now be given BOTH the option of searching at that
+poin, and ALSO links to modified searches:
+<DL>
+<DT>/query/GH+LU
+<DD>Also search LU. An almost identical will be displayed,
+but instead of the links to "Also serach LU" there will be one to
+"Don't search LU", a link back to /query/GH
+<DT>/query/GH+OL
+<DD>Also search OL. As above but for LU read OL. And so on.
+</DL>
+There ar e19 of these links, which basically allow him to toggle on
+or off the 19 groups in the list.  If 19 is too many, you could route
+him through a single option "Add/remove groups" called say /query/GH+LU/CHANGE
+but that would make the selection process slower. With direct links,
+the result will look very much like pressing radio buttons, in that
+clicking on an option should immediately present him with a page with
+that one option toggled. <P>
+There are also links to select at the next level down. leading to
+pages:
+<DL>
+<DT>/query/GH/Omega
+<DD>Specify a search for Omega.
+<DT>/query/GH/Omega2250
+<DD>Specify a search for Omega(2250). (etc)
+</DL>
+Suppose the user follows GH first, then BB and end up in /query/GH+BB.
+He then follows Omega and then lambda to end up at /query/GH+BB/Omega+Lambda.
+ He still has 19 links to toggle particle classes, 4 links to toggle
+particles, but he now has also 6 links to select what sort of data
+he wants returned. he ends up with a node looking like<P>
+/query/GH+BB/Omega+Lambda/H+D<P>
+Which means that he wants all all header and decay data for the Omega
+and Lambda particles.  That document could be just a menu, with a
+(prominent) link to the data itself, or it could contain the data
+itself.
+<H2>Holding back the data</H2>If your search is fast, then you might want to do it every time. If
+it is slow, you might want to make sure the user has the query absolutely
+right, and then follows a link to the actual data.  If you can mention
+how many lines of data he will get, then that might be useful information
+to include in the link:<P>
+<A NAME=6 HREF=Example3/Results.html>Review Results (12367 lines)</A><P>
+will make him pause and save some network traffic! (The link there
+is dummy).
+<H2>Line mode and the text input altrenative</H2>It is true that with the line mode browser you have to type in a lot
+of numbers. To ease that, you could set the ISINDEX flag on your documents,
+and allow some sort of text to be typed in by users who know the ropes
+and want to get there fast. You have to pick a syntax which is simple,
+but just toggling any recognizable keywords in the user input would
+work OK in this case. It would allow the person to say
+<XMP>			FIND OMEGA ALL
+
+</XMP>and immediately get something back.  This would allow him to make
+a command line alias forthe PDG data so that if very command-line
+oriented he could type
+<XMP>		alias pdg www http://etce.etc.etc/query
+
+		pdg omega all
+
+</XMP>which would really appeal to a certain set of people (which includes
+me!). Keep this low-profile in parallel with the hypertext method.
+Put a link to the doc on how to use a text search in at least the
+entry page.
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

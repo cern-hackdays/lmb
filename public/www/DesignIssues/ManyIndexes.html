@@ -1,0 +1,57 @@
+<TITLE>ManyIndexes -- /DesignIssues</TITLE>
+<NEXTID 8>
+<H1>Web of Indexes</H1>In <A NAME=4 HREF=../TheProject.html>WWW</A> , an <A NAME=3 HREF=Navigation.html#8>index</A> is a document like any other. An index may be built
+to cover a certain domain of information. For example, at CERN there
+is a <A NAME=1 HREF=http://crnvmc/FIND>CERN computer center document index</A> . There is a separate <A NAME=2 HREF=http://crnvmc/FIND/yellow?>functional
+telephone book index</A> . Indexes may be built by the original information
+provider, or by a third party as a value-added service.<P>
+Indexes  may point to other indexes.  An index search on one index
+may turn up another index in the result hit list.  In this case, the
+following algorithm seems appropriate.
+<H2>Index context</H2>Most index searches nowadays, though some look like intelligent semantically
+aware searches, are basically associative keyword searches.  That
+is, a document matches a search if there is a large correlation (with
+or without boolean operations) between the set of words it or its
+abstract contains and the set of words specified in the search. Let
+us consider extending these searches to linked indexes.<P>
+Each index has a certain context. This may be represented by a set
+of keywords which may be considered to apply implicitly to everything
+indexed. For example,  in the CERN computer center documentation index,
+one may imagine that everything in it will be considered as pertaining
+to the CERN computer center. We might represent the context by the
+keyword list "CERN computer center documentation physics support".
+<H2>Context narrowing</H2>Suppose we search a general physics index with the keywords "CERN
+NEWSLETTER".  That index may contain an entry with keyword "CERN"
+pointing to the CERN index.  Therefore, a search on the first index
+will turn up the CERN index. We should then search the CERN index,
+but looking only for the keyword "NEWSLETTER". The keyword "CERN"
+is discarded, as it is assumed by the new context.  In this simple
+model, we can assume that the contextwords could be used directly
+as the keywords for the index itself.<P>
+A simple algorithm, then, would be for the server to discard from
+a search list any keywords matching the index's context -- but is
+this really what we want to do?  Perhaps those keywords have a more
+refined meaning within the context. For example, if I am looking for
+documents about document storage schemes at CERN, I might search the
+index with the keyword "documents".  I don't want this to be discarded
+because it is in the context: I am looking for documents about documents.
+It is understood that we are already within the context of computer
+center documentation, so to ask about documentation in this context
+implies more than that I am looking for a document.<P>
+A more refined approach would therefore be to strip from the search
+those keywords which were used in order to find the index. The keyword
+list for the entry of one index within anotherthen reflects the change
+in context. 
+<H2>Context Broadening</H2>We have discussed here only a narrowing of context, not a broadening.
+One can imagine also a reference to a broader context index. In this
+case, perhaps one should add to the search some keywords which come
+from the original context but were not expressed.  This would be dangerous,
+and people would not like it as they often feel that they are expressing
+their request in absolute terms even when they are not. Also, they
+may have been trying to escape from too restricing a context.<P>
+One should also consider a search which <A NAME=7 HREF=TracingLinks.html>traces hypertext links</A> as
+well as using indexes.<P>
+See also: <A NAME=6 HREF=Navigation.html>Navigational techniques</A> ,  <A NAME=5 HREF=../../Conferences/ECHT90/HTandIR.html>Hypertext and IR</A> , <P>
+ _________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

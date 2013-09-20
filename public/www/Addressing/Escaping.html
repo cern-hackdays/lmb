@@ -1,0 +1,19 @@
+<TITLE>Escaping -- /Addressing</TITLE>
+<NEXTID 3>
+<H1>Escaping illegal characters</H1>The W3 address <A NAME=1 HREF=Addressing.html>syntax</A> allows a <A NAME=2 HREF=BNF.html#9>path</A> to contain most printable ASCII
+characters, but some are inevitably used for punctuation are excluded.
+W3 addresses are sometimes used to represent addresses in some other
+space. This happens when an HTTP server, for example, uses file names
+as its document names, or when addresses from some other protocol
+(Gopher, WAIS, etc) are mapped into the W3 web.<P>
+In these cases, a convention is normally used to map illegal characters
+in these "foreign" names onto the allowed set.<P>
+In the case of an HTTP server,  any mapping may be used.<P>
+A suitable convention is that a percent sign (%) followed by two hexadecimal
+digits (0-9 or a-f)  stands for the single character with ASCII hexadecimal
+code represented by those two digits (Most significant digit first).<P>
+A percent sign itself must therefore be represented by %25, as 25
+hex is the ASCII code for "%".<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

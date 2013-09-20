@@ -1,0 +1,122 @@
+<TITLE>Hypertext Terms</TITLE>
+<NEXTID 62>
+<H1>Hypertext Terms</H1>This is a glossary of terms used within the <A NAME=0 HREF=TheProject.html>WWW</A> project. In most cases,
+their use corresponds to converntional use in hypertext circles.
+<DL>
+<DT><A NAME=anchor>Anchor</A>
+<DD> An area within a the content of a <A NAME=1 HREF=#node>node</A> which is the source
+or destination of a <A NAME=2 HREF=#link>link</A> . The anchor may be the whole of the node
+content. Typically, clicking a mouse on an anchor area causes the
+link to be followed, leaving the anchor at the opposite end of the
+link displayed. Anchors tend to be highlighted in a special way (always,
+or when the mouse is over them), or represented by a special symbol.
+An anchor may, and often does, correspond to the whole node. (also
+sometimes known as "span", "region", "button", or "extent").
+<DT><A NAME=annotation>Annotation</A>
+<DD> The linking of a new commentary <A NAME=3 HREF=#node>node</A> to an existing node.
+If readers can annotate nodes, then they can immediately provide feedback
+if the information is misleading, out of date or plain wrong. Thus
+the quality of the information in the <A NAME=4 HREF=#web>web</A> can be improved. <A NAME=47 HREF=DesignIssues/Multiuser.html#2>(More...)</A>
+<DT><A NAME=authoring>Authoring</A>
+<DD> A term for the process of writing a document. "Authoring"
+seems to have come into use in order to emphasise that document production
+involved more than just writing.
+<DT><A NAME=59>Back link</A>
+<DD>A link in one direction implied from the existence of an
+explicit limk in the other direction. See: <A NAME=61 HREF=DesignIssues/BuildingBackLinks.html>Building back-links</A>
+<DT><A NAME=browser>Browser</A>
+<DD> A program which allows a <A NAME=5 HREF=#reader>person</A> to read<A NAME=6 HREF=#hypertext> hypertext</A> . The browser
+gives some means of viewing the contents of <A NAME=7 HREF=#node>nodes</A> , and of <A NAME=8 HREF=#navigation>navigating</A>
+from one node to another.
+<DT>Button
+<DD> An <A NAME=9 HREF=#anchor>anchor</A> which is the source of a <A NAME=10 HREF=#link>link</A> . Often, but not always,
+represented on screen to look like a push-button.
+<DT><A NAME=card>Card</A>
+<DD> An alternative term for a <A NAME=11 HREF=#node>node</A> in a system (e.g. HyperCard, Notecards)
+in which the node size is limited to a single page of a limited size.
+<DT><A NAME=client>Client</A>
+<DD> A program which requests services of another program. Normally,
+the <A NAME=12 HREF=#browser>browser</A> is a client of a data server.
+<DT><A NAME=database>Database</A>
+<DD> We have used this vaguely as a term for a collection of <A NAME=13 HREF=#node>nodes</A>
+. We imagine management information for one of these being kept in
+one place and all being accessible by the same <A NAME=14 HREF=#server>server</A> . <A NAME=15 HREF=#link>Links</A> outside
+this are "external", and those inside are "internal". We do not imply
+anything about how the information shored be stored.
+<DT><A NAME=daemon>Daemon</A>
+<DD> A program which runs independently of, for example the <A NAME=16 HREF=#browser>browser</A>
+. Daemons may perform various management tasks such as <A NAME=58 HREF=DesignIssues/Navigation.html#9>building indexes</A>,
+overviews, and <A NAME=60 HREF=#59>back-links</A>. Under unix, "daemon" is used for "<A NAME=56 HREF=#server> server</A>
+", because servers normally run independently.
+<DT><A NAME=Document>Document</A>
+<DD> A term for a <A NAME=17 HREF=#node>node</A> on some systems (eg Intermedia). Sometimes
+used by others as a term for a collection of nodes on related topics,
+possible stored or distributed as one. The prefered term in W3 documentation.
+<DT><A NAME=domain>Domain</A>
+<DD> We have used this specifically for a unit of protection. It
+could possibly correspond to a <A NAME=18 HREF=#database>database</A> , and in that case would be
+a better (less vague) term for it.
+<DT>External
+<DD> A <A NAME=19 HREF=#link>link</A> to a <A NAME=20 HREF=#node>node</A> in a different database. See <A NAME=21 HREF=#database>Database</A>
+<DT>Host
+<DD> A computer on a network.  We use this term rather than the term
+"<A NAME=53 HREF=#node> node</A> " which is often used for a document in a hypertext <A NAME=52 HREF=#web>web</A> .
+<DT><A NAME=hypermedia>Hypermedia</A>
+<DD> MultiMedia <A NAME=22 HREF=#hypertext>Hypertext</A> . HyperMedia and HyperText tend to
+be used loosely in place of each other. Media other than text typically
+include graphics, sound, and video.<A NAME=23 HREF=WhatIs.html> (More...)</A>
+<DT><A NAME=hypertext>Hypertext</A>
+<DD> Text which is not constrained to be linear. <A NAME=24 HREF=WhatIs.html>(More...)</A>
+<DT><A NAME=index>Index</A>
+<DD> Something which points at other data; a server facility which
+provides pointers to particular data as a function of a query; a table
+of contents of a book in hypertext form. (<A NAME=55 HREF=DesignIssues/WhatIsAnIndex.html> More</A> ).
+<DT><A NAME=internal>Internal</A>
+<DD> A <A NAME=25 HREF=#link>link</A> to a <A NAME=26 HREF=#node>node</A> in the same <A NAME=27 HREF=#database>database</A> . See <A NAME=28 HREF=#database>database</A> .
+<DT><A NAME=link>Link</A>
+<DD> A relationship between two <A NAME=29 HREF=#anchor>anchors</A> , stored in the same or different<A NAME=30 HREF=#database>
+database</A> . See <A NAME=31 HREF=#internal>"Internal"</A> and <A NAME=32 HREF=external>"External"</A> .
+<DT><A NAME=navigation>Navigation</A>
+<DD> The process of moving from one <A NAME=33 HREF=#node>node</A> to another through
+the hypertext<A NAME=34 HREF=#web> web</A> . This is normally done by following <A NAME=35 HREF=#link>links</A> . Various
+features of a particular <A NAME=36 HREF=#browser>browser</A> may make this easier. These include
+keeping a history of where the user has been, and drawing diagrams
+of links between nearby nodes. <A NAME=45 HREF=DesignIssues/Navigation.html>(More...)</A>
+<DT><A NAME=node>Node</A>
+<DD> A unit of information. Also known as a frame (KMS), card (Hypercard,
+Notecards).  Used with this special meaning in hypertext circles:
+do not confuse with "node" meaning "network host".  For user's benefits,
+we use the term "<A NAME=54 HREF=#Document> document</A> " as this is the nearest term outside the
+hypertext world.
+<DT>Protection
+<DD> The prevention of unauthorized users from reading, or writing,
+a particular piece of data. Also known as "authentication", "access
+control", etc.  <A NAME=48 HREF=DesignIssues/Multiuser.html#1>(More...)</A>
+<DT><A NAME=path>Path</A>
+<DD> An ordered set of nodes or anchors which represent a sequence
+in which a<A NAME=37 HREF=#web> web</A> can be read. A path may represent the sequence a reader
+actually used, or may be a sequence recommened to the reader by the
+author.
+<DT><A NAME=reader>Reader</A>
+<DD> We have used this term for the person who browses, to distinguish
+him/her from the program (<A NAME=38 HREF=#browser> browser</A> ) which (s)he uses.
+<DT><A NAME=server>Server</A>
+<DD> A program which provides a service to another, known as the<A NAME=39 HREF=#client>
+client</A> . In a <A NAME=40 HREF=#hypertext>hypertext</A> system, a server will provide hypertext information
+to a <A NAME=41 HREF=#browser>browser</A> . See also: <A NAME=57 HREF=#daemon>daemon</A> .
+<DT>Tracing
+<DD> The automatic finding of nodes by automatic <A NAME=42 HREF=#navigation>navigation</A> . Examples
+might be finding all nodes dependent on another node, all people interested
+in a given node, all modules which use a given module. Another example
+is a trace starting with more than one node, such as to find a node
+in common between two groups, or path linking two nodes.
+<DT><A NAME=50>Topology</A>
+<DD> The allowable connectivity between nodes, anchors and links:
+for example, 1-1 or many-1 mappings.<A NAME=49 HREF=DesignIssues/Topology.html> (More...)</A>
+<DT><A NAME=versioning>Versioning</A>
+<DD> The storage and management of previous versions of a piece
+of information, for security, diagnostics, and interest. This is important
+when many users are allowed to edit the same material. <A NAME=46 HREF=DesignIssues/Versioning.html>(More...)</A>
+<DT><A NAME=web>Web</A>
+<DD> A set of <A NAME=43 HREF=#node>nodes</A> interconnected by <A NAME=44 HREF=#link>links</A> . Often, the set of all
+the nodes which are interconnected. See also <A NAME=51 HREF=#50>Topology</A> .

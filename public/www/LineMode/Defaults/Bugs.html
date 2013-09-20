@@ -1,0 +1,91 @@
+<TITLE>Line Mode Browser bugs</TITLE>
+<NEXTID 7>
+<H1>Bugs, and Improvements needed</H1>The following are known bugs in the<A NAME=5 HREF=QuickGuide.html> line-mode browser</A> , and improvements
+which we have in mind. See also the list of<A NAME=4 HREF=Features.html> features added.</A><P>
+ 
+<H2>Known Bugs</H2>Spacing is not very intelligent around anchors.<P>
+Telnet problem:  If one visits a telnet node and then revisits it,
+an empty page is displayed.<P>
+When saving a file with ">", should ask confirmation if the file already
+exists.
+<H2>Improvements for the near future</H2>Paragraph numbering option (Gene Oleynik, Oleynik@fndaut.fnal.gov)
+for long documents or serialisations.<P>
+Style sheet load from disk.<P>
+A command line option to print out the version of the software. Currently
+one has to start it and type "help". (--JP Matheys)<P>
+While connecting, if timeout is long, how can we make it less painful
+for the user -- if necessary in a non-portable way? Variation of "Connect"
+whih displays a message? Allow user to quit or keep trying? Change
+the underlying timeout?<P>
+Should we always put a CR/LF after the prompt, to allow a long list
+of keywords (Peter Dobberstein and DESY colleagues: yes)? Advantage:
+one can always type in many keywords. Disadvantage: one less line
+of text on the screen. The NEWLINE_PROMPT compile switch lets you
+choose.<P>
+Better error reporting. Difficult when many possible paths have been
+tried. Save log of attempts? Portability of error message generation?<P>
+Command: Append to a given file a hypertext reference to the document.<P>
+In UNIX a document address given as a command line argument is parsed
+relative to the current directory.  A similar thing needs to be applied
+for VMS and MVS environments.<P>
+Keep all anchor information, in case user returns to a previous node,
+then the information is automatically available.<P>
+Try to use ^z key and predefined keys like F10 to exit from the program
+under VMS.<P>
+Ask user about strange formats. Unable to deal with anything other
+than HTML and plaintext files (now just displays it as plaintext).
+Offer to display it as plaintext, store the file somewhere, or print
+out on a default printer.<P>
+Create a new tag  
+<XMP>
+            <OUTLINE> and </OUTLINE>.
+
+</XMP>These are placed around a paragraph and effects any headings contained
+within them, removing all blank lines above and below, and not allowing
+capitalization. Also, maybe use this tag to indicate that the position
+of the anchors should be at the start of the line, in front of the
+sensitive text.<P>
+Compare LineMode Parser and the NeXT Parser, and produce with a common
+module that can be used by both browsers, and maybe for the Mac version
+aswell.  Also will provide access to the Internet News.
+<H2>Other Improvements</H2>Pick up the size of a file before trying to store in a buffer. If
+too large only read in part of the file, and then only call up the
+file again if the user requires more data. For example in the case
+of  'http://crnvmc/FIND/DESY?NNEWS8' and then reference number [3].<P>
+If the user needs to print out documents when following links, instead
+of inserting anchor numbers, insert page numbers of the destination
+nodes, as they would appear in the printed document. Do this by first
+following the links with no output on the screen, reading all the
+files into the buffer and calculating the page numbers. Then go through
+the path again, with output directed to the printer, inserting the
+correspondng page numbers rather than the anchor numbers.<P>
+Apply glossary first line indent code to produce ordered lists.<P>
+Deal with lists within lists.<P>
+At the end of a document, produce the last page if the user presses
+return.<P>
+Put some form of paging into reference and recall lists.<P>
+Offer a no blank line spacing option. User defined style sheet?<P>
+Use cursor functions (termcap or curses).<P>
+Change code to look like a 'more' or 'less' program. Public copies
+of this program may be available from Antonio Pastore or Roberto Divia.<P>
+Offer some kind of editing of the style sheet to the user.
+<H2>Users Comments</H2>Highlight headings.<P>
+Maybe move anchor numbers to the left hand side, rather than after
+the sensitive text. (Not really a good idea with VMNEWS or YELLOW
+PAGES because the anchors will be next to other numbers and may look
+confusing). If numbers are going to be left justified and the anchor
+text is in a heading, maybe rewrite the HTML as follows to indicate
+the change in the position of the anchor numbers. Where we use now
+<XMP>          <H2><A HREF=.....>......</A></H2>
+
+</XMP>we could use
+<XMP>          <H2 HREF=.......>.....</H2>.
+
+</XMP>In YELLOW PAGES, when looking to find out more details of a number
+of a person by selecting the anchor, the number does not go through
+with it. Maybe invent a new tag which tells the parser to take the
+sensitive text through with it to the top of the next document or
+maybe Bernd should change the files.<P>
+Be careful of keyword searches inside FIND as they can be confusing
+as to whether the search is the whole of FIND or just a sub-section
+of it.</A>

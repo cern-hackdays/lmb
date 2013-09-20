@@ -1,0 +1,78 @@
+<TITLE>Hypertext Markup Language</TITLE>
+
+<H1>HyperText Markup Language</H1>
+
+<H2>A Language for Transmission of Global Hyperdocuments.</H2>
+
+<H3>Abstract</H3>
+
+The World Wide Web project involves the processing of structured
+hypertext documents by diverse systems around the globe. The hypertext
+documents are represented as marked up text.<P>
+
+<H2>Specification</H2>
+
+The HyperText Markup Language is defined in terms of the ISO
+8879:1986, Standard Generalized Markup Language (SGML). The <A NAME=id8
+HREF="html.dtd">SGML declaration and document type definition </A>
+specify the syntax and structure of HTML.
+<P>
+
+<H2>Implementors' Guide</H2>
+
+This is intended as an introduction to the language and a guide to
+implementors. It does not comprise an integral part of the HTML
+specification.
+<P>
+
+<H3>Introduction</H3>
+
+<A HREF="Text.html">Text and Markup</A> is an introduction to SGML
+text and markup as it applies to HTML. It should prepare you to read
+<A NAME=id10 HREF="html.dtd" content-type="text/plain">the DTD</A>.
+<P>
+
+<H3>HTML by Example</H3>
+
+The following sections describe the HyperText Markup language by
+example. They are organized in order of complexity, both for the human
+reader and the SGML processing application.
+<P>
+
+<DL>
+<DT><A NAME=id2 HREF="recommended.html">Recommended</A>
+<DD>Examples of how to write HTML that won't stress
+the processing software. Some things can't be done
+this way.
+
+<DT><A NAME=id3 HREF="complete.html">Complete</A>
+<DD>Examples of all the constructs necessary to
+produce HTML documents.
+
+<DT><A NAME=id4 HREF="tolerated.html">Tolerated</A>
+<DD>Examples of illegal constructs that are supported
+for historical reasons.
+
+<DT><A NAME=id6 HREF="deprecated.html">Deprecated</A>
+<DD>Some quirks; these are legal SGML,
+but they are likely to break existing implementations (including
+the sample).
+
+<DT><A NAME=id7 HREF="errors.html">Errors</A>
+
+<DD>These are just plain broken. Implementors should use
+these to bullet-proof their code.
+
+</DL>
+
+<H2>A Partial Implementation</H2>
+
+The <A NAME=id11 HREF="libHTML.tar.Z"
+content-type="application/octet-stream">libHTML software
+distribution</A> provides the primitive SGML reading functions that
+you can use to build a conforming implementation.<P>
+
+This software is written in ANSI C (with some accomodataions for
+K&amp;R compilers). It supports the lexical constructs demonstrated in
+<A NAME=id12 HREF="supported.html">HTML Extremes</A>.
+

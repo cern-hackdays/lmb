@@ -1,0 +1,29 @@
+<TITLE>HyperText Design Issues: Versioning</TITLE>
+<NEXTID 5>
+<H1>Versioning</H1>Definition: The storage and management of previous copies of a piece
+of information, for security, diagnostics, and interest.<P>
+Do you want version control?<P>
+Can you reference a version only?<P>
+If you refer to a particular place in a node, how does one follow
+it in a new version, if that place ceases to exist?<P>
+(ªPeter Aiken is the expert in this areaº - Tim Oren, Apple)<P>
+Yes, at CERN we will want versioning. Very often one wants to correct
+a news item, even one of limited life, without reissuing it. This
+is a problem with VAX/NOTES for example. I would suggest that the
+text for the current version is stored, and separately those modifications
+necessary to backtrack to previous versions. I would expect previous
+versions to be regenerated only on the fly, as needed. (Apparaently
+SCCS stores the original file and the differences. This system does
+allow you to ditsribute the differences when updating copies.)<P>
+If full differences (deltas) are kept, the first version is just the
+first delta from a null document. The latest version is not available
+without regenerating it from all the deltas.  For speed, it is obviously
+useful to <A NAME=3>keep a copy</A> of the latest version  (see <A NAME=2 HREF=Caching.html>caching</A> ).<P>
+Versioning is necessary for accountability  (--David Durand, dgd@cs.bu.edu).
+If an author is to be accountable for information published, it should
+be possible to demonstrate later what he wrote, even if he has later
+changed it.<P>
+A WWW server may provide versioning, by allowing links between a document
+version and its previou and succesive versions. This would be a good
+use of <A NAME=1 HREF=LinkTypes.html#1>link typing</A> .<P>
+Keeping track of versions allows one solution to the <A NAME=4 HREF=Annotation.html>annotation problem</A>.

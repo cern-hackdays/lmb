@@ -1,0 +1,22 @@
+<TITLE>Bugs -- VMS Help server</TITLE>
+<NEXTID 2>
+<H1>VMS Help server Bugs</H1>
+This is a list of known bugs and desired improvements. Don't let it shrink too
+fast : send your bug reports and suggestions to
+<A NAME=1 HREF=../People.html#groff>Jean-Francois Groff</A> (jfg@cernvax.cern.ch).
+<UL>
+<LI>The keyword search works fine on any number of levels down, but then the
+generic daemon doesn't know how deep the server went, so anchor names lack the
+intermediate levels. Solution : generate anchor names relative to the input path
+(before '?').
+<LI>DANGER : Attempts to access VMS topics with a weird name like ":=" will
+crash the server because VMS will try to create a .HLP file with an invalid file
+specification due to these special characters. Solution : Make a good escaping
+system (that works with VMS and Un*x styles as well). Crude and bulletproof
+solution : Ignore any offending topic name !
+<LI>Reference to another help library through @ will only search SYS$HELP
+for the corresponding .HLB file.
+<LI>We need an overview page that lists all help libraries available.
+</UL>__________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>JFG</A></A>
+</ADDRESS>

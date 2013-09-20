@@ -1,0 +1,30 @@
+<TITLE>Shortcuts -- /LineMode</TITLE>
+<NEXTID 6>
+<H1>Shortcuts</H1>To save having always to go through the <A NAME=1 HREF=QuickGuide.html>www</A> default page, you can
+use a shortcut to get to an index. On the central CERN nodes for example,
+the following shell commands are predefined:
+<DL>
+<DT>yellow
+<DD> The CERN yellow pages telephone directory.
+<DT>xfind
+<DD> The CERN computer center documentation keyword index
+<DT>vmnews
+<DD> The CERN computer centre news service: all news articles, in
+reverse chronological order.
+</DL>
+You can search an index which has a shortcut command by giving the
+keywords as parameters, e.g.
+<XMP>
+			yellow taxes
+
+
+</XMP>To make your own shortcuts, you can define your own commands. On Unix
+(with csh), use an alias (see <A NAME=2 HREF=VMS_Shortcuts.html>VMS equivalent</A> ) :
+<XMP>
+			alias  z  www  address
+
+</XMP>where address is the hypertext address of the document you want to
+jump into. You can find the hypertext address of a node from <A NAME=5 HREF=Commands.html#8>HELP</A><A NAME=3 HREF=Commands.html#2>
+</A>command when you are in www.<P>
+An alternative method uses a shell script.
+<ADDRESS><A NAME=0 HREF=../../../WWW/disclaimer.html>Tim BL</A>

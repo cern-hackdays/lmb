@@ -1,0 +1,124 @@
+<TITLE>Using the WWW Mail Robot</TITLE>
+<NEXTID 1>
+<H1>Using the W3 mailing robot</H1><A NAME=0 HREF=Overview.html>This robot</A> maintains the W3 mailing lists, and allows W3 documents
+to be retrieved on request.<P>
+You can subscribe or unsubscribe to any of the various WWW mailing
+lists by sending email to the robot "listserv@info.cern.ch" -- see
+the commands listed below.<P>
+If you have any problems, requests or questions for a human being,
+mail "www-request@info.cern.ch". Lists are:
+<DL>
+<DT>www-announce
+<DD> Anyone interested in WWW, who would like information
+about new releases or new online data available. Please refrain from
+posting administrivia to this large list !
+<DT>www-talk
+<DD> Developers of WWW code, or those interested in discussions
+of technical details
+</DL>
+You can also find information on WWW (as well as many other things!)
+by telnetting to info.cern.ch (no username, no password).<P>
+If you want to pick up the WWW software, then use anonymous FTP to
+info.cern.ch and look in directory /pub/www. Subdirectories are src
+for the latest source packages, bin for executables for various machines,
+doc for "paper copies" of articles on WWW in PostScript and ASCII
+forms, and also the "WWW book" which is a compendium of the hypertext
+documentation of the project. To read the latest documentation, use
+WWW !
+<H2>Commands</H2>The commands understood by the listserv program are:
+<DL>
+<DT>HELP
+<DD> lists this file.  This is also sent whenever a message to listserv
+is received from which no valid command could be parsed.
+<DT>HELP groupname
+<DD> lists a brief description of the group requested.
+<DT>ADD listname
+<DD> Add yourself to the list
+<DT>DELETE listname
+<DD> take yourself off the list
+<DT>ADD address listname
+<DD> Add yourself with a given mail address to the
+given list. The address must not contain spaces!
+<DT>DELETE address listname
+<DD> Remove the given name from the given list.
+For all ADD/DELETE commands, mail is sent to the address given to
+confirm the add or delete operation.
+<DT>SEND document-address
+<DD> returns a document with the requested W3 address.
+<DT>STOP
+<DD> Stop processing requests: ignore the rest of the message. Needed
+if you send a signature on the end of your message (or if some gateway
+adds one). If in doubt, use it.
+</DL>
+A command must be the first word on each line in the message.  Lines
+which do not start with a command word are ignored.  If no commands
+were found in the entire message, this help file will be returned
+to you. A single message may contain multiple commands; a separate
+response will be sent for each.
+<H3>Examples</H3>
+<XMP>
+	add www-announce
+
+	add me@host.uni.edu www-announce
+
+	delete me@host.uni.edu www-talk
+	
+	send http://info.cern.ch/hypertext/DataSources/bySubject/Overview.html
+
+</XMP>
+<H2>Subscription</H2>If you are not sending mail from your preferred mail address, then
+you can use the second form of the command to give your mail address.
+If you are not on the internet, please convert your address into arpa
+stye. (For example, UK users please use international ordering joe@host.ac.uk)
+Just speficy the mailbox, without any spaces.<P>
+If you omit the 'address' the command will assume the mailbox that
+is in the From: line of the message.  Note that SUBSCRIBE is a synonym
+for ADD; UNSUBSCRIBE for DELETE.<P>
+Please note that is IS possible to add or delete someone else's subscription
+to a mailing list.  This facility is provided so that subscribers
+may alter their own subscriptions from a new or different computer
+account.  There is therefore some potential for abuse; we have chosen
+to limit this by mailing a confirmation notification of any addition
+or deletion to the address added or deleted including a copy of the
+message which requested the operation.  At least you can find out
+who's doing it to you.<P>
+Note that although you would mail submissions to a mailing list by
+addressing mail to e.g., www-talk@info.cern.ch, in a subscription
+request you specify the name of the list simply (without the @hostname
+part) as in the first example above.
+<H2>Retrieving documents</H2>The SEND command (or the WWW command which is equivalent) returns
+the document with the given W3 address, subject to certain restrictions.
+Hypertext documents are formatted to 72 character width, with links
+numbered. A separate list at the end gives the document-addresses
+of the related documents.<P>
+If the document is hypertext, it links will be marked by numbers in
+brackets, and a list of document addresses by number will be appended
+to the message. In this way, you can navigate through the web, albeit
+only at mail speed.<P>
+If you don't know where to start, try asking for one of
+<XMP>
+ http://info.cern.ch./hypertext/DataSources/bySubject/Overview.html
+ http://info.cern.ch./hypertext/DataSources/bySubject/Physics/HEP.html
+ http://info.cern.ch./hypertext/WWW/TheProject.html
+
+</XMP>for lists of futher pointers.
+<H2>CAUTIONARY NOTE</H2>As the robot gives potential mail access to a *vast* amount of information,
+we must emphasise that the service should not be abused. Examples
+of appropriate use would be:
+<UL>
+<LI>Accessing any information about W3 itself;
+<LI>Accessing any CERN and/or physics-related or network development related
+information;
+</UL>Examples of INappropriate use would be:
+<UL>
+<LI>Attempting to retrieve binaries or .tar files or anything more than
+directory listsings or short ASCCII files from FTP archive sites;
+<LI>Reading internet newsgroups which your site doesn't take;
+<LI>Repeated automatic use;
+</UL>There is currently a 1000 line limit on any returned file. We don't
+want to overload other people's mail relays or our server. We reserve
+the right to withdraw the service at any time. We are currently monitoring
+all use of the server, so your reading will not initially enjoy privacy.
+End of cautionary note.<P>
+Enjoy!
+<ADDRESS>The W3 team at CERN  (www-bug@info.cern.ch)

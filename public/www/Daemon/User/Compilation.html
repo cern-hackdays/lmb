@@ -1,0 +1,14 @@
+<TITLE>Installation -- /User</TITLE>
+<NEXTID 7>
+<H1>Compiling httpd</H1>The <A NAME=5 HREF=Guide.html>daemon</A> files come in a tar file, which you should uncompress and
+unwrap.   There are also binaries available for some architecures:
+if you have one, already, skip to <A NAME=6 HREF=Installation.html>installation</A>.<P>
+In the WWW/Daemon/Implementation directory created are several subdirectories,
+for each machine architecture.  Each has a Makefile. If your machine
+type (eg sun4, NeXT) is not there, copy one that is and its Makefile.<P>
+Edit the Makefile to set up particular paths you use on your system.<P>
+Type make httpd<P>
+Go on to <A NAME=4 HREF=Installation.html>install the deamon</A> under the inetd or in /etc/rc to run continuously.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../../TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

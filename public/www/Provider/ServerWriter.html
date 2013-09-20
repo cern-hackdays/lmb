@@ -1,0 +1,62 @@
+<TITLE>ServerWriter -- /Provider</TITLE>
+<NEXTID 5>
+<H1>Making a server</H1>Here is a run-through of what is needed to make a <A NAME=3 HREF=Overview.html>www server</A> , with
+examples from a suggested server for the HEPDATA base of <A NAME=1 HREF=http://crnvmc.cern.ch./WHO/S=WHALLEY;G=M.R.;OU=PPE;PH=4869;>Mike Whalley</A>
+. See also <A NAME=2 HREF=Etiquette.html>etiquette</A> .<P>
+Basically, to make the data available, you make a server which is
+a modified version of your program. When a user follows a link to
+HEPDATA (or runs a command to jump straight there), the client program
+opens a connection to a server program on a VM machine (say, but could
+be VMS or unix). The server in turn runs your program.<P>
+Let me just describe the essence of the changes needed so that you
+can get an idea of how much effort would be involved.<P>
+The first thing you do is to make up an arbitrary naming method for
+anything which HEPDATA can display.  In this I include the welcome
+page, any menu, any article, any help text.  Typically one invents
+a hierarchical naming scheme, like
+<XMP>	/HEPDATA			The first "welcome" menu
+	/HEPDATA/HELP			The top-level help
+
+	/HEPDATA/HELP/REAC		The help on the reaction database.
+
+	/HEPDATA/REAC			The reaction database itself
+
+	/HEPDATA/REAC?P+PBAR		list of reactions involving p and pbar (?)
+
+	/HEPDATA/DATA/RD125V687		Some article (say).
+
+</XMP>You do this because, whereas an interactive user follows a path through
+the program, the W3 user calls the program once for each thing. There
+is no "state" information. This allows one to make a hypertext link
+to any part of the scheme and jump back in again later. For example,
+one might want to quote an article, or the reaction database, or a
+particular list of reactions.<P>
+Now all you do is modify the program so that, given a name above,
+it will<P>
+return the required document.  This means basically turning it from
+a sequence the user goes through into a set of conditionals to isolate
+each of the individual cases above. Apart from that, the data retrieval
+code is unchanged apart from the output formatting.  Many of the options
+in fact mean mapping the name onto a fixed<P>
+file's name its the searches which have to activate real code.<P>
+The hypertext trick you need to use in the menus. Where an option
+is normally output to the screen, you have to tell the client what
+to ask for is the user selects that option. For example, in the main
+menu /HEPDATA you have an option which gives the help. You would represnt
+this "anchor" as<A NAME=4 HREF=/HEPDATA/HELP> Help </A>"Help" is all that is displayed, with some indication
+that it is an option. If the user choses (clicks a mouse on, choses
+by number depending on which client he has) then the client asks the
+server for /HEPDATA/HELP. ("A" is for "anchor", "HREF" is for "hypertext
+reference")<P>
+For the index searches, it's as simple. When the server sends the
+text called /HEPDATA/REAC it also sends a special tag . This tells
+the client to enable a FIND command, or find panel etc (depending
+on the client). You don't have to do any human interface work. The
+client automatically comes back with a search coded up in the form
+/HEPDATA/REAC?P+PBAR etc. Your server in turn returns a menu (say)
+with pointers to the data which has been found.<P>
+You can also put some formatting tags (like headings) which will make
+the data look really nice on a window system.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

@@ -1,0 +1,53 @@
+<title>Examples of HTTP daemon rule files</title>
+<h1>Rule file examples</h1>
+A basic <a href=RuleFile.html>rule file</a> for the
+<a href=Guide.html>http daemon</a> might look like this:
+<xmp>
+map    /          /welcome.html
+map    /*         /u/john/public/*
+pass   /u/john/public/*
+fail   *
+</xmp>
+The first line maps the root document onto a specific document
+about the server.
+<p>
+The second line maps all document names onto filenames in a particular
+directory.
+<p>
+The third line allows access to all documenst in that directory.
+<p>
+The fouth line disallows access to all other documents.
+(There won't be in any in this case because of the mapping,
+but its wise to put in for later).
+<h2>Second example</h2>
+<xmp>
+map    /            /tnotes/welcome.html
+map    /tnotes/*    /u/john/public/*
+map    /seminars/*  /u/jane/seminars/*
+pass   /u/john/public/*
+pass   /u/jane/seminars/*.html
+fail   *
+</xmp>
+The first line maps the root document onto a specific document
+about the server. (See <a href=../../Provider/Etiquette.html>etiquette</a>)
+<p>
+The second line maps all document names starting with /tnote/
+onto filenames in a particular where john maintains the
+technical notes. If someone else takes over the technical
+notes, we can change this. Here we are starting to distinguish
+between document names and file names. This can be carried
+much further if necessary, but one level of mapping is
+enough to allow for changes of administration of different areas.
+<p>
+The third line separately maps the seminar information into
+Jane's directory.
+<p>
+The third and forth line enable access to anything in John's "public"
+directory, and any .html file in Jane's "seminar" directory tree.
+Note here that the * maps to any sequence INCLUDING SLASHES
+so all files in any subdirectory of /u/jane/seminars will be
+enabled so long as they end in .html.
+<p>
+The bottom line will pick up for example any attempt to use the
+server to access non-html files in Jane's seminar directory.
+

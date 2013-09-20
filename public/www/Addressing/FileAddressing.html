@@ -1,0 +1,27 @@
+<TITLE>WorldWideWeb Address Formats for Files</TITLE>
+<NEXTID 1>
+<H1>W3 addresses of files</H1>The format of a hypertext reference to a file is an extension of the
+unix naming system. The full explicit format is:<P>
+   file :  //  node /  directories /  name<P>
+The actual protocols used by the client depend on the implementation
+of the browser and the environment. Typically, the browser will check
+to see whether the node is the local node,  or a node for which files
+are available mounted in some form of distributed file system.  If
+neither of these are the case, then the browser may try rpc, anonymous
+FTP or other protocols. 
+<H2>Examples</H2>
+<XMP>
+         file://cernvax.cern.ch/usr/lib/WWW/defaut.html
+
+</XMP>This is a fully qualified file name.
+<XMP>
+         fred.html
+
+</XMP>This <A NAME=0 HREF=Relative.html>relative name</A> , used within a file, will refer to a file of the
+same node and directory as that file, but the name fred.html.
+<H2>Improvements : Directory access</H2>The final file name should be optional. If the address ends with a
+'/', the browser should retrieve the contents of the specified directory
+and generate a page of virtual hypertext pointing to its contents.
+In addition, it could display an information file contained in that
+directory, if any is present. Suggested file names to search for in
+order : README.html, *README*.html, README, *README*, *readme*.</A><P>

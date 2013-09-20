@@ -1,0 +1,22 @@
+<TITLE>HTML Guide: Obscure Usage</TITLE>
+
+<H1>Deprecated Usage</H1>
+
+These SGML constructs are too messy to support even
+in the sample implementation. But they are implemented
+by, for example, the SGMLs parser by James Clark.
+
+It is in direct conflict with the SGML standard not to
+support these, but tough cookies.<P>
+
+newline foo.
+
+marked sections ignore: <![IGNORE[ hideous stuff: </HTML id=#foo> ]]><P>
+
+marked sections cdata: <![CDATA[ hideous stuff: </HTML id=#foo> ]]><P>
+
+
+<dl<dt>untermiated end tag
+<DD>The start tag for this DL element is not terminated. By virtue of
+SHORTTAG YES in the SGML declaration, this is legal.
+</dl>

@@ -1,0 +1,28 @@
+<TITLE>HTML Guide: Error Tests</TITLE>
+
+<H1>Illegal constructs</H1>
+
+These are just plain broken. They're not legal SGML, and
+I don't know of any implementations that support them.
+
+<H2><A NAME=structure>Document structure</A></H2>
+
+Here's <A NAME=id6 HREF="recommended.html">an anchor with a <P>
+
+paragraph break</A> in it.
+
+<H3>broken <H4>headers</H3>
+busted headers</H4>
+
+<H2>Body Elements</H2>
+
+<H3>Anchors</H3>
+
+<A NAME=xyz>Sample anchor</A>
+<A NAME=xyz HREF="#xyz">ID already in use</A>
+
+I think this is a tag, since SHORTTAG YES is in the SGML decl: <>
+<P>
+
+<gggggreeeeeeeeeeeeeeeeaaatbiglongnameofatagthatsreallyjustjunk>
+</foo junk>

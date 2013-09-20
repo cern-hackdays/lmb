@@ -1,0 +1,61 @@
+<HEADER>
+<TITLE>Installing the line mode WWW browser on VM</TITLE>
+<NEXTID N="7">
+</HEADER>
+<BODY>
+<H1>Installing www on VM</H1>This is possible, and has been done
+at CERN and Rutherford labs, for
+example.  However, the latest version
+has probably not been done. Because
+no two VM systems seem to be the
+same, you may have to change things
+in order to find things like libraries
+and standard C header files.<P>
+Here are some files which were used
+during the last port to VM.   The
+C and H files are all the same as
+the unix distribution: take the LineMode
+and Library tar files.<P>
+(If you are at or connected to CERNVM
+you can of course pick up the WWW
+EXEC and WWW MODULE from the public
+disks there.)<P>
+Note that compiling with (DEF(VM,IBM,DEBUG,SHORT_NAMES))
+selects the code options for VM,
+in particular  replaces long identifiers
+which are ambiguous when truncated
+with short identifiers.  Do not worry
+about warnings about truncated identifiers,
+only worry about errors when two
+different identifiers are truncated
+to the same thing.
+<DL>
+<DT><A
+NAME=z4 HREF="WWW.EXEC">WWW EXEC</A>
+<DD> Runs WWW MODULE .
+<DT><A
+NAME=z5 HREF="MAKEW.EXEC">MakeW EXEC</A>
+<DD> Generates the WWW MODULE
+from sources. See note on XA running
+below. 
+</DL>
+
+<H2>Under VM/XA</H2>Andrew Sansum writes, "Well I've
+now got the WWW line mode browser
+going on VM. All it needed were a
+couple of extra options on the CMOD
+command of MAKEW, the AMODE and RMODE
+options allow XA mode to work. The
+RLDSAVE makes the module relocatable
+(at the cost of increased size),
+allowing users to run the module
+who have machines configured differently
+from the machine that built it.
+<PRE>'EXEC CMOD 'sources' (AMODE ANY RMODE ANY RLDSAVE MODNAME' modname
+
+
+
+</PRE>
+<ADDRESS><A
+NAME=0 HREF="http://info.cern.ch./hypertext/TBL_Disclaimer.html">Tim BL</A></A>
+</ADDRESS></BODY>

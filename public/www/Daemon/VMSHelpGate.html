@@ -1,0 +1,38 @@
+<TITLE>VMS Help Gateway -- /Daemon</TITLE>
+<NEXTID 10>
+<H1>Gateway to VMS Help: Internals</H1>These are technical and installation notes about the <A NAME=1 HREF=../VMSHelp/Overview.html>gateway to VMS
+Help</A> . Please send bug reports and suggestions to <A NAME=2 HREF=../People.html#groff>Jean-Francois Groff</A>
+(jfg@cernvax.cern.ch).
+<H2>Sources</H2>The program consists of the generic daemon <A NAME=3 HREF=Implementation/HTDaemon.c>HTDaemon.c</A> , and a special
+function, stored in <A NAME=4 HREF=Implementation/VMSHelpGate.c>VMSHelpGate.c</A> , to retrieve VMS Help data and
+convert it to HTML.
+<H2>Installation</H2>The files you need are as follows. You should customise them, putting
+in your own directory names.:
+<DL>
+<DT><A NAME=7 HREF=Implementation/VMSHelp/launchgate.com>launchgate.com</A>
+<DD>Runs the server as a detached process. Put a call to
+this from your sys$startup procedure, wherever that is. This detaches
+a job to use www_server.com ans input, and a log file as output.
+<DT><A NAME=8 HREF=Implementation/VMSHelp/www_server.com>www_server.com</A>
+<DD>The server command file, a wrapper for the actual server
+executable.  In this file, set the temporary directory for the storage
+of a cache of .HLP files. This file runs the executable.
+<DT><A NAME=9 HREF=Implementation/VMSHelp/test.com>test.com</A>
+<DD>Here is just an example of  a file to build and test the server.
+<DT><A NAME=5 HREF=Implementation/VMSHelp/descrip.mms>descrip.mms</A>
+<DD>This is an MMS file to build the executable. If you don't
+have MMS, you may be able to figure out from loking at it which commands
+you should use.  You can find a machine running MMS and generate the
+equivalent .com files. See comments at the top of this file on how
+to run it.
+</DL>
+The source files and executable .EXE are currently (October 92) available
+on HEP  decnet in vxcrna::disk$d1:[jfg.www...].  Note also you can
+pick up the master sources from dxcern:: automatically by running
+<P>
+MMS /MACRO=(U=DXCERN::).<P>
+If you are not in HEP decnet, you should find the sources in the WWWDaemon_v.vv.tar.Z
+file in the distribution. See the <A NAME=6 HREF=../../README.html>README file</A>.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>JFG</A>
+</ADDRESS>

@@ -1,0 +1,38 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 2>
+<H1>Improvements made to the CERNVM FIND server</H1>In reverse chronological order, these are the improvements which have
+taken place to <A NAME=1 HREF=Overview.html>the FIND server</A> . Changes are made immediately in machine
+SERVUS03 (operating occasionally on port  8000), and later transferred
+to SERVUS02 (operating continually on port 2784).
+<H2>October 1991</H2>
+<UL>
+<LI>Bug fix:Ocasionally the server got into a mode in which it returns
+all blank lines. This bizarre mode is only reset by killing it.
+<LI>CERN phone book (white pages) on line.
+</UL>
+<H2>September 91</H2>
+<UL>
+<LI>Internet node number of client passed to REXX execs as first parameter
+for monitoring (26-Sept-91).
+<LI>Log file introduced as in normal daemon.
+<LI>Bug fix:  A file containing a line consisting of just  slash followed
+by asterisk put the server into a weird mode in which everything was
+returned as a sequence of blank lines. (A crazy facet of the IBM C
+runtime library in which /* was interpreted as eond of file! ) (24
+Sep 91)
+<LI>Title added (in C) to seach result virtual documents.	
+</UL>
+<H2>End Mar 91</H2>
+<UL>
+<LI>Bug fix: Anchors which do not go anywhere are no longer generated.
+<LI>Bug fix: If nothing is found, a message to that effect is generated,
+not an acess error message.
+</UL>
+<H2>11 Feb 91</H2>
+<UL>
+<LI>The Yellow pages information and NEWS information has been added.
+<LI>The format has been changed to use heading tags instead of glossary
+tags.
+</UL>__________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

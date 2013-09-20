@@ -1,0 +1,35 @@
+<TITLE>Anchors -- /Architecture</TITLE>
+<NEXTID 5>
+<H1>Anchors</H1>Anchors represent parts of graphic objects which may be the sources
+or destinations of links. Here follows a general description of thir
+implementation in the <A NAME=2 HREF=BrowserOverview.html>WWW architecure</A>. (See <A NAME=3 HREF=../Terms.html#anchor>definition</A>)<P>
+An anchor be the source of no, one, or many <A NAME=4 HREF=../Terms.html#link>links</A>. It has one "main"
+link for the (common) case in which it is the source for one link.
+(In the w3 software, only the main link is normally used - jan 92)<P>
+An anchor may be the destination of no, one, or many links.  The anchor
+module stores all links known by the program, and so in fact manages
+a copy of a small part of the web.<P>
+There are two types of anchors: Parenet anchors and child anchors.
+<H2>Parent anchors</H2>These represent whole documents.  Every <A NAME=1 HREF=BrowserOverview.html#14>graphic object</A> has an associated
+parent anchor. Associated with a parent anchor is data including:
+<UL>
+<LI>The title of the associated document, if known. This allows the document's
+title to be displayed in lists of previous nodes visited,  etc., even
+when the document itself has been freed.
+<LI>A flag as to whether the document is an index.
+<LI>The address of the document.  When a new anchor is created, the code
+ensures that if an anchor with that address already exists, that that
+anchor is returned instead, so no duplicates can exist.
+<LI>A list of children
+</UL>
+<H2>Child anchors</H2>These represent parts of documents.  The graphic object stores the
+correlation between  the id of the anchor and the actual space (time)
+shape which is referred to. Child anchors contain
+<UL>
+<LI>A pointer to the parent.
+</UL>
+<DL>
+<DT>
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

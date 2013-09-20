@@ -1,0 +1,39 @@
+<title>Where to Store The Links</title>
+<h1>Where should one store links?</h1>
+There were mixed feelings at <a href=../Conferences/ECHT90/Introduction.html>ECHT90</a> about whether link information should be stored
+centrally in a database (or in several), or in the documents themselves.
+
+The advantage of keeping the link information with the document itself is that
+when the document is modified, and anchors are moved, the information only
+has to be changed in one place.
+
+One advatage of storing them in a separate database is that you can quickly
+generate large-scale views of the web.
+
+Another advantage stated was that one could generate a link to something without
+having write access to it.
+Now this is an important point, but unfortunately not
+a valid conclusion if one makes a link to an anchor within a document, because an anchor within a document must be generated.
+Even if one (sensibly) separates the concepts of link information (mapping one anchor id to another) and anchor information (mapping anchor id to position in a document), there
+is always the creation of an anchor involved in making a link.
+If links are bidirectional, then link creation wil in general involve changing data in
+two different domains of protection.
+<h2>Using a database</h2>
+If the anchor information is within a database, then when the document is edited, the
+database must be refreshed. This implies that only special link-aware editors may be used.
+This may not be a problem in the long term for Apple is they decide that ALL applications
+will be link-aware, but it rather constraining and rules out the use of existing applications.
+Intermedia uses this approach, perhaps prompting Norman Meyrowitz's remark
+in <a href=../Confernces/ECHT90/Tutorial6.html>his ECHT90 tutorial</a> that
+"Keeping track of anchors within documents turns out to be one of the most interesting topics in hypermedia research"
+
+This alternative is not acceptable to the WWW project for
+editable data as we cannot rewrite all applications and the operating system (nor do we want to). However, servers which generate data from other sources, and servers which disseminate essentially uneditable data, may use this technique.
+
+The WWW architecture is basically independant of the choice of where the link
+information is stored as different servers may use different techniques. Indeed, WWW will allow evaluation of the various possibilities witin the same system.
+
+An intersting compromise we could look at in WWW is keeing the masters inside the
+document, but using a daemon to generate a database.
+There is no reason why one should not mix the alternatives: dome nodes could contain
+the entire link information, others just a UID to be looked up in a database.

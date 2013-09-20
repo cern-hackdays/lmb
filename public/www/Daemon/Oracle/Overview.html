@@ -1,0 +1,26 @@
+<TITLE>Overview -- /Oracle</TITLE>
+<NEXTID 7>
+<H1>Oracle server</H1>This was written during August and September 1992 by <A NAME=6 HREF=../../People.html#17>Arthur Secret</A>.<P>
+The server takes a W3 query as an SQL SELECT staement and returns
+the results formatted as a table in plain text.<P>
+This server is obviously a good sarting point for a gateway to provide
+a hypertext view of an oracle database.
+<H2>Sources</H2>The normal daemon files from the basic W3 daemon and library are used,
+and also:
+<DL>
+<DT><A NAME=1 HREF=src/Makefile>Makefile</A>
+<DD>The clue to how it is built, with lists of W3 and oracle libraries.
+(Not all the Oracle libraries mentioned are necessarily used).
+<DT><A NAME=2 HREF=src/HTOracle.pc>HTOracle.pc</A>
+<DD>Is put through the Oracle preprocessor Pro*C. This is the
+guts of the gateway.
+<DT><A NAME=3 HREF=src/HTOracle.h>HTOracle.h</A>
+<DD>Header file for HTOracle.pc
+<DT><A NAME=4 HREF=src/HTRetrieve.c>HTRetrieve.c</A>
+<DD>This is modified from the regular version  to call HTOracle.pc
+<DT><A NAME=5 HREF=src/y.pc>y.pc</A>
+<DD>This is a test program which runs on the terminal
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

@@ -1,0 +1,60 @@
+<TITLE>CommandLine -- /LineMode</TITLE>
+<NEXTID 8>
+<H1>Command line syntax</H1>The syntax is:
+<XMP>
+		www [options]  [docaddress [keywords]]
+
+</XMP>With no arguments, the <A NAME=1 HREF=QuickGuide.html>www</A> shell command allows you to browse from
+the system default page, /usr/local/lib/WWW/default.html.<P>
+Options should be specified before other arguments. Currently available
+options are:-
+<DL>
+<DT>-n 
+<DD>Non-interactive mode.  Outputs the formatted document to the standard
+output, then exits.  Pages are delimited with form feed (FF) characters.
+<DT><A NAME=4>-</A>
+<DD> A minus sign with no trailing characters indicates that the program
+will accept <A NAME=3 HREF=http://info.cern.ch/hypertext/WWW/LineMode/../MarkUp/MarkUp.html>HTML format</A> input from the standard input. This allows
+www to be used as a filter from html to plain text for example. Relative
+links in the input are parsed as though the address of the document
+was that of the home page (or  docaddress if specified).  Implies
+non-interactive mode.
+<DT><A NAME=7>-listrefs</A>
+<DD> Implies non-interactive. Adds a list of the addresses of
+all documents references to the end.
+<DT>-pn
+<DD> where n is a number, specifies the page length. Without a number,
+makes the page length infinite. Default is 24. 
+<DT><A NAME=5>-source</A>
+<DD> Display the original source of a document instead of parsing
+it. Has effect for HTML from w3 servers, and news articles. (v1.2a
+or later)
+<DT>-v
+<DD> Verbose mode: Gives a running commentary on the program's attempts
+to read data in various ways.
+<DT>-wn
+<DD> where n is a number, specifies the page width in columns. The
+default is 78, 79 or 80 depending on the system. (v1.0 or later)
+<DT>-na
+<DD> Hides anchor positions in the text. Useful, when printing out
+the document.
+<DT><A NAME=2>-a  format</A>
+<DD> Specifies the printf-style format string to be used when
+printing references. Must contain the two characters "%d" where the
+numbers should occur.  Be sure to escape or quote any special characters
+you use.  For example under unix:
+</DL>
+
+<XMP>
+				www -a \<%d\>
+				www -a " (Type %d)"
+
+</XMP>If present, the next argument (docaddress) is the<A NAME=6 HREF=http://info.cern.ch/hypertext/WWW/Addressing/Addressing.html> hypertext address</A>
+, of  the document at which you want to start browsing. You may want
+to define an alias for www followed by name of your favourite index.<P>
+Any further command line arguments are taken as keywords. The first
+argument must refer to an index in this case. The index is searched
+for entries matching the keywords, and a list of matching entries
+is displayed.
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>
