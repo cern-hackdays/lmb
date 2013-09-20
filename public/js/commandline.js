@@ -40,14 +40,6 @@ function run(command, e) {
   // else don't prevent default
 }
 
-function getValue() {
-  return cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'];
-}
-
-function setValue(v) {
-  cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'] = v;
-}
-
 var cmd = document.querySelector('#cmd-input'),
     cursor = document.querySelector('#cmd-cursor'),
     cursors = {
@@ -68,20 +60,20 @@ function typing() {
 }
 
 cmd.oninput = function () {
-	cursor.style.marginLeft = getValue().length + 'ch';
+	cursor.style.marginLeft = cmd.value.length + 'ch';
 	console.log(cursor.style.marginLeft, 'weee');
 }
 
 cmd.onkeydown = function (e) {
   typing();
 
-  var val = getValue();
+  var val = cmd.value;
 
   if (e.keyCode === 13 && val) {
     e.preventDefault();
     e.stopPropagation();
     run(val, e);
-    setValue(val);
+    cmd.value = val;
   }
   else if (cursors[e.keyCode]) {
     // junk it and don't allow
