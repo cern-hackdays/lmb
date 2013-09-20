@@ -3,9 +3,9 @@ function run(command, e) {
     commands[command]()
   }
 
-  if ((/^[0-9]+$/).test(command)) {
+  if ((/^\d+$/).test(command)) {
     // TODO open the nth link
-    window.location = document.querySelectorAll('a')[(command * 1) - 1].href;
+    window.location = document.querySelectorAll('a')[+command - 1].href;
   }
 
   // else don't prevent default
