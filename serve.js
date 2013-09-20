@@ -22,7 +22,7 @@ escapes = {
 fs.exists || (fs.exists = path.exists);
 
 // The `servedir` function creates a new simple HTTP server.
-var servedir = module.exports = function (root, handler) {
+var servedir = module.exports = function (routerPath, root, handler) {
   return function(req, res, next) {
     // Resolve the path to the requested file or folder.
 
@@ -32,6 +32,13 @@ var servedir = module.exports = function (root, handler) {
 
     var pathname = decodeURIComponent(parse(req.url).pathname),
         file = path.join(root, pathname);
+
+    console.log(pathname, file);
+
+    if (pathname.indexOf(routerPath) !== 0) {
+      console.log('exit');
+      return next();
+    }
 
     fs.exists(file, function(exists) {
       if (!exists) {

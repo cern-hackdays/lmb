@@ -22,7 +22,7 @@ function inject(body, base) {
 function proxy(req, res, next) {
   var url = parse(req.url, true);
 
-  if (url.pathname === '/proxy') {
+  if (url.pathname === '/www/proxy') {
     var url = url.query.url;
     var base = urlparse.parse(url).protocol + '//' + urlparse.parse(url).hostname
 
@@ -45,15 +45,15 @@ function proxy(req, res, next) {
 
 connect()
   .use(function (req, res, next) {
-    if ((req.url === '/referer' || req.url === '/referrer') && req.headers.referer) {
-      res.writeHead(302, { location: '/proxy?url=' + req.headers.referer });
+    if ((req.url === '/www/referer' || req.url === '/www/referrer') && req.headers.referer) {
+      res.writeHead(302, { location: '/www/proxy?url=' + req.headers.referer });
       res.end();
     } else {
       // TODO send a explanation page
     }
     next();
   })
-  .use(serve('public/www', inject))
+  .use(serve('/www/', 'public', inject))
   .use(connect.static('public'))
   .use(proxy)
   .listen(process.env.PORT || 8000);

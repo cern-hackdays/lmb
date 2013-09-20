@@ -1,11 +1,10 @@
 module.exports = function prepare ($, location) {
-
   var commandline = ['<form id=command><label><span class=cmd-prompt>&lt;ref.number&gt;, Quit, or Help: </span>',
                      '<span autofocus autocapitalize=off spellcheck=false autocorrect=off contenteditable id=cmd-input></span>',
                      '<span class=wait id=cmd-cursor>&nbsp;</span><input hidden autofocus></label></form>',
-                     '<script src=blocker.js></script>',
-                     '<script src=keyboardSounds.js></script>',
-                     '<script src=commandline.js></script>'].join('');
+                     '<script src=/blocker.js></script>',
+                     '<script src=/keyboardSounds.js></script>',
+                     '<script src=/commandline.js></script>'].join('');
 
   // strip particular elements
   $('style,iframe,frame,frameset,img,hr,br').remove();
@@ -31,7 +30,7 @@ module.exports = function prepare ($, location) {
 
 
   // styles (early to attempt to avoid FOUC)
-  $('body').prepend('<link class=ignore rel=stylesheet href=linemode.css type=text/css>');
+  $('body').prepend('<link class=ignore rel=stylesheet href=/linemode.css type=text/css>');
 
 
   // link numbering
@@ -43,7 +42,7 @@ module.exports = function prepare ($, location) {
 
       var href = $el.attr('href');
       // href = '/about/foo/foobar'
-      var url = require('querystring').parse(location)['/proxy?url'] // brian.io/whatever/whatevers
+      var url = require('querystring').parse(location)['/www/proxy?url'] // brian.io/whatever/whatevers
       var host = require('url').parse(url).hostname                  // brian.io
       var protocol = require('url').parse(url).protocol
 
@@ -53,9 +52,9 @@ module.exports = function prepare ($, location) {
       if (href.toString().slice(0, 2) === '//') href = protocol + href;
       if (href.slice(0, 1) === '/') href = protocol + '//' +  host + href
       if (href.slice(0, protocol.length) != protocol) href = protocol + '//' + host + '/' +  href
-      
+
       // set the proper rewritten url
-      $el.attr('href', '/proxy?url=' + href);
+      $el.attr('href', '/www/proxy?url=' + href);
     }
   });
 
