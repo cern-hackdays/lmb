@@ -160,8 +160,10 @@ window.onload = function () {
 
 // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
 (window.adjustFontSize = function (){
-	var maxLineHeight = innerHeight / 25;
-	document.documentElement.style.fontSize = Math.floor(maxLineHeight / 1.5)  + 'px';
+	var maxLineHeight = innerHeight / 25,
+      size = Math.floor(maxLineHeight / 1.5);
+	document.documentElement.style.fontSize = size  + 'px';
+  blocker.size(size);
 })();
 
 addEventListener('resize', adjustFontSize);
