@@ -33,6 +33,7 @@ function proxy(req, res, next) {
 
     request(url, function (error, response, body) {
       base = response.request.uri.href;
+      res.writeHead(200, { 'content-type': 'text/html' });
       if (!error && response.statusCode == 200) {
         var html = inject(body.replace(/&/g, '&amp;'), base);
         res.write(html);
