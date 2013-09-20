@@ -37,10 +37,11 @@ function proxy(req, res, next) {
         var html = inject(body.replace(/&/g, '&amp;'), base);
         res.write(html);
         res.end();
-      } else if (response) {
-        res.end(JSON.stringify({ error: error, status: response.statusCode }));
       } else {
-        res.end(err.toString('utf8'))
+        var html = "<title></title><pre>\n\n  WWW: Can't access '" + url+ "'\n</pre>";
+        var html = inject(html, base);
+        res.write(html);
+        res.end();
       }
     })
   } else {
