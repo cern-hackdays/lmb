@@ -44,9 +44,9 @@ p {
 	display: flex;
 }
 .member-data figure {
-	flex: 30%;
-	-webkit-flex: 30%;
-	-moz-flex: 30%;
+	flex: 50%;
+	-webkit-flex: 50%;
+	-moz-flex: 50%;
 	padding-right: 3%;
 }
 dl.vcard {
