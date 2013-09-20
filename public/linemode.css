@@ -104,7 +104,11 @@ ol, ul, dl {
 dt, dd {
 	display: inline-block;
 	vertical-align: top;
-	margin: 1.5em 0; /* list style has 1 line of space above and below */
+}
+
+dt:not(:first-child),
+dd:not(:first-child) {
+	margin-top: 1.5em;
 }
 
 dt {
