@@ -3,8 +3,8 @@ var request = require('request'),
     cheerio = require('cheerio'),
     parse = require('url').parse,
     path = require('path'),
-    prepare = require('./public/prepare'),
-    urlparse = require('url')
+    urlparse = require('url'),
+    prepare = require('./prepare'),
     serve = require('./serve');
 
 function inject(body, base) {
@@ -22,16 +22,15 @@ function inject(body, base) {
 function proxy(req, res, next) {
   var url = parse(req.url, true);
 
-  if (url.pathname === '/proxy') {
+  if (url.pathname === '/www/proxy') {
     var url = url.query.url;
     var base = urlparse.parse(url).protocol + '//' + urlparse.parse(url).hostname
 
     request(url, function (error, response, body) {
       base = response.request.uri.href;
-      console.log(base);
       if (!error && response.statusCode == 200) {
-        var html = inject(body);
-        res.write(html); //.replace(/&/g, '&amp;'));
+        var html = inject(body.replace(/&/g, '&amp;'), base);
+        res.write(html);
         res.end();
       } else if (response) {
         res.end(JSON.stringify({ error: error, status: response.statusCode }));
@@ -46,15 +45,15 @@ function proxy(req, res, next) {
 
 connect()
   .use(function (req, res, next) {
-    if ((req.url === '/referer' || req.url === '/referrer') && req.headers.referer) {
-      res.writeHead(302, { location: '/proxy?url=' + req.headers.referer });
+    if ((req.url === '/www/referer' || req.url === '/www/referrer') && req.headers.referer) {
+      res.writeHead(302, { location: '/www/proxy?url=' + req.headers.referer });
       res.end();
     } else {
       // TODO send a explanation page
     }
     next();
   })
-  .use(serve('public/www', inject))
+  .use(serve('/www/', 'public', inject))
   .use(connect.static('public'))
   .use(proxy)
   .listen(process.env.PORT || 8000);
