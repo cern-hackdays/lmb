@@ -56,9 +56,9 @@ function typing() {
   cursor.className = '';
 }
 
-cmd.oninput = function () {
-	cursor.style.marginLeft = cmd.value.length + 'ch';
-	console.log(cursor.style.marginLeft, 'weee');
+function updateCursor() {
+	// cursor.style.marginLeft = (cmd.value.length * .55) + 'em';
+   cursor.style.marginLeft = (cmd.value.length * .5) + 'em';
 }
 
 cmd.oninput = updateCursor;
