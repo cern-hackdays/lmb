@@ -3,9 +3,9 @@ function run(command, e) {
     commands[command]()
   }
 
-  if ((/^[0-9]+$/).test(command)) {
+  if ((/^\d+$/).test(command)) {
     // TODO open the nth link
-    window.location = document.querySelectorAll('a')[(command * 1) - 1].href;
+    window.location = document.querySelectorAll('a')[+command - 1].href;
   }
 
   // else don't prevent default
@@ -18,14 +18,54 @@ function pagedown() {
   scrollTo(0, current + lineHeight * 23);
 }
 
-var cmd = document.querySelector('#command input');
+function getValue() {
+  if (cmd.nodeName === 'INPUT') {
+    return cmd.value;
+  } else {
+    return cmd.innerHTML;
+  }
+}
+
+function setValue(v) {
+  if (cmd.nodeName === 'INPUT') {
+    cmd.value = v;
+  } else {
+    cmd.innerHTML = v;
+  }
+}
+
+
+var cmd = document.querySelector('#cmd-input'),
+    cursor = document.querySelector('#cmd-cursor'),
+    cursors = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    },
+    typingTimer = null;
+
+function typing() {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(function () {
+    cursor.className = 'wait';
+  }, 200);
+  cursor.className = '';
+}
 
 cmd.onkeydown = function (e) {
-  if (e.keyCode === 13 && this.value) {
+  typing();
+  var val = getValue();
+
+  if (e.keyCode === 13 && val) {
     e.preventDefault();
     e.stopPropagation();
-    run(this.value, e);
-    this.value = '';
+    run(val, e);
+    setValue(val);
+  } else if (cursors[e.keyCode]) {
+    // junk it and don't allow
+    e.preventDefault();
+    e.stopPropagation();
   }
 };
 
@@ -34,18 +74,31 @@ document.documentElement.onkeydown = function (e) {
   	pagedown();
   	e.preventDefault();
   }
+};
+
+document.documentElement.onclick = function () {
+  cmd.focus();
+};
+
+document.documentElement.onfocus = function () {
+  cmd.focus();
 }
 
 var commands = {
   top: function () {
+    blocker();
     window.scrollTo(0, 0);
   },
   list: function () {
-    // TODO list history of visited urls
-    // localStorage
+    // list all available links
   },
   help: function () {
-
+	// LMB had help in the compiled code, contained logic
+	// Using static file for now
+	window.location = '/help.html';
+  },
+  home: function () {
+    // TODO
   },
   alias: function () {
     // TODO
@@ -56,17 +109,19 @@ var commands = {
     history.back();
   },
   recall: function () {
-    // jump to history
+    // TODO list history of visited urls
+    // localStorage
   },
   quit: function () {
     alert("I'm not a quiter.");
+    return false;
   }
 }
 
 function pagedown() {
+  blocker();
 	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-	console.log('I AM GO DOWN FOR JOHN');
 	var current = document.body.scrollTop;
 	scrollTo(0, current + lineHeight * 23);
 }
@@ -82,7 +137,11 @@ commands.Quit = commands.quit;
   document.createElement(a);
 });
 
+blocker(); // do the character by character "rendering"
+cmd.focus(); // force focus to the contenteditable
+
 window.onload = function () {
+
   setTimeout(function () {
     window.scrollTo(0,0);
   }, 0);

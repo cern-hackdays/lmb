@@ -13,6 +13,7 @@
 	margin: 0;
 	font: inherit;
 	color: inherit;
+	line-height: normal;
 }
 
 /*
@@ -23,7 +24,7 @@ img, video, audio, svg, canvas, iframe, isindex {
 
 html, body, head, title,
 h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
-div, section, aside, header, footer {
+div, section, aside, header, footer, dl {
 	display: block;
 }
 
@@ -39,35 +40,49 @@ html {
 	margin: 0 auto;
 	padding-bottom: 1.5em;
 	overflow: hidden;
-	line-height: 1.5;
 	color: hsl(150, 100%, 50%);
+	text-shadow: 0 0 10px;
 	word-wrap: break-word;
 	font-family: icomoon, monospace;
+	line-height: 1.5em;
 }
 
-	html * {
-		font: inherit !important;
-	}
+body {
+	height: 37.5em; /* 25 lines */
+}
+
+
+html * {
+	font: inherit !important;
+}
 
 head {
 	background: black;
 }
 
 title {
+	/*padding-bottom: 1em;*/
+	/* one line of space after title - using padding, since line
+	   must always appear. if h1 next, should show 2 blank lines */
 	text-align: right;
 }
 
 body {
-	padding-top: 1.5em; /* 1 * line-height */
+	/*padding-top: 1.5em;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 1.5em; /* 1 * line-height */
-	text-transform: uppercase;
+	margin-top: 0;
 }
 
 h1 {
+	margin: 1.5em 0; /* 1 line of space above and below h1 only */
 	text-align: center;
+	text-transform: uppercase;  /* only h1, h2 all caps */
+}
+
+h2 {
+	text-transform: uppercase; /* only h1, h2 all caps */
 }
 
 a {
@@ -75,39 +90,100 @@ a {
 	color: inherit;
 }
 
+p {
+	margin-top: 1.5em;
+	/* paragraph has one line after... but <P> was used more as a
+	   separator than a wrapper... so using margin-top instead    */
+}
+
+ol, ul, dl {
+	margin: 1.5em 0; /* list style has 1 line of space above and below */
+}
+
 /* Definition lists */
 dt, dd {
 	display: inline-block;
 	vertical-align: top;
+	margin: 1.5em 0; /* list style has 1 line of space above and below */
 }
 
 dt {
-	width: 30ch;
+	width: 20ch;
+	margin-left: 7ch;
 }
 
 dd {
 	width: 50ch;
 }
 
-/* Counters for the link */
-
-body {
-	counter-reset: section;
-}
 
 pre, xmp {
 	display: block;
 	white-space: pre;
 }
 
-hp1:first-letter, hp2:first-letter {
-	text-transform: uppercase;
+address {
+	display: block;
+	text-align: right;
 }
 
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
+hp1, hp2 {
+	text-transform: uppercase;
+}
+
 
 form {display: none}
 
 input {display: none}
 
 button {display: none}
+
+#command {
+	position: fixed;
+	top: 36em; /* 24 lines */
+	left: 50%;
+	right: 50%;
+	margin: 0 -40ch;
+	height: 9999px;
+	background: black;
+  display: inline-block;
+}
+
+/*#command input {
+  display: inline-block;
+	width: 51ch;
+	background: black;
+	border: 0;
+}
+*/
+#blocker {
+	position: absolute;
+	margin: 0 auto;
+	z-index: 9;
+	top: 0;
+}
+
+#command span {
+	display: inline-block;
+}
+
+#cmd-input {
+	min-width: 1px;
+	cursor: text;
+	overflow: hidden;
+	outline: 0;
+}
+
+#cmd-input:focus,
+#cmd-input:active {
+	cursor: none;
+}
+
+#cmd-cursor {
+	display: block;
+	margin-left: -1px; /* sit over the real cursor in content editable */
+	
+	background: hsl(150, 100%, 50%);
+	box-shadow: 0 0 5px;
+}
