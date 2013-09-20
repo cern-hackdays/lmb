@@ -40,13 +40,6 @@ function run(command, e) {
   // else don't prevent default
 }
 
-function pagedown() {
-  var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
-  console.log('I AM GO DOWN FOR JOHN');
-  var current = document.body.scrollTop;
-  scrollTo(0, current + lineHeight * 23);
-}
-
 function getValue() {
   return cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'];
 }
