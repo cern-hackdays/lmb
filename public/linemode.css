@@ -106,8 +106,8 @@ dt, dd {
 	vertical-align: top;
 }
 
-dt:not(:first-child),
-dd:not(:first-child) {
+dt:not(:first-of-type),
+dd:not(:first-of-type) {
 	margin-top: 1.5em;
 }
 

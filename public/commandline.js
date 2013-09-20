@@ -119,17 +119,17 @@ var commands = {
 	// then insert 3 blank lines
   },
   quit: function () {
-    alert("I'm not a quiter.");
+    alert("I'm not a quitter.");
     return false;
   }
 }
 
 function pagedown() {
   blocker();
-	var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
+  var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
-	var current = document.body.scrollTop;
-	scrollTo(0, current + lineHeight * 23);
+  var current = document.body.scrollTop;
+  scrollTo(0, current + lineHeight * 23);
 }
 
 // alias
