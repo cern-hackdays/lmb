@@ -22,6 +22,9 @@ function setPrompt ($) {
 	prompt = prompt + 'or Help: ';
 
 	document.querySelector('.cmd-prompt').innerHTML = prompt;
+	
+	// Adjust style
+	cursor.style.left = prompt.length + 1 + 'ch';
 }
 
 function run(command, e) {
