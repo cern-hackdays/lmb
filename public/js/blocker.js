@@ -1,7 +1,7 @@
 var blocker = (function () {
 
   var position = 0,
-      speed = 5,
+      speed = 8,
       length = 80 * 24 / speed,
       characterWidth = 8,
       ch = 0,
