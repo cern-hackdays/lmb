@@ -72,7 +72,8 @@ function typing() {
 }
 
 cmd.oninput = function () {
-	cursor.style.marginLeft = getValue().length + 'px';
+	cursor.style.marginLeft = getValue().length + 'ch';
+	console.log(cursor.style.marginLeft, 'weee');
 }
 
 cmd.onkeydown = function (e) {
