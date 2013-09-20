@@ -7,12 +7,6 @@ module.exports = function prepare ($, location) {
                      '<script src=keyboardSounds.js></script>',
                      '<script src=commandline.js></script>'].join('');
 
-
-<<<<<<< HEAD
-=======
-module.exports = function ($, location) {
-
->>>>>>> 47c2f0029b1e92b860f7bfea67949e409df71e1e
   // strip particular elements
   $('style,iframe,frame,frameset,img,hr,br').remove();
   $('link[rel=stylesheet]').remove();
