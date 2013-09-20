@@ -58,7 +58,7 @@ module.exports = function prepare ($, location) {
     }
   });
 
-  require('cheerio-event-handlers')($('body'))
+  require('cheerio-event-handlers')($._root)
   // node compat
   return $;
 }
