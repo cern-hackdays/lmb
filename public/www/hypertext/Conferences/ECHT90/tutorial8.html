@@ -1,0 +1,66 @@
+<title>Tutorial 8 - ECHT90</title>
+<h1>Machine aided construction of hypertext bases</h1>
+<a href=People.html#Kuhlen>Rainer Kuhlen</a>
+<p> 
+This was rather badly presented, though I got some ideas here: simple grammars may help in reading and identifying 
+parts of texts that are important for linking, and therefore relatively simple tools can be built to transform classical, 
+linear texts into hypertexts, provided the author has been reasonably good at expressing himself. As it became clear to 
+me <a href=Authors.html#Cailliau>(RC)</a> during the conference that dynamic construction of links is necessary,
+it will indeed be very useful to have such tools, however imperfect, that help find important text sequences.		
+Two problems were addressed:
+<ul>
+<li>
+using existing texts as a basis for constructing hypertexts: splitting the linear texts up into nodes and adding the links.
+It was shown how some simple schemes can go a long way towards such a conversion in a computer-assisted fashion, by algorithms which propose splits and links.
+<li>
+generating aids in presentation dynamically, such as tables of contents, glossaries, indexes. For example, extracting those terms that can be looked up in a glossary dynamically rather than by static identification at authoring time.
+</ul>
+<p>
+Conversion is defined as the process which allows segmentation of the text into coherent units in three stages:
+<ol>
+<li>
+identification of coherent units
+<li>
+reconstruction of cohesive boundness (semantically closed units are sought)
+<li>
+transformation / integration of the units.
+</ul>
+</p>
+<p>
+Information units have the following structure:
+<ol>
+<li>
+Contents:
+<ul>
+<li>
+label (name or title of the unit)
+<li>
+conceptual reference (index term)
+<li>
+condensation reference (abstract)
+<li>
+informative part
+</ul>
+<li>
+Functions:
+<ul>
+<li>
+information functions (links, paths, orientation means)
+</ul>
+</ol>
+<p>
+It was stressed that conversion should not imitate, but add value for the new medium. As this means understanding the subject matter, and therefore is a cognitive process, it can today only be done wiht the help of a human author. However, artificial intelligence techniques using the concepts of frames and inheritance can help a lot. Even simple context-free grammars to specify noun-groups can be succesfully used to identify for example the label part of an information unit.
+</p>
+<p>
+In well-structured linear texts (and we should hope that most texts worth converting are also well-written) syntagmatic relations (next-passage, previous-passage, ...) can be detected fairly easily.
+</p>
+<p>
+Paradigmatic relations provide more information and can be detected using knowledge bases (share-concept, have-same-features, have-same-info, ...).
+</p>
+<p>
+using these techniques, one can let the user query, and produce eg. an abstract which is a function of the query in real time. For example, an article on "Amiga peripherals" would produce a short abstract for a query looking for "microcomputer", but a longer one for a query looking for "Amiga" or for "peripherals".
+</p>
+<p>
+This seminar showed once more that dynamic treatment of text is of great importance to the user who actually wants to make the machine locate information rather than browsing through it himself until he stumbles upon what he's looking for.
+</p>
+

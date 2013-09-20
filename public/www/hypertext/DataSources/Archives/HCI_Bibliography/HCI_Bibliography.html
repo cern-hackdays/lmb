@@ -1,0 +1,51 @@
+<TITLE> Corrected Instructions to Access the HCI Bibliography</TITLE>
+<NEXTID 3>
+<ADDRESS>perlman@giza.cis.ohio-state.edu (Gary Perlman) <P> 22 Mar 91 13:50:13 GMT <P> Computer & Info Sci  Ohio State Univ  Columbus, OH 43210 
+</ADDRESS>
+<XMP>
+</XMP>[From Newsgroups: <A NAME=2 HREF=news:comp.cog-eng>comp.cog-eng</A> . HCI is "Human-Computer Interface".
+See also: their <A NAME=1 HREF=README>README</A> file - TBL]
+<XMP>I apologize to those of you who had problems accessing the HCI Bibliography
+via anonymous ftp.  I was given information that made me give you a
+symbolic machine name that only worked most of the time.  Instead of:
+	cis.ohio-state.edu
+please use ftp to access:
+	cheops.cis.ohio-state.edu
+Full revised instructions follow.
+
+Internet/Anonymous FTP Access:  To access files in the HCI Bibliography,
+internet users can use FTP (file-transfer-protocol) to copy files and programs
+to their machines.  See the file named README for more information about the
+contents of files and for information about how to contact publishers of the
+works.  To log in to the archive machine, use the login name: "anonymous" and
+provide your internet account name as your password.  The messages provided by
+ftp are unbelievably cryptic; many users can not distinguish between positive
+feedback and messages about unrecoverable errors, so ignore them and plod
+along.  In the following example, where much of the output from ftp is left
+out, the following conventions are used.
+     "$" is your system's prompt
+     text after "#" is a comment
+     you type in text after the ":" and the ">"
+     "ftp>" is the prompt from the file transfer program
+File transfer rates will vary, so try something small first.
+
+$ mkdir mybib                   # make a directory where you will keep your copy
+$ cd mybib                      # set transfer directory before ftp
+$ ftp cheops.cis.ohio-state.edu # to reach our archive; obscure text will follow
+Name (...): anonymous           # user logs in with standard anon ftp name
+Password: yourname@yoursite     # use your name and your site for identification
+ftp> cd pub/hcibib              # go to HCI Bibliography directory
+ftp> dir                        # to get a listing of what's there
+ftp> get README                 # to retrieve a file
+ftp> prompt                     # to toggle (turn off) interactive prompting
+ftp> mget *                     # interactively retrieve all files
+ftp> quit                       # to leave ftp when done
+--
+Name:  Gary Perlman               | Computer and Information Science Department
+Email: perlman@cis.ohio-state.edu | Ohio State University, 228 Bolz Hall
+Phone: 614-292-2566               | 2036 Neil Avenue Mall
+Fax:   614-785-9837 or 292-9021   | Columbus, OH 43210-1277  USA
+ÿ
+</A>
+</A>
+</XMP>

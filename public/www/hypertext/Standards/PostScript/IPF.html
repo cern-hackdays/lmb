@@ -1,0 +1,149 @@
+<TITLE>Editable Postscript Interchange Format</TITLE>
+<H1>IPF</H1>
+<XMP>
+Date: Sun, 6 Oct 91 14:14:18 PDT
+From: kehoe@fortuity.sf.ca.us (Daniel Miles Kehoe)
+To: timbl@nxoc01.cern.ch (Tim Berners-Lee)
+Subject: Interchange PostScript Format
+
+Tim,
+
+I'm sending you the complete text of an article from the Seybold Report on Desktop Publishing. I believe you'll find it very interesting. Incidentally, it is copied without permission.
+
+Regards,
+Daniel Kehoe
+
+P.S. Any new developments with WWW?
+
+</XMP>[Note this is copyright material: Subscribe to the Seybold report
+rather than print this! -Tim]
+<H1>Adobe unveils editable PostScript interchange format</H1>Combines Multiple Master fonts, Illustrator 3.O file format, viewer<P>
+Adobe Systems announced that it has developed a PostScript-based technol-
+ogy for exchanging formatted elec- tronic documents. Adobe's approach
+to this problem draws on several existing technologies, including
+the Illustrator file format, Multiple Master fonts and a newly announced
+font rasterizing chip. However, Adobe is not announcing any specific
+product at this time.<P>
+When Adobe's vision is fully fleshed out with deliverable products,
+it promises to let you move documents freely around a network, viewing
+them on a wide range of computer platforms. Although these documents
+will be in final form and ready for presentation, they will continue
+to be editable.<P>
+As John Warnock was expected to sketch out in a speech to the Seybold
+Computer Publishing Conference this week, much of the software needed
+to do this already exists. The remaining problems are partly legal
+and licensing issues, and partly a continuing process of developing
+standards.
+<H2>The IPF</H2>At the heart of Adobe's approach is the Interchange PostScript Format.
+This is based on the current Illustrator 3.0 file format, which is
+a subset of the PostScript language. The existence of Illustrator
+demonstrates that it is possible to have a file format capable of
+describing and outputting complex pages without losing the abil- ity
+to edit those pages. You can think of Illustrator as a complex editing
+pro- gram whose native file format expresses the exact appearance
+of a document.<P>
+Illustrator 3.0 does not handle all document types, of course. It
+knows nothing of multipage documents, style sheets, reference constructs
+or scanned images. In IPF (and presumably in fu- ture Illustrator-like
+products), Adobe clearly intends to extend the range of objects to
+cope with these needs.
+<H2>Platform independent</H2>A major Adobe goal is that the author or reader of a document should
+not have to care what kind of computer other readers or editors usc.
+That is, IPF needs to be independent of any particular display, central
+processor or operating system.<P>
+This is relatively straightforward; PostScript was from the beginning
+de- signed to be device independent. At the Seybold Conference, Warnock
+was expected to demonstrate the new tech- nology on a Mac, PCs running
+DOS and Windows, and a Unix workstation.
+<H2>Font woes</H2>If a remote viewer is to read a formatted text document you have just
+created, it needs to have the same fonts you do, right? And since
+it probably doesn't have all of your fonts, you either must restrict
+yourself to using least-common-denominator fonts or send the fonts
+along with the docu- ment. That, in turn, swells the size of the file
+and raises the hackles of the font vendors. It probably also gives
+your corporate counsel an ulcer just thinking about the potential
+copyright- infringement lawsuits.<P>
+ Adobe's solution here is two- pronged. First, Adobe says, all you
+need to send is the font metrics--the character widths and kerning
+tables. At the receiving end, a document viewer program can use Multiple
+Master fonts to generate good-looking type that ex- actly matches
+the formatting of the original text. In fact, Adobe claims that for
+most normal text faces, the on- screen appearance of the synthesized
+fonts will be indistinguishable from the original fonts.<P>
+However, there is a fall-back approach: send the fonts. Adobe is work-
+ing with other major font vendors to modify the shrink-wrap font license
+to permit distribution for read-only or print-only use. Adobe will
+license this use for its own fonts, and the ITC (the licensing agency
+for a substantial fraction of everybody's font libraries) has agreed
+to do so as well. The other font houses will probably go along sooner
+or later.<P>
+(A third method--sending along the name of the font and its metrics-
+depends on a standardized naming scheme and presumes font-substitution
+smarts by a viewer at the other end. This method is being considered
+for ISO interchange formats.)
+<H2>New PostScript drivers </H2>A true interchange solution must work for all document-creation programs:
+word processors, spreadsheets, CAD and illus- tration packages, database
+report genera- tors and so on. Just about all of these products can
+print to a PostScript de- vice, and they usually go through the system
+printer driver.<P>
+Adobe announced last winter that it would be developing the PostScript
+drivers for future Apple and Windows operating systems. So it will
+simply add to its drivers the ability to generate an IPF file. At
+that point, every existing application will be able to create inter-
+change-ready documents.<P>
+There is an installed base of older applications that generate their
+own PostScript code and so will not benefit from Adobe's new device
+drivers. A program that converts the full range of PostScript into
+the more restrictive IPF would be tantamount to a complete PostScript
+interpreter. This is exactly how Adobe plans to assure backward compatibility.<P>
+However, Adobe points out that you wouldn't need this interpreter
+in every workstation. You could run it as a task at one station on
+the network-- in the mail server, for example.
+<H2>Viewer apps </H2>The final part of Adobe's strategy is to develop viewer applications
+to display and print IPF documents. There might also be appli- cations
+that can annotate or edit these files. Clearly, these programs will
+be specific to a particular processor and operating system. Each user
+interface will have to be separately developed. However, a great deal
+of the code can be shared across platforms.<P>
+Adobe has not given any hints about when such viewers might be released.
+However, the core code has already been written and demonstrated,
+so we don't expect to wait years. We might hope for an announcement
+next spring; but Adobe has politely declined to speculate on that
+subject.
+<H2>ATM on a chip</H2>Among the products Adobe is announcing this week is a Type 1 font
+rendering chip that can rasterize 2,000 roman characters per second.
+No end-user products using this chip exist yet. But like Destiny Technology's
+RIDA chip (see p. 40), it could be used in graphics boards, print-
+ers or computer motherboards.<P>
+Adobe says that text rendering is so fast with its new "ATM chip"
+that you can continuously zoom a page with no perceptible jerkiness--new
+full- page bitmaps can be generated at speeds comparable with the
+monitor's frame rate. This kind of hardware accel- eration will clearly
+be vital in gaining consumer acceptance of PostScript for viewing
+documents.
+<H2>Capturing the semantics</H2>Post-Script, as it stands, can only describe the appearance of a page;
+it can express all the QuickDraw or Windows GDI information, but it
+cannot show the relationships of objects (the formulas in a spreadsheet
+or the element groupings of a CAD drawing, for example). IPF can be
+extended to express object se- mantics. However, this partly depends
+on extending the application programs themselves to support document
+inter- change, and so it will be an evolution- ary process.
+<H2>Prospects</H2>Adobe is in a better position than any other vendor to promulgate
+a document interchange format. It is a tireless champion of PostScript-
+based solutions, and it is better positioned to deliver products to
+the mass market on multiple platforms than any of the platform vendors.
+(DEC, IBM, Microsoft and Apple all have some stake in developing interchange
+formats.) Aside from formats from these vendors, the only other document
+interchange format is the Document Style Semantics and Specification
+Language (DSSSL), a draft international standard that is still too
+new to have any products using it yet. Although DSSSL is comprehensive,
+it has no vendor with a financial stake in its success to champion
+its cause. It is also very complex, so it may never have an implementation
+in mass-market products.<P>
+Adobe's format will be implemented immediately by Adobe, and its status
+as a "standard" could change if it meets with popular acceptance.
+(After all, PostScript has become an ISO standard.) Everything depends
+on how well Adobe's implementations meet users' requirements for electronic
+document interchange.
+<ADDRESS>Seybold Report on Desktop Publishing; October 2, 1991</A>
+</ADDRESS>

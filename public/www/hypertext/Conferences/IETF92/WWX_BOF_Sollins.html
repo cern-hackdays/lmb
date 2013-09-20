@@ -1,0 +1,259 @@
+<TITLE>WWX_BOF_Sollins -- /IETF92</TITLE>
+<NEXTID 1>
+<H1>Karen Sollin's notes</H1>
+<XMP>WAIS and other large documents services - BOF
+Steve Hardcastle-Kille, chair
+IETF San Diego, evening, March 18, 1992
+
+
+Purpose: to discuss information services that seem to
+becoming popular enough to become "standards."
+
+Consider: WWW, WAIS, DS (X.500)
+Relationships between: documents, objects, and directory
+entries
+UDI: Need, Form, X.500
+Need for whom (see Steve H-K slide)
+
+John Curran (BBN)  WAIS: an implementation of Z39.50.
+Architecture from users point of view:
+     -Servers: source for a collection of documents, indexed
+in some way.
+     -User: can send queries to servers.  All documents in
+in a server indexed by all words in each document.  Returns
+bibliographic and other info. including a handle for
+retrieving.  Provides searching and retrieval all using
+Z39.50.
+     - Server can serve more than one source..  Servers use
+native file system for documents.  Don't need to duplicate
+files.
+     - All "things" are considered documents, regardless of
+format or content
+     - Can query a server to find out which sources it
+provides.  TMC also has a source of sources.  Source
+descriptions might be better off somewhere else, such as
+X.500.
+
+Differences between Z39.50 and WAIS: Z39.50 is very general,
+like about form of data, indices, specific form of queries.
+WAIS essentially uses Z39.50 as a transport.  Brewster would
+actually say that WAIS is the protocol - extensions to
+Z39.50 - want to merge them.  There are 2 indexing models -
+public and private (need CM to use it).
+
+Has relevance feedback.  Can attach a particularly relevant
+to a future query, using all words  in document as part of
+query.
+
+Can add new routines to index on new types of objects.
+Currently view everything as text documents.
+
+Wengyik Yeong (PSI): Representing new kinds of objects in X.500
+
+Have presently added RFCs (documents), have 2 document
+series (RFCs and FYIs).
+
+Now want to move on to archives (OSI-DS 22 - describes
+archives in X.500).   Model is that each archive is a file.
+Not always true.  Sometimes each source is a separate file.
+
+Experience:
+* Need more sophisticated approach
+* Need to custom objects - least common denominator not the
+best (eg language, size of binary, machine, etc. - not
+things that one will find)
+* More documentation info would be helpful.
+* Flat organization not very good.
+* Need more sophisticated experiments - used only two.
+
+Tim Bernersr-Lee (World Wide Web - Cern)
+
+Hypertext like model: simple uniform interface.  All are
+subsets of hypertext.  The problem is searching in the
+hypertext model.  Use WAIS or something else for searching -
+comes back with a hypertext document.
+
+Architecture: client server.
+
+Client machine which knows lots of protocols for going out
+over the network  (FTP, Prospero, home-brew,(HTTP) etc.)
+
+Addressing scheme: this is a reference.
+Also need common formats.
+
+Servers
+
+Gateways to other worlds such as WAIS, VMS help files.  To
+other kinds of servers.
+
+HTTP:
+Runs on TCP, send query, get response.
+
+Wnat to extend to sending authentication, perhaps profile of
+client so can know what the client can display.
+
+HTML: mockup language for sending back hypertext, also very
+simple
+
+User interfaces: for non mouse users tag things with numbers
+that they can type.
+
+Have problem of multiple indices.
+
+To fast run through.  More support for interfaces than for
+setting up servers.
+
+How does it fit into everything else?
+X.500: need to be able to refer to anything - needs
+universal document identifiers (currently use address, but
+wrong - might move) Could use DNS,, but no further work on
+it
+     Resovlability
+     Lasting value
+     Cover current situation
+     Relevance
+     openness
+     uniqueness
+     readability
+     structure: 3-parts: eg. protocol, host, port
+     consensus
+
+Could get to information (objects as above) from X.500.
+
+WAIS vs. WWW vs Gopher
+
+WWW data model: document, text, or hypertext, open
+addressing (can always add more components)
+Gopher: file or menu, open addressing, very simple server,
+large deployment, indexes
+WAIS: relevance feedback restricted to a single server,
+source file contains organization, indexing, each source is
+a closed world.
+
+Gopher, WWW, Prospero, pointers can go back and forth and
+all over the place.
+
+Question or comment: concern about being to jump or charge -
+people might like to peer over the edge before jumping,
+either because may be hard to get back and to understand
+cost of jumping.
+
+Code is available to "collaborators" - anyone who uses it or
+writes code.
+
+timbl@info.cern.ch
+
+SLAC, Fermi Lab, etc, really for high energy physicists.
+
+Steve Hardcastle-Kille (Directory issues) OSI-DS 25
+Directories in the real world
+
+Global naming: benefits
+* labelling
+* express relationships in names
+* Listing services in the directory.  In the broadest sense
+bringing things together..  Might use for yellow pages,
+multiple provides for similar things.  Might use it for
+localizing activity.  Listings in one place might lead to
+listing in others.
+* Browsing through X.500 to an external listing service,
+such as WWW or WAIS.
+* Hierarchy - rigid, but can overlay multiple hierarchies.
+* Pointers - alias (forward pointer across the hierarhcy)
+and "see also"
+* Use to model groups as objects with components.
+
+Can parts of the hierarchy (DSA's) really be something else
+besides X.500.  Might be WWW or WAIS, etc.
+
+Paul Barker (?), UCL project: (just starting up, trying to push the
+forefront)
+
+3 foci (did I miss something here - I have only 2)
+* gray literature - unpublished, research documents.  Not
+systematically available.  Store this stuff in the
+directory.  Question of how to organize, where to hang them
+- - off individuals, docs for dept, docs for institution, etc.
+Experiment in putting documents in the thing.
+* (funded by British Library) Want to take Mark records of
+library and model them in X.500.  One issue is that LOTS of
+attributes.   (Issue - there is no one standard for Mark
+records.)
+* Librarians are especially interested in looking for
+strings, queries.
+
+Question of whether "The Directory" can contain orders of
+magnitude more objects and bigger objects that hertofore.
+
+Cliff Neuman (Prospero)
+How relates to others (non-X.500)
+
+Goal mechanism for organizing information, follows
+filesystem model rather than hypertext is in W3.  Causes
+multiple queries, therefore have to be fast.  Directory
+service with references to other directories or files.  Does
+not deal with retrieval (FTP, Andrew, NFS, currently adding
+WAIS, will add HTTP).  Prospero views a query as a
+directory, and response is a file.
+
+Prospero and X.500: can use X.500 to translate soft names to
+things to put into Prospero query.  Real problem is a single
+global naming scheme.  Generally organized by owner,
+authority, not necessarily organized by topics.  Real
+problem is what the topics should be and what should be in
+them.  Believes in multiple name spaces.  People can have
+own, but typically will start with either a copy of or a
+link to another one.
+
+Need shortcuts, so user doesn't have to construct all the
+detail of a namespace.  Prospero allows you to glue together
+parts of other directories, called filters.  There are
+canned ones, but users can build their own.
+
+Closure:  (namespace, object) this is how to pass names.
+Namespaces really have addresses that are global, and not
+used by the user.  On the other hand each user can have
+his/her own name for any particular namespace.
+
+info-prospero@isi.edu
+
+Larry Masinter, Xerox, System 33
+* Document handle: uninterpreted, max 32 byte id that every
+doc has.  Truly only a content identifier.  (A substring of
+this is used to find the document, but hidden from users.)
+* file location: protocol, host, path, offset, format,
+timeout
+* description
+* document: a thing that has a handle.
+
+A lot of the work was in conversion of formats.
+
+Also time on access control - per document ACLs.  Made them
+part of the description.
+
+Multiple protocols was a problem because not all machines
+had the same protocols.  Done by a gateway.
+
+Normalizing attribute-vallue space would cause there to be
+none - LOTS of different kinds of documents.  Some are lit,
+and library docs, but others might be quotes, job
+applications, references, financial reports, etc.  Some
+properties actually require computation.
+
+Tim back again
+
+W3 document = Prospero directory = menu
+All based on an address
+
+W3 has an all inclusive model, but only 2 global namesspaces
+(DNS and X.500, but DNS is no longer  being extended, so the
+only one is X.500).
+
+Peter Deutsch: equivalence.  Question of two udi's or
+pointers to one document.  Also question of exact duplicates
+with separate udi's.
+
+Larry Masinter believes it is ok to have a timestamp in it.
+
+
+</XMP>

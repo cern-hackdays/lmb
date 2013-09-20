@@ -1,0 +1,175 @@
+<TITLE>Overview -- /ISO</TITLE>
+<NEXTID 1>
+<H1>ISO work?</H1>
+<ADDRESS>mskuhn@immd4.informatik.uni-erlangen.de (Markus Kuhn)<P> 14 Aug 91 12:59:27 GMT<P> CSD., University of Erlangen, Germany
+</ADDRESS>
+<XMP>
+Newsgroups: comp.mail.multi-media
+
+
+mskuhn@immd4.informatik.uni-erlangen.de (Markus Kuhn) writes:
+>There is an OSI protocol called "group communication" in development
+>at the International Standards Organisation (ISO). [...]
+
+I got a lot of mail, asking for further information. The only
+publications, I've found about these efforts so far are articles
+from
+
+        Research into Networks and Distributed Applications,
+        R. Speth (Editor), Elsevier Science Publishers B.V.
+        (North-Holland), (c) ECSC,EEC,EAEC, Brussels and
+        Luxembourg, 1988.
+
+It contains reports from the AMIGO and COSMOS teams.
+
+Jacob Palme, a member of the ISO/CCITT study group ist regularly posting
+short summeries from the study group meatings in comp.protocols.iso.x400. 
+I've copied parts of some of them below.
+
+I am _very_ interested in other information and publications about
+ISO group communication. Do you have any pointers?
+
+Markus
+
+---------------------------------------------------------------------------
+
+From: JPALME@qz.qz.se (Jacob Palme QZ)
+Date: 13 Mar 91 04:45:42 GMT
+Newsgroups: comp.protocols.iso.x400
+Subject: Report from X.400 development group meeting February 1991
+
+X.400 development group notes
+=============================
+
+The joint ISO/IEC (JTC 1/SC 18/WG 4), CCITT (Study Group
+VII, Question 18) group  and CCITT (Study Group I,
+question 15) for further development of the X.400/MOTIS
+standard for electronic mail met in Wollongong,
+Australia, February 13-22, 1991.
+
+These are my personal notes from the meeting, no
+official minutes.
+
+[...]
+
+Group communication
+-------------------
+
+The group communication subgroup has specified a general
+information model for group communication and an
+abstract service definition for computer conferencing.
+The work on mapping computer conferencing on the general
+information model is not yet finished. Future work
+includes finishing this mapping, further work on the
+distributed architecture and development of ASN.1 and
+protocols.
+
+Not yet clarified issues are whether to only use the
+master-shadow technique for updating, whether to
+represent links as separate link objects or not, how to
+name contributions.
+
+A main issue in the group communication group is still
+whether to produce a special protocol for computer
+conferencing, or only produce a general protocol for
+group communication and map computer conferencing on the
+general protocol.
+
+Another main issue is how to obtain downwards compati-
+bility with X.400 (88). This might be possible by using
+some clever, but possibly unintuitive, coding of group
+communication contents transported via MTS.
+
+Murray Turoff help us with Group Communication?
+----------------------------------------------
+
+We heard rumours that the U.S. intended to send Murray
+Turoff, the man who invented computer conferencing, as a
+representative to future Study Group I/Question 15
+meetings. This is a very happy rumour, if it is true. I
+have for several years tried to persuade Turoff to
+participate in this work. There may be some difficulties
+however, if Turoff comes in as a new participant so late
+in the work. Will he want to redo everything we have
+done before he starts to participate?
+
+
+
+From: JPALME@QZ.qz.se (Jacob Palme QZ)
+Date: 1 Jul 91 16:54:28 GMT
+Newsgroups: comp.protocols.iso.x400
+Subject: ISO/CCITT X.400 group report
+
+Notes from the joint ISO/CCITT meeting on X.400 development
+===========================================================
+
+Ottawa, Canada, June 1991.
+
+These are my personal notes, no official minutes.
+
+[...]
+
+Group communication
+-------------------
+
+The group communication subgroup decided tentatively to split
+its future standards into two different standards:
+
+(a) A general group communication model.
+
+(b) A basic computer conferencing model.
+
+Neither will be ready very soon. Possibly, they might be
+ready for CD ballot in 1993. CD ballot is the first time a
+new standard proposal is sent out to solicit comments. CD
+means Committee Document, and is followed by a DIS (Draft
+International Standard) and finally an IS (International
+Standard).
+
+These CD ballots will not include support for advanced group
+communication tasks such as voting and joint editing. Such
+supports will probably not be ready for CD ballot until 1995.
+
+In the Group Communication subgroup, Murray Turoff, one of
+the world's foremost experts on computer conferencing,
+participated for the first time. This means that much time
+was spent aligning our terminology ( = learning to understand
+each other) and finding similarities and differences in our
+models.
+
+The major unresolved differences were:
+
+(a) Turoff wants to name contributions relative to the
+    conference, while our previous work has planned for
+    conference-independent naming. A consequence of this
+    is that our previous model allows for the same contri-
+    bution to be sent simultaneously to several conferences.
+    With Turoff's model, a contribution will always be sent
+    to one major conference, but links to it can be set
+    up from other conferences.
+
+(b) Turoff wants to handle membership lists as explicit
+    objects, while we previously planned for such lists
+    to be derived from sets of membership links.
+
+[...]
+
+Next study period coming up
+---------------------------
+
+The next CCITT study period is soon coming up, so proposals
+for issues to be handled in the messaging standards group
+during the next study period should be input to study group
+VII or to VII/Q.18 soon now.
+
+[...]
+
+
+
+
+---
+Markus Kuhn, Computer Science student -- University of Erlangen, Germany
+X.400: G=Markus;S=Kuhn;OU1=rrze;OU2=cnve;P=uni-erlangen;A=dbp;C=de
+I'net: mskuhn@immd4.informatik.uni-erlangen.de
+
+</XMP>

@@ -1,0 +1,248 @@
+<TITLE>Overview -- /Groupware</TITLE>
+<NEXTID 1>
+<H1>Group Communications</H1>
+<XMP>
+
+ There  is a lot of work being done in the standards area now.  Most of
+ it seems to be defining models etc.  Some of the people involved  have
+ been involved in developing WORKING pre OSI group comms systems (Jacob
+ Palme:  Kom, PortaKom, EuroKom, SuperKom; Muray Turoff: Eies and Eies2
+ (distributed version of the electronic  information  exchange  system,
+ etc.)
+
+ This  area  is  of  interest  to  me.   I'm  not  sure whether this is
+ something WG1 or WG3 would consider taking on as a workitem (to  track
+ the  standard and to provide comment and input to that group.) I would
+ certainly like the group to recommend to the RARE REC/COA that such  a
+ work item be taken on by RARE - but that is something for the group to
+ decide.
+
+ Steve  Benford has made some of the papers available in RTF format for
+ Word 4 on the Mac.  These are LARGE.  They are available from Mailbase
+ at Newcastle:
+
+ [Note  : I'm still waiting for the X.GC doc from Steve.  I'll mail the
+ list when I have it.]
+
+ How to get them....
+
+ send a mail message to: mailbase@newcastle.ac.uk
+
+ with the text:
+
+ send rare-wg3-usis x.acc.v8.rtf
+ send rare-wg3-usis x.gc.v8.rtf
+
+
+ These docs are:
+
+ TITLE:       Asynchronous Computer Conferencing Working Document X.acc
+ FILE NAME:   X.acc.v8.rtf
+
+ TITLE:       Group Communication Working Document X.gc
+
+ FILE NAME:   X.gc.v8.rtf
+ TITLE:  Asynchronous Computer Conferencing Working Document X.acc
+
+ I  include  below  extracts  from  these  docs (Contents + Glossary of
+ terms) to give you a flavour of what they are about.  (This may be all
+ you  need  in  fact.)  The  Group  Communication  System  provides   a
+ distributed  conferencing facility.  Much of the model looks very like
+ that for a distributed directory service of course, but has much  more
+ built  in.   It  has the idea of roles: member, moderator, group owner
+ and system manager.
+
+
+ Jill
+
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+ Asynchronous  Computer  Conferencing Working Document ISO/IEC JTC 1/SC
+ 18/WG 4 Version 8, June 1991, Printed 22/8/91:4:51 pm
+
+ CCITT Study Group VII/Q.18
+
+ SOURCE:  Joint  ISO/IEC/CCITT  Group  Communication  Subgroup  at  the
+ co-located meeting of CCITT Study Group I/Q.15, VII/Q.18  and  ISO/IEC
+ JTC 1/SC 18/WG 4 SPW Messaging
+
+
+ Part 1: Introduction    iv
+ 1       Overview        1
+ 2       Scope and Field of Application  1
+ 3       References      1
+ 4       Definitions     2
+ 5       Abbreviations   2
+ 6       Conventions     3
+ 7       Part   2:   Asynchronous  Computer  Conferencing  Model  and
+         Abstract Service 3
+ 7.1     Introduction    3
+ 7.2     Asynchronous Computer Conferencing Terminology  4
+ 7.3     Asynchronous Conferencing Abstract Service Definition   7
+ 7.3.1   Ports and Operations      7
+ 7.3.2   Member port       8
+ 7.3.3   Moderator port    12
+ 7.3.4   Conference Management Port        12
+ 7.3.5   Possible extensions       13
+ 7.3.6   Notification handling   13
+ 7.3.7   Issues for further study:       14
+ 8       Part 3: Distributed realisation of the computer conferencing model
+    15
+ 8.1     Partitioning    15
+ 8.2     Operational procedure   15
+ 8.3     Navigation      16
+ 8.4     Execution       16
+ 8.5     Communication between CCSA-s    17
+ 8.6     Distribution of new contributions       18
+ 8.7     Varying real implementations    19
+ 8.8     Mapping CCAP operations on distributed operations       21
+ 8.9     For further study       23
+ Annex A: Glossary of Terms      23
+ Annex B: Security Overview      24
+ 1       Introduction    25
+ 2       Vulnerabilities 25
+ 3       Vulnerability analysis  25
+ 4       Security services       25
+
+ 1    Overview
+
+      Part  2  of  this document presents a basic asynchronous computer
+      conferencing application.
+
+      Part  3  describes  a  possible  distributed  realisation  of the
+      computer conferencing application.
+
+ 2    Scope and Field of Application
+
+      This  Recommendation  defines  the  overall system and service of
+      Asynchronous Computer Conferencing.   Other  aspects  of  Message
+      Handling    Systems   and   Services   are   defined   in   other
+      Recommendations.
+
+ 5    Abbreviations
+
+ DL      Distribution List
+ FFS     For Further Study
+ GCE     Group Communication Environment
+ GCS     Group Communication  Service
+ GCSA    Group Communication Service Agent
+ GCUA    Group Communication User Agent
+ GCAP    Group Communication Access Protocol, the protocol between a GCUA and a
+ GCSA
+ CCSP    Computer Conferencing Service Protocol, the protocol between two CCSA-s
+ CCS     Computer Conferencing  Service
+ CCSA    Computer Conferencing Service Agent
+ CCUA    Computer Conferencing User Agent
+ CCAP    Computer Conferencing Access Protocol, the protocol between a CCUA and
+   a
+ CCSA
+ CCSP    Computer Conferencing Service Protocol, the protocol between two CCSA-s
+ IPM     Inter-Personal Messaging
+ IPMS    Inter-Personal Messaging Service
+ IPMUA   Inter-Personal User Agent
+ MTS     Message Transfer Service
+ DS      Directory System
+ DUA     Directory System User Agent
+ DAP     Directory Access Protocol, the protocol between a DUA and a DSA
+ DSP     Directory System Protocol, the protocol between two DSA-s
+ DFRS    Document Filing and Retrieval Service
+ DFRUA   Document Filing and Retrieval User Agent
+ DFRSA   Document Filing and Retrieval Service Agent
+ DFRAP   DFR Access Protocol, The protocol between a DFRUA and a DFRSA
+
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+ TITLE:  Group Communication Working Document X.gc
+
+ Group  Communication Working Document ISO/IEC JTC 1/SC 18/WG 4 Version
+ 8, June 1991, Printed 22/8/91:4:48 pm
+
+ 1       Part 1: Introduction    v
+ 2       Overview        1
+ 3       Scope and Field of Application  1
+ 4       References      1
+ 5       Definitions     1
+ 6       Abbreviations   2
+ 7       Conventions     3
+ 8       Part 2: General Group Communication Model       4
+ 8.1     Goals   4
+ 8.2     Requirements    4
+ 8.3     Approach        5
+ 8.4     The Group Communication Service 5
+ 8.4.1   Introduction    5
+ 8.4.2   The Group Communication Environment     5
+ 8.4.3   Group Communication User        6
+ 8.4.4   Group Communication User Agents and Group
+ Communication Service   6
+ 8.4.5   The GC Service is distributed   7
+ 8.4.6   The GC System contains data objects     8
+ 8.5     The Group Communication Information Model       9
+ 8.5.1   Objects 9
+ 8.5.2   Item    10
+ 8.5.3   Entity  10
+ 8.5.4   Domain  10
+ 8.5.5   Index   11
+ 8.5.6   Attributes      11
+ 8.5.7   Links   11
+ 8.5.8   Distinguished Names     12
+ 8.5.9   Free-Form Names 12
+ 8.6     Abstract Service Definition     12
+ 8.6.1   Overview        12
+ 8.6.2   Searching       14
+ 8.6.2.1 Examples        15
+ 8.6.2.2 ASN.1 for Search        16
+ 8.6.3   ASN.1 for the Group Communication Abstract Service      17
+ 8.6.3.1 The Group Communication Environment     18
+ 8.7     Items for further study 30
+ 9       Part 3: Mapping the Computer Conferencing Model on the general
+ Group Communication Model       31
+ 9.1     Introduction    31
+ 9.2     Objects 31
+ 9.3     Attributes      34
+ 9.4     Links   35
+ 9.5     Mapping Operations      35
+ 9.6     Initialisation  35
+ 9.7     Manager port    36
+ 9.7.1   Create group activity   36
+ 9.7.1.  Announce group activity 36
+ 9.7.3   Suspend group activity  36
+ 9.7.4   Delete group activity   36
+ 9.7.5   Add member      36
+ 9.7.6   Remove member   36
+ 9.7.7   Reject subscription request     37
+ 9.7.8   Register participant    37
+ 9.7.1.  Unregister participant  37
+ 9.7.10  Modify group activity   37
+ 9.8     Member port     37
+ 9.8.1   Find-group activities   37
+ 9.8.2   Find subscribed group activities        37
+ 9.8.3   Describe group activity 38
+ 9.8.4   Subscribe request       38
+ 9.8.5   Unsubscribe     38
+ 9.8.6   List news       38
+ 9.8.7   Find contributions      38
+ 9.8.8   Find notifications      38
+ 9.8.9   Read item       39
+ 9.8.10  Mark    39
+ 9.8.11  Submit-contribution     39
+ 9.8.12  Personal-reply  39
+ 9.8.13  Modify-contribution     40
+ 9.8.14  Remove-item     40
+ 9.8.15  Delete-item     40
+ 9.8.17  Describe-participant    40
+ 9.8.16  Find-members    40
+ 9.8.18  Modify-profile  40
+ 9.8.19  Download news   40
+ 9.9     Moderator Port  41
+ 9.9.1   Find-submissions        41
+ 9.9.2   Accept  41
+ 9.9.3   Reject  41
+ Annex A: Glossary of Terms      41
+ Annex B: Security Overview      42
+ 1       Introduction    43
+ 2       Vulnerabilities 43
+ 3       Vulnerability analysis  43
+ 4       Security services       43
+
+
+</XMP>

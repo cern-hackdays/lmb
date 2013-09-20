@@ -1,0 +1,120 @@
+<TITLE>Release_b2 -- /WAIS</TITLE>
+<NEXTID 1>
+<H1>Release b2</H1>
+<XMP>Date: Wed, 31 Jul 91 15:18:28 PDT
+From: Brewster Kahle <brewster@think.com>
+Sender: brewster@quake.think.com
+To: wais-interest@think.com
+Subject: WAIS beta 2 release: minor fixes over b1
+
+
+	   New Unix Internet Release (Beta 2 Release) Available
+		 		July 31, 1991
+
+Thank you for the interest in WAIS.  The servers on Quake (including the
+directory of servers) has almost 20k requests from over 600 different hosts
+all over the world (18 countries) in a couple of months.  There are now 44
+servers including one in Norway (UiO_Publications.src), poetry
+(poetry.src), as well as a Connection Machine serving all sorts of things.
+
+There are are a few mailing lists on this subject that you might want to be
+on: 
+	wais-interest: only announcements like this (1 a month or so)
+	wais-discussion: moderated mailings every 1 or 2 weeks.  Good
+			stuff including all on wais-interest.
+	wais-talk: unmoderated for implementors and interactive discussions.
+Requests to wais-<foo>-request@think.com.  Archives available from
+wais server: wais-discussion or anonymous ftp from quake.think.com.
+
+Jonathan Goldman pulled the most recent release together (with help from
+developers all over the world, see below):
+Highlights of modifications (see the release for the full report)
+	Overall: minor fixes and better logging	
+	waisindex: added paragraph and mh_bboard types
+	waisserver: added forwarding feature, runs under inetd
+	waissearch, waisq, xwais, and xwaisq: fixes
+        The Mac release is unchanged and stable.
+We are preparing for the final release due out in late August.
+Thank you to all that have contributed bug reports and suggestions.
+
+Overview of components:
+In this release is source code for:
+ * Server code:  There is code to index text and picture files.
+ * Protocol code: based on Z39.50-1988 using the internet.
+ * Clients code: User interfaces for contacting servers
+	* GNU emacs interface
+	* simple shell interface 
+	* Mac interface (in separate WAIStation file)
+	* tool kit for making your own interfaces
+	* X interface
+ * Directory of servers: This is be a network service that lists
+	existing servers and how to contact them.
+ * A Connection Machine server with some patent information, the CIA
+	factbook, and some Biomedical abstracts, info-mac, risks, etc 
+	to serve as example servers.  
+
+The public servers that are currently advertized are:
+ CM-applications.src
+ CM-fortran-manual.src
+ CM-paris-manual.src
+ CM-star-lisp-docs.src
+ CM-tech-summary.src
+ CMFS-documentation.src
+ Connection-Machine.src
+ INFO.src
+ MIT-algorithms-bug.src
+ MIT-algorithms-exercise.src
+ MIT-algorithms-suggest.src
+ Molecular-biology.src
+ NIH-Guide.src
+ US-Gov-Programs.src
+ UiO_Publications.src
+ bible.src
+ cosmic-abstracts.src
+ cosmic-programs.src
+ directory-of-servers.src
+ eff-documents.src
+ eff-talk.src
+ empire.src
+ empire20.src
+ homebrew.src
+ info-mac.src
+ internet-documents.src
+ internet-drafts.src
+ internet-resource-guide.src
+ internet-rfcs.src
+ jargon.src
+ online-libraries.src
+ patent-sampler.src
+ poetry.src
+ risks-digest.src
+ sample-books.src
+ sample-pictures.src
+ sun-spots.src
+ tmc-library.src
+ usenet-cookbook.src
+ wais-discussion-archives.src
+ wais-docs.src
+ wall-street-journal-sample.src
+ weather.src
+ world-factbook.src
+
+The release is available from Think.com via anonymous FTP in
+/public/wais/wais-8-b2.tar.Z and WAIStation-0-62.sit.hqx.
+
+Bugs to bug-wais@think.com or to me.
+Thanks to Michael Haberler (mah@parrot.prv.univie.ac.at) and to
+gcardwel@uci.edu for bug fixes to the last release.
+
+-brewster and the wais crew
+
+"Paper and flesh are fleeting media for the treasures that are ideas."
+
+Brewster Kahle					Thinking Machines Corporation
+Brewster@Think.com				1010 El Camino Real
+Project Leader					Menlo Park, CA 94025
+Wide Area Information Servers			415-329-9300x228
+
+
+
+</XMP>

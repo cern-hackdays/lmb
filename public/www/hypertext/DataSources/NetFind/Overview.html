@@ -1,0 +1,104 @@
+<TITLE>Overview -- /NetFind</TITLE>
+<NEXTID 1>
+<H1>NETFIND</H1>
+<H2></H2>
+<XMP>Date: Fri, 26 Apr 91 14:53:19 +0200
+From: "brian@cernvax.cern.ch"@dxmint.cern.ch
+To: brian@cernvax.cern.ch, dimou@cernvax.cern.ch
+Subject: FYI
+
+Path: cernvax!mcsun!uunet!cs.utexas.edu!sdd.hp.com!mips!apple!motcsd!mcdcup!mcdchg!usenet
+From: xcaret@csn.org (Xcaret Research)
+Newsgroups: comp.newprod
+Subject: NetFind, whitepages service for the Internet
+Message-ID: <61338@mcdchg.chg.mcd.mot.com>
+Date: 24 Apr 91 14:42:49 GMT
+Sender: usenet@mcdchg.chg.mcd.mot.com
+Followup-To: poster
+Organization: Colorado SuperNet Inc.
+Lines: 67
+Approved: usenet@mcdchg.chg.mcd.mot.com
+
+NetFind, from Xcaret Research, Inc., is a whitepages service for the 
+Internet.  Given a person's name and location or organization, NetFind 
+returns their Internet electronic mail (email) address.  NetFind 
+differs from other whitepages facilities by offering fast and up to 
+date service from your own machine.  
+
+NetFind runs from the UNIX command line.  To find John Smith at 
+Bigstate University, you just type:
+
+        % netfind smith bigstate
+
+NetFind returns the email address.  Its that simple.
+
+NetFind operates on a Sun3 or Sun4 computer running SunOS 4.0 or 
+later with access to the Internet.  Uses only 4MB of disk space.  
+Since NetFind runs from the command line, you can use NetFind from 
+any remote terminal, Mac or PC that accesses a Sun.
+
+NetFind uses a unique method to actively search the Internet for 
+your target.  It does not attempt to keep a database of users across 
+the Internet; that would be quite large and constantly out of date.  
+Instead, NetFind uses the natural database of the Internet itself: it 
+sends multiple parallel requests across the Internet  to machines 
+where it suspects the target may reside.  NetFind queries these 
+machines for the name you provide as well as for leads on other 
+machines nearby.  NetFind in turn searches these discovered 
+machines and so on down the hierarchy until the address is found or 
+there are no more machines to search.  The whole process is 
+surprisingly fast, because NetFind sends searches out in parallel.  
+
+NetFind uses a reference file for domains and a location index.  They 
+take up about 3MB.  The first file is a partial list of Internet 
+domains.  NetFind uses this list to prime its search.  The list is by 
+no means all of the computers it can search.  Rather, it will use the 
+information obtained from querying those machines to further its 
+search.
+
+The second file is an index of location words.  When you say:
+
+                % netfind smith bigstate
+
+NetFind looks in this index for "bigstate".  Then it resolves the 
+information it sees with specific machines in the domain file and 
+begins its search.  So, the whole process goes from location word to 
+index to domain file and then in parallel searches throughout the 
+Internet.
+
+The name can be either a last name or a username. The location 
+words are generally geographical or organizational (i.e., switzerland 
+or sun) and can be combined to narrow the search  
+(i.e., netfind smith bigstate university ).
+
+NetFind is sold with a single user license for $159.  Please call for 
+educational discounts and site licensing.   You may order by phone, e-
+mail or postal mail (include P.O. number, check or credit card).  
+Please specify your domain name, Sun3 or Sun4, and  the format 
+(electronic, floppy, 60MB, or 150MB tape).  We don't charge for 
+floppies, but
+cartridge tapes are an additional $30 to cover cost.
+
+Xcaret Research, Inc.
+2060 Broadway, Suite 320
+Boulder, CO  80302
+(800) 736-1285
+netfind@xcaret.com
+
+chibacity:jgore% 
+
+
+================== RFC 822 Headers ==================
+Received: by dxmint.cern.ch (cernvax) (5.57/3.14)
+	id AA17927; Fri, 26 Apr 91 14:53:15 +0200
+Received: by cernvax.cern.ch (5.57/Ultrix2.0-B)
+	id AA10530; Fri, 26 Apr 91 15:00:44 +0200
+Message-Id: <9104261300.AA10530@cernvax.cern.ch>
+Received: by cernvax.cern.ch (5.57/Ultrix2.0-B)
+	id AA09984; Fri, 26 Apr 91 14:54:44 +0200
+Date: Fri, 26 Apr 91 14:54:44 +0200
+Sender: brian@cernvax.cern.ch
+
+
+
+</XMP>

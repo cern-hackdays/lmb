@@ -1,0 +1,33 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 4>
+<H1>The unix "whois" command</H1>(This information was extracted from the <A NAME=3>whois online help</A> on 22 Feb-91
+by <A NAME=2 HREF=../../TBL_Disclaimer.html>TBL.</A> Send questions, comments, bug reports on the whois product
+itself to BUG-WHOIS@NIC.DDN.MIL, user  updates and corrections to
+REGISTRAR@NIC.DDN.MIL, other updates to HOSTMASTER@NIC.DDN.MIL.)<P>
+WHOIS is used to look up records in the main NIC database.  Each 
+record has a "handle" (a unique identifier assigned to it by the NIC),
+a name, a record type, and various other fields depending on the
+type of record.<P>
+To use WHOIS, simply type in your target string.  The default action,
+unless directed otherwise with a keyword (e.g. "domain root"), is
+to do a very broad search, looking for matches to your target in
+many fields: handle, name, nicknames, hostname, net address, imp
+name, etc,and finding all record types.<P>
+WHOIS then shows the results in one of two ways: as a full, detailed
+display for a single match (with possible subdisplay), or as one-
+or two-line summaries for multiple matches. Often the search finds
+more records than just the one wanted.  To look up a single, specific
+record, put a '!' before your target, which should be the handle
+of that record.  In summary lines, the handle is shown in parenthesis
+following the name, which is first on the line. So, typing "!ABC"
+will look up the record whose handle is "ABC".<P>
+If you don't know what it is exactly you're looking for, you can do
+a "partial" search, meaning you will specify the partial target
+string, and everything STARTING with that target will be found.
+Put a trailing dot (or dots) after your text to indicate this. For
+example, typing "mack." will find "Mack", "Mackall", "Mackay", etc.
+<P>
+See the section "<A NAME=1 HREF=Keywords.html> KEYWORD overview</A> " for a description of the different
+types of keywords WHOIS takes.<P>
+__________________________________________________________
+<ADDRESS><A NAME=0 HREF=#3>Whois online help</A>

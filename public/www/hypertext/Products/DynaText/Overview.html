@@ -1,0 +1,75 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 4>
+<H1>DynaText</H1>DynaText is a <A NAME=3 HREF=../Overview.html>hypertext system</A> based on SGML and a large number of
+Graphics standards. It comes from <A NAME=1 HREF=EBT.html>Electronic Book Technology</A>
+<UL>
+<LI>Basically portable,  posix/X conforming.
+<LI>Uses SGML format for document storage
+<LI>Large variety of graphics formats
+<LI>Full text indexing included.
+</UL>Dynatext is now available for Suns - (os4.1 or higher, 10MB nnedeed
+for full installation), on Sun-2  3.5"floppies or cartdidge. Production
+version 1 now available (March 91).  Mr. Schmidt is getting us one
+on cartirdge (13 March 1991). Evaluation price for 45 days: SFr750
+(CERN half price). Under evaluation.<P>
+Aparently Windows-3 version is avilable beta test only - Chris jones
+has one.
+<H2>First impressions</H2>We (Giuseppe Mornacchi and I) installed the product on a sun4 running
+openlook, but noticed that the motif version supplied with it works
+fine (even under openlook).<P>
+The first disappointment with dynatext was that it is not an authoring
+system. It requires SGML to be prepared in advance. It then builds
+a book with it, which involves building indexes etc. After this process,
+the book can be browsed. <P>
+A strange feature is that the licencing is done on builds: each time
+you rebuild a book, your license is decremented! Therefore, it is
+not really suitable for fast-changing cooperative work: it is targetted
+at centralised publication. <P>
+The browsing is basically good, very similar to DEC's bookreader product.
+One can have more than one window on hte same document, but by default
+following a link replaces the text in the window one has.
+<H3>Searching</H3>I found searching difficult at first, because one needs access to
+three windows at a time.  The table of contents window starts the
+search, a lookup window has the parameters, and the results are highlighted
+in the text window.  As under openlook I found I was always losing
+windows on the screen, it would take me some time to find the results
+of my search. The default positions for the table of contents and
+lookup windows seem to be on top of each other, which didn't help.
+Windows do not pop to the surface when something interesting happens
+in them.<P>
+The search result is neat, however, in that the contents page is annotated
+with the number of occurences of the pattern in each chapter, section,
+etc. (The contents page is an outline viewer which allows contraction
+and expansion of the nesting).
+<H3>Links</H3>Links are not represented by highlighted text, but by icons in the
+margin (in the case of the documents we read, the right hand margin,
+but this is defined in a style sheet.)  This involved the use of macros
+(SGML entities) for phrases like "see table linked at right" for the
+browsable version, but "see table below" for the printed version.
+This meant that the flow of the text was broken by such references,
+so in practise the document only contained a few links.  In their
+example documentation, this was infuriating: there would be a reference
+to another part of the document in the text, but no link to it!<P>
+There are links within and between documents. One can, in the DTD,
+specify the effect of a link using a number of predefined "scripts".
+I don't know how flexible this is and whether it would allow us to
+add WWW-style networking capability.
+<H3>General</H3>As authoring is not supported, neither is annotation, though I understand
+from EBT that a future version will support annotation (only - not
+full authoring).<P>
+There was a steady chatter to the standard error output of little
+error messages, which didn't seem to affect anything visible in the
+windows.<P>
+Out attempts to get a wider test public by displaying  dynatext on
+a Vaxstation running the (field test) X11R4/Motif failed: the font
+"fixed" could not be found. We put the blame for this on DEC rather
+than EBT.<P>
+Interesting possibilities for Cern would hinge on someone producing
+the DTDs and style sheets for CERN SGML files and/or WWW HTML files.
+Perhaps the LHC test beam team will have time to try this.<P>
+See also:
+<UL>
+<LI><A NAME=2 HREF=../Overview.html>Other hypertext products</A>
+</UL>_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

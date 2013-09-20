@@ -1,0 +1,196 @@
+<TITLE>Digest_06 -- /WAIS</TITLE>
+<NEXTID 1>
+<H1>#6</H1>
+<XMP>Date: Fri, 10 May 91 13:50:39 PDT
+From: Brewster Kahle <brewster@think.com>
+Sender: brewster@quake.think.com
+To: timbl@nxoc01.cern.ch
+In-Reply-To: Tim Berners-Lee's message of Fri, 10 May 91 09:05:55 GMT+0100 <9105100805.AA04598@ nxoc01.cern.ch >
+Subject: subscribe
+
+   Date: Fri, 10 May 91 09:05:55 GMT+0100
+   From: timbl@nxoc01.cern.ch (Tim Berners-Lee)
+
+   Please add me to the list as: tbl@cernvax.cern.ch
+
+   Also:
+
+   I want to find out about Z39.50 fast. Can you direct me to a  
+   machine-readable publicly accesible copy of the standard?
+
+   Thanks in advance
+
+   Tim Berners-Lee
+	   WorldWideWeb Project
+	   CERN
+	   1211 Geneva 23, Switzerland
+	   tbl@cernvax.cern.ch
+	   Tel +41(22)7673755; Fax: +41(22)7677155
+
+done.  Welcome.  A wonderful contribution would be an overview of
+WorldWideWeb.
+
+-brewster
+
+Brewster Kahle					Thinking Machines Corporation
+Brewster@Think.com				1010 El Camino Real
+Project Leader					Menlo Park, CA 94025
+Wide Area Information Servers			415-329-9300x228
+
+here is the last issue:
+
+To: wais-discussion@think.com
+From: Brewster Kahle <brewster@Think.COM>
+Subject: WAIS-discussion digest #6: How to get the ball rolling
+
+       Forum On Wide Area Information Servers and Electronic Publishing
+                              Brewster Kahle
+                 
+
+Contents:
+     WAIS and Archie... (Larry Masinter)
+     WAIS and Archie... (Brewster Kahle)
+     Byte article (Willem Scholten)
+     Serving Internet RFC's (Jonny Goldman)
+
+[Release notes: We are still working the bugs out on different platforms.
+ There are now 27 servers registered with the directory of servers.
+ 44 different hosts have asked questions of quake.think.com in the last
+ couple of weeks.
+
+ We are starting to get some press: May Byte, upcoming Release 1.0, and
+ another trade magazine.  So far so good.
+
+ -brewster]
+
+----------------------------------------------------------------------
+
+From: Larry Masinter <masinter@parc.xerox.com>
+Subject: WAIS and Archie...
+Date: 	Sun, 21 Apr 1991 20:37:23 PDT
+
+Do any of you have any thoughts on connecting up WAIS and Archie, the
+McGill University archive-server-listing-service?  Perhaps this could
+just be another database in WAIS?
+
+
+------------------------------
+
+Date: Tue, 23 Apr 91 15:44:39 PDT
+From: Brewster Kahle <brewster@Think.COM>
+Subject: WAIS and Archie...
+
+   From: Larry Masinter <masinter@parc.xerox.com>
+   Date: 	Sun, 21 Apr 1991 20:37:23 PDT
+
+   Do any of you have any thoughts on connecting up WAIS and Archie, the
+   McGill University archive-server-listing-service?  Perhaps this could
+   just be another database in WAIS?
+
+I have exchanged email with one of the developers of archie, but it has
+dropped.  It would easy enough using archie's databases.  The software is
+set up to allow other databases to be easily supported.
+
+-brewster
+
+------------------------------
+
+Date: Tue, 30 Apr 91 17:05:33 PDT
+From: Willem Scholten <willem@lawmail.law.columbia.edu>
+Subject: Byte article
+
+[An article by Richard Stein was published in May Byte Magazine.  It was
+written by reading my WAIS concepts paper and discussions with various
+people on the phone.  I am seeking permission to put the ascii version on
+this list.
+
+Esther Dyson's article in Release 1.0 (the whole issue!) is going to the
+printer tomorrow.  I have permission to repost it here when I get a
+softcopy of it.
+
+ -brewster]
+
+         Brewster,
+
+         I was sorry to see the article in Byte magazine the way it was
+         written.  I didnot think it did very well justice to the concept of
+         WAIS and it enormeous potential for libraries and other public
+         information providors.  I think that the point regarding privacy law
+         etc was bad and has nothing really to do with the whole WAIS concept.
+         Privacy matters are something which are an issue no matter what kind
+         of information providing you do, and has nothing to do with the
+         principle of providing a better and more reliable and concistant way
+         of deseminating information.
+
+         Although the above issues and argument are not new to us.  We see
+         these same argument many times over from those librarians we tend to
+         call "conservative" and in many cases they are used to not further
+         their profession and ot being realistic about the futher of libraries
+         altogether.
+
+         I hope that you and your team are getting the chance to write an
+         article some day to explaine the real phylosophy behind wais.
+
+         Talk to you soon,
+         Willem.
+
+         P.S: I don't mean to be harsh  I just get upset when people sort of
+         miss part of the exiting new possibilities and hide behind issues
+         such as privacy and copyright laws.  They are not meand to be used to
+         stop inavative new approches!!
+
+
+
+         P.S.S: I will be working over the weekend on putting up a sample
+         database for the law school.
+
+
+
+------------------------------
+
+Date: Tue, 30 Apr 91 17:28:32 PDT
+From: Jonny Goldman <jonathan@think.COM>
+Subject: Serving Internet RFC's
+
+[try 
+ waissearch -h quake.think.com -p 210 -d internet-rfcs hitchhikers
+ -brewster ]
+
+We're now serving the text of nearly all 1200 (or so) of the Internet
+Request for Comments (RFC).
+
+The directory of servers has the new source.  Use you favorite WAIS
+interface and ask for RFC:
+
+% waissearch -h quake.think.com -p 210 RFC
+
+ Search Response:
+  NumberOfRecordsReturned: 1
+   1: Score: 1000, lines:  13 'internet-rfcs.src   /proj/wais/wais-sources/'
+
+View document number [type 0 or q to quit]: 1
+Headline: internet-rfcs.src   /proj/wais/wais-sources/
+(:source 
+   :version  3 
+   :ip-name "quake.think.com"
+   :tcp-port 210
+   :database-name "internet-rfcs"
+   :cost 0.00 
+   :cost-unit :free 
+   :maintainer "jonathan@quake.think.com"
+   :description "Server created with WAIS release 8 a12 on Sat Apr 27 23:38:36 1991 by jonathan@quake.think.com
+
+Internet Request for Comments (RFC) through 1221
+"
+)
+
+View document number [type 0 or q to quit]: q
+Search for new words [type q to quit]: q
+------------------------------
+
+************************
+
+-------
+
+
+

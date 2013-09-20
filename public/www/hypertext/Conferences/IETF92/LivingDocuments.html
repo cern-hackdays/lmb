@@ -1,0 +1,114 @@
+<TITLE>LivingDocuments -- /IETF92</TITLE>
+<NEXTID 1>
+<H1>"Living Documents"  BOF</H1>
+<XMP>Co-Chairs:  Peter Deutsch (peterd@cc.mcgill.ca)                 March, 1992
+            Alan Emtage	  (bajan@cc.mcgill.ca)
+
+
+          ----------------------------------------
+
+
+The Living Documents BOF met Tuesday, March <blat> 7pm-10pm. The
+preliminary agenda called for discussion on a wide range of topics
+related to the creation and implementation of Living Documents but in
+practice the majority of the discussion revolved around data
+representation issues for network-based information discovery and
+delivery systems.
+
+Much of the discussion centred upon the characteristics needed to
+implement a practical scheme for Universal Document Identifiers,
+contrasting these with a proposal for Unique Document Serial Numbers.
+UDIs have been proposed to allow multiple information systems to
+communicate location and access information. Initial proposals that
+had been circulated by Tim Berners-Lee, Brewster Kahle and others were
+discussed and these were compared to the information needed and
+currently provided by such systems as Prospero, WWW, WAIS and others.
+No firm conclusions were reached, but it was agreed that a mailing
+list (nir@cc.mcgill.ca) would be created to pursue this issue with a
+goal of producing a document standardizing UDIs for Internet use.
+Initially, all attendees of this BOF are to be placed on the list, and
+existance of the list is to be announced to the Internet community.
+
+Discussion concerning Unique Document Serial Numbers centred around the
+perceived need to identify and compare the _contents_ (in contrast to
+the location) of documents in an internet environment. Ideally, we would
+have a means for:
+
+		a) Identifying the contents of a document
+		   and comparing it with other documents without
+		   copying and comparing them directly.
+
+		b) Identifying derivative works and ancestral links
+		   between documents.
+
+		c) Identifying documents that contain the same
+		   information despite representational changes
+		   that do not add or delete information contents.
+
+It was generally accepted that the first of these could probably be met
+with relatively straightforward signature schemes, but that the last two
+would be difficult or impossible using strictly syntactic means. At
+least one archive site administrator (Mark Baushe "mdb@nsd.3com.com")
+has subsequently implemented such an MD5-based signature scheme at his
+site (ftp.3com.com) for testing purposes. Details on accessing these
+signatures will be posted to the nir@cc.mcgill.ca list.
+
+The discussion continued across a range of topics, examining the other
+issues to be addressed in implementing Living Documents and
+network-based information systems. The following list was drawn up
+outlining some of the issues to be addressed in subsequent work:
+
+Univeral Document Identifiers:
+	- design, documentation and deployment. Issues involved include
+	  the need to encode individual access methods and specific
+	  location information within a specified access method. An
+	  initial proposal for such a scheme had been circulated by Tim
+	  Berners-Lee prior to the meeting. A copy is available by
+	  anonymous FTP from info.cern.ch in the subdirectory
+	  "/pub/www/doc/udi1.[ps|txt]".
+
+Unique Document Serial Numbers:
+	- design, documentation and deployment. Issues involved include
+	  identifying specific documents, version control and derivation
+	  information.
+
+Cataloguing Information:
+	- Librarians already make use of far more cataloguing
+	  information than any of the experimental systems currently 
+	  in use on the Internet. Work with those directly involved in
+	  library science working with extending MARC records, ISBN
+	  and ISSN numbers is called for.
+	  
+Discovery mechanisms:
+	- There remains a large open problem in rapidly and
+	  efficiently discovering the existance and location
+	  of information in a large distributed computing environment.
+	  The proposed UDIs and UDSNs may enable such systems to be built
+	  but additional wrk is still needezVCd. There are problems both
+	  in locating individual service providers and specific pieces
+	  of information.
+
+Authentication and Access Control:
+	- Security issues were not discussed in depth, but it was agreed
+	  that such issues would become more important as large-scale
+	  systems are developed and deployed.
+
+
+Editorial Control:
+	- Again a topic touched upon only briefly, it was suggested by
+	  one participant that true Living Document systems would have
+	  to include some method of imposing editorial control.
+
+Mailing List:
+
+			nir@cc.mcgill.ca
+			nir-request@cc.mcgill.ca
+
+
+Mailing List Archive:
+	anonymous FTP to:	archives.cc.mcgill.ca
+	subdirectory:		"/pub/mailing-lists/nir-archive"
+
+
+
+</XMP>

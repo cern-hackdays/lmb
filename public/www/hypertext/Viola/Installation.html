@@ -1,0 +1,34 @@
+<TITLE>Installation -- /Viola</TITLE>
+<NEXTID 4>
+<H1>Viola installation instructions</H1>This describes how to get hold of the <A NAME=3 HREF=../WWW/Status.html#35>Viola WWW browser</A>, and install
+it on your own machine.<P>
+See also: possibly out-of-date copies of<A NAME=1 HREF=../WWW/Viola/violaWWWAbout.html> "About Viola"</A> and the<A NAME=2 HREF=../WWW/Viola/violaWWWHelp.html> Viola-WWW
+online help</A> .<P>
+(NOTE: This document is temporary: it only applies to the latest Viola
+beta-test
+<H2>Files you need</H2>Using anonymous FTP, pick up the tar file ViolaWWW_920515.tar.Z from
+the /pub/www/src directory on info.cern.ch. Uncompress it and un tar
+it. You will get a new directory ViolaWWW_920515 under which you will
+find the apps directory and a bin directory (and a src directory you
+don't need) Write a small shell script like
+<XMP>
+#! /bin/csh
+/.../bin/viola.decstation -path /.../apps &
+</XMP>Call this script vw, give it execute mode
+<XMP>
+                      chmod +x vw
+
+</XMP>and put it into some directory which is in your path (like your own
+bin or /usr/local/bin if you can be root). Of course in the script
+above replace the ... with the actual path name of wherever you have
+put the viola files. Type
+<XMP>
+  rehash
+</XMP>so that your shell knows about the new command. That's all I think
+you need to do. Just type
+<XMP>
+   vw
+</XMP>When the application starts, click on the big question-mark for help.
+You can personalise the home page by defining the WWW_HOME environment
+variable as for www. mail www-bug@info.cern.ch if you have problems.
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

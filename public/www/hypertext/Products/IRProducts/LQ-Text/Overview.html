@@ -1,0 +1,79 @@
+<TITLE>Overview -- /LQ-Text</TITLE>
+<NEXTID 1>
+<H1>lq-text</H1>
+<XMP>From: lee@sqlee.sq.com (Liam R. E. Quin)
+Message-Id: <9204192243.AA06941@sqlee.sq.com>
+To: lq-text-beta@sq.com
+Subject: lq-text 1.12 beta release now available
+
+The latest version of lq-text is 1.12beta, and as of today this is available
+(for ftp users only) from
+	ftp.cs.toronto.edu [128.100.1.105] tmp/lq-text1.12beta.tar.Z
+(shortly to move from tmp into pub)
+
+I have no plans to make 1.12 available by mail or tape until it has been
+ported to more systems.
+
+As it is, it works `out of the box' on
+
+    Machine: MIPS RS3330
+    Architecture: MIPS RS3330
+    Operating System: umips ATT V.3.0 1.4.2
+    Clone of ndbm: sdbm
+    C Compiler: cc
+    Flags: -O
+
+    Machine: Sun 4/110, Sun 4/260, Sun 4/330, 
+    Architecture: SPARC
+    Operating System: SunOS 4.1.1
+    Clone of ndbm: bashash
+    C Compiler: any of /usr/bin/cc, /usr/5bin/cc, gcc
+    Flags: -O4, or -O4 -Qoption iropt -l4
+
+Please help me to extend this list!  I'll stop calling it a beta release
+when there are no known serions bugs (which is true at the moment too), and
+when the list of ports is a little longer.  Probably in about a month.
+
+New in this release:
+
+* files can be compressed or archived after they're indexed - use lqrename
+  to update the index so things can find moved, compressed or archived files
+
+* improvements to indexing:
+  a bitmap instead of a linked list for free data blocks, together with
+  caches, means that indexing is about four times faster.  You can index files
+  over NFS now, too, without paying an unacceptable perfomrnace penalty.
+  (Retrieval will always be slower when using NFS, RFS, etc)
+
+* several new programs, including one to print a sorted wordlist, and ones
+  to rebuild the free bitmap and word list - you can delete the dbm wordlist
+  and the free list to save storage space; the free bitmap is not needed when
+  retrieving data, but you will need the wordlist...
+
+* an OPEN LOOK UI front end using the XView toolkit.  This is experimental.
+
+* GuidedTour, a file giving a breakdown of each directory and an explanation
+  of most of the files.
+
+* ozmahash is replaced by bsdhash - a newer version.  In fact, there's an
+  even newer version called `db', from 4.4BSD, but I am not including it
+  because it seems almost impossible to port to anything.
+  Bsdhash is noticeably faster than ozmahash, and *much* faster than sdbm,
+  which in turn is much faster than ndbm.
+
+* Bug reporting - there's a mail template (I hope) to be sent back to me.
+  It doesn't really matter if I get those or some other format, though.
+  Mail to lee@sq.com
+
+* Feature requests, discussions, porting problems
+  Mail to lq-text-beta@sq.com to send to all the beta-testers.
+  Mail to lee@sq.com to send only to me.
+
+Many thanks to everyone who looks at lq-text1.12 and comments... and helps
+me to make it better.
+
+Lee
+lee@sq.com  Liam Quin  The barefoot programmer
+
+
+</XMP>

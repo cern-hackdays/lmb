@@ -1,0 +1,50 @@
+<TITLE>FieldNames -- /WHO</TITLE>
+<NEXTID 2>
+<H1>Field names</H1>When you search for a person in the WHO database, you normally search
+with their name. In fact, words you give will be matched against any
+part of  a person's phone book record, so you can search by phone
+number or division, for example.<P>
+You can, however, specify that a value must match a particular field
+by prefixing it with a field name. Field names all start with colons
+(:) to distinguish them from any other data.<P>
+You can give many such sets of field name and value(s), which must
+all match (logical AND) for a name to be displayed.  Here are some
+field names -- these can be abreviated to two letters:
+<UL>
+<LI>
+</UL>
+<DL>
+<DT>CODE
+<DD>FOLLOWED BY
+<DT>:phone
+<DD>A (four digit) phone number
+<DT>:building
+<DD>A building number, eg 513
+<DT>:surname
+<DD>The surname (last name, normally family name) of a person.
+If the surname consists of several words, any number of these may
+be specified.
+<DT>:firstname
+<DD>The forenames of a person.
+<DT>:flooroffice
+<DD>A room number of the form 1-007
+<DT>:div
+<DD>The division, eg  ":div ecp" to select only those in ECP division.
+See also :CG.
+<DT>:cg
+<DD>A code for a persons "group" inside their division in the CERN
+hierarchy. For example, AS
+<DT>:all
+<DD>A field consisting of the whole phone book line followed by the
+preferred electronic mail address and  the account-file information
+belonging to the same person.
+</DL>
+
+<H2>Example:</H2>searching with string
+<XMP>			john :div cn :cg as
+
+</XMP>finds all people called "John" as first name or second name in division
+CN. group AS. For more field names, see the writeup on the <A NAME=1 HREF=http://crnvmc/FIND/PUB.WRITEUP.HELPWRIT.WHO(W/A/H+P+S+L)>WHO program</A>.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>
