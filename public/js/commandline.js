@@ -1,3 +1,14 @@
+var cmd = document.querySelector('#cmd-input'),
+    cursor = document.querySelector('#cmd-cursor'),
+    promptElement = document.querySelector('.cmd-prompt'),
+    cursors = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    },
+    typingTimer = null;
+
 function setPrompt ($) {
 	var prompt = "";
 
@@ -21,12 +32,11 @@ function setPrompt ($) {
 	}
 	
 	prompt = prompt + 'or Help: ';
-
-	document.querySelector('.cmd-prompt').innerHTML = prompt;
+	
+	promptElement.innerHTML = prompt;
 	
 	// Adjust style
-	console.log(prompt.length, prompt.length + 1 + 'ch');
-	cursor.style.left = prompt.length + 1 + 'ch';
+	cursor.style.left = promptElement.textContent.length + 1 + 'ch';
 }
 
 function run(command, e) {
@@ -41,16 +51,6 @@ function run(command, e) {
 
   // else don't prevent default
 }
-
-var cmd = document.querySelector('#cmd-input'),
-    cursor = document.querySelector('#cmd-cursor'),
-    cursors = {
-      37: 'left',
-      38: 'up',
-      39: 'right',
-      40: 'down'
-    },
-    typingTimer = null;
 
 function typing() {
   clearTimeout(typingTimer);
