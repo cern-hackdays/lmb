@@ -36,3 +36,23 @@ p {
 	line-height: 2.4rem;
     margin-bottom: 1.8rem;
 }
+
+
+
+/* INTERVIEWS */
+.member-data {
+	display: flex;
+}
+.member-data figure {
+	flex: 30%;
+	-webkit-flex: 30%;
+	-moz-flex: 30%;
+	padding-right: 3%;
+}
+dl.vcard {
+	flex: auto;
+	-webkit-flex: auto;
+	-moz-flex: auto;
+	margin: 0;
+	text-align: left;
+}
