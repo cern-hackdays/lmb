@@ -154,22 +154,18 @@ button {display: none}
   display: inline-block;
 }
 
-/*#command input {
-  display: inline-block;
+#command input {
+	display: inline-block;
 	width: 51ch;
 	background: black;
 	border: 0;
 }
-*/
+
 #blocker {
 	position: absolute;
 	margin: 0 auto;
 	z-index: 9;
 	top: 0;
-}
-
-#command input {
-	display: inline-block;
 }
 
 #cmd-input {
