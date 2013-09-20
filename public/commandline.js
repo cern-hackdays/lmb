@@ -110,8 +110,8 @@ var commands = {
   recall: function () {
     // TODO list history of visited urls
     // localStorage
-	// output with 2 blank lines then 
-	//             HISTORY OF PREVIOUS NODES :- 
+	// output with 2 blank lines then
+	//             HISTORY OF PREVIOUS NODES :-
 	// then 3 blank lines then
 	//      %2d)       %s
 	// where %2d is a number and %s is the title,
@@ -163,7 +163,7 @@ window.onload = function () {
 	var maxLineHeight = innerHeight / 25,
       size = Math.floor(maxLineHeight / 1.5);
 	document.documentElement.style.fontSize = size  + 'px';
-  blocker.size(size);
+  blocker.size(size * 1.5);
 })();
 
 addEventListener('resize', adjustFontSize);

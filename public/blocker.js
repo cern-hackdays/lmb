@@ -1,11 +1,27 @@
 var blocker = (function () {
 
   var position = 0,
-      length = 80 * 24,
-      speed = 4,
+      speed = 1,
+      length = 80 * 24 / speed,
+      ch = 0,
       stspeed = 0, // ALWAYS KEEP AT ZERO!
       ctx,
       commandForm = document.getElementById('command');
+
+  function size(px) {
+    ch = px | 0;
+    ctx.canvas.width = 80 * (document.documentElement.offsetWidth / 80); // 8 is the character width
+    ctx.canvas.height = 24 * ch; // 14px character height
+
+    ctx.fillStyle = 'hsl(150, 100%, 50%)';
+
+    if (position < length) {
+      ctx.save();
+      ctx.fillStyle = '#f00';
+      ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+      ctx.restore();
+    }
+  }
 
   function init() {
     var canvas = document.createElement('canvas');
@@ -16,22 +32,22 @@ var blocker = (function () {
     // fair warning: this 80 x 8 and 24 x 24 is pretty britle. I'd like this
     // to be hardened to be based on computed styles from a single character...
     // TODO work out font size based on single display inline-block element.
-    canvas.width = 80 * 8; // 8 is the character width
-    canvas.height = 24 * 24; // 14px character height
+    // canvas.width = 80 * 8; // 8 is the character width
+    // canvas.height = 24 * 24; // 14px character height
 
-    ctx.fillStyle = 'hsl(150, 100%, 50%)';
+    // size()
 
     // TODO handle resizing
   }
 
   function exit() {
     commandForm.className = '';
-    ctx.canvas.style.display = 'none';
+    // ctx.canvas.style.display = 'none';
   }
 
   function getCords(position) {
-    var x = position % (80 / speed),
-        y = position / (80 / speed) | 0;
+    var x = position % (80 / speed | 0),
+        y = position / (80 / speed | 0) | 0;
 
     return {
       x: x,
@@ -40,7 +56,7 @@ var blocker = (function () {
   }
 
   function draw() {
-    if (position < (length / speed)) {
+    if (position < length) {
       // important: this is early to increase the amount of drawing done
       // setTimeout(0) might typically look filthy, but this is actually
       // speeding up a dumbing down of the terminal to simulate the slow
@@ -48,11 +64,12 @@ var blocker = (function () {
       // it just gets in the way. KEEP THIS SETTIMEOUT ABOVE DRAWING! - RS
       setTimeout(draw, stspeed);
       var coords = getCords(position);
-      ctx.clearRect(coords.x * 8 * speed, coords.y * 24, 8 * speed, 24);
+
+      ctx.clearRect(coords.x * 8 * speed, coords.y * ch, 8 * speed, ch);
 
       // the
       coords = getCords(position + 1);
-      ctx.fillRect(coords.x * 8 * speed, coords.y * 24, 8, 24);
+      ctx.fillRect(coords.x * 8 * speed, coords.y * ch, 8, ch);
 
       position++;
     } else {
@@ -62,7 +79,7 @@ var blocker = (function () {
 
   init();
 
-  return function () {
+  var blocker = function () {
     commandForm.className = 'hide';
     ctx.canvas.style.display = 'block';
     ctx.save();
@@ -72,4 +89,8 @@ var blocker = (function () {
     position = 0;
     draw();
   };
+
+  blocker.size = size;
+
+  return blocker;
 })();
