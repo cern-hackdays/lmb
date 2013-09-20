@@ -85,7 +85,12 @@ var commands = {
     // list all available links
   },
   help: function () {
-
+	// LMB had help in the compiled code, contained logic
+	// Using static file for now
+	window.location = '/help.html';
+  },
+  home: function () {
+    // TODO
   },
   alias: function () {
     // TODO
