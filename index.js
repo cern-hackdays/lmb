@@ -53,6 +53,7 @@ function proxy(req, res, next) {
 process.cwd(); // tiny hack for live server
 
 connect()
+  .use(connect.logger())
   .use(function (req, res, next) {
     if ((req.url === '/www/referer' || req.url === '/www/referrer') && req.headers.referer) {
       res.writeHead(302, { location: '/www/proxy?url=' + req.headers.referer });
