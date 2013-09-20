@@ -1,10 +1,10 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.ttf') format('truetype'),
-		url('fonts/icomoon.svg#icomoon') format('svg');
+	font-family: 'cern';
+	src:url('fonts/cern-terminal.eot');
+	src:url('fonts/cern-terminal.eot?#iefix') format('embedded-opentype'),
+		url('fonts/cern-terminal.woff') format('woff'),
+		url('fonts/cern-terminal.ttf') format('truetype'),
+		url('fonts/cern-terminal.svg#icomoon') format('svg');
 }
 
 * {
@@ -43,7 +43,7 @@ html {
 	color: hsl(150, 100%, 50%);
 	text-shadow: 0 0 10px;
 	word-wrap: break-word;
-	font-family: icomoon, monospace;
+	font-family: cern, monospace;
 	line-height: 1.5em;
 }
 
@@ -104,7 +104,11 @@ ol, ul, dl {
 dt, dd {
 	display: inline-block;
 	vertical-align: top;
-	margin: 1.5em 0; /* list style has 1 line of space above and below */
+}
+
+dt:not(:first-child),
+dd:not(:first-child) {
+	margin-top: 1.5em;
 }
 
 dt {

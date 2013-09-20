@@ -131,6 +131,38 @@ a:hover {
 	font-size: 1.4em;
 }
 
+.bookmarklets .d1, .bookmarklets .d2 {  
+	border: 1px solid #ddd;
+	padding: 20px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	min-height: 200px;
+	background-color: #fff;
+}
+
+.bookmarklets h4 { 
+	border-bottom: 1px dotted #ddd;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.bookmarklets a { 
+	text-align: center;
+	display: block;
+}
+
+.bookmarklets input { 
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid #ddd;
+	font-size: 1.6rem;
+}
+
+.bookmarklets input:hover { 
+	cursor: text;
+}
+
 
 cite, nav, footer p{
 	font-family: 'PT Sans Caption', sans-serif;
@@ -260,29 +292,23 @@ img{
 
 
 .member-data {
-	float: left;
-	display: flex;
-	display: -webkit-flex;
 	width: 100%;
 	padding-bottom: 2em;
 	margin: 2em 0;
 	border-bottom: 1px solid #CCC;
 }
-.member-data figure {
-	float: left;
-	width: 30%;
-	padding-right: 3%;
-}
+.member-data figure {}
 dl.vcard {
-	flex: auto;
-	-webkit-flex: auto;
+	text-align: center;
+	margin-top: 1em;
 }
 
 dl.vcard dt {
-	font-weight: bold;
+	font: bold 1.7rem/1.3 'PT Sans Narrow', sans-serif;
 }
 dl.vcard dd {
+	font: 1.9rem/1.3 'PT Sans Narrow', sans-serif;
 	padding-bottom: 0.3em;
 }
 
-p.question {font-weight: bold; font-size: 110%;}
+p.question {font-weight: bold; font-size: 110%; margin-top: 2.5em;}
