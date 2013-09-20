@@ -17,7 +17,7 @@ var blocker = (function () {
 
     if (position < length) {
       ctx.save();
-      ctx.fillStyle = '#f00';
+      ctx.fillStyle = '#000';
       ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       ctx.restore();
     }
