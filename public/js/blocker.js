@@ -1,7 +1,7 @@
 var blocker = (function () {
 
   var position = 0,
-      speed = 6,
+      speed = 8,
       length = 80 * 24 / speed,
       ch = 0,
       stspeed = 0, // ALWAYS KEEP AT ZERO!
@@ -10,7 +10,7 @@ var blocker = (function () {
 
   function size(px) {
     ch = px | 0;
-    ctx.canvas.width = 80 * (document.documentElement.offsetWidth / 80); // 8 is the character width
+    ctx.canvas.width = document.documentElement.offsetWidth; // 8 is the character width
     ctx.canvas.height = 24 * ch; // 14px character height
 
     ctx.fillStyle = 'hsl(150, 100%, 50%)';
@@ -42,7 +42,7 @@ var blocker = (function () {
 
   function exit() {
     commandForm.className = '';
-    // ctx.canvas.style.display = 'none';
+    ctx.canvas.style.display = 'none';
   }
 
   function getCords(position) {

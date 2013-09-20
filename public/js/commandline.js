@@ -114,7 +114,7 @@ var commands = {
   help: function () {
 	// LMB had help in the compiled code, contained logic
 	// Using static file for now
-	window.location = '/help.html';
+	window.location = '/www/proxy?url=http://line-mode.cern.ch/help.html';
   },
   home: function () {
     // TODO
@@ -178,14 +178,15 @@ window.onload = function () {
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
   document.getElementById('lmb-footer').style.paddingBottom = innerHeight - 24 * lineHeight;
+
+  // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
+  (window.adjustFontSize = function (){
+    var maxLineHeight = innerHeight / 25,
+        size = Math.floor(maxLineHeight / 1.5);
+    document.documentElement.style.fontSize = size  + 'px';
+
+    blocker.size(size * 1.5);
+  })();
+
+  addEventListener('resize', adjustFontSize);
 };
-
-// Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
-(window.adjustFontSize = function (){
-  var maxLineHeight = innerHeight / 25,
-      size = Math.floor(maxLineHeight / 1.5);
-	document.documentElement.style.fontSize = size  + 'px';
-  blocker.size(size * 1.5);
-})();
-
-addEventListener('resize', adjustFontSize);
