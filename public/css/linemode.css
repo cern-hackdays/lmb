@@ -67,7 +67,14 @@ h0, title {
 	text-align: right;
 }
 
-title + h0 {}
+title + h0 {
+	/* yes, h0 was handled by the browser, and it would replace the title! */
+	position:absolute;
+	top:0;
+	background: black;
+	width: 60em; /* fallback, temp, change it when we have the actual font */
+	width: 80ch;
+}
 
 body {
 	/*padding-top: 1.5em;*/
@@ -88,19 +95,19 @@ h2 {
 }
 
 h3 {
-	margin: 0 2ch;
+	margin: 0 2ch; /* h3 indents 2 chars */
 }
 
 h4 {
-	margin: 0 4ch;
+	margin: 0 4ch; /* h4 indents 4 chars */
 }
 
 h5 {
-	margin: 0 6ch;
+	margin: 0 6ch; /* h5 indents 6 chars */
 }
 
 h6 {
-	margin: 0 8ch;
+	margin: 0 8ch; /* h6 indents 8 chars */
 }
 
 a {
@@ -109,7 +116,7 @@ a {
 }
 
 p {
-	margin: 1.5em 3ch 0 3ch;
+	margin-top: 1.5em;
 	/* paragraph has one line after... but <P> was used more as a
 	   separator than a wrapper... so using margin-top instead    */
 }
