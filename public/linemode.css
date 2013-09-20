@@ -48,8 +48,7 @@ html {
 }
 
 body {
-		height: 37.5em; /* 25 lines */
-
+	height: 37.5em; /* 25 lines */
 }
 
 
@@ -77,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	margin: 1em 0; /* 1 line of space above and below h1 only */
+	margin: 1.5em 0; /* 1 line of space above and below h1 only */
 	text-align: center;
 	text-transform: uppercase;  /* only h1, h2 all caps */
 }
@@ -92,20 +91,20 @@ a {
 }
 
 p {
-	margin-top: 1em;
+	margin-top: 1.5em;
 	/* paragraph has one line after... but <P> was used more as a
 	   separator than a wrapper... so using margin-top instead    */
 }
 
 ol, ul, dl {
-	margin:1em 0; /* list style has 1 line of space above and below */
+	margin: 1.5em 0; /* list style has 1 line of space above and below */
 }
 
 /* Definition lists */
 dt, dd {
 	display: inline-block;
 	vertical-align: top;
-	margin:1em 0; /* list style has 1 line of space above and below */
+	margin: 1.5em 0; /* list style has 1 line of space above and below */
 }
 
 dt {
@@ -124,8 +123,8 @@ pre, xmp {
 }
 
 address {
-	display:block;
-	text-align:right;
+	display: block;
+	text-align: right;
 }
 
 /*should only  work for first character without intervening elements e.g. not <hp1><p>*/
@@ -186,5 +185,5 @@ button {display: none}
 	margin-left: -1px; /* sit over the real cursor in content editable */
 	
 	background: hsl(150, 100%, 50%);
-	box-shadow: 0 0 1px;
+	box-shadow: 0 0 5px;
 }
