@@ -83,6 +83,13 @@ var commands = {
   },
   list: function () {
     // list all available links
+	// show 2 blank lines then
+	//       HYPERTEXT REFERENCES :=
+	// then 1 blank line, then list of links in this format:
+	//      [n]       [href value (relative or absolute)]
+	// if no links, show 2 blank lines then
+	//      NO HYPERTEXT REFERENCES HAVE APPEARED IN THE DOCUMENT YET
+	// then 3 blank links
   },
   help: function () {
 	// LMB had help in the compiled code, contained logic
@@ -103,6 +110,13 @@ var commands = {
   recall: function () {
     // TODO list history of visited urls
     // localStorage
+	// output with 2 blank lines then 
+	//             HISTORY OF PREVIOUS NODES :- 
+	// then 3 blank lines then
+	//      %2d)       %s
+	// where %2d is a number and %s is the title,
+	// if no title then href
+	// then insert 3 blank lines
   },
   quit: function () {
     alert("I'm not a quiter.");
