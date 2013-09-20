@@ -1,0 +1,43 @@
+<TITLE>Upgrade -- /Implementation</TITLE>
+<NEXTID 2>
+<H1>NeXT editor upgrade proposal</H1>When I have some time, I'll upgrade the NeXT editor which is frozen
+since Summer 1991. See the current <A NAME=0 HREF=Bugs.html>bug list</A> and do the following:
+<UL>
+<LI>URGENT: preserve links to FTP servers when saving relatively to a
+file: prefix (i.e. always ! Very dangerous, cf Gutenberg).
+<LI>Add an option to save the document with absolute addresses (such documents
+may then be sent out of context, e.g. home pages). References to anchors
+in the same document should remain relative.
+<LI>CRUCIAL: Offer to save edited documents when quitting !!!
+<LI>Add a Document/Update menu entry to force re-reading of the latest
+version (or re-running the query).
+<LI>Implement Undo (at least one level !)
+<LI>Implement Find panel etc.
+<LI>Cut and paste anchors...
+<LI>Offer to customize anchor rendering (esp. with color).
+<LI>Get the window wide enough (or reduce the left margin) when reading
+plain text.
+<LI>Don't add spaces after anchors and glossary titles when saving.
+<LI>Make the generated HTML more human-readable (skip lines, etc.)
+<LI>Make the HTML proper SGML by Dan's DTD. Especially, quote all attributes
+including non-alpha characters.
+<LI>Don't screw up the HTML when an anchor is created at the end of the
+file (typically linking the author's name).
+<LI>Give the HTML icon to iconized windows.
+<LI>Display the index search within the document window.
+<LI>In the Cmd-O panel, display the current document address in one field
+and give another field to type in the destination, which can be interpreted
+relatively to the current address.
+<LI>Add a menu item to directly link the selection to a given UDI, perhaps
+taken from the pasteboard (saves doing Cmd-O first, then Cmd-A, then
+find the source document again, then Cmd-L). See also Viola's `Use
+Selected' feature.
+<LI>When pasting plain text, apply the current paragraph style
+<LI>Says Tim: All these things are interlinked -- the thing it needs is
+a part of the library which deals with regenerating HTML from a sequence
+of styles, and THAT would be useful for gateways, caching documents,
+all kinds of things.
+<LI>Make sure that newly opened windows are not too long for the screen.
+This happens when a document is just short enough not to need a scrollbar,
+but the window is not opened at the top of the screen.
+</UL><A NAME=1 HREF=../../People.html#Groff>JFG</A></A>

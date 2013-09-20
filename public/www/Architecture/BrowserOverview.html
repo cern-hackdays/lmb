@@ -1,0 +1,83 @@
+<TITLE>W3 Client Software Architecure</TITLE>
+<NEXTID 28>
+<H1>Browser Software Architecture</H1>The <A NAME=5 HREF=../TheProject.html>WWW</A> browsers share a common architrecure, and a certain amount
+of common code.  (See also: Browser <A NAME=7 HREF=BrowserOperation.html>operation</A> , and <A NAME=23 HREF=UtilityOverview.html>utility modules</A>
+which are used throughout).<P>
+In the <A NAME=1 HREF=BrowserControl.ps>contol flow diagram</A> , common code is to the right of the grey
+line.
+<DL>
+<DT><A NAME=16>Application</A>
+<DD> This module is the  main program, and is window-system-dependent.
+In the line mode browser , it is <A NAME=21 HREF=../LineMode/Implementation/HTBrowse.h>HTBrowse</A> .  The application is called
+by the operating system, and manages the overall running of the program.
+It asks the <A NAME=19 HREF=BrowserOverview.html#8>navigation</A> module to load the default page. 
+<DT><A NAME=8>Navigation</A>
+<DD> The module which acually loads documents is based in HTAccess.c.
+This uses all the <A NAME=3 HREF=BrowserOverview.html#2>protocol modules</A> .  Given an anchor ID to jump to,
+it asks the anchor object for the address in order to load it.
+<DT><A NAME=20>History</A>
+<DD> This module records and replays on request the documents which
+the user vists.
+<DT>Format manager
+<DD> The format manager  uses the <A NAME=15 HREF=BrowserOverview.html#11>parser modules</A> to load
+the document as appropriate. It can also decide on the format of a
+file from its name.
+<DT><A NAME=9>Anchor object</A>
+<DD> The <A NAME=22 HREF=../Implementation/HTAnchor.h>HTAnchor</A> module takes care of creating anchors,
+managing the links between them and their attributes. This module
+is independent of the type of graphics object (text, line drawing
+etc). It stores hypertext addresses of anchors, and ensures that anchors
+with the same address are the same anchor. (<A NAME=13 HREF=Anchors.html> More</A> )
+</DL>
+
+<H2><A NAME=2>Protocol modules</A></H2>A protocol module is invoked by the navigation module in order to
+access a document. Each protocol  module is responible for extracting
+information from a local file or remote server using a particular
+protocol.  Depending on the protocol, the protocol module either builds
+a graphic object (e.g. hypertext) itself, or it passes a socket descriptor
+to the format manager for parsing by one of the parser modules. 
+<DL>
+<DT>File access
+<DD> HTFile.c provides access to files, using HTFTP.c for remote
+access.  The latter uses HTTCP for common TCP routines.
+<DT>HTTP access
+<DD> The <A NAME=25 HREF=../Implementation/HTTP.h>HTTP module</A> handles document search and retrieve using
+the<A NAME=6 HREF=../Protocols/HTTP/AsImplemented.html> HTTP</A> protocol.
+<DT>News access
+<DD> The NNTP internet news protocol is handled by <A NAME=24 HREF=../Implementation/HTNews.h>HTNews</A> which
+builds a hypertext.
+<DT>Gopher access
+<DD> The internet gopher access to menus and flat files (and
+links to telnet nodes etc) is handled by <A NAME=26 HREF=../Implementation/HTGopher.h>HTGopher</A> .
+<DT>WAIS access
+<DD> is implemented in a separate <A NAME=27 HREF=../Daemon/WAISGate.html>gateway program</A> .
+</DL>
+
+<H2><A NAME=11>Parser modules</A></H2>The parser modules allow different formats to be used to generate
+graphic objects.  A parser is invoked by the format manager. Currently
+we only parse HTML and plain text, but obviously other formats can
+be added.
+<DL>
+<DT>HTML
+<DD> Basic hypertext parsing is done by <A NAME=18 HREF=../Implementation/HTML.c>HTML.c</A> which uses the simple
+SGML engine SGML.c as a basic tokeniser and element stack manager.
+<DT>Plain text
+<DD> This is built directly by the format manager as it is so
+simple.
+</DL>
+
+<H2><A NAME=14>Graphic objects</A></H2>A graphic object is a (complex) displayable entity. It is built by
+a protocol module directly or using a parser.  Graphic objects are
+in general necessarily coded differently on diferent window systems.
+The graphic object is resposible for displaying istelf, catching mouse
+clicks, and calling the navigation object in order to follow links.
+We use the more common term "document" to describe the logical entity
+which a graphics object represents and displays.
+<DL>
+<DT><A NAME=12>Hypertext</A>
+<DD> This object is window-system dependent. In the line mode
+browser, the <A NAME=17 HREF=../LineMode/Internals.html#3>GridText</A> module is the hypertext object, providing the
+generic functionality of HText.h
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

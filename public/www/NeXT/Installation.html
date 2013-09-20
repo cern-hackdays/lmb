@@ -1,0 +1,58 @@
+<TITLE>Installing WorldWideWeb on the NeXT</TITLE>
+<NEXTID 16>
+<H1>Installation</H1>To install the <A NAME=0 HREF=WorldWideWeb.html>WorldWideWeb</A> program properly you will need to be superuser.
+It is possible to use take a private copy of the program<A NAME=1 HREF=#private> (see below)</A>
+if you really have to, but for a system-wide copy, the steps are as
+follows. If you are at CERN, you should use NFS to remotely mount
+the files (see <A NAME=7 HREF=UsingNFS.html>explanation</A> ).  REMEMBER THE dwrite you need<A NAME=15 HREF=#14> below</A>.
+<UL>
+<LI>Make a suitable directory to hold the release. cd to that directory.
+<LI>Get the tar file using <A NAME=13 HREF=../LineMode/Defaults/Distribution.html>anonymous FTP</A> .
+<LI>Take the .tar file using ftp or whatever (see <A NAME=12 HREF=../../README.html>distribution</A> ) and unwrap
+it using tar .
+<LI>Become superuser
+<LI><A NAME=4>Make a soft link from your LocalApps directory to the file WorldWideWeb
+itself</A> .
+</UL>The commands to do this are therefore (inserting the full path name
+of your directory where indicated, and the version number for vvv):-
+<XMP>		tar -xf WWWNeXTStepEditor_vvv.tar
+		su root
+		mkdir /LocalApps
+		ln -s /(fullpathname)/WorldWideWeb.app /LocalApps
+
+</XMP>Don't do the mkdir step if you already have a /LocalApps directory
+<H3><A NAME=private>Making a private copy</A></H3>If you don't have privilege, and you don't have the ear of someone
+who does, it is possible to take a private copy of the program. It
+is better, of course, to get it installed system-wide, but if desperate,
+procede as above but instead link the application to your own directory,
+and take a copy of the system default file as your own default file.
+The commands are therefore:-
+<XMP>		tar -xf WWWMeXTStepEditor_vvv.tar
+		ln -s /(fullpathname)/WorldWideWeb ~/Apps
+</XMP>
+<H3><A NAME=6>Personal setup</A></H3>Each person who wants to use it on the machine, whether it is a system
+copy or his private copy, must before he can use WWW:
+<UL>
+<LI>Set his default NewsHost (can this be done system-wide?) to be the
+name of a server running the NNTP protocol. If he is already using
+"News" this will be unnecessary, as WWW will use News's default. (At
+CERN only, at the time of writing, a suitable news host was cernvax.cern.ch.)
+The <A NAME=14>shell command</A> is
+</UL>
+<XMP>       		dwrite WorldWideWeb NewsHost (hostname)
+
+</XMP>You (each user) may later want to create your own WWW subdirectory
+under your home directory. In that subdirectory you may like to put
+:
+<UL>
+<LI>A personal hypertext home page. This is a file default.html which
+will be displayed whenever the application is started. Create it by
+starting WWW to load the system default home page,  editing it, then
+using the "<A NAME=11 HREF=Menus.html#21> Save a copy in..HTML..</A> " item in the Window menu, and
+selecting your private WWW subdirectory.
+<LI>A personal blank note. This is a file blank.html which will be used
+as a template whenever you create a new hypertext file with the "<A NAME=9 HREF=Menus.html#22>
+New file</A> " or "<A NAME=10 HREF=Menus.html#16> Link to new</A> " commands. Create it  by using the "<A NAME=8 HREF=Menus.html#22>
+New file</A> " item in the "Window" menu and selecting your personal $(HOME)/WWW/blank.html
+as filename.
+<LI>A default <A NAME=2 HREF=Styles.html>style sheet</A> .

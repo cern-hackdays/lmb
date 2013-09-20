@@ -1,0 +1,26 @@
+<TITLE>/Net/dxcern/userd/tbl/hypertext/WWW/Daemon/User/CommandLine.html</TITLE>
+<NEXTID 14>
+<H1>Daemon Command Line</H1>The command line options for the <A NAME=11 HREF=../Overview.html>simple www server</A> are as follows.
+<DL>
+<DT><A NAME=12>-a address</A>
+<DD> Specify the port number. The address should be in the form
+"*:80" with 80 replaced with the desired port number, which can be
+different for tests for instance. Note that the string must be quoted
+because of the asterisk. <A NAME=7>If this option is not given, the daemon assumes
+that it has been run by inetd, and uses stdin and stdout as its communication
+channel</A> . Note that port numbers under 1024 are <A NAME=13 HREF=PrivilegedPorts.html>privileged</A> .
+<DT>-l  file
+<DD> Log all calls to the given file. The file is appended to
+if it already exists.
+<DT>-v
+<DD> Verbose mode. Copious trace messages are written to the standard
+output stream. Mainly for debugging.
+<DT><A NAME=5>-r file</A>
+<DD> Load a <A NAME=10 HREF=RuleFile.html>rule file</A> . The rules are added after any rules already
+loaded.  Inhibits the loading of the default rule file.
+<DT><A NAME=6>-R</A>
+<DD> Inhibit the loading of the default rule file.  Warning: running
+without a rule file  normally poses a security problem.
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../../TBL_Disclaimer.html>Tim BL</A>

@@ -1,0 +1,23 @@
+<TITLE>BadOutput -- /User</TITLE>
+<NEXTID 4>
+<H1>Bad output from the daemon</H1>These are some ideas:
+<UL>
+<LI>Try <A NAME=2 HREF=DebugServer.html>running the server from the terminal</A> .
+<LI>Check the HTML source the daemon produces with
+</UL>
+<XMP>	www -source http://myost.domain:80/
+
+</XMP>
+<UL>
+<LI>Try <A NAME=3 HREF=TelnetToServer.html>telnetting to the daemon</A> and simulating the client:
+</UL>
+<XMP>
+	> telnet myhost.domain 80
+	Connected to myhost.domain on port 80
+	Escape is ^[
+	GET /documentname
+
+
+</XMP>
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

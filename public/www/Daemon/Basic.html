@@ -1,0 +1,23 @@
+<TITLE>Overview -- /Daemon</TITLE>
+<NEXTID 20>
+<H1>The basic W3 server:  Internals</H1>This describes the generic hypertext  <A NAME=19 HREF=../Terms.html#daemon>daemon</A> (server) program. The
+daemon is part of the <A NAME=8 HREF=../TheProject.html>WWW</A> project. See also: 
+<UL>
+<LI><A NAME=1 HREF=User/Guide.html>User guide</A> . 
+<LI><A NAME=3 HREF=Bugs.html>Bugs</A> and <A NAME=7 HREF=Features.html>Features</A>
+<LI><A NAME=18 HREF=Overview.html>Other servers</A>
+</UL>The hypertext daemon, like the ftp daemon, is a program which responds
+to an incomming tcp connection and provides a service to the caller.
+<H2><A NAME=13>Sources</A></H2>A compilation option (SELECT) controls whether more than one connection
+can be handled at a time. This is a function of whether the TCP/IP
+implementation beneath the application has a working "select()" routine.
+If  it is not true, this implementation services one connection, then
+drops it before accepting another one.  In neither case does the daemon
+concurrently serve two clients, nor does it fork off a process to
+do that.<P>
+The basic server loop is in the file <A NAME=10 HREF=Implementation/HTDaemon.c>HTDaemon.c</A> .  A separate module
+(<A NAME=6 HREF=Implementation/handle.c> </A>for example <A NAME=11 HREF=Implementation/HTRetrieve.c>HTRetrieve.c</A> ) contains the code to handle one request.
+Various specific versions of this may be written for different flavours
+of server. Also used are various modules of WWW common code.
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

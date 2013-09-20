@@ -1,0 +1,31 @@
+<TITLE>ShellScript -- /Provider</TITLE>
+<NEXTID 8>
+<H1>A Shell Server for HTTP</H1>The HTTP protocol is very simple. The following is an example of a
+server program written in sh:
+<XMP>#! /bin/sh
+read get docid
+echo "<TITLE>$docid</TITLE>"
+echo Here is the data
+
+</XMP>The docid may have a trailing carriage return to be stripped off on
+some systems. You can modify that script to produce the data you actually
+want. The <A NAME=1 HREF=../MarkUp/MarkUp.html>HTML</A> syntax for marked-up text is fairly simple, but if
+you want just to send plain text, then just send the  &lt.PLAINTEXT&gt.
+tag first:
+<XMP>#! /bin/sh
+read get docid
+echo "<PLAINTEXT>"
+cat $docid
+
+</XMP>When you have written your script, set the execute bit and then configure
+the <A NAME=2 HREF=../Daemon/User/Installation.html#2>inet daemon to run it</A> . A few more examples:
+<UL>
+<LI><A NAME=5 HREF=../Tools/HTMLGeneration/dir2html.txt>A sh script to generate a menu for files in a directory</A>
+<LI><A NAME=6 HREF=../Tools/HTMLGeneration/ls2html.awk.txt>An awk script to generate menu from a list of files</A> .
+<LI><A NAME=7 HREF=../Daemon/Implementation/asis.txt>A perl script for all kinds of stuff on the ASIS server</A>
+</UL>If you know the perl language, then that is a powerful (if otherwise
+incomprehensible) language with which to hack together a server. <P>
+See also<A NAME=3 HREF=ServerWriter.html> a case study of mapping a database onto the web</A> .<P>
+All contributions to these examples welcome!<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

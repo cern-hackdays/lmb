@@ -9,7 +9,8 @@
     "connect": "~2.9.0",
     "cors": "~1.0.1",
     "cheerio": "~0.12.2",
-    "send": "~0.1.4"
+    "send": "~0.1.4",
+    "cheerio-event-handlers": "0.0.1"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,0 +1,30 @@
+<TITLE>InstallNotSU -- /Defaults</TITLE>
+<NEXTID 5>
+<H1>Installing www if you are not superuser</H1>So you want to install www, but you do not have the privilege to become
+super-user.   No problem: you can install it for your own use.<P>
+You have found (or <A NAME=1 HREF=Porting.html>built if it did not exist</A> ) a subdirectory of WWW/LineMode/Implementation
+for your type of machine.<P>
+You have modified the Makefile in that directory to reflect the directory
+name. Don't worry about BINDIR, the name of the installation directory,
+because you aren't making a system-wide installation.<P>
+Type
+<XMP>			make
+
+
+</XMP>This should generate the executable file called "www". There are two
+ways you can make this available. <P>
+One is, if in your "<A NAME=2 HREF=Path.html> path</A> " there is a directory to wrich you do have
+write access, then you put move www into that directory. You may have
+to then "rehash" to regenerate the list of commands.<P>
+If there isn't a writable directory on your path, then you can put
+an alias command into a login shell script (.login or .cshrc) to define
+www as being a file in the directory where it is.<P>
+Now if you run www it will complain that it can't find the default
+home page, /usr/local/bin/WWW/default.html.  You will find a copy
+of a default page in the distribution WWW/LineMode/Defaults/default.html.<P>
+In your <A NAME=3 HREF=LoginScript.html>login shell script</A> ,  set the environment variable WWW_HOME
+to  the full pathname of default.html as distributed, or to the w3
+address of the copy on our server. See <A NAME=4 HREF=Customisation.html>customization</A> about how to
+set environment variables.
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

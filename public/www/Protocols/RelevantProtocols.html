@@ -1,0 +1,43 @@
+<TITLE>Protocol Specifications relevant to HyperText</TITLE>
+<NEXTID 18>
+<H1>Relevant protocols</H1>The <A NAME=0 HREF=../TheProject.html>WorldWideWeb</A> system can pick up information from many information
+sources, using existing protocols. Among these are file and news transfer
+protocols.
+<H2><A NAME=11>File Transfer</A></H2>The file transfer protocol currently most used for accessing fairly
+stable public information over a wide area is "Anonymous FTP". This
+means the use of the internet File Transfer Protocol without authentication.
+As the WWW project currently operates for the sake of public information,
+anonymous FTP is quite appropriate, and WWW can pick up any information
+provided by anonymous FTP. FTP is defined in<A NAME=1 HREF=rfc959.txt> RFC 959</A> which includes
+material from many previous RFCs. (See also: <A NAME=2 HREF=../Addressing/FileAddressing.html> file address syntax</A>
+). Directories are browsed as hypertext.  The browser will notice
+references to files which are in fact accessible as locally mounted
+(or on DECnet on VMS systems) and use direct access instead.<P>
+See also the prospero project and the <A NAME=10 HREF=../../../Shift/shift0-4.dvi>shift</A> project, for more powerful
+file access systems.
+<H2>Network News</H2>The "Network News Transfer Protocol" (NNTP) is defined in<A NAME=3 HREF=rfc977.txt> RFC 977</A>
+by Kantor and Lampsley. This allows transient news information in
+the USENET news format to be exchanged over the internet. The format
+of news articles is defined in<A NAME=4 HREF=rfc850.txt> RFC 850, Standard for Interchange of
+USENET Messages</A> by Mark Horton. This in turn refers to the standard<A NAME=5 HREF=rfc822.txt>
+RFC 822</A> which defines the format of internet mail messages. News articles
+make good examples of hypertext, as articles contain references to
+other articles and news groups. News groups appear like directories,
+but more informative.
+<H2>Search and Retrieve</H2>The WWW project defines its own protocol for information transfer,
+called HTTP, for <A NAME=9 HREF=HTTP/AsImplemented.html>HyperText Transfer Protocol</A>. HTTP is a very simple
+internet protocol, similar in implementation to FTP and NNTP.  The
+HTTP client sends a <A NAME=17 HREF=../Addressing/Addressing.html>document identifier</A> with or without search words,
+and the server responds with hypertext or plain text. Extensions are
+foreseen to allow for more elaborate queries and <A NAME=16 HREF=../DesignIssues/Formats.html#4>format negotiation</A>.
+The protocol runs over TCP, using one connection per document request.
+The browser acts as a pipeline, so that as data arrives from the server,
+it is presented to the reader on the fly.<P>
+Whilst the <A NAME=12 HREF=HTTP.html>HTTP</A> protocol provides a simple keyword search function,
+a famous search-and-retrieve protocol is Z39.50, and the version of
+it used by the <A NAME=13 HREF=../../Products/WAIS/Overview.html>WAIS</A> project.  (See also the WAIS-WWW <A NAME=14 HREF=../Daemon/WAISGate.html>gateway</A>).
+<H2>Gopher</H2>The Gopher distributed information system uses a lightweight <A NAME=15 HREF=../../Gopher/gopher_protocol/protocol.rtf>protocol</A>
+very similar to HTTP. Therefore, it is now included in every WWW client,
+so that the Gopher world can be browsed as part of the Web. Gopher
+menus are easily mapped onto hypertext links. Chances are that future
+versions of the Gopher and HTTP protocols will converge.

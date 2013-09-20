@@ -1,0 +1,20 @@
+<TITLE>Things to do in the WWW common access library</TITLE>
+<NEXTID 1>
+<H1>Library bugs and wishes</H1>These are things which need to be fixed or would be useful if added
+in the W3 common code library. See also a list of<A NAME=0 HREF=Features.html> features added and
+bugs fixed.</A>
+<UL>
+<LI>Add rcp access to the "file" access method if it is straightforward.
+The rcp protocol was originally defined by the UCB code, and still
+is perhaps best defined that way. More recent retrospctive documentation
+exists (where?)
+<LI>Add code to save back files by HTTP or FTP, and code to REGENERATE
+HTML from a styled hypertext.
+<LI>In each protocol access module, put timeouts on both connect() and
+read() using non-blocking mode and select() to allow user-defined
+covering timeouts for document retrieval. A little common code here
+would be useful, allowing also platform-dependent "Abort" buttons
+on long transfers.
+<LI>Library version number for diagnostic output by programs
+<LI>Makefile -- complete dependencies
+</UL>

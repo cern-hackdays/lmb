@@ -1,0 +1,38 @@
+<HEADER>
+<TITLE>Features -- /Library</TITLE>
+<NEXTID N="3">
+</HEADER>
+<BODY>
+<H1>Changes to W3 Common Library</H1>This is a list of changes to the
+<A
+NAME=2 HREF="../Status.html#55">W3 common code</A> . See also the <A
+NAME=1 HREF="Bugs.html">list
+of things to be done</A> .  The following
+list is in reverse chronological
+order.
+<H2>November 1992 Version1.0b</H2>
+<UL>
+<LI>Fix some bugs in Make system.
+<LI>Memory bug fixed: On failure to connect
+to HTTP server, it would free() an
+uninitialized pointer!
+<LI>Some trace messages were output to
+stdout instead of stderr.	
+<LI>Allow "ftp:" prefix on URL . Effect
+is currently equivalent to that of
+the "file:" prefix.
+<LI>Local file access not allowed in
+secure mode. (telnet access was never
+allowed in this mode).  Secure mode
+is used for telnet server and mail
+robot.
+</UL>
+<H2>October 1992 version 1.0</H2>
+<UL>
+<LI>Library libwww.a  made independently
+of browsers to save time and space
+and to force good modularity
+</UL>
+<ADDRESS><A
+NAME=0 HREF="http://info.cern.ch./hypertext/TBL_Disclaimer.html">Tim BL</A></A>
+</ADDRESS></BODY>

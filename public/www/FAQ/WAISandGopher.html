@@ -1,0 +1,74 @@
+<TITLE>WAISandGopher -- /FAQ</TITLE>
+<NEXTID 10>
+<H1>W3 vs WAIS and Gopher</H1>
+<H2>Question</H2>What's the difference betwen W3 and WAIS? What's the difference between
+W3 and Gopher? Why invent yet another system? Which one should I use?
+<H2>The data model</H2>W3 is comparable to both <A NAME=3 HREF=../../Products/WAIS/Overview.html>WAIS</A> and <A NAME=4 HREF=../../Products/Gopher/Overview.html>Gopher</A> , in that it is a client-server
+information system running over the internet.  There is a difference
+in the data models.  The W3 model is that everything (document, menu,
+index etc) is represented to the user as a hypertext (hypermedia)
+object.  There two <A NAME=8 HREF=../Terms.html#navigation>navigation</A> operations are available to the user:
+to follow a link or to send a query to a server.  Only certain documents
+are flagged as having a search facility, and not all documents have
+links, but some documents have both.  That's a pretty simple model,
+and results in a pretty simple user interface.<P>
+Two neat things fall out of this model.  One is that it turns out
+that almost all other information systems can be represented in terms
+of W3 documents.  A W3 user can interrogate WAIS indexes (<A NAME=5 HREF=http://info.cern.ch:8001/microworld.media.mit.edu:8000/POETRY?>example</A>)
+and Gopher servers (<A NAME=6 HREF=../../DataSources/bySubject/Overview.html#weather>example</A>).  This comes from the flexibility of
+the W3 model to describe other structures.  A WAIS database is a searchable
+document. The hit-list returned by a WAIS server (or any other query
+engine) is a hypertext document with links to the documents found.
+Gopher menus (or any other hierarchical menu system, including a file
+system) are represented as lists of items linked to other objects.
+The W3 system has an open <A NAME=2 HREF=../Addressing/Addressing.html>addressing scheme</A> allowing links to be made
+to any objects on W3, WAIS, Gopher, FTP, NFS, or Network News servers.<P>
+This flexibility has allowed lots of different kinds of data to be
+put on-line by writing a <A NAME=1 HREF=../Provider/Overview.html#14>simple script</A> to generate a hypertext "view"
+of the database. <P>
+The hypertext model, then, is flexible. It is also powerful as a communications
+medium.  To author a document in hypertext is to communicate better.
+It allows one to put in a <A NAME=7 HREF=../Terms.html#link>link</A> whenever  the reader might need <A NAME=9 HREF=../WhatIs.html>background
+information</A> .  
+<H2>WAIS without links</H2>You miss the links in WAIS in two ways. One is when you are looking
+for an index. You can't follow links from an overview page to "browse"
+through different indexes. You can only use a master index (the directory
+of sources) to find indexes.  The other way is that when you have
+retrieved something, whether part of the FORTRAN manual or part of
+a mail discussion, you get it in isolation. You can't follow links
+from that document to related documents.
+<H2>Gopher without text</H2>A Gopher menu is a dry list of items.  Each line has 80 characters
+in which to describe an option. In practice, to communicate with the
+reader, one needs the full power of text formatting in a number of
+styles. A plain list  turns out to be relatively infrequently used
+when the author or the program generating the document has a choice.
+ Note that the "Panda" project adds some plain text to Gopher menus,
+but this is only a small step toward the flexible blending of links
+and text which is hypertext.
+<H2>Group work</H2>The second big difference is that W3 is designed to include collaborative
+authoring  (CSCW) so that groups can share information, rather than
+simply individuals disseminate it.  We only have a first stab at this
+on the NeXT platform, as we were overtaken by the web's success in
+dissemination mode. 
+<H2>Deployment levels</H2>The W3 software is not (May 92) as deeply deployed  as WAIS and Gopher
+software. This is basically because it takes more time to write a
+hypertext client than a menu or query client.  (Also, because the
+initial W3 instigators are paid to work for the world of High-Energy
+Physics primarily).<P>
+However, the W3 world is growing very fast.  There is widespread recognition
+that hypertext is essential for the next generation. It is planned
+to merge the W3 and Gopher systems, and there is no reason (apart
+from server simplicity and, perhaps, response time) why both of these
+systems could not use the WAIS protocol when it settles down.
+<H2>The Choice</H2>Bear in mind:
+<UL>
+<LI>A W3 client can read data from any other system.
+<LI>If you run a W3 server you can upgrade certain parts of the documentation
+to hypertext later.
+<LI>Hypertext is neat for representing existing data easily.
+</UL>So install W3 clients, and W3 servers. If you want to install a Gopher
+or WAIS server, fine: the W3 clients will access it.  If you install
+a WAIS server, then you could install the W3-WAIS gateway locally
+to save bandwidth.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

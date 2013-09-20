@@ -1,0 +1,69 @@
+<TITLE>/private/Net/cernvax/userd/tbl/hypertext/WWW/DesignIssues/Formats.rtf</TITLE>
+<NEXTID 11>
+<H1>Document formats</H1>The question of the format of the contents of a node is independent
+of the format of all the management information (except for the format
+of the anchor position within the node content). Therefore, the hypertext
+system can be largely defined without specifying the node format.
+However, agreement must be reached between client and server about
+how they exchange content information. Many hypertext systems qualify
+as ªhypermediaº systems because they handle media other than plain
+text. Examples are graphics, video and sound clips, object-oriented
+graphics definitions, marked-up text, etc. 
+<H2><A NAME=4>Format negotiation</A></H2>Most hypermedia systems on the market today have the same application
+program responsible for the hypertext navigation and for the browsing.
+It would be safer to separate these features as much as possible:
+otherwise, in defining a universal hypertext system, one is burdened
+with defining a universal multimedia browser. This would certainly
+not stand the test of time. Node content must be left free to evolve.
+This implies that format conversion facilities must be available to
+allow simple browsers to access data which is stored in a sophisticated
+format. Such conversion facilities tend to exist in many applications,
+though not, in general, in hypertext applications.<P>
+The format of the content of a node should be as flexible as possible.
+Having more than one format is not useful from the user's point of
+view -- only from the point of view of an evolving system.  I suggest
+the following rules:
+<H3>1. Basic formats</H3>There is a set of formats which every client must be able to handle.
+These include 80-column text and basic hypertext  (<A NAME=10 HREF=../MarkUp/MarkUp.html> HTML</A> ).
+<H3>2. Conversion</H3>A server providing a format which is not in the basic set of formats
+required for a client must have the possibility of generating some
+sort of conversion of the text (even if necessary an apology for non-conversion
+in the case of graphics to text) for a client which cannot handle
+it.  This ensures universal readability world over.
+<H3>3. Negotiation</H3>For every format, there must be a set of other possible formats which
+the server can convert it into, and the most desirable format is selected
+by negotiation between the two parties. The negotiation must take
+into account:
+<UL>
+<LI>the expected translation time, including current load factors
+<LI>the expected data degradation
+<LI>the expected transmission time (?!!)
+</UL>The times one could assume will be roughly proportional to the length
+of the document, or at least linear in it.<P>
+Application-specific node formats (e.g. physics event) would allow
+specialized browsers to perform local processing. This is a natural
+extension of the hierarchy of node formats. I would suggest one stick
+to the rule that a server providing such a type of data must provide
+some default conversion to a standardized view.<P>
+An index or a keyword could be a specific node format which would
+be manageable by a browser.
+<H2>Examples</H2>Examples of rich text formats which exist already at CERN are as follows,
+with, in brackets after each, other formats into which it might be
+convertible:
+<UL>
+<LI><A NAME=7 HREF=../MarkUp/SGML.html>SGML</A> (<A NAME=9 HREF=../../DataSources/QWERTZ/README.txt> Tex</A> ,  Postscript, plain text)
+<LI>Bookmaster (Postscript, I3812, plain text)
+<LI>TeX  (DVI, plain text)
+<LI>DVI (IBM 3812, Postscript, etc)
+<LI>Microsoft RTF (postscript, plain text, Next ªWriteNowº) - <A NAME=3 HREF=../../DataSources/RichTextFormat/RTF.txt>See Specs</A>
+<LI>Postscript, <A NAME=8 HREF=../../Standards/PostScript/IPF.html>Editable Postscript</A> (IBM 3812 bitmap)
+<LI>plain text
+</UL>When a server (or browser) is obliged to perform a conversion from
+one format to another, one imagines that the result would be cached
+so that, if the same conversion were needed later, it would be available
+more rapidly. Format conversion, like notification of new material,
+is something which can be triggered either by the writer or by the
+browser. In many cases, a conversion from, say, SGML into Postscript
+or plain text would be made immediately on entry of the new material,
+and kept until the source has been updated (See <A NAME=5 HREF=Caching.html>caching</A> , <A NAME=6 HREF=Overview.html>design issues</A>
+).

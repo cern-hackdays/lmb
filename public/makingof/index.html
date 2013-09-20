@@ -68,7 +68,15 @@
 
 					<ol>
 					<li>We wanted to be as true to the original rendering engine as possible. That meant not adding features or improving the display of elements in any way different than the original.</li>
-					<li>[[other rules]]</li>
+					</ol>
+
+					<h3>Our Guidelines</h3>
+
+					<p>Beyond rendering early web content faithfully, as the linemode browser would have we, we also wanted to capture some of the experience of using this early browser on an old "dumb" terminal. This included</p>
+
+					<ol>
+						<li>The effect of the characters being drawn one by one onto the screen, as the browser parsed, and then rendered content <em>character by character</em>. </li>
+						<li>The distinctive sound of the clunking keyboard typically associate with the dumb terminals used with the linemode browser </li>
 					</ol>
 
 
@@ -83,12 +91,13 @@
 
 					<p>In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline). But, importantly, we leave the script, link and style elements in place. <em>Why?</em> we hear you ask. Because, dear reader, the original line mode browser would display contents of those tags. Its parsing rule was to strip the start and end tags off unknown elements, but display their content inline. So it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them. It may look messy but we're being as true as possible to the way the line-mode browser worked.</p>
 					
-					<p>After the DOM was changed like this, we add the CSS and JavaScript for the emulation, then serialise the document back into a string, and then send this to the browser.</p>
+					<p>After the DOM is modified like this, we add links to the CSS and JavaScript files that drive the emulation, then serialise the document back into a string, and then send this to the browser.</p>
 
 					<p>The browser then parses the document, applies the CSS and runs the JavaScript, so you the user can experience the awesomeness that was the line mode browser.</p>
 
-					<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Techincally, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
+					<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Technically, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
 
+<p>In addition we use the HTML5 audio element to bring you the sound of the keyboard (we even recorded the sounds of typing on an old IBM RS6000 keyboard we had at our disposal to work with an early version of the browser).</p>
 
 					<div class="d1 d-floatleft">
 						<img src="../img/makingof-01.jpg" />
@@ -96,7 +105,7 @@
 					<h3>What hacks did we use?</h3>
 					<p>Hacks! We do not hack. OK, maybe we did some hacky things, but thankfully nothing particularly grubby.</p>
 					<p>As mentioned, we used some JavaScript for calculating certain aspects of the page layout. We'd have preferred to have done this in pure CSS.</p>
-
+					
 					<h3>Will what we built today be usable in 10 years? </h3>
 					<p>We hope so! One of the things we wanted to do is emulate how the line-mode browser would handle today’s web content. Even though, technically, the original line-mode terminals would choke on today's heavy pages — we're averaging about 1.2MB of content per page.</p>
 

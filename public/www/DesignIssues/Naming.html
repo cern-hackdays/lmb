@@ -1,0 +1,56 @@
+<TITLE>Naming -- /DesignIssues</TITLE>
+<NEXTID 2>
+<H1>Document Naming</H1>This is probably the most crucial aspect of design and standardization
+in an open hypertext system.  It concerns the syntax of a name by
+which a document or part of a document (an anchor) is referenced from
+anywhere else in the world.<P>
+As many protocols are currently used for information retrieval, the
+address must be capable of encompassing many protocols, access methods
+or, indeed, naming schemes.<P>
+The <A NAME=1 HREF=../Addressing/Addressing.html>WWW scheme</A> uses a prefix to give the addressing sub-scheme, and
+then a syntax dependent on the prefix used, in order to be open to
+any new naming systems.
+<H2>Name or Address, or Identifier?</H2>Conventionally, a "name" has tended to mean a logical way of referring
+to an object  in some abstract name space, while the term "address"
+has been used for something which specifies the physical location.
+The term "unique identifier" generally referred to a name which was
+guaranteed to be unique but had little significance as regards the
+logical name or physical address. A name server was used to convert
+names or unique identifiers into addresses.<P>
+With wide-area distributed systems, this distinction blurs. Locally,
+things which at first look like physical addresses develop more and
+more levels of translation, so that they cease to give the actual
+location of the object. At the same time, a logical name or a unique
+identifier must contain some information which allows the name server
+to know where to start looking. In a global context, for example "1237159242346244234232342342423468762342368"
+might well be unique, but it contains insufficient (apparent) structure
+for a name server to look it up. The name "info.cern.ch" has a structure
+which allows a search to be made in several stages. In fact, practical
+systems using unique identifiers generally hide within them some clues
+for the name server, such as a node name.<P>
+A hypertext link to a document ought to be specified using the most
+logical name as opposed to a physical address. This is (almost) the
+only way of getting over the problem of documents being physically
+moved. As the naming scheme becomes more abstract, resolving the name
+becomes less of a simple look-up and more of a search.<P>
+One expects in practice the translation of a document name taking
+several stages as the name becomes less abstract and more physical.
+<H2>Hints</H2>Some document reference formats contain "hints" to the reader about
+the document, such as server availability, copyright status, last
+known physical address and data formats. It is very important not
+to confuse these with the document's name, as they have a shorter
+lifetime than the document.
+<H2>X500</H2>The X500 directory service protocol defines an abstract name space
+which is hierarchical. It allows objects such as organizations, people,
+and documents to be arranged in a tree. Whereas the hierarchical structure
+might make it difficult to decide in which of two locations to put
+an object (it's not hypertext), this does allow a unique name to be
+given for anything in the tree. X500 functionally seems to meet the
+needs of the logical name space in a wide-area hypertext system. Implementations
+are somewhat rare at the moment of writing, so it cannot be assumed
+as a general infrastructure.<P>
+If this direction is chosen for naming, it still leaves open the question
+of the format of the address into which a document name will be translated.
+This must also be left as open-ended as the set of protocols. _________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

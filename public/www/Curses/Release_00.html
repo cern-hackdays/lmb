@@ -1,0 +1,37 @@
+<TITLE>Release_00 -- /Curses</TITLE>
+<NEXTID 1>
+<H1>Full screen browser release</H1>
+<ADDRESS>Date: Sat, 21 Nov 92 17:32:08 est<P>From: jim@wilbur.njit.edu (Jim Whitescarver)
+</ADDRESS>
+<XMP>The ScreenMode w3 interface is available via anonymous ftp from 
+wilbur.njit.edu in dist/w3.  The Sun and Dec versions are a bit out
+of date, so plan to get a new one soon,  only the HP version is up
+to date.  This is still a prerelease version.
+
+We have an experimental server for our CWIS plus a special gateway
+server.  The ScreenMode interface can still be access via telnet to
+eies2.njit.edu with the login www.  You can try the manual page reader
+their, or via http://eies2:1234/man.  We make extensive use of the <PRE>
+tag for preformatted text.  Much of our hypertext, including the manual
+pages, will not be formatted properly unless you use one of our readers,
+or another reader modifies to support <PRE>.
+
+The preformatted tag, PRE, unlike <PLAINTEXT>, allows anchors etc. to be 
+inserted in text that is already formatted.  It greatly simplifies the
+task of importing text from independant applications will anchors
+everywhere you want them.  In addition, we have a set of macros for
+MS-word which allow editing HTML in WYSIWYG fashion, but this also
+requires support of the preformatted tag in HTML.
+
+Al Leurck (al@eies2.njit.edu) developed the PRE tag and MS-word macros
+here in the ScreenMode interface and we are adding it to the tkWWW X
+interface.
+
+We plan to impliment group hypertext using a mail server to suppliment
+the HPPT access protocol.  Readers can contribute anchors to a text via
+mail to www at the server machine.  Our browsers will support this
+transparently.  Later we hope to participate in a broader effort to
+include SGML tags to support forms, for truely interactive hypertext.
+
+
+</XMP>

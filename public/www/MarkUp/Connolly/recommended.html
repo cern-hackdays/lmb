@@ -1,0 +1,191 @@
+<TITLE>HTML Guide: Recommended Usage</TITLE>
+
+<H1>Recommended HTML Usage</H1>
+
+This part of <A HREF="MarkUp.html">the HTML Reference</A> shows
+recommended usage. These constructs are recommended because
+<UL>
+<LI>They conform to the SGML definition of HTML
+<LI>They are straightforward to implement
+<LI>They work on most existing browsers
+</UL>
+
+This section contains many suggestions, rules of thumb, and the like.
+Where the suggestions are not equivalent to <A NAME=id1
+HREF="html.dtd">the DTD</A>, the words "should," "may," etc. are
+linked to futher explanation.
+
+<H2>Structure of an HTML document</H2>
+
+An HTML document <A NAME=id2 HREF="complete.html#structure">should</A>
+start with a <A HREF="#TITLE">TITLE element</A>.<P>
+
+If the document is searchable, an <A NAME=id3
+HREF="#ISINDEX">ISINDEX</A> element should come next.<P>
+
+After any TITLE and ISINDEX elements comes the BODY, which <A NAME=id4
+HREF="tolerated.html#id1">should</A> start with an H1 element,
+followed by other elements character data.<P>
+
+See also: <A NAME=id13 HREF="tolerated.html#structure">tolerated
+structural errors</A>, <A NAME=id14
+HREF="errors.html#structure">severe structural errors</A>.
+
+<H2>Header Elements</H2>
+
+<H3><A NAME=TITLE>TITLE</A></H3>
+
+The TITLE element should identify the document in a fairly wide
+context. Its content should fit on one line: it should be less than 72
+characters with no linebreaks. It <A NAME=id5
+HREF="complete.html#TITLE">should
+</A>
+not contain any '&lt;' characters.
+<P>
+
+The title may be used to identify the node in a history list, to label
+the window displaying the node, etc. It is not normally displayed in
+the text of a document itself. Contrast titles with <A
+HREF="#headings">headings </A>.
+
+<H3><A NAME=ISINDEX>ISINDEX</A></H3>
+
+The presence of the ISINDEX element indicates the document is
+searchable.<P>
+
+<H2>Body Elements</H2>
+
+Within the content of these elements, the characters '&lt;', '&gt;',
+and '&amp;' signal markup <A NAME=id12 HREF="Text.html#PCDATA">in many
+cases</A>. They <A NAME=id6 HREF="supported.html#delimiters">should
+</A>
+be written as "&amp;lt;", "&amp;gt;", and "&amp;amp;" respectively, to
+prevent this.
+
+<H3>Anchors</H3>
+
+A span of text can be marked as an anchor. Anchors can be used as the
+source of a hypertext link:<P>
+
+Choose <A HREF="tolerated.html">this</A> to view a neighbor
+document.<P>
+
+... or as the destination: <P>
+
+<A NAME="Fred">Fred Flinstone</A><P>
+
+See also: <A NAME=id15 HREF="tolerated.html#A">tolerated errors in
+anchors</A>, <A NAME=id16 HREF="errors.html#a">severe errors in
+anchors</A>.
+
+<H3><A NAME=headings>Headings</A></H3>
+
+Headings are used to break the body into sections and subsections.
+Several levels of headings are defined: <P>
+
+<H4>Level four headings are for sub-sub-sub headings</H4>
+
+<H3>Paragraphs</H3>
+
+Text that isn't marked up as some other element forms a paragraph.<P>
+
+Normal paragraphs consist of text consisting of words, sentences, and
+other stuff. Line breaks have no significance except to separate words.
+This is still the first
+paragraph of this section.
+<P>
+
+This is the second paragraph. Paragraphs are separated by P elements.
+HTML is relatively flat, and paragraph breaks are not allowed inside
+lists, headers, anchors, etc.<P>
+
+<H3>Lists</H3>
+
+<UL>
+<LI>This is the first item of an unordered list.
+
+<LI>This is the
+second item. It's kinda long, and should wrap around on most screens.
+
+<LI>This is the third item. It's only one paragraph, but it's got a
+paragraph tag at the end.
+
+<LI>This is the fourth and final item.
+</UL>
+
+<!-- @@ link to unordered lists -->
+
+<H3>Glossaries</H3>
+
+<DL>
+<DT>term <DD> definition 
+
+<DT>another term <DD> and its definition, which is long enough that it
+should wrap around on most screens.
+</DL>
+
+<H3>Address</H3>
+
+The address element indicates the author or source of the document:<P>
+
+<ADDRESS>DWC
+connolly@convex.com</ADDRESS>
+
+<H3>TYPEWRITER</H3>
+
+The TYPEWRITER element is used for characters that have already been
+formatted for a typewriter-like device. Markup is recognized in this
+element just as in the normal body paragraphs. But after processing tags
+and entity references, the data is displayed as on a typewriter,
+rather than using typesetting conventions.
+<P>
+
+Line breaks are significant, and characters are rendered in a
+fixed-width font to preserve horizontal formatting.<P>
+
+For example, a portion of a man page might look like:<P>
+
+<TYPEWRITER>
+NOTES
+     cat is able to correctly access files larger that two giga-
+     bytes in size.
+
+SEE ALSO
+     <A NAME=id7 HREF="man:/1/cp">cp(1)</A>, <A NAME=id8 HREF="man:/1/ex">ex(1)</A>, <A NAME=id9 HREF="man:/1/more">more(1)</A>, <A NAME=id10 HREF="man:/1/pr">pr(1)</A>, <A NAME=id11 HREF="man:/1/tail">tail(1)</A>
+</TYPEWRITER>
+
+
+<!-- @@ highlighting, character-level elements: bold, italic, etc. -->
+
+<H2>Literal Text Elements</H2>
+
+<H3>XMP and LISTING</H3>
+
+These elements are used when you want to type the characters into the
+source document and have them show up in the output just like you
+typed them.<P>
+
+These elements act much like the TYPEWRITER element, but because
+markup is not recognized in their content, some character sequences
+can't be represented (SGML end tags, for example.) On the other
+hand, you don't have to meticulously mark up all the special characters.
+
+<XMP>
+You can draw pictures    /\
+ in example elements    /  \
+    see:                \__/
+</XMP>
+
+<XMP>This is literal text. THIS word
+should line up under  THIS word.
+
+There should be exactly three blank lines between here
+
+
+
+and here.
+ </XMP>
+
+These elements are the source of the most errors in HTML
+implementations. They should be used only for simple examples that
+don't contiain SGML markup constructs.

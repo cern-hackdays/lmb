@@ -1,0 +1,48 @@
+<TITLE>HyperText Design Issues: Multiuser access</TITLE>
+<NEXTID 7>
+<H1>Multiuser considerations</H1>Multiuser access is made easier with a client/server model.We obviously
+want this. We also need simultaneous reading and writing of the same
+ database.  This is done by locking parts or all of the database while
+they are updated. One has to decide on the unit of data to be locked.
+I (<A NAME=5 HREF=../People.html#BernersLee> TBL</A> ) imagine that it  would be a node, not a database.<P>
+There is a specific problem which all distributed hypertext systems
+have had to tackle, in <A NAME=6 HREF=LinkToLiving.html>linking to living documents</A>.
+<H2><A NAME=2>Annotation</A></H2>Annotation is the  linking of a new commentary node to someone else's
+existing node. It is the essence of a collaborative hypertext.  An
+annotation does not modify the text necessarily: one can separate
+protection against writing and annotation.
+<H2><A NAME=1>Protection</A></H2>Protection against unauthorized reading and writing is provided by
+servers. We use the word ªdomainº to describe a set of data which
+has the same protection.  Life is simple if the domain is the database,
+or all the data administered by a given server.  One can also add
+author-based protection to the contents of a node, or links, which
+have author information stored about them.<P>
+There is a problem illustrated by the following example. One might
+want to make a private annotation to something which is visible world-wide
+but unwritable. The annotation would be invisible to another reader:
+it would be stored in a private domain.  The  node itself is visible
+everywhere: it is stored in a public domain. This is a general problem
+of links being in a different domain to nodes.
+<H2><A NAME=3>Private overlaid web</A></H2>A possible solution to this is to have, in the private domain,  a
+partial copy of the public web, so that link information can be added
+to it.  The copy of the net could also be used to tag on local cached
+copies of the contents of the remote nodes.<P>
+The writer would have to be aware of the domain into which he was
+writing.  One could use a server per domain, but could imagine the
+need for more than one server per domain, or more than one domain
+per server.<P>
+See also: <A NAME=4 HREF=../../Conferences/../Products/Microcosm/Microcosm.html#GenericLinking>Generic Linking</A>
+<H2>Locking and modifying</H2>Modification of text in  a multiuser environment requires in principle
+some sort of atomic locking feature, so that two users do not update
+the same text at the same time. In fact some systems do not have this
+and still survive quite well: it depends a lot on the human environment.<P>
+Practically, the HTTP protocol must contain a lock/unlock command,
+and some way of recovering from a lock left on by a vanished user.
+The actual implementation will depend on the server or gateway. In
+the case of files, then a number of possibilitie exist:
+<UL>
+<LI>One can write-protect the file temporarily. This unfortunately levaes
+no clue as to who has locked it, when and why. It is also indistinguishable
+from a genuine protection to a document which should not be modified
+<LI>One can create  a lock file containing information about who/when/why,
+whose name is derived from the name of the file in question. 

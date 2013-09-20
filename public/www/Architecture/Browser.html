@@ -1,0 +1,50 @@
+<TITLE>W3 Browser Architecture changes (Jan 92)</TITLE>
+<NEXTID 3>
+<H1>Browser architecure changes</H1>See also: <A NAME=2 HREF=BrowserOverview.html>new architecture</A>.<P>
+We would like to tidy up the architecture at this point (Oct 91),
+in order to get as much common code as possible between the browsers.
+This will mean
+<UL>
+<LI>Taking the objective-C form of the NeXT browser and translating into
+C for total portability :-(
+<LI>Specifying a common interface to a hypertext object,which any parser
+can use. We then aim to have a set of protocol/parser modules which
+we can put into each browser. In some cases (news, wais), the protocol
+module will have to contain the parser, in others (file, http) they
+will be separate.
+</UL>The web and anchors is be managed by an anchor object basically like
+Anchor.m in the NeXT version, translated into C.<P>
+The hypertext object, whose implementation will be different for each
+browser, will be functionally similar to the HyperText object in the
+NeXT browser, but will have the parsing routines removed.<P>
+It is the design of the basic X application, and the design of this
+hypertext object, which will mainly concern your group. It would be
+best if the object allowed editing of the text as well as display,
+so that the application will be a browser/editor, like on the next.
+In order to be able to regenerate the SGML, the object must be aware
+of nested regions of the text, and associated styles.  The operations
+which are used be a parser to build a hypertext are basicallycreate
+hypertext<P>
+		set editable(boolean)<P>
+	set title (char* title)<P>
+	start anchor (void* anchor_id)<P>
+	end anchor<P>
+		start style(style* style)<P>
+		end style<P>
+		append text(char * text)<P>
+		flush hypertext to screenThe hypertext object will not need to be
+aware of the anchor data structure. The application will be responsible
+for ensuing that any mouse or keyboard events are passed on to the
+hypertext. The hypertext will allow editing (if the document is writable),
+and if an anchor is selected, will call the protocol module to jump
+through that anchor.<P>
+Notice that the set of operations above could equally well be interpreted
+by an SGML generator module. An edited hypertext object should also
+be able to dump itself, by reproducing a set of calls to these operations
+on a protocol module which will generate SGML  (etc).<P>
+We want to introduce the format negociation part of the protocol too,
+but that will not affect the hypertext object, it will only be in
+the protocol layer.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

@@ -1,0 +1,38 @@
+<TITLE>/Net/cernvax/userd/tbl/hypertext/WWW/Addressing/Relative.html</TITLE>
+<NEXTID 5>
+<H1>Relative naming</H1>The address of a hypertext document is normally given within the context
+of another hypertext document. Where the addresses of the two documents
+are the similar, this allows only the difference between the two names
+to be given, saving space. An example is the address of the <A NAME=0 HREF=../MarkUp/Tags.html#13>destination
+of a hypertext link</A> , which is specified relative to the source document
+address.<P>
+(A futher practical advantage is that a group of documents may be
+transmitted without internal changes, or accessed using more than
+one address.)<P>
+This implies that certain characters ("/", "..") have a significance
+reserved for representing a hierarchical space, and must be recognized
+as such by both clients and servers.<P>
+In the <A NAME=1 HREF=Addressing.html>WWW address format</A> , the rules for relative naming are:
+<UL>
+<LI>If the "<A NAME=2 HREF=Addressing.html#17> scheme</A> " parts  are different, the whole absolute address
+must be given. Other wise, the scheme is omitted, and:
+<LI>If the "host" and/or "port" <A NAME=3 HREF=BNF.html#3>parts</A> are different, the host name and
+all the rest of the address must be given. The host name may be given
+using internet hostname conventions, ie domains may be omitted where
+different. This is not very well defined:  one tends to assume that
+if any dot is present, then the full domain name is being given, up
+to the root (.) domain, while if there are no dots, the domain is
+the same as that of the hostname part of the the base address.
+<LI>If the access and host parts are the same, then the path may be given
+with the unix convention, including the use of  ".." to mean indicate
+deletion of a path element. Within the path:
+<LI>If a leading slash is present, the path is absolute. Otherwise:
+<LI>The last part of the path of the base address (e.g. the filename of
+the  current document) is removed, and the given relative address
+appended in its place.
+<LI>Within the result,  all occurences "xxx/.."  or "/." are recursively
+removed, where xxx is one path element (directory).
+</UL>The use of the slash "/" and double dot ".." in this case must be
+respected by all servers. If necessary, this may mean converting their
+local representations in order that these characters should not appear
+within path elements (see <A NAME=4 HREF=Escaping.html>"escaping"</A> ).</A><P>

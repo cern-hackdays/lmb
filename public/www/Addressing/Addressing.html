@@ -1,0 +1,67 @@
+<TITLE>WorldWideWeb Address Formats</TITLE>
+<NEXTID 20>
+<H1>W3 Naming Schemes</H1>(See also: a <A NAME=6 HREF=../DesignIssues/Naming.html>discussion of design issues involved</A> , <A NAME=13 HREF=BNF.html>BNF syntax</A> , <A NAME=19 HREF=../TheProject.html>W3
+background</A>)<P>
+The format of a hypertext name consists of the name of the naming
+sub-scheme to be used, then a name in a format particular to that
+subscheme, then an optional anchor identifier within the document.
+For example, the format is for all internet-based access methods:<P>
+  <A NAME=17>scheme</A> : // host.domain:port / path / path  # anchor<P>
+A suffix # anchor id allows one to refer to a particular anchor within
+a document.<P>
+A suffix ? followed by words separated by + signs  allows one to seach
+an index (see <A NAME=15 HREF=Search.html>details</A> ).<P>
+References from one document to another with a similar name may be
+abbreviated to a <A NAME=8 HREF=Relative.html>relative name</A> . This imposes certain restrictions
+on the way that the "path" is represented.<P>
+A special format is used to represent a <A NAME=9 HREF=Search.html>search on an index</A> . See also:
+the full <A NAME=12 HREF=BNF.html>BNF description</A> , about <A NAME=14 HREF=Escaping.html>escaping illegal characters</A> .
+<H2>Examples</H2>
+<XMP>
+         file://cernvax.cern.ch/usr/lib/WWW/defaut.html#123
+
+</XMP>This is a fully qualified file name, referring to a document in the
+file name space of the given internet node, and an imaginary anchor
+123 within it.
+<XMP>
+         #greg
+
+</XMP>This refers to anchor "greg" in the same document as that in which
+the name appears.
+<H2>Naming sub-schemes</H2>Different schemes usually use different<A NAME=0 HREF=../Protocols/RelevantProtocols.html> protocols</A> on the network.
+The format of the address after the scheme name is a function of the
+particular scheme. In practice, all internet-based schemes have a
+common format for the node name and port.   Schemes currently defined
+are as follows, with links to more details.
+<DL>
+<DT><A NAME=1 HREF=FileAddressing.html>file</A>
+<DD> Access is provided to files, using whatever means the browser
+and/or gateways have to reach files on obscure machines.
+<DT><A NAME=2 HREF=NewsAddressing.html>news</A>
+<DD> Access is provided to news articles, and newsgroups, normally
+using the NNTP protocol.
+<DT><A NAME=3 HREF=HTTPAddressing.html>http</A>
+<DD> Access is provided to any other information using the HTTP search
+and retrieve <A NAME=16 HREF=../Protocols/HTTP/AsImplemented.html>protocol</A> . The internal addressing of the information
+system is mapped onto a W3 path.
+<DT><A NAME=10 HREF=TelnetAddressing.html>telnet</A>
+<DD> Access is provided by an interactive telnet session. This is
+provided ONLY as an interface to other existing online systems which
+cannot or have not been mapped onto the W3 space. 
+<DT><A NAME=11 HREF=GopherAddressing.html>gopher</A>
+<DD> Access is provided using the "gopher" protocol. The gopher
+protocol is similar to HTTP but uses separate concepts of menus and
+text files rather than hypertext.
+<DT><A NAME=18 HREF=WAISAddressing.html>wais</A>
+<DD> Access is provided using the WAIS adaptaion of the Z39.50 protocol.
+<DT>x500
+<DD> Format to be defined.
+</DL>
+Systems (such as WAIS) which are not currently accessed directly be
+W3 servers may be accessed though gateways, in which case the document
+address is encoded within the http address of the document in the
+gateway.  Browsers which do not have the ability to use certain protocols
+may (in principle) be configured to automaticaly use certain gateways
+for certain addressing schemes.<P>
+This will allow, for example, simple PC-based clients to follow links
+through X500 name servers.</A>

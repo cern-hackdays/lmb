@@ -1,0 +1,38 @@
+<TITLE>HTTPAddressing -- /Addressing</TITLE>
+<NEXTID 6>
+<H1>HTTP Addressing</H1>With an access code of http:,  a protocol introduced for  the WWW
+initiative is used to acquire data from a server. This is the "Hypertext
+Transfer protocol", <A NAME=1 HREF=../Protocols/HTTP/AsImplemented.html>HTTP</A> , a simple search and retrieve (S and R)
+protocol.<P>
+The syntax of an http address is, with [] indicating optional parts
+(see <A NAME=5 HREF=BNF.html#1>BNF description</A> ),
+<XMP>		http : // hostname [ : port ] / path [ ? searchwords ]
+
+</XMP>for example, the following are valid addresses:
+<XMP> 		http://info.cern.ch/hypertext/WWW/TheProject.html
+		http://crnvmc.cern.ch/FIND?sgml+examples
+
+</XMP>HTTP addresses conform to the WWW conventions,  including the possibility
+of using the <A NAME=4 HREF=Search.html>search format</A> . The significance of the items in the
+path part of the document name is completely up to the server. Different
+paths may be used to select different databases, different views of
+the same database, etc.
+<DL>
+<DT>hostname
+<DD> This is the name of the server in internet form. A numeric
+form (e.g. 128.141.201.74) may be used, by the domain name form (e.g.
+info.cern.ch) is preferred. The hostname is mandatory.
+<DT>port
+<DD> This is a numeric port number. If a non-numeric string is used,
+it must be a defined service name. Note that as there is no central
+repository for service names (they are defined locaaly for each host),
+a service name is NOT an appropriate way to specify a port number
+for a hypertext address. If the port number is omitted the preceding
+colon must also be omitted. In this case, port number 2784 is assumed
+[This may change!].
+</DL>
+See also: <A NAME=3 HREF=Addressing.html>WWW addressing in general</A> , <A NAME=2 HREF=../Protocols/HTTP.html>HTTP protocol</A> .
+
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

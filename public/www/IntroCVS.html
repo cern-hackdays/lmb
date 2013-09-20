@@ -1,0 +1,28 @@
+<TITLE>IntroCVS -- /WWW</TITLE>
+<NEXTID 1>
+<H1>Introduction of CVS</H1>
+<H2>Aug 3 -- to keep in mind:</H2>
+<UL>
+<LI>change directory structure only if necessary,
+<LI>change makefiles only if necessary
+<LI>develop a script that can change links in a set of .html files to
+a new value (since some source files are referred to from the documentation.)
+<LI>if 'src' is used by ASIS and the CERN Library, and 'implementation'
+is used only by us, then we should get rid of 'implementation'
+</UL>
+<H2>aug 7 -- what about...</H2>
+<UL>
+<LI>why do we need "extern" in front of function prototypes?
+</UL>
+<H2>aug 10</H2>
+<UL>
+<LI>more experiments with CVS give good feeling (except that we did not
+manage to remove a file). When a developer requests an update for
+a file of which he has a copy "A", CVS looks at the original version
+"O" that he checked out AND at the latest version "L" (as checked
+in by the other developer). If "L" differs from "O" in a part where
+"O" and "A" are the same, then that difference is propagated into
+"A". If  "L" differs from "O" in a part where "A" also differs from
+"O". then that is a conflict. It is marked in "A" and a backup of
+the original "A" (before the update" is put in ".#A".
+</UL><A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#Cailliau>RC</A></A>
