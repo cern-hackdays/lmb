@@ -21,12 +21,7 @@ function setPrompt ($) {
 	if (history.length > 1){
 		prompt = prompt + 'Back, ';
 	}
-	/*
-		if (!end_of_file){
-			printf("&lt;RETURN&gt; for more, ");
-			length_of_prompt = length_of_prompt + 19;
-		}
-	*/
+	prompt = prompt + '&lt;RETURN&gt; for more, ';
 	if (prompt.length <= 47){
 		prompt = prompt + 'Quit, ';
 	}
