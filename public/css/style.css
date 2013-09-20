@@ -189,7 +189,7 @@ a:hover {
 
 .bookmarklets { text-align: center; }
 
-.bookmarklets .d1, .bookmarklets .d2 {  
+.bookmarklets .d1, .bookmarklets .d2, .bookmarklets .d-all {  
 	border: 1px solid #ddd;
 	padding: 20px;
 	box-sizing: border-box;
