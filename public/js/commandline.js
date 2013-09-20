@@ -180,6 +180,8 @@ window.onload = function () {
   (window.adjustFontSize = function (){
     var maxLineHeight = innerHeight / 25,
         size = Math.floor(maxLineHeight / 1.5);
+		//console.log(size)
+		//size = (size - size mod 2) + 2
     document.documentElement.style.fontSize = size  + 'px';
 
     blocker.size(size * 1.5);
