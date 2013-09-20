@@ -28,9 +28,8 @@ function proxy(req, res, next) {
 
     request(url, function (error, response, body) {
       base = response.request.uri.href;
-      console.log(base);
       if (!error && response.statusCode == 200) {
-        var html = inject(body);
+        var html = inject(body, base);
         res.write(html); //.replace(/&/g, '&amp;'));
         res.end();
       } else if (response) {
