@@ -1,0 +1,37 @@
+<TITLE>Caching -- /DesignIssues</TITLE>
+<NEXTID 6>
+<H1>Document caching</H1>Three operations in the retrieval of a document may take significant
+time:
+<UL>
+<LI><A NAME=3 HREF=Formats.html#4>Format conversion</A> by the server, including <A NAME=5 HREF=Versioning.html#3>version regeneration</A>
+<LI>Data transmission across the network
+<LI>Format conversion by the browser
+</UL>At each stage, the server (in the first case) or browser (in the other
+cases) may decide to keep a temporary copy of the result.  This copy
+should ideally be common to many browsers.<P>
+Automatic caching relieves the user of having to explicitly save things
+which may be referred to again. It also relieves the system of keeping
+multiple copies (one for each user who has read the document). It
+allows local disk space to used optimally. Cache management takes
+into account such factors as
+<UL>
+<LI><A NAME=2 HREF=#1>expiry date</A>
+<LI>file size
+<LI>time taken to get the file
+<LI>frequency of access
+<LI>time since access
+</UL>
+<H2><A NAME=1>Expiry date</A></H2>As a guide to help a cache program optimise the data it caches, it
+is useful if a document is transmitted with an estimate by the server
+of the lengt of time the data may be kept for.  This allows fast changing
+documents to be flushed from the system, preventing readers from being
+mislead.  (I would not propose any notification of document changes
+to be distributed to cache managers automatically). For example, an
+RFC may be cached for years, while the state of the alarm system may
+be marked as valid for only one minute.<P>
+Window-oriented browsers effectively cache documents when they keep
+several at a time in memory, in different windows. In this case, for
+very volatile data, it may be useful to have the browser automatically
+refresh the window when its data expires. <P>
+(<A NAME=4 HREF=Overview.html> design issues</A> )_________________________________
+<ADDRESS><A NAME=0 HREF=../../../WWW/disclaimer.html>Tim BL</A>

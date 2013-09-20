@@ -1,0 +1,48 @@
+<TITLE>How to put your data on the web</TITLE>
+<NEXTID 20>
+<H1>Information Provider</H1>There are many ways of making your new or existing data available
+on the <A NAME=13 HREF=../TheProject.html>"web"</A> . The best method depends on what sort of data you have.
+(If you have any questions, mail the www team at www-bug@info.cern.ch.).
+See also: <A NAME=12 HREF=Etiquette.html>Web etiquette</A> . <A NAME=15 HREF=../Helping.html>How can I help</A> ?
+<H2>You have plain text files</H2>If you have some plain text files then you can easily write, or generate
+using a script,  a small hypertext file which points to them.  To
+make them accessible you can use either <A NAME=2 HREF=AnonymousFTP.html>anonymous FTP</A> , or the <A NAME=3 HREF=../Daemon/User/Guide.html>HTTP
+daemon</A> .  
+<H2>You have a NeXT</H2>You can use our prototype <A NAME=8 HREF=../NeXT/WorldWideWeb.html>hypertext editor</A> to create a web of hypertext,
+linking it to existing files. This is not YET available for X11 workstations.
+This is a fast way of making online documentation, as well as performing
+the hyper-librarian job of making sure all your information can be
+found.
+<H2><A NAME=14>Using a shell script</A></H2>An HTTP daemon is such a simple thing that a simple shell script will
+often suffice. This is great for bits of information available locally
+through other programs, which you would like to publish. More deatils
+on writing servers using <A NAME=11 HREF=ShellScript.html>shell scripts under unix</A> , or<A NAME=17 HREF=../Daemon/DCLServer.html> in DCL under
+VMS</A> .
+<H2>You have many files</H2>In this case, for speed of access, the <A NAME=4 HREF=../Daemon/User/Guide.html>HTTP daemon</A> will probably be
+best. You can write a tree of hypertext in <A NAME=7 HREF=../MarkUp/MarkUp.html>HTML</A> linking the text files,
+or you can even generate the tree automatically from your directory
+tree.  If you want to generate a full-text index, then you could use
+the public domain <A NAME=5 HREF=../../Products/WAIS/Overview.html>WAIS</A> software - your data will then be accessible
+(as plain text, not hypertext) through the <A NAME=9 HREF=../Daemon/WAISGate.html>WAIS gateway</A> .
+<H2>You have an existing information base</H2>If you have a maintained base of information, don't rush into changing
+the way you manage it.  A "gateway" W3 server can run on top of your
+existing system, making the information in it available to the world.
+This is how it works:
+<UL>
+<LI>Menus map onto sets of hypertext links
+<LI>Different search options map onto different "index" document addresses
+(even if they use the same index underneath in your system).
+<LI>Procedures used by those who contribute and manage information stay
+unaltered.
+</UL>If your database is WAIS,  VMS/HELP, XFIND, or Hyper-G, a gateway
+exists already. These gateway servers did not take long to write.
+You can pick up a skeleton server in C from our <A NAME=6 HREF=../../README.html>distribution</A> . You
+can also write one from scratch, for example in perl <A NAME=16 HREF=ShellScript.html>or sh</A> .  An advantage
+of a gateway is that you can maintain your existing procedures for
+creating text and managing the database.  For more information, see:<P>
+ <A NAME=10 HREF=ServerWriter.html>A case study of one system</A> .<P>
+<A NAME=18 HREF=ExistingData.html>Making a W3 server for existing data</A>.<P>
+<A NAME=19 HREF=RadioButtons.html>Allowing multiple selections</A><P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

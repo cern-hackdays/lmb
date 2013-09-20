@@ -1,0 +1,230 @@
+<TITLE>Letter_1 -- /Architecture</TITLE>
+<NEXTID 1>
+<XMP>
+
+Date: Thu, 4 Jun 92 00:59:21 +0200
+From: jfg@dxcern.cern.ch (Jean Francois Groff)
+Sender: jfg@dxcern.cern.ch
+To: barker@www1.cern.ch
+Subject: forwarded message from Tim Berners-Lee
+
+------- Start of forwarded message -------
+Received: by dxmint.cern.ch (dxcern) (5.57/3.14)
+	id AA27986; Wed, 3 Jun 92 16:56:29 +0200
+Received: by  nxoc01.cern.ch  (NeXT-1.0 (From Sendmail 5.52)/NeXT-2.0)
+	id AA08770; Wed, 3 Jun 92 16:55:12 MET DST
+Message-Id: <9206031455.AA08770@ nxoc01.cern.ch >
+From: timbl@nxoc01.cern.ch (Tim Berners-Lee)
+To: connolly@pixel.convex.com
+Cc: timbl@nxoc01.cern.ch, wei@xcf.berkeley.edu, www-bug@nxoc01.cern.ch
+Subject: Re: still no DTD, huh?
+Date: Wed, 3 Jun 92 16:55:12 MET DST
+
+Dan, taking your points in order before they pop off the screen.
+I agree, attribute values ought to be quoted unless they contain
+only sgml-nice characters. The www browers accept quotes or non-quoted
+values. It is a bug in the NeXT editor that it exploits this feature.
+B
+When we fix the NeXT editor then we will put the quotes in. All
+other p browsers use the SGML.c parser in the W3 dist which accept
+quotes.
+
+Yes, NEXTID will have to go. NEXTID will be anattibute of the
+documenmt. We proposed
+sorry propose 3 dcotypes,  HTDOC, HTERR and HTFWD to be described in
+the DTD. These will be such that any extra tags they define, and
+structure, will be safeley ignored by old parsers.
+
+3. Minimisation.  This is copied from the BOOKMAKER style stuff.
+Basically, we use <P> as a paragraph separater rather than a
+paragraph begin or end.  It can be regarded as a minimized
+paragraph element though. Its just that we actually parse it
+as an empty elemnt with no end tag. That's still valid SGML
+and you could write it in the DTD that way.
+<LI> always has an opener and never a closer. The same applies
+to <DD> and <DT>.  Note that we have though made sure that the browser
+will ignore closers to these, so we could edfine teh DTD with them in
+and optional.
+
+4. YEs, sections appeal to me too. Especially when making 
+big HTML files out of lots of little ones. The effect of
+<SECTION> .. </SECTION> would be to demote all headings
+by one inside the section.  I would be inclined then to
+have simpky a <HEADING> tag which would be equivalent to H0
+and map onto H1 within a section, or Hn within n sections.
+The SGML parser can't generate this stuff, but the editors could
+derive it from the style information. We would have to introduce <SECTION>
+early on to get a transistion period. Then in HTML3 we would declare
+H2 etc obsolete.
+
+Pei Wei is maybe working on a DTD too and Carl Barker at CERN
+is defininbg new features of HTML needed by new features in
+the protocol (things like <BODY NOTATION=postscript> and suchlike).
+Some of htis is defined in a few "technical notes" linked to
+a listof technical notes linked to the W3 project page, if you want to 
+see and comment.
+
+(Carl: you could take this message in text form and link it in too)
+
+Tim
+________ Dan's message:
+>From connolly@pixel.convex.com Wed Jun  3 04:23:34 1992
+Return-Path: <connolly@pixel.convex.com>
+Received: from dxmint.cern.ch by  nxoc01.cern.ch  (NeXT-1.0 (From Sendmail 5.52)/NeXT-2.0)
+	id AA05562; Wed, 3 Jun 92 04:23:28 MET DST
+Received: by dxmint.cern.ch (dxcern) (5.57/3.14)
+	id AA27281; Wed, 3 Jun 92 04:21:34 +0200
+Received: from pixel.convex.com by convex.convex.com (5.64/1.35)
+	id AA25114; Tue, 2 Jun 92 21:21:17 -0500
+Received: from localhost by pixel.convex.com (5.64/1.28)
+	id AA23193; Tue, 2 Jun 92 21:21:15 -0500
+Message-Id: <9206030221.AA23193@pixel.convex.com>
+To: timbl@nxoc01.cern.ch
+Subject: still no DTD, huh?
+Date: Tue, 02 Jun 92 21:21:14 CDT
+From: Dan Connolly <connolly@pixel.convex.com>
+Status: R
+
+
+by the way... replying to an address you sent me
+doesn't work...
+
+- ------- Forwarded Message
+
+   ----- Transcript of session follows -----
+>>> RCPT To:<timbl@dxmint.cern.ch>
+<<< 550 <timbl@dxmint.cern.ch>... Addressee unknown
+550 timbl@dxmint.cern.ch... User unknown
+
+   ----- Unsent message follows -----
+Date: Tue, 26 May 92 17:06:43 +0200
+From: connolly (Dan Connolly)
+Message-Id: <9205261506.AA25934@connie.de.convex.com>
+To: timbl@dxmint.cern.ch
+Subject: still no DTD, huh?
+Cc: connolly@convex.com
+
+I just browsed the web, hoping to find a DTD for HTML.
+No such luck.
+One nifty part of the Chameleon project is an X windows
+grammar editor for developing context free grammars.
+It's a little clunky, but in addition to outputting
+editable Chameleon grammar files, it can write
+YACC specifications or !SGML DTD's! Finally! a simple
+DTD editor!
+
+Unfortunately, it doesn't support attributes, and
+I don't think the DTD's it creates have minimization,
+but it could certainly save a lot of time in
+creating a DTD!
+
+I'll see if I can prototype something when I get back.
+
+More later.
+
+Dan
+
+- ------- End of Forwarded Message
+
+Well, I've been attempting to prototype something with
+Devegram, the Integrated Chameleon Architecture's (ICA's)
+grammar editor.
+
+I messed around a while and had it write out an SGML
+DTD to play with. Unfortunately Devegram doesn't support
+many features of an SGML DTD which would be most
+convenient to describe HTML. So I've abandoned Devegram
+in favor of a text editor. But it did help with
+the initial prototype.
+
+Now for the REAL problems: HTML in its present form
+is very difficult to describe in SGML. I'm not experienced
+enough to say for sure, but I think it's impossible.
+The problems are mostly small and lexical in nature, but
+I'd say it's VERY important to make these changes NOW in
+order to be able to use SGML processing engines in WWW
+clients in the future.
+
+An SGML document consists of 3 parts: the declaration,
+the prologue, and the instance. The declaration lays
+the groundwork -- defines the encoding and interpretation
+of the character set(s), sets processing limits and bounds,
+and other lexical stuff. Applications generally use the
+default SGML declaration given in the standard. Each
+SGML parser has a declaration that declares its feature
+list and limits. If HTML cannot be described with
+the default SGML declaration, this will severely limit
+the usable parsers. (one exception is the NAMELEN limit:
+many parsers have a value higher than 8)
+
+The prologue (sometimes called the DTD, though there may
+be more than one DOCTYPE in the prologue)
+gives the structure of the document -- the
+basic grammar and entities and such. This varies from
+one application to another, but generally one SGML
+declaration and prologue is used throughout an application.
+For example, CALS specifies an SGML declaration and some
+DTD's. The AAP also has a DTD.
+
+The third part is the document instance. This is the part
+that varies from one document to another within an
+application domain.
+
+
+I'm trying to use the default SGML declaration and design
+a DTD such that all HTML files are instances of that DTD.
+
+- --- 1--- The first problem I've come accross is that HTML attribute
+values are not quoted. That is:
+
+<A NAME=2 HREF=http://crnvmc.cern.ch./WHO>
+
+yields
+
+sgmls: SGML error at ../../../WWW/WWW/LineMode/Defaults/default.html, line 8 at 
+":":
+       Incorrect character in markup; markup terminated
+
+I don't know what the exact syntax of an SGML attribute is,
+but it's not the same as HTML's "everything up to the
+next space or >" syntax.
+
+
+- --- 2 --- Next, all attributes have names. So I can't figure
+out a way to parse
+<NEXTID 10>
+I could do
+<NEXTID n=10>
+
+- --- 3 --- The biggest problem is the somewhat random use of
+minimization. I can't seem to make SGML sense of it.
+More later. I don't have as much time as I thought to
+explain this.
+
+- --- 4 --- I'd also like to be able to add a little
+more structure than just a "big list of tags and
+text" to the documents like this:
+
+<HTML>
+<TITLE>foo</TITLE>
+   <SECTION>
+	<H1> header </H1>
+	paragraph associated with above header
+	<SUBSECTION>
+	<H2> header </H2>
+	stuff under H2
+	</SUBSECTION>
+  </SECTION>
+</HTML>
+
+I can _almost_ get the SGML parser to infer the <SECTION>
+and </SECTION> tags, but not quite.
+
+More later.
+
+Dan
+
+
+------- End of forwarded message -------
+
+</XMP>

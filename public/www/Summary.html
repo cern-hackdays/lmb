@@ -1,0 +1,73 @@
+<TITLE>Summary -- /WWW</TITLE>
+<NEXTID 7>
+<H1>WorldWideWeb - Summary</H1>The <A NAME=6 HREF=TheProject.html>WWW</A> project merges the techniques of information retrieval and
+hypertext to make an easy but powerful global information system.<P>
+The project is based on the philosophy that much academic information
+should be freely available to anyone. It aims to allow information
+sharing within internationally dispersed teams, and the dissemination
+of information by support groups.  Originally aimed at the High Energy
+Physics community, it has spread to other areas and attracted much
+interest in user support, resource discovery and collaborative work
+areas.
+<H3>Reader view</H3>The WWW world consists of documents, and links.  Indexes are special
+documents which, rather than being read, may be searched. The result
+of such a search is another ("virtual") document containing links
+to the documents found.  A simple protocol ("<A NAME=3 HREF=Protocols/HTTP/AsImplemented.html> HTTP</A> ") is used to allow
+a browser program to request a keyword search by a remote information
+server. <P>
+The web contains documents in many formats. Those documents which
+are hypertext,  (real or virtual) contain links to other documents,
+or places within documents. All documents, whether real, virtual or
+indexes, look similar to the reader and are contained within the same
+addressing scheme.<P>
+To follow a link,  a reader clicks with a mouse (or types in a number
+if he or she has no mouse). To search and index, a reader gives keywords
+(or other search criteria). These are the only operations  necessary
+to access the entire world of data.
+<H3>Information provider view</H3>The WWW browsers can access many existing data systems via existing
+protocols (FTP, NNTP) or via HTTP and a gateway. In this way, the
+critical mass of data is quickly exceeded, and the increasing use
+of the system by readers and information suppliers encourage each
+other.<P>
+Making a web is as simple as writing a few <A NAME=1 HREF=MarkUp/MarkUp.html>SGML</A> files which point
+to your existing data. Making it public involves running the FTP or
+HTTP <A NAME=2 HREF=Daemon/Overview.html>daemon</A> , and making at least one link into your web from another.
+In fact,  any file available by anonymous FTP can be immediately linked
+into a web. The very small start-up effort is designed to allow small
+contributions.  At the other end of the scale, large information providers
+may provide an HTTP server with full text or keyword indexing. This
+may allow access to a large existing database without changing the
+way that database is managed. Such gateways have already been made
+into Digital's VMS/Help, Technical Univerity of Graz's "Hyper-G",
+and Thinking Machine's "W.A.I.S." systems.<P>
+The WWW model gets over the frustrating incompatibilities of data
+format between suppliers and reader by allowing negotiation of format
+between a smart browser and a smart server. This should provide a
+basis for extension into multimedia, and allow those who share application
+standards to make full use of them across the web.<P>
+This summary does not describe the many exciting possibilities opened
+up by the WWW project, such as efficient document caching. the reduction
+of redundant out-of-date copies, and the use of knowledge daemons.
+There is more information in the online project documentation, including
+some background on hypertext and many technical notes. 
+<H3>Try it</H3>You can try the simple <A NAME=4 HREF=LineMode/Browser.html>line mode browser</A>  by telnetting to info.cern.ch
+ (no user or password. From UK JANET, use the
+<a href=JANETAccess.html>Gateway</a>).
+You can also find out more about WWW in this
+way.  This is the least sophisticated browser -- remember that the
+window-oriented ones are much smarter!<P>
+It is much more efficient to install a browser on your own machine.
+The line mode browser is currently available in source form by anonymous
+FTP from node  info.cern.ch [currently 128.141.201.74] as
+<XMP>			/pub/www/src/WWWLineMode_v.vv.tar.Z.
+
+</XMP>(v.vv is the version number - take the latest.) <P>
+Also available is a <A NAME=5 HREF=NeXT/WorldWideWeb.html>hypertext editor</A> for the NeXT (WWWNeXTStepEditor_v.vv.tar.Z),
+the ViolaWWW browser for X11,  and a skeleton server daemon (WWWDaemon_v.vv.tar.Z).
+<XMP>
+</XMP>Documentation is readable using www. A plain text version of the installation
+instructions is included in the tar file!  Printable (postscript)
+documentation and articles are in /pub/www/doc<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../WWW/disclaimer.html>Tim BL</A>
+</ADDRESS>

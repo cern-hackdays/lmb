@@ -1,0 +1,153 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 19>
+<H1>HyperText Transfer Protocol Design Issues</H1>See also: <A NAME=1 HREF=WhyHTTP.html>Why a new protocol?</A> ,  <A NAME=18 HREF=HTTP.html>HTTP as proposed</A>,  the HTTP protocol
+as <A NAME=12 HREF=HTTP/AsImplemented.html>currently implemented</A> .<P>
+Here are some design decisions to be made for protocols fro information
+retrieval for hypertext.
+<H2>Underlying protocol</H2>There are various distinct possible bases for the protocol - we can
+choose 
+<UL>
+<LI>Something based on, and looking like, an Internet protocol. This has
+the advantage of being well understood, of existing implementations
+being all over the place. It also leaves open the possibility of a
+universal FTP/HTTP or NNTP/HTTP server. This is the case for the current
+HTTP.
+<LI>Something based on an RPC standard. This has the advantage of making
+it easy to generate the code, that the parsing of the messages is
+done automatically, and that the transfer of binary data is efficient.
+It has the disadvantage that one needs the RPC code to be available
+on all platforms. One would have to chose one (or more) styles of
+RPC. Another disadvantage may be that existing RPC systems are not
+efficient at transferring large quantities of text over a stream protocol
+unless (like DD-OC-RPC) one has a let-out and can access the socket
+directly.
+<LI>Something based on the OSI stack, as is Z39.50. This would have to
+be run over TCP in the internet world.
+</UL>Current HTTP uses  the first alternative, to make it simple to program,
+so that it will catch on: conversion to run over an OSI stack will
+be simple as the structure of the messages is well defined.
+<H2><A NAME=13>Idempotent</A> ?</H2>Another choice is whether to make the protocol idempotent or not.
+That is,  does the server need to keep any state informat about the
+client? (For example, the NFS protocol is idempotent, but the FTP
+and NNTP protocols are not.) In the case of FTP the state information
+consists of authorisation, which is not trvial to establish every
+time but could be, and current directory and transfer mode which are
+basically trivial. The propsed protocol IS idempotent.<P>
+This causes, in principle, a problem when trying to map a non-dempotent
+system (such as library search systems which stored "result sets"
+on behalf of the client) into the web.   The problem is that to use
+them in an idempotent way requires the re-evaluation of the intermediate
+result sets at each query. This can be solved by the gateway intelligently
+caching result sets for a reasonable time.
+<H2>Request: Information transferred from client</H2>Parameters below,  however represented on the network, are given in
+upper case, with parameter names in lower case. This set assumes a
+model of format negociation in which in which the client says what
+he can take, and the server decides what to give him. One imagines
+that each function would return a status, as well as information specified
+below.<P>
+When running over a byte stream protocol, SGML would be an encoding
+possibility (as well as ASN/1 etc).<P>
+Here are some possible commands and parameters:
+<DL>
+<DT>GET <A NAME=9>document name</A>
+<DD> Please transfer a named document back. Transfer
+the results back in a standard format or one which I have said I can
+accept. The reply includes the format. In practice, one may want to
+transfer the document over the same link (a la NNTP) or a different
+one (a la FTP). There are advantages in each technique. The use of
+the same link is standard, with moving to a different link by negociation
+(see<A NAME=6 HREF=#5> PORT</A> ).
+<DT>SEARCH  keywords
+<DD> Please search the given index document for all items
+with the given word combination, and transfer the results back as
+marked up hypertext. This could elaborate to an SQL query. There are
+many advantages in making the search criterion just a subset of the
+document name space. 
+<DT>SINCE datetime
+<DD> For a search, refer to documents only dated on or after
+this date. Used typically for building a journal, or for incremental
+update of indexes and maps of the web.
+<DT>BEFORE datetime
+<DD> For a search, refer to documents before this dat only.
+<DT>ACCEPT format penalty
+<DD> I can accept the given formats . The <A NAME=3 HREF=Penalties.html>penalty</A>
+is a set of numbers giving an estimate of the data degradation and
+elapsed time penalty which would be suffered at the CLIENT end by
+data being received in this way. Gateways may add or modify these
+fields.
+<DT><A NAME=5>PORT</A>
+<DD> See the <A NAME=4 HREF=rfc959.txt>RFC959</A> PORT command.   We could change the default so
+that if the port command is NOT specified, then data must be sent
+back down the same link. In an idempotent world, this information
+would be included in the <A NAME=10 HREF=#9>GET</A> command.
+<DT>HEAD doc
+<DD> Like GET, but get only header information. One would have
+to decide whether the header should be in SGML or in protocol format
+(e.g. RPC parameters or internet mail header format). The function
+of this would be to allow overviews and simple indexes to be built
+without having to retrieve the whole document.  See the <A NAME=8 HREF=RelevantProtocols.html>RFC977</A> HEAD
+command. The process of generation of the header of a document from
+the source (if that is how it is derived) is subject to the same possibilties
+(caching, etc) as a format convertion from the source.
+<DT>USER id
+<DD> The user name for logging purposes, preferably a mail address.
+Not for authentication unless no other authentication is given.
+<DT>AUTHORITY authentication
+<DD> A string to be passed across transparently.
+The protocol is open to the authentication system used.
+<DT>HOST
+<DD> The calling host name - useful when the calling host is not properly
+registered with a name server.
+<DT>Client Software
+<DD> For interest only, the application name and version
+number of the client software.  These values should be preserved by
+gateways.
+</DL>
+
+<H2>Response</H2>Suppose the response is an SGML document, with the document type a
+function of the status. (<A NAME=16 HREF=HTTP/Ex1.html> Example</A> )
+<DL>
+<DT>Status
+<DD> A status is required in machine-readable format. See the 3-figure
+status codes of FTP for example. Bad status codes should be accompanied
+by an explantory document, possible conianing links to futher information.
+A possibility would be to make an error response a special SGML document
+type. Some special status codes are mentioned <A NAME=15 HREF=#14>below</A> .
+<DT>Format
+<DD> The format selected by the server
+<DT>Document
+<DD> The document in that format
+</DL>
+
+<H2><A NAME=14>Status codes</A></H2>
+<DL>
+<DT>Success
+<DD> Accompanied by format and document.
+<DT>Forward
+<DD> Accompanied by new address. The server indicates a new address
+to be used by the client for finding the document. the document may
+have moved, or the server may be a name server.
+<DT>Need Authorisation
+<DD> The authorisation is not sufficient. Accompanied
+by the address prefix for which authorisation is required.  The browser
+should obtain authoisation, and use it every time a request is made
+for a document name matching that prefix.
+<DT>Refused
+<DD> Access has been refused. Sending (more) authorization won't
+help.
+<DT>Bad document name
+<DD> The document name did not refer to a valid document.
+<DT>Server failure
+<DD> Not the client's fault. Accompanied by a natural language
+explanation.
+<DT>Not available now
+<DD> Temporary problem - trying at a later time might
+help.  This does not i,ply anything about the document name and authorisation
+being valid. Accompaned by a natural language explaination.
+<DT>Search fail
+<DD> Accompanied by a  HTML hit-list without any hits, but
+possibly containing a natural explanation. 
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

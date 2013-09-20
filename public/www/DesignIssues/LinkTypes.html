@@ -1,0 +1,80 @@
+<HEADER>
+<TITLE>HyperText Design Issues: Link types</TITLE>
+<NEXTID N="5">
+</HEADER>
+<BODY>
+<H1>Link Types</H1>See <A
+NAME=3 HREF="Topology.html#4">discussion of whether links should
+be typed</A> .<P>
+Descriptive (normal) link types are
+mainly for the benefit of users and
+tracing, and graphics representation
+algorithms. Some link types for example
+express relationships between the
+things described by two nodes.<P>
+A Is part of B  / B includes A<P>
+A Made B / B is made by A<P>
+A Uses B  / B is used by A<P>
+A refers to B / B is referred to
+by A
+<H2>Magic link types</H2>These have a significance known to
+the system, and may be treated in
+special ways.  Many of these relate
+whole nodes, rather than particular
+anchors within them.  (See also <A
+NAME=4 HREF="Topology.html#12">multiended
+links</A> and predicate logic) Suggestions:
+<H2>UseIndex</H3>The destination is the related index
+for a search by a user reading this
+document who asks for an index search
+function.<P>
+A document may have any number of
+index links, causing several indexes
+top be searched in a client-defined
+manner.
+<H2>UseGlossary</H3>The destination of the link is an
+index which should be used to resiolve
+glossary queries in the document.
+(Typically, a double-clik on a word
+which is not within an anchor).<P>
+A document may have any number of
+glossary links.
+<H2>Annotation</H3>The information in the destination
+node is additional to that in the
+source node, and may be viewed at
+the same time. It may be filtered
+out (as a function of author?).<P>
+Annotation is used by one person
+to write the equivalent of "margin
+notes" or other criticism on another's
+document, for example.<P>
+<A
+NAME=2 HREF="TracingLinks.html">Tracing</A> may ignore annotations when
+generating trees or sequences.
+<H2>Embedded information</H3>If this link is followed, the node
+at the end of it is embedded into
+the display of the source node. This
+is supported by Guide, but not many
+other systems.  It is used, in effect,
+by those systems (VAX/notes under
+Decwindows, Microsoft Word) which
+allow "Outlining" -- expanding a
+tree bit by bit.<P>
+The browser has a more difficult
+job to do if this is supported.
+<H2>person described by node A is author
+of node B</H2>This information can be used for
+protection, and informing authors
+of interest, for sending mail to
+authors, etc.
+<H2>person described by node A is interested
+in node B</H2>This information can be used for
+informing readers of changes.
+<H2><A
+NAME=1>Node A is in fact a previous version
+of node B</A></H2>
+<H2>Node A is in fact a set of differences
+between B and its previous</H3>version. This information will probably
+not be stored as nodes, but be generated
+from regular diff files. or some
+other delta method.</BODY>

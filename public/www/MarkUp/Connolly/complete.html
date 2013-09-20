@@ -1,0 +1,243 @@
+<TITLE>HTML Guide: A Complete MarkUp Set</TITLE>
+
+<BODY><H1><A NAME=top>A Complete Set of Constructs</A></H1>
+
+The <A NAME=id1 HREF="recommended.html">recommended usage</A> is
+incomplete; it only includes those constructs that are easy to
+implement and explain. This section discusses a few more constructs
+that allow you to do anything that can legally be done. There are <A
+NAME=id2 HREF="supported.html">constructs beyond these</A>, but they
+can all be reduced to constructs shown here.
+<P>
+
+<H2><A NAME=structure>Document Structure</A></H2>
+
+An HTML document is a header part followed by a BODY element.<P>
+
+The header part consists of the TITLE, ISINDEX, and NEXTID elements
+which each appear zero or one time in any order. (see <A NAME=id3
+HREF="structure1.html">ISINDEX test</A>, <A NAME=id5
+HREF="structure2.html">no title test</A>)
+<P>
+
+The BODY start and end tags may be omitted. They will be inferred by
+SGML parsers. <A NAME=id4 HREF="recommended.html">"Recommended
+Usage"</A> is an example of this. This entity is an example of
+explicitly including the BODY tags.
+<P>
+
+The PLAINTEXT tag signals the end of the HTML text entity, and
+the beginning of a non-SGML data entity. (The format of the data
+is governed by the MIME text/plain content type.)<P>
+
+See Also:<UL>
+
+<LI><A HREF="structure3.html">plaintext at the beginning of a
+document</A>
+
+<LI><A HREF="structure4.html">plaintext at the beginning of
+the body</A>
+
+<LI><A HREF="structure5.html">plaintext after the body</A>
+
+<LI><A HREF="tolerated.html#id1">tolerated errors in
+structure</A>.
+
+<LI><A HREF="errors.html#structure">severe errors in
+structure</A>.
+</UL>
+
+
+<H2>Header Elements</H2>
+
+<H3><A NAME=TITLE>TITLE</A></H3>
+
+The title can have an '&lt;' character, as long as it's not followed
+by a '/' and a letter. See <A NAME=id10 HREF="Text.html#CDATA">the
+section on SGML delimiters in CDATA</A>.
+
+<H2>Body Elements</H2>
+
+The normal text content of body elements may include several kinds of
+markup.<P>
+
+A comment that you shouldn't see: <!-- Your implementation is broken
+if you see this.--> For copyrights, RCS keywords, etc.
+<P>
+
+processing instruction: <?bold lkjsdf > If you've _got_ to
+stick TeX macros or something in there, use this. The sample
+implementation won't even tell you it's there, though.<P>
+
+<H3>Entity References</H3>
+
+Entity references are recognized in normal body elements (anyplace
+#PCDATA appears in the DTD) and attribute value literals.
+See <A NAME=id11 HREF="Text.html#Entities">the Entities section of
+"Text and Markup"</A> for more details.
+
+The HTML DTD defines the following entities for characters that might
+otherwise be parsed as markup:
+<P>
+
+<H4>HTML Entities</H4>
+
+<DL>
+<DT>Name
+<DD>Definition
+
+<DT>lt<DD>&lt;
+<DT>gt<DD>&gt;
+<DT>amp<DD>&amp;
+<DT>quot"<DD>"
+<DT>apos<DD>'
+</DL>
+ <P>
+
+<H4>ISO Latin-1 Characters</H4>
+
+The HTML DTD references the public text
+"ISO 8879:1986//ENTITIES Added Latin 1//EN"
+to define entities for latin-1 characters, for example G&ouml;del was a
+famous mathemetician.
+
+<H2>Anchors</H2>
+
+<H3>Order and Apperance of Attributes</H3>
+
+<A HREF="#top">name implied</A><P>
+
+<A NAME=xyz>HREF implied</A><P>
+
+<A HREF="#top" NAME=xyz1>HREF before name</A><P>
+
+<H3>Quotes In Attribute Values</H3>
+
+In order to include quotes in the value of the content-type attribute,
+use "&amp;quot;" and "&amp;apos;" entity references:
+<A NAME=id13 HREF="ftp://ifi.uio.no/pub/SGML/SGMLS/sgmls-0.8.tar"
+ content-type="application/x-tar; name=&quot;sgmls-0.8.tar&quot;">link
+to SGMLS software distribution with fancy content-type attribute</A>
+
+<H4>Note: Interpretation of Literals</H4>
+
+Section 7.9.3 of the SGML standard states<P>
+
+<UL>
+<LI>An attribute value literal is interpreted as an attribute value by
+replacing references within it, ignoring Ee and RS, and replacing RE
+or SEPCHAR with SPACE.
+</UL>
+
+For the SGML-impared, Ee is Entity End (like EOF); RS is '\n'; RE is
+'\r'; SEPCHAR is '\t' and SPACE is ' '.<P>
+
+Since to date there are no HTML attributes containing newlines or
+spaces, that is not much of an issue.<P>
+
+@@But replacement of literals is. For one thing, this creates an
+interaction between the syntax of URLs and SGML syntax. We could
+resolve this issue by removing '&amp;' from <A
+HREF="http://info.cern.ch/hypertext/WWW/Addressing/BNF.html#xalpha">the
+URL syntax</A>
+.<P>
+
+<H3>Headings</H3>
+
+Six levels of headings are defined: <P>
+
+<H4>Level four heading</H4>
+
+<h4>Another level four heading. It's long. It's only conventional and suggested that lines be less than 72 characters long. It's certainly not specified, defined, or required.</h4>
+
+<H5>Level five heading</H5>
+
+<H6>Level six heading</H6>
+
+<H3>Paragraphs</H3>
+
+Normal paragraphs consist of text consisting of words, sentences, and
+other stuff.
+Line breaks are not significant.
+
+
+This is still the first
+paragraph of this section.
+
+<P>
+
+Here's the second paragraph. It's long. It's only conventional and suggested that lines be less than 72 characters long. It's certainly not specified, defined, or required.<P>
+
+A P tag isn't needed between a paragraph and some other element, like
+a heading.
+
+<H3>Ordered lists</H3>
+
+These are for things like lists of steps, where the order is
+significant.
+
+<OL>
+<LI>This is the first item of an unordered list. 
+
+<LI>This is the second item. It's kinda long, and should wrap around
+on most screens.
+
+<LI>This is the third item.
+
+<LI>This is the fourth and final item.
+</OL>
+
+<h3>Case of names is not significant: different cases</H3>
+<h3>Case of names is not significant: both lower case</h3>
+
+<H3>TYPEWRITER</H3>
+
+<TYPEWRITER>Anything you could put on a typewriter (or an ASCII display
+device, more precicesly) can be represented in a TYPEWRITER
+element:
+
+Tags: &lt;start&gt; &lt;/end&gt;
+Entity references: &amp;lt; &amp;amp;
+
+Tables made from tabs:
+
+col 1	col 2	col 3	col 4
+1		3	4
+	2	3	4
+1	2	3	4
+
+Plus, you can use <A NAME=id14 HREF="recommended.html">hypertext links.</A>
+
+Linebreaks _are_ significant. There should be three blank lines from here
+
+
+
+to here.</TYPEWRITER>
+
+The ASCII Horizontal Tab (HT) character should be interpreted as the
+smallest positive nonzero number of spaces which will leave the number
+of characters so far on the line as a multiple of 8. Its use is not
+recommended however.<P>
+
+<H2>Literal Text Elements</H2>
+
+<XMP>
+Comment declaration as data follows:
+<!-- this would be a comment in PCDATA. It's data in RCDATA. -->
+
+Markup declaration as data follows:
+<!this would be an markup delcaration, which would be an
+error in PCDATA. It's data in RCDATA.>
+
+Start tag follows:
+<start> tags are fine!
+& as long as it's not followed by a letter or '#', it's fine!
+&# is even ok, unless it's followed by a letter or a number.
+</XMP>
+
+Tabs in XMP content:
+<XMP>
+This is literal text with tabs.		THESE	        words
+should line up under			THESE		words.
+</XMP>
+</BODY>

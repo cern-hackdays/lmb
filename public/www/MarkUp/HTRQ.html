@@ -1,0 +1,50 @@
+<TITLE>HTRQ -- /Architecture</TITLE>
+<NEXTID 14>
+<ADDRESS>Last Modified 22/09/92 by RC
+</ADDRESS>
+<H1>HyperText Request</H1>This is a language used to specify information about the client to
+the server (for notation, see <A NAME=8 HREF=../Notation.html#1>BNF</A> ).  The information is sent to the
+server after the <A NAME=7 HREF=../Protocols/HTTP/HTTP2.html#5>GET command line</A> , and is only recognised if the
+format HTRQ has been specified in that command line.<P>
+HTRQ specifies information about the client and about the data (in
+the case of PUT)
+<XMP>
+
+</XMP>
+<H2><A NAME=1>ClientInfo</A></H2>The profile defines characteristics of the client software and the
+person who runs it.  The syntax is
+<XMP>		PROFILE [KEY=String]
+			*ProfileElement
+
+</XMP>See also <A NAME=9 HREF=HTRQ/Profile.html>ProfileElements</A> and <A NAME=12 HREF=../Notation.html#3>string</A> .<P>
+The key attribute is optional. It is the key returned by the server
+in a previous reply, indicating that the server has stored the profile
+and attached this key to it for future reference by the browser. If
+the key is present, the profile may be empty, but if it is not, then
+it completely replaces the former profile corresponding to the key.<P>
+[JFG] Profile keys for frequently accessed servers could also be stored
+at the browser's location in the user's account to save on connection
+time. In that case, there should be some way for the server to determine
+whether the key is still valid, based on time, or when the server
+increases its functionality e.g. by supporting a new data type.<P>
+Complete example:
+<XMP>  	GET "http://info.cern.ch/hypertext/WWW/People.html#Cailliau" HTRQ/1
+	  PROFILE KEY="akhkygy"
+	    AUTH WHO="Bloggs" PWD="12345"
+	    CLIENT ID="Smith" HOST="www2" EMAIL="SM@Ajax.com" ORG="DuPont"
+	    PUBKEY KEY="6246246378098996127"
+	    FORMAT
+              NAME="rtfMac" PENALTY="500,120,33"
+	      NAME="EPS" PENALTY="100,50,0"
+	      NAME="HTML" PENALTY="1,1,1"
+	    SOFTWARE PLATFORM="NeXTUnix" PROGRAM="WWW" VERSION="3.0/1"
+
+
+	   
+</XMP>
+<H2>DataInfo</H2>
+<H3><A NAME=13>Fetched</A></H3>the time stamp put on by the server at the time it fetched the data
+from its store.
+<H3>Format</H3>the format in which the document is being returned
+<ADDRESS>____________________________________________________<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#11> CTB,RC</A></A>
+</ADDRESS>

@@ -21,20 +21,15 @@ function setPrompt ($) {
 	if (history.length > 1){
 		prompt = prompt + 'Back, ';
 	}
-	/*
-		if (!end_of_file){
-			printf("&lt;RETURN&gt; for more, ");
-			length_of_prompt = length_of_prompt + 19;
-		}
-	*/
+	prompt = prompt + '&lt;RETURN&gt; for more, ';
 	if (prompt.length <= 47){
 		prompt = prompt + 'Quit, ';
 	}
-	
+
 	prompt = prompt + 'or Help: ';
-	
+
 	promptElement.innerHTML = prompt;
-	
+
 	// Adjust style
 	cursor.style.left = promptElement.textContent.length + 1 + 'ch';
 }
@@ -66,6 +61,8 @@ cmd.oninput = function () {
 	console.log(cursor.style.marginLeft, 'weee');
 }
 
+cmd.oninput = updateCursor;
+
 cmd.onkeydown = function (e) {
   typing();
 
@@ -75,7 +72,8 @@ cmd.onkeydown = function (e) {
     e.preventDefault();
     e.stopPropagation();
     run(val, e);
-    cmd.value = val;
+    cmd.value = '';
+    updateCursor();
   }
   else if (cursors[e.keyCode]) {
     // junk it and don't allow
@@ -91,7 +89,7 @@ document.documentElement.onkeydown = function (e) {
   }
 };
 
-document.documentElement.onclick = 
+document.documentElement.onclick =
 document.documentElement.onfocus = function () {
   cmd.focus();
 }
@@ -117,7 +115,9 @@ var commands = {
 	window.location = '/www/help.html';
   },
   home: function () {
-    // TODO
+	// Should use history, once that's implemented
+	// Brute force for now, 1st web page is HOME!
+	window.location = '/www/index.html';
   },
   alias: function () {
     // TODO
@@ -157,6 +157,9 @@ commands.t = commands.top;
 commands.T = commands.top;
 commands.q = commands.quit;
 commands.Quit = commands.quit;
+commands.Back = commands.back;
+commands.B = commands.back;
+commands.b = commands.back;
 
 // restore the super old html tags
 'plaintext listing h0 hp1 hp2'.replace(/\w+/g, function (a) {
@@ -183,6 +186,11 @@ window.onload = function () {
   (window.adjustFontSize = function (){
     var maxLineHeight = innerHeight / 25,
         size = Math.floor(maxLineHeight / 1.5);
+
+    if (size % 2 !== 0) {
+      size--;
+    }
+
     document.documentElement.style.fontSize = size  + 'px';
 
     blocker.size(size * 1.5);

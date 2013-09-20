@@ -1,0 +1,16 @@
+<TITLE>Features -- VMS Help server</TITLE>
+<NEXTID 3>
+<H1>VMS Help server Features</H1>This lists the main features of the VMS Help gateway, with improvements
+in reverse chronological order. Help make it grow fast : send your
+bug reports and suggestions to <A NAME=2 HREF=../People.html#groff>Jean-Francois Groff</A> (jfg@cernvax.cern.ch).
+<H2>Experimental gateway 0.4 -- 2 Oct 91</H2>
+<UL>
+<LI>Accepts user queries by number or by name. In the latter case, can
+go down several levels, for instance, from the main help page : "cc
+/lib" will go to topic CC, subtopic /LIBRARY.
+<LI>On invocation with only //node:port/HELP, displays the contents of
+the standard VMS Help library SYS$HELP:HELPLIB.HLB (function lis_to_html).
+<LI>Address format : //node:port/HELP/[@library/][topic[/subtopic]*]
+</UL>__________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>JFG</A>
+</ADDRESS>

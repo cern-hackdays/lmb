@@ -1,0 +1,145 @@
+<TITLE>HTML Guide: Tolerated Errors</TITLE>
+
+<H1>Tolerating broken HTML writers</H1>
+
+These are illegal according to SGML, but they're so prevalent that
+they're supported by the sample implementation.<P>
+
+Please stop generating HTML in this style!<P>
+
+<H2><A NAME=id1>Document Structure</A></H2>
+
+The BODY element must start with some element. See: <A
+HREF="error_data_starts_body.html">an example document where this rule
+is broken</A>.
+
+Paragraph breaks are not allowed in headers, lists etc. They may be
+ignored or treated intelligently.
+
+<UL>
+<LI>a list item<P>
+
+with more than one paragraph
+</UL>
+<H3>Muti-paragraph<P>
+
+heading</H3>
+
+<H3>Unknown Tags</H3>
+
+Tags that aren't known to the parser are treated as data by, for
+example, the MidasWWW-1.0 implementation. They should be ignored.
+There should be no tags around the word foo: <unknown>foo</unknown>.
+
+
+<H2>Body Elements</H2>
+
+Note that conforming SGML parsers will treat "&amp;", "&lt;", "&lt;/",
+and "&lt;!" as normal text characters when they are not followed by a
+letter. HTML producers are discouraged from taking advantage of this
+feature.<P>
+
+<H3><A NAME=a>Anchors</A></H3>
+
+<H4>numeric IDs: <A
+HREF="#NeXT">NeXT</A> and <A HREF="html-mode">html-mode.el</A>
+</H4>
+
+<A NAME=10>This</A> anchor's name starts with a digit, which is not a
+name start character.<P>
+
+<H4>unquoted attribute literals: <A
+HREF="#NeXT">NeXT</A> and <A HREF="html-mode">html-mode.el</A>
+</H4>
+
+<A HREF=#NeXT>This anchor</A>'s href contains a '#', which is not a name
+character. It should lead to the NeXT implementation reference below
+anyway. <A
+HREF=http://slacvx.slac.stanford.edu:80/midaswww/v10/overview.html>This
+anchor</A>'s href
+contains ':' and '/', which are not a name characters. It should lead
+to the SLAC MidasWWW doc anyway.<P>
+
+<H2>Literal Text Elements</H2>
+
+<H4>Historical Note</H4>
+
+The original semantics of the XMP and LISTING elements is not
+representable in SGML. From <A
+HREF="http://info.cern.ch/hypertext/WWW/MarkUp/Tags.html">Tags used in
+HTML</A>:
+<P>
+
+<UL>
+<LI>The text may contain any ISO Latin printable characters, including
+the tag opener, so long as it does not contain the closing tag in
+full. </UL>
+
+But in section 7.6 of the SGML standard:<P>
+
+<UL>
+<LI>The content of an element declared to be character data or
+replaceable character data is terminated only by an etago
+delimiter-in-context (which need not open a valid end-tag) ... .
+</UL>
+
+The XMP and LISTING elements are deprecated in favor of the TYPEWRITER
+element.
+
+<H4>Non-standard CDATA parsing: LineMode, MidasWWW, etc.</H4>
+
+<XMP>
+This example section ends here: </foo .
+
+Even though the above ETAGO begins a markup error,
+this text is in a normal paragraph in conforming implementations.<P>
+
+<XMP>
+Just in case the foo close tag above wasn't recognized:
+</XMP>
+
+
+<H2>Known Implementations</H2>
+
+The following systems are known to read and/or write HTML. They all
+have bugs.<P>
+
+<DL>
+<DT>Linemode Browser 1.3c
+<DD>
+
+<DT>MidasWWW 1.0<DD>
+
+The MidasWWW parses HTML into its internal data structures, and
+then offers the option to extract the data and write it to a file.
+
+It doesn't get it right all the time.
+
+
+<DT><A NAME=NeXT>NeXT editor</A>
+<DD>From timbl@info.cern.ch
+
+<DT><A NAME=html-mode>html-mode.el</A>
+<DD>from marca@@@
+
+<DT>Viola<DD>
+
+From Pei Wei @ O'Reilly (@@email address). Any known problems? I hear
+it's going to use <A NAME=id3
+HREF="ftp://ftp.ifi.no/pub/text-processing/sgmls-0.8.tar"
+ TYPE="application/x-tar">SGMLs</A>.
+
+<DT>www_and_frame<DD>
+
+@@Go get <A NAME=id5
+HREF="ftp://info.cern.ch/pub/www/src/www_and_frame-0.3.tar.Z">The
+latest version</A> -- it should be current with this spec.
+
+<DT>perl client<DD>
+
+Just heard about it. haven't tried it. I don't think it supports
+entities.
+
+</DL>
+
+

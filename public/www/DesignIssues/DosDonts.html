@@ -1,0 +1,52 @@
+<TITLE>DosDonts -- /DesignIssues</TITLE>
+<NEXTID 4>
+<H1>Implementation Guidelines</H1>Some general rules have been followed in the implementation. They
+are not strict, but should be respected:
+<H2>No Sessions</H2>There are no sessions between client and server. The client may retain
+state, (i.e. it knows which path it has followed) but the server may
+not. Each time a link is followed, a connection with the server is
+established, the request made, the server's response sent back and
+the connection closed. Therefore there is no way that the server should
+know what it did with a client before the current request.<P>
+There is an exception to this in the access protection area, which
+is an optimisation and not a breach of the rule: normally, for protected
+data, the client should send its access validation for each request.
+This may be lengthy if several documents are retrieved in a row from
+the same protected server. Thus the server may choose to transmit
+an access key to the client on the first contact, and keep the access
+validation and key locally. The client uses the access key in its
+next request. Such keys should expire in reasonable time.<P>
+Another problem with having no sessions is when very long documents
+need to be transmitted:  the client will normally not display anything
+before having received the entire document. This is disconcerting
+to the user. The server, knowing how long the document is, may decide
+to synthesise local nodes with parts, each part containing a link
+to the next part, and transmit only the first part (this may go on
+in parallel). The client may not be able to handle a very long document
+anyway.
+<H2>Short UDIs</H2>UDIs should be kept short and devoid of information that indicates
+the mechanism by which the document is retrieved. (in the theoretically
+clean implementation, the protocol information should not be present).<P>
+The motivation is that when a document changes implementation (e.g.
+from being a file to being part of a data base, or by moving to a
+different location, the anchors pointing to it should not have to
+change.<P>
+UDIs should only specify the contents.<P>
+The document itself decides what it is and how to produce its contents.
+Normal documents contain their own text. Indexes contain a cover page.<P>
+Indirect documents contain the mechanism for finding the real thing.<P>
+See <A NAME=2 HREF=../Administration/DataModel.html>data model</A>
+<H2>Ignore silently</H2>Any information a client or server does not understand it should ignore
+without complaints. The motivation is forward compatibility. Commands
+sent by new browsers to old servers should be ignored by those servers.
+In any case, from the next version, client and server always send
+the version number of the HTTP protocol they use, so the more recent
+of the two can choose to downgrade to the older version. See <A NAME=3 HREF=ProtocolVersions.html>from
+version to version</A>
+<H2>Protect investment in old links</H2>Links made to documents should not have to be changed when the location
+or the implementation of the document changes. This ideal situation
+cannot be implemented, but one can come close, by ensuring that as
+little as possible information about implementation is recorded in
+the UDI. Relocation can be handled by an indirect node of the forwarding
+type, change of implementation by one of the query type.<P>
+<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#Cailliau> RC</A>

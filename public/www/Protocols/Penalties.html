@@ -1,0 +1,40 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 1>
+<H1>Rules for Penalty calculation</H1>There are two sorts of transformation: (a) conversion from one format
+into another, for reasons of presentation, and whereby information
+generally is lost, and (b) encoding, for reasons of speed (compaction),
+security (encryption), or transmission, and whereby the information
+and format remain untouched.<P>
+There are two questions to consider when deciding on different possible
+transfer formats between servers and clients: Information degradation
+and elapsed time. 
+<H2>Degradation</H2>When information is converted from one format to another,  it may
+be degraded. For example, when a postscript file is rendered into
+bitmap, it loses its potentially infinite resolution; when a TeX file
+is rendered into pure ASCII, it loses its structure and formatting.<P>
+This degradation is difficult to guess from simply the file type.
+and for a given file it is quite subjective. Any attempt to estimate
+a penalty will therefore be very aproximate, and only useful for distinguishing
+widely differing cases. A suitable unit would be the proportion, between
+0 and 1, of the information which is not lost. Let's call it the degradation
+coefficient.  One would hope that these coefficiemnts are multiplicative,
+that is that the process of converting a document into one format
+with degradation coeficient c1 and then further converting the result
+of that with coeficient c2 would in all be a process with coeffcient
+c1*c2.  This is not, in fact, necessarily the case in practice but
+is a reasonable guess when we know no better. 
+<H2>Elapsed time</H2>The elapsed time is another penalty of conversion. As an aproximation
+one might assume this to be linear in the size of the file.  It is
+not easy to say whether the constant part or the size-proportional
+part is going to be the most important. The server, of course, knows
+the size of the file.  It can in fact as a result of experience make
+improving guesses as to the conversion time. The conversion time will
+be a function also of local load.  For particular files, it may be
+affected by the caching of final or intermediate steps in a conversion
+process. Given a model in which the server makes the decision on the
+basis of information supplied by the client,  this information could
+include, for each type,  both the constant part (seconds) and the
+size-related part (seconds per byte).<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=../../TBL_Disclaimer.html>Tim BL, RC</A></A>
+</ADDRESS>

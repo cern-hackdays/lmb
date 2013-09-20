@@ -1,0 +1,115 @@
+<HEADER>
+<TITLE>Installation -- /LineMode</TITLE>
+<NEXTID N="17">
+</HEADER>
+<BODY>
+<H1>Installing WWW</H1>This section describes how to install
+the World-Wide Web<A
+NAME=1 HREF="QuickGuide.html"> line-mode browser</A>
+called "www". First of all,
+<UL>
+<LI>If you have a VAX/VMS machine, then
+see the <A
+NAME=4 HREF="Installation_VMS.html">special instuctions for VMS</A>
+
+<LI>If you have not already got hold
+of the files, see the section on<A
+NAME=5 HREF="Distribution.html">
+getting them</A> .
+<LI>If you have a VM mainframe, see <A
+NAME=z16 HREF="http://info.cern.ch/hypertext/WWW/LineMode/vm-cms/Overview.html">special
+instructions</A>.
+</UL>The browser has already been ported
+to many machines. Check the list
+of <A
+NAME=14 HREF="MachineTypes.html">machine types</A> for your machine.
+If your machine is not one of those,
+see the section on <A
+NAME=7 HREF="Porting.html">porting</A> .
+<H2>If the binary is available</H2>If you found your machine type, check
+in the anonymous FTP archive for
+the subdirectory of /pub/www/bin
+for your machine. If that directory
+exists and contains a file named
+www with some version number appended,
+then select binary mode and take
+the file, calling your copy www.
+Otherwise, go to >a href=#Compiling>"compiling
+from source" .
+<UL>
+<LI>Copy www into an apropriate directory
+which appears in your path. If you
+can be superuser, this can be /usr/local/bin/www
+(typically) so that everyone can
+use www. If you cannot be superuser,
+see <A
+NAME=12 HREF="InstallNotSU.html">how to use ww without being superuser</A>
+).
+<LI>If you type "rehash", you will be
+able to use www. It will start at
+a default home page which is at CERN.
+
+<LI>To make your own home page, take
+the tar file WWWLineModeDefaults.tar.Z.
+Unwrap it and put the files into
+a directory /usr/local/lib/WWW. Now
+skip to <A
+NAME=15 HREF="#Home">make yourself at home</A> below.
+</UL>
+<H2><A
+NAME=Compiling>Compiling from source</A></H2>If a binary is not available, get
+the sources.
+<UL>
+<LI>You must get, uncompress and untar
+BOTH the WWWLineMode* product AND
+the WWWLibrary* product source tar
+files.
+<LI>Find the subdirectory of WWW/LineMode
+named after your machine type. cd
+to it.
+<LI>Check the directory definitions in
+the Makefile, and change them if
+necessary. See the definition of
+the macros in the file<A
+NAME=6 HREF="http://info.cern.ch/hypertext/WWW/LineMode/Implementation/CommonMakefile"> Implementation/CommonMakefile</A>
+.
+<LI>Type "make lib". You should get a
+file WWW/Library/libwww.a
+<LI>Type "make". You should get a binary
+of WWW/LineMode/www.
+</UL>
+<H2><A
+NAME=8>Installing</A></H3>
+<UL>
+<LI>Become superuser (su root).  If you
+can't do this, see<A
+NAME=12 HREF="InstallNotSU.html"> how to do it without
+being superuser</A> ).
+<LI>Type "make install". A reference
+copy of the executable is made and
+copied into the system.
+</UL>The "make install" step creates a
+copy in your system directories of
+the www executable and the basic
+documenattion. If you wish to just
+soft link them to the files on the
+WWW tree, say "make link" instead.
+After either of these, "make clean"
+will remove intermediate files.
+<H2><A
+NAME=Home>Make yourself at home</A></H2>You must now check that the default
+"Home" page works, and<A
+NAME=13 HREF="Customisation.html"> customize
+it</A> if it is not what you want. The
+default home page just a place to
+start. The cern.html file (distributed
+at the same time) is an example of
+a customized home page. You may wish
+to chose one of these as a basis.
+<H2>Setting up news</H2>To read Internet news, you must have
+first defined the<A
+NAME=11 HREF="NewsServer.html"> news server's address</A>
+.
+<ADDRESS><A
+NAME=0 HREF="http://info.cern.ch/hypertext/TBL_Disclaimer.html">Tim BL</A></A>
+</ADDRESS></BODY>

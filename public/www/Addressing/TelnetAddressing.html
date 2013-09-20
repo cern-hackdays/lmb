@@ -1,0 +1,41 @@
+<TITLE>TelnetAddressing -- /Addressing</TITLE>
+<NEXTID 6>
+<H1>Telnet addressing</H1>A telnet address is a spcecial case of a <A NAME=2 HREF=Addressing.html>W3 address</A>.<P>
+When a telnet address is used, information can only be rertrieved
+using an interactive telnet session. This has the disadvantage that
+information cannot be indexed, searched, etc automatically, nor can
+it be gatewayed into other systems.  The telnet addressing form is
+used to allow a pointer to information systems such as library information
+systems which have not been gatewayed into the web properly yet.<P>
+The syntax is, with [] indicating optional parts (see full <A NAME=1 HREF=BNF.html#55>BNF</A>)
+<XMP>		telnet : / /  [ user @ ] host  [ : port ]
+
+</XMP>There should be no spaces. For example, the following are valid telnet
+addresses:
+<XMP>		telnet://www@info.cern.ch:23
+		telnet://www@info.cern.ch
+		telnet://info.cern.ch
+
+</XMP>
+<DL>
+<DT><A NAME=5 HREF=BNF.html#57>user</A>
+<DD>is the optional name of the user to be used for login. If the
+username  is omitted, then so must be the "@" sign. This is equivalent
+to the argument used with the -l option on the ucb telnet command.
+When the username is omitted, some access servers will prompt for
+a username and password.
+<DT><A NAME=3 HREF=BNF.html#43>host</A>
+<DD>This is the name of the server in internet form. A numeric form
+(e.g. 128.141.201.74) may be used, by the domain name form (e.g. 
+info.cern.ch) is preferred. The host is mandatory.
+<DT><A NAME=4 HREF=BNF.html#7>port</A>
+<DD>This is a numeric port number. If a non-numeric string is used,
+it must be a defined service name. Note that as there is no central
+repository for service names (they are defined locaaly for each host),
+ a service name is NOT an appropriate way to specify a port number
+for a hypertext address. If the port number is omitted the preceding
+colon must also be omitted. In this case, port number 23 is assumed.
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>
+</ADDRESS>

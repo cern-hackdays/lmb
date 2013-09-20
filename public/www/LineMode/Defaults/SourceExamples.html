@@ -1,0 +1,31 @@
+<TITLE>SourceExamples -- /Defaults</TITLE>
+<NEXTID 2>
+<H1>Using the "SOURCE" prefix</H1>Note: Version 1.3 and later.  The SOURCE (S) prefix to a command within
+<A NAME=1 HREF=QuickGuide.html>www</A> qualifies the execution of that command.  It make the command
+generate raw unformatted text instead of formatting it. Som examples
+of use are:
+<H2>Printing Poscscript documents</H2>Currently, a postscript document comes up on the screen in its postscript
+form.  Printing the display from the screen, formatted, is not a good
+idea as the postscript is damages by being formatted. Use with PRInt
+to send the document to the printer directly:
+<XMP>			SOURCE PRINT
+
+</XMP>You must have a postscript printer for this to work.
+<H2>Looking at SGML source code</H2>If you want to see the SGML source of a document, prefix the FIND
+or jump command with SOURCE.
+<XMP>
+			SOURCE > temp.html
+
+</XMP>saves the current document in a file temp.html.
+<XMP>			SOURCE 1
+
+</XMP>Follows the first link from the current document, displaying the source
+of the destination document.   Note that while the raw data is retrieved
+without interpretation, it is formatted for display on your terminal
+in this case.
+<H2>What it won't do</H2>SOURCE won't change the format of a document already loaded, so SOURCE
+by itself won't display the source of the current document.<P>
+SOURCE only works for documents from W3 servers and, to a certain
+extent, news articles. You can't get original source for for example
+file directories.
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

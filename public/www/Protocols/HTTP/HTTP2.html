@@ -1,0 +1,92 @@
+<TITLE>HTTP2 -- /HTTP</TITLE>
+<NEXTID 18>
+<ADDRESS>Last modified 1/7/92 by RC
+</ADDRESS>
+<H1>Updates To HTTP</H1>The HTTP protocol implements the WWW <A NAME=13 HREF=../../Administration/DataModel.html>data model</A> .<P>
+In order to improve the functionality of WWW, the HyperText Transfer
+Protocol needs to be altered (see also: <A NAME=7 HREF=AsImplemented.html>current HTTP implementation,</A><A NAME=9 HREF=../../DesignIssues/ProtocolVersions.html#12>
+from version to version,</A> our <A NAME=11 HREF=../../Notation.html#1>BNF</A> notation and the <A NAME=8 HREF=../HTTP.html>original HTTP design</A>
+).<P>
+A prime concern is that servers must be able to skip data they don't
+understand. This will guarantee forward compatibility.
+<H2><A NAME=5>Request</A></H2>As before, the client sends a request, but may specify additional
+information.  The format of the new request is:
+<XMP>
+                  Request ::= Get | Put
+
+	          Get ::=   GET Udi [CiLang]/VersionNumber CrLf
+		            ClientInfo
+
+                  Put ::=   PUT Udi [Cilang]/VersionNumber CrLf
+		            ClientInfo CrLf
+                            DataInfo CrLf
+                            [body section]
+
+	          CiLang ::=  HTRQ
+
+
+</XMP>Udi is the Universal Document Identifier.<P>
+CiLang specifies the language used to write the ClientInfo and the
+DataInfo after the GET line. At the moment only <A NAME=12 HREF=../../MarkUp/HTRQ.html>HTRQ</A> is defined .<P>
+VersionNumber gives the HTTP version being used by the client.<P>
+If the protocol version is not specified, the server assumes that
+the browser uses HTTP version 0.9 (before this update was carried
+out) (See "<A NAME=14 HREF=../../DesignIssues/ProtocolVersions.html> From Version to Version</A> ").<P>
+GET means retrieve whatever data is identified by the Udi, so where
+the Udi refers to a data-producing process, or a script which can
+be run by such a process, it is this data which will be returned,
+and not the source text of the script or process.<P>
+PUT specifies that the data in the body section is to be stored under
+the supplied Udi, (but see constraint on <A NAME=16 HREF=../../MarkUp/HTRQ.html#13>modification times</A> ).<P>
+Where the Udi refers to a data-producing process, PUT is not applicable,
+and will fail. The process should label its response as non-editable.<P>
+ [JFG] Beware here of lexical problems like different character sets
+on client and server, CR/LF conventions, etc. Also, elementary file
+locking should be provided.
+<XMP>
+
+</XMP>
+<H2>Response</H2>The response from the server may be straight HTML (in the case of
+older servers), or may start with the following syntax:
+<XMP>                  RESPONSE=String HTTPV=VersionNumber CrLf
+                  ...
+
+</XMP>String identifies the type of the response, VersionNumber identifies
+the HyperText Transfer Protocol version being used by the server.
+Then follows additional information depending on the response type.<P>
+The keywords, here in upper case, are case insensitive. Quotes may
+be ommited where String does not contain special characters (such
+as spaces).<P>
+The response String may have the following values (see <A NAME=15 HREF=../../Administration/DataModel.html>data model</A>
+):
+<DL>
+<DT>ERROR
+<DD> the server encountered an abnormal condition,
+<DT>FORWARD
+<DD> the data requested has been assigned a new Udi, the change
+is permanent.  (N.B. this is an optimisation, which must, pragmatically,
+be included in this definition.  Browsers should automatically relink
+to the new reference, where possible),
+<DT>REDIRECTION
+<DD> the data requested actually resides under a different
+Udi, however, the redirection may be altered on occasion (when making
+links to these kinds of document, the browser should default to using
+the Udi of the redirection document, but have the option of linking
+to the final document),
+<DT>QUERY
+<DD> the data is composed of (1) the identification of a server and
+(2) the algorithm in some arbitrary language, to be passed to the
+server which will use it to extract the data.
+<DT>INDEX
+<DD> the data is the "front page" of a data base, to which further
+search keys have to be supplied before desired data can be extracted.
+A search panel has to be put up by the browser. The front page is
+otherwise a normal HTML document, including the possibilities of containing
+anchors.
+<DT>DATA
+<DD> this is the data requested,
+<DT>CONFIRMATION
+<DD> the command transmitted has been successfully completed
+(PUT command).
+</DL>
+Detailed syntax of  the response is given in <A NAME=17 HREF=HTRESP.html>HTRESP</A> .</A>

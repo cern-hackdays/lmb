@@ -1,0 +1,111 @@
+<TITLE>Hypertext HTML formatting example</TITLE>
+<NEXTID 11>
+<H1>Test Dataset</H1>This is an example bit of hypertext - compare  the formatted version
+with the <A NAME=10 HREF=test_source.txt>original HTML source</A>. Let's try introducing an initial paragrpah
+between the H1 and the H2 headings.
+ 
+<H2>Introduction</H2>This file contains a test set of HTML mark-up, as a test of hypertext
+browsers and an example of the syntax of the tags. See also:
+<UL>
+<LI><A NAME=0 HREF=news:1990Oct17.231522.17662@midway.uchicago.edu>An arbitrary news article</A>
+<LI><A NAME=1 HREF=news:alt.hypertext>The newsgroup on hypertext</A>
+<LI><A NAME=2 HREF=../TheProject.html>More details about the WWW project.</A>
+</UL>That is the end of the list.
+<H2>Some anchors</H2>Anchors come in two forms: whole nodes or parts of nodes. The line
+mode browser can't currently (Nov 91)  jump to a part of a node: it
+always jumps to the top.
+<H3>Leading to whole nodes</H3>Here is an anchor which leads to <A NAME=3 HREF=http://crnvmc.cern.ch/FIND/PUB.P.HELPCMS.FIND(X,G)>the VM FIND command.</A> Note the nested
+highlighting (hp2) within the anchor. If you want to click on <A NAME=4 HREF=http://info.cern.ch/hypertext/WWW/LineMode/Defaults/default.html>this,</A>
+you will go to the system default page.
+<H3>Leading to anchors within nodes</H3>Now <A NAME=5 HREF=#2>THIS</A> leads to anchor #2 in this file, and if you want to click
+on <A NAME=6 HREF=http://info.cern.ch/hypertext/WWW/LineMode/Defaults/default.html#2>THIS,</A> you should go to the system default page with anchor #2 selected.
+Now the word <A NAME=dest1>"destination"</A> is a named destination anchor, connected
+to the word <A NAME=7 HREF=#dest1>"source"</A> . Clicking on the destination shouldn't do anything.
+Selecting the source should lead to the destination.<P>
+Now let's go through the limited set of markup tags which we accept.
+The title, "Hypertext HTML formatting example" was between TITLE tags.
+"Test Dataset" at the top of this page was a Level One Heading (H1).
+The quick brown fox jumps over the lazy dog. In Hertford, Hereford
+and hampshire, hurricanes hardly happen.
+<H2>Level two heading</H2>Here is some text which follows the heading. The quick brown fox jumps
+over the lazy dog. In Hertford, Hereford and hampshire, hurricanes
+hardly happen.
+<H3>Level 3 heading</H3>Here is some text which follows the heading. The quick brown fox jumps
+over the lazy dog. In Hertford, Hereford and hampshire, hurricanes
+hardly happen.<P>
+This is a test paragraph. It is separated from the previous one by
+a P paragraph mark.<P>
+This new paragraph was separated from the previous one by a blank
+line, a horrible leftover from SCRIPT, which violates the free format
+of the text.<P>
+This was delimited in the same way in the source. The blank line should
+have the same effect as a paragraph mark. We have included in HTML
+some tags from the SGML tagset used at and once supported at CERN
+by<A NAME=8 HREF=http://crnvmc.cern.ch./FIND?SGML> quite a lot of documentation and SGML examples.</A> The HTML parser
+will ignore tags which it does not understand, and will ignore attributes
+which it does not understand of CERN-SGML tags. Of course, the HTML
+parser will not accept any commands in the<A NAME=9 HREF=http://crnvmc.cern.ch./FIND/pub.p.helpcms.xscript> SCRIPT</A> language.<P>
+Now for an example section, in monospaced font:
+<XMP>
+         _-_
+        [o,o]
+         \-/
+
+   This text is laid out using fixed-width characters
+                               -----------
+   It uses the <XMP> tag, and can contain embedded < and > signs. It has
+   tabs every eight columns like good old simple systems we know and love.
+
+12345678123456781234567812345678123456781234567812345678123456781234567812345678
+!	!	!	!	!	!	!	!	!	!	
+Column:	First	Second	Third	Fourth	Fifth	Sixth	Seventh	Eighth	Ninth
+Index:	1	2	3	4	5	6	7	8	9
+Junk:	The	Quick	brown	fox	jumps	over	the	lazy	dog.
+
+</XMP>After the example text, we revert to the default again.
+<H3>Glossary</H3>Now lets us try out a glossary. A glossary has a large hanging indent
+aligned with a first tab stop.
+<DL>
+<DT>Glossary
+<DD> A list of definitions of terms. Each term is given in a left-hand
+column, with a longer textual definition being given in a right-hand
+column.
+<DT>Term
+<DD> A word or phrase being defined.
+<DT>Definition
+<DD> A sentences or sentences which define the term. the definition
+can wrap around in the second column, but the term can't wrap around
+in the second column.
+</DL>
+And after that dazzling display of formatting, how about  an unordered
+list:
+<UL>
+<LI>This is the first element of an unordered list
+<LI>This is the 2nd element of an unordered list
+<LI>This is the 3rd element of an unordered list
+<LI>This is the 4th element of an unordered list
+</UL>
+Now let's try a "MENU" section. It's the same as a list but intended for single-line sized entities, not too spaced out. It could be a browser panel.
+<MENU>
+<LI>This is the first element of a menu
+<LI>This is the 2nd element of a menu
+<LI>This is the 3rd element of a menu
+<LI>This is the 4th element of a menu
+</MENU>
+Now let's try a "DIR" section. It's the same, but elements are expected to be smaller and to be arranged in columns.
+<DIR>
+<LI>First element of directory
+<LI>This is the 2nd element
+<LI>Third<li>fouth<li>fifth<li>sixth element of a directory
+<LI>This is the 7th element of directory
+</DIR>
+Now let's try a "LISTING" section. The tabs should be every 8 spaces.
+<LISTING>
+
+123456781234567812345678123456781234567812345678123456781234567812345678123456781234567
+!	!	!	!	!	!	!	!	!	!	!
+Column:	First	Second	Third	Fourth	Fifth	Sixth	Seventh	Eighth	Ninth	Tenth
+Index:	1	2	3	4	5	6	7	8	9	10
+Junk:	The	Quick	borwn	fox	jumps	over	the	lazy	dog	again!
+
+</LISTING>This is the end of the test file.

@@ -1,0 +1,22 @@
+<TITLE>BrowserOverview -- /Architecture</TITLE>
+<NEXTID 14>
+<H1>Browser Operation</H1>The <A NAME=5 HREF=../TheProject.html>WWW</A> browsers operate, in general, in the following manner.
+<H2>Data flow</H2>The  data flow is demonstrated in a separate <A NAME=4 HREF=BrowserData.ps>diagram</A> .  The <A NAME=13 HREF=BrowserOverview.html#16>application</A>
+gives the <A NAME=8 HREF=BrowserOverview.html#8>navigation</A> module the home page address. The anchor is generated
+(using the <A NAME=9 HREF=BrowserOverview.html#9>Anchor object</A> ) and passed to the relevant <A NAME=10 HREF=BrowserOverview.html#2>protocol module</A>
+for loading.  In the case of <A NAME=7 HREF=../Protocols/HTTP/AsImplemented.html>HTTP</A> or a file, a character stream of
+data is passed to the <A NAME=11 HREF=BrowserOverview.html#11>parser</A> , which build a hypertext object. In
+the case of news, the protocol module builds the hypertext object
+itself.<P>
+The <A NAME=12 HREF=BrowserOverview.html#12>hypertext object</A> is built as a stream of text interspersed with
+style changes and anchor start/end points. The parsers create the
+anchors, giving their addresses, and just pass the id of the object
+to the graphic object.<P>
+Events such as mouse clicks are picked up by the application, and
+passed to the hypertext object. This may determine that a link should
+be followed, in which case it invokes the navigation module again,
+passing the anchor object's id. The naviagation module asks the anchor
+object for its address, and so loads the next document.  <P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>
