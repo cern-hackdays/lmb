@@ -114,7 +114,7 @@ var commands = {
   help: function () {
 	// LMB had help in the compiled code, contained logic
 	// Using static file for now
-	window.location = '/www/proxy?url=http://line-mode.cern.ch/help.html';
+	window.location = '/www/help.html';
   },
   home: function () {
     // TODO
