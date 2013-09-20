@@ -91,10 +91,7 @@ document.documentElement.onkeydown = function (e) {
   }
 };
 
-document.documentElement.onclick = function () {
-  cmd.focus();
-};
-
+document.documentElement.onclick = 
 document.documentElement.onfocus = function () {
   cmd.focus();
 }
