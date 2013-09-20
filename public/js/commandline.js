@@ -112,7 +112,9 @@ var commands = {
 	window.location = '/www/help.html';
   },
   home: function () {
-    // TODO
+	// Should use history, once that's implemented
+	// Brute force for now, 1st web page is HOME!
+	window.location = '/www/index.html';
   },
   alias: function () {
     // TODO
