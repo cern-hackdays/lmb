@@ -52,13 +52,13 @@
 
 					<h3>Preservationistas</h3>
 
-					<p>We hear you ask: <em>This is silly; why take on such a challenge?</em></p> 
+					<p>We hear you ask: <em>This is silly; rebuild a 20 year old browser? Why?</em></p> 
 
 					<p>Computers are simultaneously boosted and hindered by their rapid obsolescence. So while the line-mode browser is a mere 20 years old (as of the writing of this), it's only viewable (and barely usable) on the odd terminal here in the closet of CERN. We've come so far in so few years that we're on the cusp of not being able to interact with the very software that got us here. As folks who believe deeply in — and owe much to — the web, this pains us. In rebuilding / simulating this origin browser, we hope to achieve a few goals.</p>
 
-					<p>First, we want to provide context for the web of today. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back, at will, and remember our roots.</p>
+					<p>First, we want to provide <strong>context for the web of today</strong>. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back and peek at our roots.</p>
 
-					<p>Which brings us to the second reason: we want a version of the line-mode browser that anyone can run and, furthermore, point at contemporary websites. Our line-mode browser simulator not only allows you to view the first web pages ever placed online (on these very servers!), but will also render — as accurately as possible — any other website to which it's pointed. It may not always be pretty, but it's usually entertaining. (And heck, the web was never really meant to be that pretty, right?<sup>1</sup>)</p>
+					<p>Which brings us to the second reason: we want <strong>a version of the line-mode browser that anyone can run</strong> and, furthermore, point at contemporary websites. Our line-mode browser simulator not only allows you to view the first web pages ever placed online (on these very servers!), but will also render — as accurately as possible — any other website to which it's pointed. It may not always be pretty, but it's usually entertaining. (And heck, the web was never really meant to be that pretty, right?<sup>1</sup>)</p>
 
 
 					<img src="../img/makingof-04.jpg" />
@@ -66,16 +66,18 @@
 
 					<p>In simulating the line-mode browser, we had a couple of rules.</p>
 
-					<p>We wanted to be as true to the original rendering engine as possible. That meant not adding features or improving the display of elements in any way different than the original.</p>
-					<p>[[other rules]]</p>
+					<ol>
+					<li>We wanted to be as true to the original rendering engine as possible. That meant not adding features or improving the display of elements in any way different than the original.</li>
+					<li>[[other rules]]</li>
+					</ol>
 
 
 					<div class="d1 d-floatleft">
-						<img src="../img/makingof-02.jpg" />
+						<img src="../img/makingof-02.jpg" style="margin-top: 20px;" alt="Pushing buttons on an old terminal keyboard feeling quite confused" title="Pushing buttons on an old terminal keyboard feeling quite confused" />
 					</div>
 					<h3>What tech did we use?</h3>
 
-					<p>Basically: We wrote an old browser in a new browser. Here's the details.</p>
+					<p><strong>In short</strong>: We wrote an old browser in a new browser. Here are the details.</p>
 
 					<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
 

@@ -2,8 +2,10 @@ var blocker = (function () {
 
   var position = 0,
       length = 80 * 24,
-      speed = 5,
-      ctx;
+      speed = 4,
+      stspeed = 0, // ALWAYS KEEP AT ZERO!
+      ctx,
+      commandForm = document.getElementById('command');
 
   function init() {
     var canvas = document.createElement('canvas');
@@ -17,11 +19,14 @@ var blocker = (function () {
     canvas.width = 80 * 8; // 8 is the character width
     canvas.height = 24 * 24; // 14px character height
 
+    ctx.fillStyle = 'hsl(150, 100%, 50%)';
+
     // TODO handle resizing
   }
 
   function exit() {
-    ctx.canvas.display = 'none';
+    commandForm.className = '';
+    ctx.canvas.style.display = 'none';
   }
 
   function getCords(position) {
@@ -35,15 +40,19 @@ var blocker = (function () {
   }
 
   function draw() {
-    if (position < length) {
+    if (position < (length / speed)) {
       // important: this is early to increase the amount of drawing done
       // setTimeout(0) might typically look filthy, but this is actually
       // speeding up a dumbing down of the terminal to simulate the slow
       // effect of the IBM 6000 line mode browser, and if it's too slow
       // it just gets in the way. KEEP THIS SETTIMEOUT ABOVE DRAWING! - RS
-      setTimeout(draw, 0);
+      setTimeout(draw, stspeed);
       var coords = getCords(position);
       ctx.clearRect(coords.x * 8 * speed, coords.y * 24, 8 * speed, 24);
+
+      // the
+      coords = getCords(position + 1);
+      ctx.fillRect(coords.x * 8 * speed, coords.y * 24, 8, 24);
 
       position++;
     } else {
@@ -54,8 +63,12 @@ var blocker = (function () {
   init();
 
   return function () {
-    ctx.canvas.display = 'block';
+    commandForm.className = 'hide';
+    ctx.canvas.style.display = 'block';
+    ctx.save();
+    ctx.fillStyle = '#000';
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.restore();
     position = 0;
     draw();
   };
