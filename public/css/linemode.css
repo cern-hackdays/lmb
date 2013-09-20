@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'cern';
-	src:url('fonts/cern-terminal.eot');
-	src:url('fonts/cern-terminal.eot?#iefix') format('embedded-opentype'),
-		url('fonts/cern-terminal.woff') format('woff'),
-		url('fonts/cern-terminal.ttf') format('truetype'),
-		url('fonts/cern-terminal.svg#icomoon') format('svg');
+	src:url('/fonts/cern-terminal.eot');
+	src:url('/fonts/cern-terminal.eot?#iefix') format('embedded-opentype'),
+		url('/fonts/cern-terminal.woff') format('woff'),
+		url('/fonts/cern-terminal.ttf') format('truetype'),
+		url('/fonts/cern-terminal.svg#icomoon') format('svg');
 }
 
 * {

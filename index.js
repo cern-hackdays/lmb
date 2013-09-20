@@ -3,8 +3,8 @@ var request = require('request'),
     cheerio = require('cheerio'),
     parse = require('url').parse,
     path = require('path'),
-    prepare = require('./public/prepare'),
-    urlparse = require('url')
+    urlparse = require('url'),
+    prepare = require('./prepare'),
     serve = require('./serve');
 
 function inject(body, base) {

@@ -33,10 +33,7 @@ var servedir = module.exports = function (routerPath, root, handler) {
     var pathname = decodeURIComponent(parse(req.url).pathname),
         file = path.join(root, pathname);
 
-    console.log(pathname, file);
-
     if (pathname.indexOf(routerPath) !== 0) {
-      console.log('exit');
       return next();
     }
 
