@@ -31,8 +31,7 @@ function setPrompt ($) {
 	promptElement.innerHTML = prompt;
 
 	// Adjust style
-	// cursor.style.left = ((promptElement.textContent.length + 1) * .55) + 'em';
- cursor.style.left = ((promptElement.textContent.length + 1) * .5) + 'em';
+ cursor.style.left = ((promptElement.textContent.length + 1) * .5) | 0 + 'em';
 }
 
 function run(command, e) {
