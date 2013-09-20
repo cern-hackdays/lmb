@@ -3,6 +3,7 @@ var blocker = (function () {
   var position = 0,
       speed = 8,
       length = 80 * 24 / speed,
+      characterWidth = 8,
       ch = 0,
       stspeed = 0, // ALWAYS KEEP AT ZERO!
       ctx,
@@ -11,6 +12,7 @@ var blocker = (function () {
   function size(px) {
     ch = px | 0;
     ctx.canvas.width = document.documentElement.offsetWidth; // 8 is the character width
+    characterWidth = ctx.canvas.width / 80;
     ctx.canvas.height = 24 * ch; // 14px character height
 
     ctx.fillStyle = 'hsl(150, 100%, 50%)';
@@ -65,11 +67,10 @@ var blocker = (function () {
       setTimeout(draw, stspeed);
       var coords = getCords(position);
 
-      ctx.clearRect(coords.x * 8 * speed, coords.y * ch, 8 * speed, ch);
+      ctx.clearRect(coords.x * characterWidth * speed, coords.y * ch, characterWidth * speed, ch);
 
-      // the
       coords = getCords(position + 1);
-      ctx.fillRect(coords.x * 8 * speed, coords.y * ch, 8, ch);
+      ctx.fillRect(coords.x * characterWidth * speed, coords.y * ch, characterWidth, ch);
 
       position++;
     } else {

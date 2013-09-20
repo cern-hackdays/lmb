@@ -31,7 +31,8 @@ function setPrompt ($) {
 	promptElement.innerHTML = prompt;
 
 	// Adjust style
-	cursor.style.left = promptElement.textContent.length + 1 + 'ch';
+	// cursor.style.left = ((promptElement.textContent.length + 1) * .55) + 'em';
+ cursor.style.left = ((promptElement.textContent.length + 1) * .5) + 'em';
 }
 
 function run(command, e) {
@@ -166,7 +167,6 @@ commands.b = commands.back;
   document.createElement(a);
 });
 
-blocker(); // do the character by character "rendering"
 cmd.focus(); // force focus to the contenteditable
 
 window.onload = function () {
@@ -194,6 +194,7 @@ window.onload = function () {
     document.documentElement.style.fontSize = size  + 'px';
 
     blocker.size(size * 1.5);
+    blocker(); // do the character by character "rendering"
   })();
 
   addEventListener('resize', adjustFontSize);

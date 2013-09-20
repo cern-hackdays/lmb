@@ -47,6 +47,8 @@ function proxy(req, res, next) {
   }
 }
 
+process.cwd(); // tiny hack for live server
+
 connect()
   .use(function (req, res, next) {
     if ((req.url === '/www/referer' || req.url === '/www/referrer') && req.headers.referer) {

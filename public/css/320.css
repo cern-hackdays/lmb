@@ -23,6 +23,8 @@ header {
     padding: 50px 10px 0;
 }
 
+.lmblaunch a { line-height: 20px; padding: 10px; font-size: 1.6rem; }
+
 p {
 	font-size: 1.6rem;
 	line-height: 2.2rem;
