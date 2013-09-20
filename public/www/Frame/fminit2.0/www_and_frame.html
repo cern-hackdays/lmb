@@ -1,0 +1,93 @@
+<!DOCTYPE HTML SYSTEM>
+<TITLE>FrameMaker as  a Global Hypertext Tool</TITLE>
+<DOCUMENT><H1>WWW Meets FrameMaker</H1>
+I have just completed the first steps in integrating FrameMaker and the World Wide Web. You can now create, read, modify, and write web documents using FrameMaker. Soon, you should be able to use FrameMaker as a global hypertext browser.<P>
+<ADDRESS>Daniel W. Connolly &lt;connolly@convex.com></ADDRESS>
+<H1>Theory of Operation</H1>
+FrameMaker supports an <A HREF="#MIF">interchange format</A>
+ and an integrated conversion facility. See p. D-16 of <A HREF="#FrameMaker_Reference">FrameMaker Reference</A>
+ for full documentation.<P>
+<H2>Reading HTML</H2>
+Basically, whenever you open or save a file (in MIF format), if the filename matches a suffix list, Frame invokes a shell script that can convert the file on the fly.<P>
+I modified the supplied <A HREF="./MifRead">MifRead</A>
+ script to recognize HTML. Files ending with .html are filtered them through  <A HREF="./fix-html.pl">fix-html.pl</A>
+, which brings conventional HTML files into SGML conformance. Then sgmls parses the file using  <A HREF="./html.dtd">html.dtd</A>
+. (sgmls does a pretty good job of tolerating errors in SGML instances.)<P>
+Then <A HREF="./html2mml.l">html2mml.l</A>
+ and the xlisp interpreter convert the sgmls output to Maker Markup Language. Finally, MifRead calls FrameUs mmltomif to generate the MIF file that FrameMaker will read.<P>
+<H2>Writing HTML</H2>
+I modified the supplied <A HREF="./MifWrite">MifWrite</A>
+ to convert MIF files saved with the .html extension to HTML. The xlisp program <A HREF="./mif2html.l">mif2html.l</A>
+ does the whole conversion.<P>
+<H2>Hypertext Constructs in Frame and WWW</H2>
+FrameMaker supports hypertext references using markers with MType=8 (Hypertext in the dialog box.) The active text is everyting from the marker to the next font change before and after the marker.<P>
+Associated with the marker is a text string. FrameMaker defines a set of hypertext commands. See p. 3-8 of <A HREF="#FrameMaker_Reference">FrameMaker Reference</A>
+ for details.<P>
+Three of the commands are supported by the www_and_frame package: gotolink, newlink, and message.<P>
+The syntax of gotolink is<P>
+<XMP>gotolink filename:linkspec</XMP>
+<XMP>gotolink linkspec</XMP>
+<XMP>gotolink filename:firstpage</XMP>
+which are translated to anchor start tags of the form:<P>
+<XMP><A HREF="file:filename#linkspec"></XMP>
+<XMP><A HREF="#linkspec"></XMP>
+<XMP><A HREF="file:filename"></XMP>
+The syntax of newlink is<P>
+<XMP>newlink linkspec</XMP>
+which I translated to<P>
+<XMP><A NAME="linkspec"></XMP>
+The syntax of message is<P>
+<XMP>message clientname string</XMP>
+which, if clientname is www, I translated to<P>
+<XMP><A HREF="string"></XMP>
+The catch is that you have to put the hypertext marker at the beginning of the anchor text. If you put it in the middle, Frame will recoginze the whole anchor, but these tools will only recognize the text between the marker and the next font change.<P>
+The inverse translations arenUt as fully functional. They currently map<P>
+<XMP><A NAME="n" HREF="h"></XMP>
+to<P>
+<XMP>message www h</XMP>
+The result is that target anchors are generally lost on input. This should be fixed shortly.<P>
+<H1>Installation</H1>
+<H2>The www_and_frame package</H2>
+The www_and_frame.tar.Z file will be available via anonymous ftp shortly from info.cern.ch in the pub/WWW/src directory.<P>
+The command<P>
+<XMP>zcat www_and_frame.tar.Z | tar xvf -</XMP>
+should properly install the package in a directory called .fminit2.0.<P>
+<H2>The LISP interpreter: xlisp by David Betz</H2>
+Grab export.lcs.mit.edu:/contrib/winterp/xlisp/xlisp-2.1.almy.tar.Z via anonymous FTP. Then apply the patches in diffs_from_almy21. These patches prevent xlisp from writing diagnostics to stdout where they will be mixed in with conversion output.<P>
+Then build it using the included directions. You may have to tweak it a little for your system.<P>
+IUd like to make this package a little more ANSI/POSIX conformant if I get time. But for now, youUll have to do the typical Makefile editing.<P>
+<H2>The SGML parser: sgmls by James Clark</H2>
+Grab ifi.uio.no:/pub/SGML/SGMLS/sgmls-0.8.tar or ftp.uu.net:/pub/text-processing/sgml/sgmls-0.8.tar.Z<P>
+This package is extremely high quality. It includes a configure shell script, and it is largely ANSI/POSIX compliant. It builds without modification on all the systems IUve tried.<P>
+<H1>Try It Out!</H1>
+<H2>Load the test file into FrameMaker</H2>
+Be sure you have the following requirements met first:<P>
+<OL><LI>The .fminit2.0 directory from the www_and_frame package is in the current directory or in your home directory.<LI>The  suffixes file in that directory has an entry for html.<LI>The  MifRead shell script in the fminit directory checks for html processing.<LI>The fix-html.pl perl script is executable and in your $PATH.<LI>The sgmls parser is executable and in your $PATH.<LI>The html.dtd file is in the current directory or accessible via the SGML_PATH envariable. (See the sgmls man page for details.) <LI>The html2mml.l lisp program is in the current directory.</OL>
+Then start FrameMaker, chose open from the File menu and select  test.html. FrameMaker will consult the suffixes file, and upon finding the html entry, it will run MifRead. MifRead will invoke fix-html.pl to bring test.html into SGML conformance. Then it will invoke sgmls to parse the file, and html2mml.l to convert the parsed SGML to Maker Markup Language. Finally, mmltomif is invoked to build an importable file.<P>
+You should be able to edit the file normally. Use only the paragraph tags in the catalog. You can, however, change any attributes of those tags.<P>
+You can add hypertext links by adding FrameMaker hypertext markers. For the marker text, the "gotolink foo:bar" and "newlink bar" syntaxes are supported. Plus, use "message www scheme://host/path#anchor" for full WWW addresses.<P>
+You will have to lock the file to use the hypertext links interactively. (use ESC-F-l-k to lock/unlock the file.)<P>
+<H2>Save the test file in HTML format</H2>
+When you want to save the file, be sure these requirements are met:<P>
+<OL><LI>The  MifWrite shell script is in the .fminit directory and checks for html processing.<LI>The xlisp interpreter is executable and in your $PATH.<LI>The mif2html.l lisp program is in the .fminit2.0 directory.</OL>
+Then just chose Save As... and be sure the extension is .html. Click the Maker Interchange Format option, and click OK. Frame will invoke MifWrite, which will invoke the mif2html.l lisp program.<P>
+The resulting file should be acceptable to the www browsers.<P>
+<H1>Updates to the HTML DTD</H1>
+For the functionality that I implemented, no changes to the WWW code are necessary. HTML files and programs that generate HTML do require changes.<P>
+The FrameMaker integration is based on the premise that WWW will become an SGML compliant application. I am using <A HREF="http://info.cern.ch/hypertext/WWW/MarkUp/HTML.dtd">the DTD that I proposed recently</A>
+ with some modifications  to closely parallel HTML.c from the distributed code. I also consulted <A HREF="http://info.cern.ch/hypertext/WWW/MarkUp/HTML2.html">the proposed HTML2 definition</A>
+.<P>
+The <A HREF="./fix-html.pl">fix-html.pl</A>
+ script should bring most existing HTML files into compliance.<P>
+<H1>Future Directions</H1>
+The documentation for FrameMaker includes Integrating Applications with FrameMaker, which desciribes a mechanism where arbitrary RPC clients can be invoked from hypertext commands.<P>
+That is, the incantation<P>
+<XMP>message www http://info.cern.ch/hypertext/WWW/MarkUp/HTML2.html</XMP>
+could make an RCP call to a WWW client that would retrieve the indicated document and instruct FrameMaker to display that file.<P>
+This would turn FrameMaker into a global hypertext browser.<P>
+<H1>To Do</H1>
+<UL><LI>Sometimes FrameMaker hides the paragraph tag in with the paragraph formatting in the MIF file. mif2html.l fails to recognize this situation. Hence the bogus &lt;/NIL> tag at the beginning of documents.<LI>Names of anchors are lost on conversion to MIF. This is just laziness.<LI>I didnUt convert FrameUs extended ASCII character set to anything sensible. Quotes will look funny.<LI>Traditionally, SGML systems verify documents on input and assume validity on input. This system does the reverse. I should verify output documents.<LI>I once had a keyboard macro rigged up for saving as MIF. ItUs kind of a pain to make about five clicks every time you want to save.</UL>
+<H1>Bibliography</H1>
+<DL><DT><A NAME="MIF">MIF</A>
+<DD>MIF ReferenceFrame Technology Corporation1010 Rincon CircleSan Jose, California 95131Part Number 41-01037-00April 1991<DT>FrameMaker Reference<DD>FrameMaker ReferenceFrame Technology Corporation1010 Rincon CircleSan Jose, California 95131Part Number 41-00524-00Septermber 1990<DT> </DL>
+</DOCUMENT>

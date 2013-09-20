@@ -1,0 +1,24 @@
+<TITLE>AnonymousFTP -- /Provider</TITLE>
+<NEXTID 2>
+<H1>Using Anonymous FTP</H1>Anonymous FTP access means  using the <A NAME=1 HREF=../Protocols/RelevantProtocols.html#11>FTP protocol</A> with username "anonymous"
+and a password which is the reader's mail address. It is a conventional
+way of publishing material on the internet.<P>
+ It allows anyone on the internet (or gatewayed network) to access
+a SUBSET of your files. On a unix system, this involves setting up
+a user "ftp" in whse home directory the public files will be. An external
+user sees a file system whose root is that home directory. Look at
+the man page for ftpd on your system. <P>
+Normally, the public files are kept in /pub or a subdirectory of that.<P>
+Any file with which is accesible using anonymous ftp is accesible
+as a W3 document with address
+<XMP>			file://node.domain/path/path/path
+
+</XMP>for (imaginary) example
+<XMP>			file://info.cern.ch/pub/README.txt
+
+</XMP>
+<DL>
+<DT>
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

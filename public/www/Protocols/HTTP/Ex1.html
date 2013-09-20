@@ -1,0 +1,45 @@
+<TITLE>Ex1 -- /HTTP</TITLE>
+<NEXTID 1>
+<H1>HTTP Response Examples</H1>Possible replies one could imagine, encoded as SGML:
+<XMP>
+<!GDOC HTML>
+a normal HTML document
+<!/GDOC>
+<!GDOC HTML>
+</XMP>Document with preprocessing instructions:
+<XMP>
+<HEADER>
+normal HTML
+<FORMAT REP="Text/ASCII">
+<FILTER PROCESS="crypt-md5"  PROMPT="Delphi">
+<FILTER PROCESS="uncompress">
+<FILTER PROCESS="tar">
+</HEADER>
+<BODY>
+asdfghjklsdfghjklasdfghjksdfhjkzxcvbnmeryuioxcvbj
+ewft76t8yytcvncncnryxmry02zmxnxjxb7wdtx7b7rtwbt87
+</BODY>
+<!/GDOC>
+</XMP>A response indicating that authorisation is required:
+<XMP>
+<!GDOC HTERR STATUS=NEEDAUTH>
+<DOMAIN HREF="/doc/delphi/*">
+This is a Delphi collaboration document. You can only access it is
+you can identiy yourself as a Delphi member.
+<!/GDOC>
+</XMP>An error response:
+<XMP>
+<!GDOC HTERR STATUS=REFUSED>
+Sorry, you can only access this object within the CERN site
+for copyright reasons. Complaints to
+<a href=http://crnvmc.cern.ch/WHO/fred>Mr Bloggs</a>.
+<!/GDOC>
+
+</XMP>A forward response with a set of possible forward addresses:
+<XMP><!GDOC HTFWD>
+<LINK TYPE=FORWARD HREF=http://junk.edu/junk/junk.ps>
+<LINK TYPE=FORWARD HREF=http://fred.com/junk/junk.ps>
+Directory lookup successful.
+<!/GDOC>
+
+</XMP>_________________________________________________<A NAME=0 HREF=../../People.html#11> CTB</A></A>

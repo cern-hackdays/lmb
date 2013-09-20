@@ -1,0 +1,123 @@
+<TITLE>JanetAndJohn -- /Daemon</TITLE>
+<NEXTID 1>
+<H1>Simple guide to writing a server in C</H1>In this document I aim to give a brief overview of how to write a
+new server, based on the generic code supplied as part of WWW.<P>
+When you extract the TAR files, you will get three directories created,
+called common, linemode, and daemon.  The common directory contains
+files some of which will be used by the daemon.  However, the main
+daemon code lies in the implementation directory under the daemon
+directory.  Here there are three files of note: HTDaemon.c, HTRetrieve.c,
+and HTRules.c.  <P>
+HTDaemon.c contains the code to handle the communication connection.
+It should not prove necessary to edit this file.  As part of the code,
+this module calls a function called HTRetrieve.  In the standard implementation,
+the code for this function is placed in HTRetrieve.c
+<H3>The HTRetrieve function</H3>This function is called by the main function after it has received
+a message from a client and partially parsed this message.  The three
+arguments the function receives are: <P>
+1) the document reference which the client sent (from the hypertext
+reference),<P>
+2) a plus-separated list of keywords, which is empty except were an
+index search is required,<P>
+3) the socket to which the reply should be sent.
+<H3>The standard function</H3>The general algorithm for the HTRetrieve function looks like this:
+<XMP>int HTRetrieve (char * arg, char * keywords, int socket) 
+{
+ if any keywords
+     write an error message to socket (since this server does not do index searches)
+     return
+ else
+    if compiled with the option supplied
+        attempt to transform the UDI in arg by the rules supplied in the rules file
+    endif
+    attempt to open and read the file addressed by arg
+    if able to open the file
+        check the file format
+        if it is in plain text
+            send the <PLAINTEXT> tag to the socket
+        else
+            if it isn't HTML
+                send an error message back that the server can't handle multiple format
+                return
+            endif
+        endif
+        read file and write it to the socket
+    else
+        send error message
+    endif
+ endif
+}
+
+
+</XMP>Writing a new server involves either modifying this function in the
+file HTRetrieve.c, or writing a totally new function in a new file
+(in which case the make file must be altered to use this one instead.
+The two most likely changes are either to change the document address
+format from the standard (UNIX-style) UDI to the local format, or
+to implement an index server.  The former is simply a matter of implementing
+a function which, given the UDI, will output the address in the local
+format.  The latter is slightly more complicated, and is described
+below.
+<H3>Writing an index server</H3>An index server works by taking a plus-separated list of keywords
+and using it as the basis for querying a database.  In most cases
+it is simple to write a new HTRetrieve function from scratch, of the
+form:
+<XMP>int HTRetrieve (char * arg, char * keywords, int socket) 
+{
+ if (arg != SERVER_NAME)
+     write error message to socket
+     return
+ else
+     if no keywords
+         write back a message explaining what the server is, in HTML, which must
+	  include the tag <ISINDEX>, to inform the browser that this is an index
+     else
+         create a query in the langauge of the database, based on the keyword list
+         send this query to the database
+         read the response and convert it to HTML, again including the <ISINDEX>
+          tag
+         write the HTML to the socket
+     endif
+ endif
+}
+</XMP>where SERVER_NAME is the name you are giving to your server, e.g.
+"ALWHO".  Where the response to the query must contain anchors, the
+HREF entry need only contain the SERVER_NAME and the keywords, not
+the server internet name and port, e.g. the reference need only be:
+<XMP>HREF=/ALWHO?barker
+</XMP>not
+<XMP>HREF=http://www1.cern.ch:3245/ALWHO?barker
+</XMP>It is up to the browser to fill in the missing part.
+<H3>Making the server</H3>How to create the server executable depends upon the system you are
+using.  For most UNIX platforms it is enough to run the 'make' command
+in the directory where the daemon sources exist.  This will create
+an executable called 'httpd'.<P>
+On the VMS systems, you must type 'mms/macro=(multinet=1)'.
+<H3>Running the server</H3>To start up the server you must type 'httpd ' possibly followed by
+one or more command line options.  The most important of these is
+the -a option.  This tells the server which port to listen to.  For
+example <P>
+httpd -a \*:5000 <P>
+tells the server to listen to any connection (that's the '*') on port
+5000.  Note that the backslash is only necessary on UNIX to prevent
+the * being completed.  This command could potentially fail if another
+process is already using that port.  The standard port for WWW servers
+is port 80, although by default if no -a option is present, the daemon
+will listen to standard input and write to standard output (the reason
+for this is given below).<P>
+On UNIX systems, the daemon may be run by the inet 'super server'
+daemon.  If this is done, no -a option need by given, since the inet
+daemon supplied all the data from the port to the WWW server through
+the standard input and output chanels. 
+<H3>Running multiple servers</H3>If you have a number of different servers on one machine, each providing
+a different service, e.g. WHO, XFIND, etc, you may wish either to
+intergrate them all into a single package, or to run each as an independent
+service.<P>
+In the first case you would write the HTRetrieve function with a CASE
+statement which would decide which database to query depending upon
+the address supplied in the first argument (arg). <P>
+In the second case, each server would have to be run from a different
+port.  Each server is compiled separately, using it's own version
+of the HTRetrieve function, and then launched with a different port
+number assigned to it.  <P>
+______________________________________________________<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#11> CTB</A></A>

@@ -1,0 +1,55 @@
+<TITLE>HTML Guide: MarkUp Supported by the Library</TITLE>
+
+<H1><A NAME=top>HTML Extremes</A></H1>
+
+These are a little tricky, and might break some quick-and-dirty
+implementations. But they are parsed correctly by implementations
+based on <A NAME=id1 HREF="libHTML.tar.Z"
+content-type="application/octet-stream">libHTML</A>.<P>
+
+These constructs are not recommended.<P>
+
+<H2>Document Structure</H2>
+
+<H4    
+   >The tags for this element have spaces in them.</H4			>
+<h4>Another H4 Just in case it missed the close tag with spaces</H4>
+
+<H2>Header Elements</H2>
+
+<H2>Body Elements</H2>
+
+<H3><A NAME=delimiters>Delimiter Recognition</A></H3>
+
+Character reference (not used in HTML): '&#SPACE;' and &#200;.
+
+And character from data: &, and from markup: &amp;.<P>
+And-hash from data: &# and from markup &amp;#.<P>
+
+Less-thans as data: < <1 <-)<P>
+
+Less-than-slash as data: </ </1 </-)<P>
+
+greater-than (pretty much always data): > abc> 0><P>
+
+comment: <!-- implementation is broken if this shows up--> The sample
+implementation groks.<P>
+
+comment w/space between -- and &gt;: <!-- implementation is broken if 
+this shows up -- 	><P> 
+
+marked section close without mdc: ]].
+
+processing instruction: <?bold broken impl > The sample implementation
+treats it as a processing instrcution, so you don't see it.<P>
+
+<H2>Anchors</H2>
+
+<A HREF = "#top" NAME = xyz2>spaces around '='</A><P>
+
+<A HREF='spec.html'>single quoted value</A><P>
+
+<A HREF="system:cat&#SPACE;&gt;&#SPACE;file">character references
+and entity references in attribute value literal</A><P>
+
+</BODY>

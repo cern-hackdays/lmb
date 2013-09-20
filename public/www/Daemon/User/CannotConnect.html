@@ -1,0 +1,25 @@
+<TITLE>CannotConnect -- /User</TITLE>
+<NEXTID 2>
+<H1>Can't connect to server</H1>There is more information you can get.  use the "verbose" option on
+the browser to find out what went wrong:
+<XMP>			www -v http://myhost.domain:80/
+
+</XMP>What do you get? A load of trace messages. There are several cases.
+<UL>
+<LI>The browser can't look up the name of the host. If it can, it will
+display "Parsed address as" message. If not, try fixing your name
+server or /etc/hosts file, or quoting the IP number of the host in
+decimal notation (like 128.141.77.45) instead.
+<LI><A NAME=1 HREF=ConnectionRefused.html>The browser can get to the host but gets "Connection refused" status
+back</A> . 
+<LI>Your browser gets an error number but prints "error message not translated".
+This is because when it was compiled on your platform it didn't know
+what form the error message table took. Try the same thing form a
+unix platform for example.
+<LI>You get some network error like "network unreachable". Depending on
+whether the IP network is your responsibility or not, and your attitude
+to life, either fix it,  try again in an hour's time, or complain
+to someone.
+</UL>_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

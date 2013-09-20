@@ -1,0 +1,28 @@
+<TITLE>/private/Net/cernvax/userd/tbl/hypertext/WWW/Addressing/Search.html</TITLE>
+<NEXTID 1>
+<H1>Address for an index Search</H1>If a given hypertext node is an index, or the server has an index
+associated with it, then a search may be done on that index by suffixing
+the name of the index with a list of keywords, after a question mark:
+<XMP>		address_of_index ? keywordlist
+
+</XMP>The address of the index is a normal hypertext address. In the keywordlist,
+multiple keywords are separated by plus signs (+) .  (See <A NAME=0 HREF=BNF.html>BNF syntax
+description</A> .)  The resulting string still does not contain any spaces.
+It may be considered to be the hypertext address of a document which
+is the result of making the keyword search on the index. Normally,
+if the search was successful, the document returned will contain anchors
+leading to other documents which match the selection criteria. <P>
+The search method, and the logical and lexical functions, weights,
+etc applied to the keywords will depend on the index address.  One
+actual index may have several hypertext addresses,  which when searched
+on will behave in different ways. For example, one may allow a search
+on author-given keywords only, while another may be a full text search.
+These things particular to an index should be descibed in the hypertext
+page for the index node itself (or in linked documents). For example,
+a server may allow specific boolean search combinations may be represented
+by the words "and", "or" and "not".
+<H2>Example:</H2>
+<XMP>			http://cernvm/FIND/?sgml+cms
+
+</XMP>indicates the result of perfoming a search for keywords "sgml" and
+"cms" on the index http://cernvm/FIND/. 

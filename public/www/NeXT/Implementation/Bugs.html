@@ -1,0 +1,134 @@
+<HEADER>
+<TITLE>Bug list for the WorldWideWeb application on the NeXT</TITLE>
+<NEXTID N="4">
+</HEADER>
+<BODY>
+<H1>Bug List - Wish List</H1>The following are noted problems
+with the <A
+NAME=0 HREF="../WorldWideWeb.html">WWW app on the NeXT</A> . See
+also the list of <A
+NAME=1 HREF="Features.html">bug fixes and features</A>
+added, and JFG's notes towards his
+<A
+NAME=3 HREF="Upgrade.html">upgrade proposal</A> .  These are the
+serious bugs first:
+<UL>
+<LI>The app is now getting seriously
+out of date, as it has been frozen
+since summer 1991. Problems include
+lack of gopher and telnet support,
+and inability to cope with lonbg
+IDs from later WAIS servers (crashes).
+These will be fixed when a new version
+is built form the new library.
+<LI>Spurious error message: DPS client
+library error: PostScript program
+error, DPSContext 160128 %%[ Error:
+invalidid; OffendingCommand: orderwindow
+]%% is produced when an index window
+is closed or miniaturized but is
+not the key window.  [This may be
+due to an earlier orderFront: being
+sent to the search panel during the
+index window's delegate's windowDidBecomeMain:
+ and this leaving the window list
+or something in an impropper state].
+
+<LI>No Alert Panel when Cmd/O with bad
+access code.
+<LI>Inserting at beginning of paragraph
+get style of previous paragraph!
+<LI>Saving a reference to a news article
+in an html file screws up the address
+(adds a directory to it!)
+<LI>If no tags, then random format used
+for HTML. 
+<LI>Highlighting  is not implemented.
+Any character highlighting is removed
+from a file when it is saved (except
+that of the paragraph styles).
+<LI>Quit doesn't check for unsaved files!
+
+</UL>
+<H2>Here are the less serious ones:</H3>
+<UL>
+<LI>When you do a CMD-O [or Cmd/F] it
+probably should position the text
+cursor in the field where you type
+the reference (Ira H. Fuchs )
+<LI>Supress anchors in printed document
+using stylesheet
+<LI>The password given for anonymous
+FTP should have the actual user name,
+not "user".
+<LI>If (save) fails, then try (save as)
+to get, amongst other things, path
+creation for the profile files.
+<LI>Style editor does not  allow styles
+to be modified properly. 
+<LI>Cutting and pasting anchors leaves
+them grey but strips them of their
+anchor status. (This is because the
+"info" inormation is not copied in
+to rtf. Can we extend rtf?).
+<LI>You can't put anchors into plain
+text files or plain text sections.
+<LI>HyperText is not automatically resized
+when one resizes the window with
+the mouse. 
+</UL>
+<H2>News:</H3>
+<UL>
+<LI>Reply 430 "article not available(?)"
+converted to "cannot contact server".
+Must be more intelligent about different
+replies.  
+<LI>Should try loading saved file instead
+of unavailable article.
+</UL>
+<H2>Improvements desirable:</H3>
+<UL>
+<LI>Dispense with the  SGML tag in stylesheets,
+or make stylesheet completely SGML-oriented.
+<LI>Neat idea:   Allow the user to create
+a "Services" menu item to search
+any WWW database for a string (phone
+book etc). Lots of attachments under
+3.0.
+<LI>rtf or SGML for style sheet format.
+<LI>Remote files should be copied locally,
+especially if they require opening
+in the workspace.  (Ira H. Fuchs
+)
+<LI>File access: open directories as
+README plus file list - or open them
+in the workspace?
+<LI>Perhaps have selection of various
+blanks which one could use, for annotations,
+ text sections, footnotes, etc.
+<LI>A style menu with each style as an
+item
+<LI>Automatically insert paragraph prefix
+when RETURN pushed in list, delete
+when paragraph deleted.
+</UL>
+<H2>Not included yet but won't be missed
+yet:</H3>
+<UL>
+<LI>Link Typing. 
+<LI>"Seen flag" -  hash table of all
+seen nodes. Link with .newsrc? Server-specific?
+<LI>Annotate: Make unique message-id
+for file name, save locally if poss
+else in user area. Use different
+template (note.html)
+<LI>Format negotiation.
+<LI>Concept of a 32-bit pointer to a
+name in a hash table for such things
+as style names, Format names, etc.
+Associated with a list of things
+with that name. Is this a NXAtom?
+<LI>Create the $(HOME)/WWW subdirectory
+if necessary.
+<LI>Default styles held in program in
+case system styles don't exist.</BODY>

@@ -1,0 +1,56 @@
+<TITLE>Profile -- /HTRQ</TITLE>
+<NEXTID 4>
+<ADDRESS>Last Modified 22/9/92 by RC,CTB
+</ADDRESS>
+<H1>Profile elements</H1>
+<H2>AUTH</H2>Syntax:
+<XMP>		AUTH WHO=String PWD=String	
+
+</XMP>This specifies the authorisation for the user, giving the user ID
+and password. Note: this ID is not the same as the one used in CLIENT:
+it is possible that the ID is that of a person who happens to use
+the client through a different user.
+<H2>PUBKEY</H2>Syntax:
+<XMP>		PUBKEY KEY=String	
+
+</XMP>Public key, in case the server wants to encrypt data before sending
+it. See a very good summary of public-key cryptosystems in practice,
+including key certification issues, in the <A NAME=1 HREF=../../../PGP/pgpguide.doc>documentation of PGP</A> .
+<H2>CLIENT</H2>Information about the person requesting the data, the user ID (which
+may be different from the authorisation user ID), the host (s)he's
+on, the email address and the organisation worked for. The syntax
+is
+<XMP>
+		CLIENT ID=String HOST=String EMAIL=String ORG=String 
+
+</XMP>
+<DL>
+<DT>ID
+<DD> represents the user on the given host.
+<DT>HOST
+<DD> The full domain name of the host machine on which the client
+program is running.
+<DT>EMAIL
+<DD> The contact address for the client. Optional.
+<DT>ORG
+<DD> The text of the client's affiliation. Optional.
+</DL>
+[JFG] Perhaps use standard RFC-822 fields ? X.500 needed again !<P>
+I like the EMAIL field: servers can do some direct marketing :-) More
+seriously, inform their regular users on data updates, discount rates,
+change of public key, ... [RC: in other words, junk-hypertext. Forbidden
+in Germany? :-)  ]
+<H2>FORMAT</H2>
+<XMP>		FORMAT 
+			NAME=String PENALTY=String
+
+</XMP>Describes a format the client can accept, and the penalty. Multiple
+instances of  FORMAT add them to a list of acceptable formats.<P>
+See <A NAME=3 HREF=../../Protocols/Penalties.html>Rules for penalty calculation</A> .
+<H2>SOFTWARE</H2>
+<XMP>		SOFTWARE PLATFORM=String PROGRAM=String VERSION=String 
+
+</XMP>Information about the client software: the platform it's being run
+on, the program being used and its version.<P>
+Allows servers to adapt to the "market".<P>
+__________________________________________________<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#11>CTB</A></A>

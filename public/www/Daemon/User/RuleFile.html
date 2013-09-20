@@ -1,0 +1,44 @@
+<TITLE>RuleFile -- /User</TITLE>
+<NEXTID 4>
+<H1>The Rule File</H1>The rule file defines how the server will translate a request into
+an actual filename. It allows one to provide an extra level of  name
+mapping above that given by links in the file system. It allows, for
+example, out of date names to mapped onto their more recent counterparts.
+<P>
+The rule file also allows access to be restricted.  This is essential,
+to prevent, for example, unauthorized access to your password file.<P>
+By default, the rule file /etc/httpd.conf is loaded, unless specified
+otherwise with the -R or -r <A NAME=1 HREF=CommandLine.html#5>options</A> . <P>
+See <A NAME=3 HREF=RuleExamples.html>example rule files</A> .
+<H2><A NAME=2>Format</A></H2>[The format changed for version 0.2] Each line consists of an operation
+code and one or two parameters, referred to as the template and the
+result.  Anything on a line after and including a hash sign (#) is
+ignored, as are empty lines.<P>
+The operation codes are as follows
+<DL>
+<DT>map template result
+<DD> If the address matches the template, use the result
+string from now on for future rules. 
+<DT>pass template
+<DD> If the address maches the template, use it as it is,
+porocessing no further rules.
+<DT>fail template
+<DD> If the address matches the template, prohibit access,
+processing no futher rules.
+</DL>
+The template string may contain at most one wildcard asterisk ("*").
+The result string may have one wildcard  only if the template has
+one.<P>
+When matching,
+<UL>
+<LI>Rules are scanned from the top of the file to the bottom.
+<LI>If a request matches a "map" template exactly, the result string is
+used from then on.
+<LI>If the request maches a "map" template with wildcard, then the text
+of the request which matches the wildcard is inserted in place of
+the wildcard in the result string to form the translated request.
+If the result string has no wildcard, it is used as it is.
+<LI>When a substitution takes place, the rule scan continues with the
+next rule using the new string in place of the request.
+</UL>
+<ADDRESS><A NAME=0 HREF=../../../TBL_Disclaimer.html>Tim BL</A>

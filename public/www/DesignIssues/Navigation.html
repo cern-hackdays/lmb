@@ -1,0 +1,90 @@
+<TITLE>HyperText Design Issues: Navigational techniques</TITLE>
+<NEXTID 10>
+<H1>Navigational Techniques and Tools</H1>
+<ADDRESS><A NAME=5 HREF=../People.html#BernersLee>TBL</A> 
+</ADDRESS>There are a number of ways of accessing the data one is looking for.
+Navigational access (i.e., following links) is the essence of hypertext,
+but this can be enhanced with a number of facilities to make life
+more efficient and less confusing.
+<H2>Defined structure</H2>It is sometimes nice for a reader to be able to reference a document
+structure built specifically to enhance his understanding, by the
+document author. This is especially important when the structure is
+part of the information the author wishes to convery.<P>
+See a <A NAME=2 HREF=../../Conferences/ECHT90/Structured.html>separate discussion of this point</A> .
+<H2><A NAME=6>Graphic Overview</A></H2>A Graphic overview  is useful and could be built automatically. Should
+it be made by the author, server, browser or an independent daemon?<P>
+Can one provide an overview with less granularity than the basic web
+by grouping nodes in some way?  The user could select from <A NAME=3 HREF=Topology.html#4>link types</A>
+used to imply the tree structure. <A NAME=4 HREF=../People.html#groff>(JFG)</A><P>
+I think this depends on how long it will take. It might be interesting
+to experiment with daemons which will independently make and update
+maps of the web. This is not essential for a first pilot model.
+<H2>History mechanism</H2>This allows users to retrace their steps. Typical functions provided
+can be interpreted in a hypertext web as follows:
+<DL>
+<DT>Home
+<DD> Go to initial node
+<DT>Back
+<DD> Go to the node visited before this one in chronological order.
+Modify the history to remove the current node.
+<DT>Next
+<DD> When the current node is one of several nodes linked to the ªbackº
+node, go to the next of those nodes. Leave the ªBackº node unchanged.
+Modify the history to remove the current node and replace it with
+the "next" (new current) node.
+<DT>Previous
+<DD> When the current node is one of several nodes linked to the
+ªbackº node, go to the preceding one of those nodes.
+</DL>
+In many hypertext systems, a tree structure is forcibly imposed on
+the data, and these functions are interpreted only with respect to
+the links in the tree. However, the reader as he browses defines a
+tree, and it may be more relevant to him to use that tree as a basis
+for these functions. I would therefore suggest that an explicit tree
+structure not be enforced. <P>
+(If a default tree is needed by the system for some reason, then we
+can always use the creation order: when a node is created it is always
+created with a link to an existing node. Such links, whatever their
+type, may be used to define a tree. If they are deleted, an alternative
+link must be chosen to become a tree link.) <P>
+If authors want to write a tree structure into their documents, then
+the words "after", "before" and "above" could be used to mean a static
+structure. 
+<H2><A NAME=8>Index</A></H2>An Index helps new readers of a large database quickly find an obscure
+node. Keyword schemes I include in the general topic of indexes. <A NAME=9>The
+index must, like a graphic overview, be built either by the author,
+or automatically by one of the server, browser, or a daemon</A>.   The
+index entries may be taken from the titles, a keyword list, or the
+node content  or a combination of these. Note that keywords, if they
+are specifically created rather than random words, map onto hypertext
+ªconceptº nodes, or nodes of special type ªkeywordº. It is interesting
+to establish an identity relationship between keywords in two different
+databases -- this may lead a searcher from one database into another.<P>
+Index schemes are important  but  indexes or keywords should look
+like normal hypertext nodes.  The particular special operation one
+can do with a good keyword index system which one can't do with a
+normal hypertext system is to do a fast search on multiple keywords.
+This must to be provided as an extension to the hypertext navigation
+scheme. However, it is in fact analogous to a trace starting with
+more than one node, which is a valid hypertext tracing operation.
+The difference is that the tracing would normally be done by a browser,
+but the indexed search done by the server.<P>
+When many nodes in a web represent different indexes, then a query
+search can chain between them (See "<A NAME=7 HREF=ManyIndexes.html> Web of indexes</A> ").<P>
+See also:<A NAME=1 HREF=../../Conferences/ECHT90/HTandIR.html> HyperText and Information Retrieval</A>
+<H2>Node Names</H2>These allow faster access if one knows the name. They allow people
+to give references to hypertext nodes in other documents, over the
+telephone, etc. This is very useful. However,  in Notecards, where
+the naming of nodes was enforced, it was found that thinking up names
+for nodes was a bore for users. KMS thought that being able to jump
+to a named node was important. The node name allows a command line
+interface to be used to add new nodes.<P>
+ I think that naming a node should be optional: perhaps by default
+the system could provide a number which can be used instead of a name.The
+system should certainly support the naming of nodes, and access by
+name.
+<H2>Menu of links</H2>Regular linkwise navigation may be done with ªhotspotsº (highlighted
+anchors) or may be done with a menu. It may be useful to have a menu
+of all the links from a given node as an alternative way of navigating.
+Enquire, for example, offers a menu of references as the only way
+of navigating.

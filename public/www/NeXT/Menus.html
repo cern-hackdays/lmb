@@ -1,0 +1,215 @@
+<TITLE>WorldWideWeb Menus</TITLE>
+<NEXTID 53>
+<H1>Menus</H1>The menu items of the <A NAME=0 HREF=WorldWideWeb.html>WWW</A> application operate in the usual NeXTStep
+way in most cases. Where the menu item has a character at the right
+hand end of the menu item, typing that character while holding down
+the Command key will have the same effect as the menu item: see <A NAME=18 HREF=CommandKeys.html>the
+list of such keys</A> . There follows a list of the menu items in the
+application, under the top level items: <A NAME=30 HREF=#info>Info</A> , <A NAME=31 HREF=#links>Links</A> , <A NAME=32 HREF=#navigate>Navigate</A> ,<A NAME=33 HREF=#window>
+File</A> ,<A NAME=34 HREF=#edit> Edit</A> , <A NAME=36 HREF=#27>Print</A> , <A NAME=37 HREF=#29>Page Layout</A> , <A NAME=38 HREF=#styles>Style</A> , <A NAME=35 HREF=#search>Keyword search</A> , <A NAME=40 HREF=#39>Help</A>
+, <A NAME=41 HREF=#hide>Hide</A> , <A NAME=42 HREF=#quit>Quit</A> .
+<H2><A NAME=info>Info</A></H2>This displays a little information about the particular version of
+WWW which you have. The submenu has two items:
+<H3>Panel</H3>This displays a single panel with information such as the version
+number of your software - you can check this against the <A NAME=52 HREF=Implementation/Features.html>history</A> to
+find out whether you're missing any serious improvments in the latest
+copy.
+<H3>Help</H3>This takes you to a small document shipped with the application, which
+has pointers to the user manual (part of which you're reading now).
+ The help page is local to your machine -- you can edit it. The user
+manual is, by default, on a central server machine, unless you have
+changed the links in your help page.  (Taking a private copy of the
+user manual means it might become out of date, but it will be quicker
+to access).
+<H2><A NAME=links>Links</A></H2>Items in this menu are used to manipulate the connections, or <A NAME=1 HREF=../Terms.html#link>links</A>
+, between different hypertext documents.<P>
+Creating a link is done in two stages. Firstly, the destination of
+the link (the bit which will be jumped to ) is "marked". Secondly,
+the source of the link is selected, and "Link to mark" used. The source
+and destination regions are known as <A NAME=2 HREF=../Terms.html#anchor>anchors</A> .<P>
+If you want to make a link to a document whose address you know, but
+which you can't access through other links, then first <A NAME=51 HREF=#openfromreference>open it using
+its address</A>, then mark it and link to it.
+<H3><A NAME=markall>Mark All</A></H3>This marks the whole document as the destination of a link. Use this
+to refer to a whole document rather than any part of it, or when the
+server does not allow you to make an anchor within it.
+<H3><A NAME=markSelection>Mark Selection</A></H3>This marks just the area you have selected as the destination of the
+next link(s) you might create.
+<H3><A NAME=linktomarked>Link To Marked</A></H3>This creates a link from the selection to the marked text. First,
+select the piece of text you wish to be sensitive, and then use this
+item. From then on, clicking on that piece of text will take you to
+the previously marked document or anchor.
+<H3><A NAME=46>Link to File</A></H3>This allows you to link the selected text to any file. You are prompted
+for the name with an "Open" panel.  The file need not be a hypertext
+file. If is not a file type which WorldWideWeb  recognizes and handles
+itself, then following the link will cause the file to be opened from
+the workspace. You cannot link to a directory (yet).<P>
+ 
+<H3><A NAME=16>Link to New</A></H3>This creates a link from the current selection to a new node to be
+stored as a file. A panel opens to allow you to select the name of
+the file.
+<H3><A NAME=20>Unlink</A></H3>This remove link information from the selection.  ALL link information
+(coming or going) is removed from the selected text, which then becomes
+ordinary text..  This may be used to trim an anchor whose sensitive
+area is too big, or to remove an anchor entirely.
+<H2><A NAME=navigate>Navigate</A></H2>These options allow you to move through lists of items, for example,
+with ease, and should prevent you geting lost.
+<H3><A NAME=back>Back</A></H3>The applicatioin keeps a record of every link you jump through. This
+item allows you to retrace your steps. Each time you use it, you go
+back one link, until you get to the first link you used.
+<H3><A NAME=Next>Next</A></H3>This has the same effect as using "BackUp", and then selecting the
+next link from that last document. For example, if you had just selected
+the first of a list of references, then using "NeXT" would allow you
+to move through successive one by one. It you select a news conference
+and then a news article in it, NeXT allows you to move to the next
+article directly, without going back to the conference.
+<H3><A NAME=Previous>Previous</A></H3>This is like "<A NAME=25 HREF=#Next> Next</A> ", but goes to the link before the one you last
+selected rather than the one after.
+<H3><A NAME=Home>Home</A></H3>This goes back to the document which is first loaded when you run
+the application.
+<H3><A NAME=NavigatePanel>Panel</A></H3>This brings up a navigation panel. The buttons in the panel are mostly
+the same as the functions in the menu.
+<H2><A NAME=window>File</A></H2>The items in this menu allow hypertext documents ("nodes") to be loaded
+explicitly and saved.
+<H3><A NAME=10>Open file</A></H3>This allows a file to be opened explicitly by file name. An HTML file
+(.html filetype) will be read as hypertext. A Rich Text Format (.rtf)
+file will be read as rich (ie formatted text). Files without extension
+or with .txt extensions are read as plain text. All other files are
+opened as the workspace manager considers fit.
+<H3><A NAME=openfromreference>Open using full hypertext reference</A></H3>This option allows not only files, but also news groups, news articles,
+and information on remote hypertext servers to be loaded. You need
+the complete hypertext reference for the information. See <A NAME=3 HREF=../Addressing/Addressing.html>Address
+Formats</A> for a description of the various formats.
+<H3><A NAME=22>New file...</A></H3>This creates a new hypertext file. A panel appears to prompt you for
+a filename.<P>
+When you have created a new file, you should make links from existing
+files to it so that you can later reach it by browsing. See also the<A NAME=17 HREF=#16>
+"Link to New"</A> menu item which makes a link at the same time.<P>
+The file is generated from a master blank file. If you have a "blank.html"
+in the WWW subdirectory of your home directory, that will be used:
+otherwise, a copy will be taken of the file "/usr/local/lib/WWW/blank.html".
+Therefore, you can customise the blank file.
+<H3><A NAME=diagnostics>Diagnostics</A></H3>You don't have to use these: they are for debugging the software.
+They will (typically) dump a load of information onto the standard
+output device, which will be the system console. These functions are
+not guarranteed.
+<H3><A NAME=8>Save</A></H3>When a file is editable, this allows it to be saved back. Until this
+is used, your changes are not safe. This condidtion is indicated by
+the close button (X) in the top right of the document window becoming
+a broken cross.
+<H3>Save a copy in</H3>This option allows documents to be saved as a file, whether or not
+they were originally loaded from a file. Note that the window will
+continue to be associated with the original (network) document  (This
+is different from some other NeXT applications' "sav as".). If you
+want to open the new file for editing, you must use the <A NAME=11 HREF=#10>Open</A> command.
+ Before you get a save panel, a submenu is presented which allows
+you to select the format:
+<DL>
+<DT><A NAME=21>HyperText Markup Language</A>
+<DD> This is the normal storage format for WWW
+files.  It includes the style and anchor information. The file extension
+is mandatory and is ".html".  You can use the copy as the basis for
+a new document by later <A NAME=26 HREF=#10>open</A> ing it.
+<DT>Rich Text Format
+<DD> This is a transfer format allowing you to export
+WWW files to other word processors such as Microsoft Word, WriteNow,
+etc. Beware  that the copy saved in rtf, although it is formatted,
+has no style name or anchor information left. The file extension is
+mandatory and is ".rtf".
+<DT>Plain Text
+<DD> This is plain ASCII text, without formatting except for
+line breaks to mark paragraph ends.  Normally, your style sheet specifies
+some white space between paragraphs so the plain text version has
+more than one line feed character. This format may be suitable for
+mailing, for example - though you may want to chop the long lines.
+The file extension is mandatory and is ".txt".
+</DL>
+
+<H3><A NAME=12>Save all edited windows</A></H3>This perfoms a <A NAME=9 HREF=#8>Save</A> operation on all windows which have been edited
+since they were last saved.  This is a wise thing to do from time
+to time, and certainly before you quit.
+<H3><A NAME=miniturize>Miniaturize</A></H3>This will shrink the current window down to a miniature window. The
+text in the window will still be loaded. Clicking on the miniature
+window, or following a link which leads to that document, will bring
+it back up immediately.
+<H3><A NAME=47>Open Master template</A></H3>This allows you to edit the template file which is used as a basis
+whenever you use "<A NAME=44 HREF=#22> New</A> " or "<A NAME=45 HREF=#16> Link to new</A> "  commands.
+<H3><A NAME=close HREF=#22>Close other windows</A></H3>The number of windows can rapidly become very large when one follows
+links through the web. This command (also key Cmd/W) allows all windows
+to be closed except for the main window and any windows which have
+been modified but not yet saved.
+<H3><A NAME=close HREF=#22>Close</A></H3>This closes the current window. The contents are removed from memory.
+WorldWideWeb remebers that you had been there, so (unless you have
+already backtracked over it) you will be able to find it by backtracking
+with <A NAME=4 HREF=#backup>BackUp</A> . When you reaccess the document, it is reloaded from
+the server or file. This is therefore a way of picking up changed
+information. If you don't want to have to wait for this (if it a slow
+server for example), you could always <A NAME=5 HREF=#miniturize>Miniturize</A> the window instead.
+<H2><A NAME=edit>Edit</A></H2>This menu is the standard NeXTStep edit menu, allowing you to cut,
+copy and paste text to and from hypertext documents. You can also
+select the whole document. (Not all hypertext documents are writeable,
+so paste won't always work).
+<H2><A NAME=27>Print...</A></H2>This brings up the print panel, which allows you to print the current
+window. You can also preview what it will look like printed, and you
+can save an image of the document in the window in postscript format.<P>
+See also the <A NAME=43 HREF=#29>Page Layout</A> panel. You may also want to <A NAME=50 HREF=#49>load</A> a different
+style sheet for printing.
+<H2><A NAME=29>Page Layout...</A></H2>This brings up a panel for choosing the size and orientation of the
+paper you may want to <A NAME=28 HREF=#27>print</A> on.<P>
+The paper type you select is remebered between invokations of WorldWideWeb.
+The other parameters revert to their default values when you start
+WorldWideWeb.  They are not stored in documents.<P>
+The margins which you can specify in this panel are the regions of
+white paper around the edge of each page on which nothing is printed.
+What you see on the screen window is the area between the margins.<P>
+Note that when a window is created, it is generally made wide enough
+to contain a document.  This means that the paper type and left and
+right margins you select will affect the size of new windows.
+<H2><A NAME=styles>Style</A></H2>This item brings up the Style submenu for changing the formatting
+of characters in the text. <A NAME=15 HREF=Styles.html>(More on Styles)</A>
+<H3>Copy style</H3>The style of the currently selected text is picked up for later use
+in "Apply style"
+<H3>Apply style</H3>The style previously picked up with "copy style" is applied to the
+paragraph or paragraphs which include the selected text.
+<H3><A NAME=48>Panel</A></H3>This brings up the style editor panel. <A NAME=7 HREF=Styles.html>(More on styles.)</A> The style
+editor allows you to format your document using styles, edit the format
+represented by each style, and load and save style sheets. Clicking
+on the >>  buttons allows you to scroll through the available styles.<P>
+The buttons "<A NAME=49> Load</A> " and "Save" allow you to load and save the entire
+set of styles ("<A NAME=14 HREF=Styles.html#sheet> stylesheet</A> ") you are using. When loading a style
+sheet, any styles which were originally present but do not exist in
+the new style sheet remain defined, while those which do exist in
+the new sheet are redefined.
+<H3><A NAME=23>Style of selection</A></H3>This button sets the style editor to the style of the text which has
+been selected in the main window (if any).
+<H3><A NAME=24>Apply style to selection</A></H3>This applies the style in the style editor to the currently selected
+text. If the style is a paragraph style, it will be applied to all
+paragraphs which contain any selected text<P>
+(or the caret is the selection is of zero length).<P>
+Two buttons are provided to help in converting existing unstyles documents
+into HTML:-
+<H3>Find unstyled text</H3>This will highlight the first peice of text inthe document which has
+not been given a style.
+<H3>Apply style to all similar text</H3>This will apply the selected style to not only the selected text,
+but also all that text which has the same paragraph layout (indents,
+etc) and font. If you have a document which is formatted in rtf, but
+not styled, you maybe able to pick up all the headings, for example,
+in this way.<P>
+Editing of styles is not currently supported (Nov 1990).
+<H2><A NAME=search>Keyword search</A></H2>This brings up the keyword search panel. You can only use the keyword
+search panel when the main window (the one with the dark title bar)
+is an index document. (Index documents normally say that they are
+indexes and very little else).<P>
+To search an index, enter one or more keywords on the keyword field
+of the panel, and press return. The result will be a page of (virtual)
+hypertext which gives you a list of references satisfying your search.
+You can click on one of these to select the one which you are interested
+in. Alternatively, you can change your keywords, and try again.
+<H2><A NAME=39>Help</A></H2>This jumps to the WorldWideWeb documentation.  If it doesn't work,
+then see your system manager to ensure that the application is properly
+installed with its documentation.
+<H2><A NAME=hide>Hide</A></H2>This hides the application as is usual on the NeXT. The state of it
+is unchanged. Double-click on the application's icon to bring it back.
+<H2><A NAME=quit>Quit</A></H2>This quits the application as is usual on the NeXT, except that currently
+(Nov90) it DOES NOT CHECK FOR UNSAVED WINDOWS. It is wise to "<A NAME=13 HREF=#12> save
+all edited</A> " before using "quit".

@@ -1,0 +1,48 @@
+<TITLE>ExistingData -- /Provider</TITLE>
+<NEXTID 2>
+<H1>Making a server for existing data</H1>
+<H2>Question</H2>"... So, I wrote a lovely, full-screen, menu-style FORTRAN interface
+to access our ORACLE database and had intended[...]. <P>
+Now I hear about WWW, and perhaps I should scrap my program, but where
+do I  begin?My program does some complicated assembly of the necessary queries
+and can present dynamic lists to the user depending on their previous
+queries, so a simple driver that dump the user into a SQL interface
+is not sufficient."
+<H2>Converting an existing data access program into a server</H2>First off, don't scrap your program!  You can probably use most of
+it.<P>
+The first thing to do is to deal with the user state. That is, where
+curreently the user wanders through the data in a sort of flow chart,
+your W3 server will be stateless. The state will in fact be held by
+the client as the name of the current document. Each time the user
+does something, the server will get the document id sent over (possible
+with query text) and will return the text to be displayed and the
+links to other states.<P>
+You have therefore to make an ascii name for his position at any point<P>
+in the flowchart. For example, if he has just selected database 1
+and has already decided he wants only information available since
+1990, then you might sumarize his posistion as something like
+<XMP>
+			/db=1/since=1990
+
+</XMP>etc etc --- plug your own parameters in here.  Basically, you are
+turning the flowchart into a finite state machine here. The state
+names become the names of the virtual documents which the user will
+see when he is at that step.Having named each point in the flowchart (there will probably be an
+infinite number of these as the parameters take arbitrary values)
+then you<P>
+will find that your program consists of code to, given a current state,
+output the appropriate menu or whatever for the next step. All you
+do is make a big case/switch/if etc statement to determine which pit
+of code to run given the state. You have to rewrite the output code
+so that instead of formatting stuff for the screen directly (building
+a menu, or moving the cursor etc), it outputs the display in a logically
+marked up format called HTML. This is like but not the same as say
+LaTeX.  Where a bit of menu<P>
+will lead to another state, you generate markup to make it point to<P>
+that state.<P>
+See also: <A NAME=1 HREF=RadioButtons.html>multiple selections</A>
+<DL>
+<DT>
+</DL>
+
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

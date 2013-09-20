@@ -1,0 +1,42 @@
+<TITLE>NewsServer -- /Defaults</TITLE>
+<NEXTID 1>
+<H1>News Server address</H1>To be able to read news, the www program needs the address of a news
+server. This is a machine which runs the NNTP protocol.  If you already
+use internet news on your site, you will have one of these. There
+are several ways you can tell www which news server to use.<P>
+Note you may also have your machine enabled as being authorised to
+pick up news from the news server by that server's system manager.
+<H2>Exception</H2>
+<DL>
+<DT>On a NeXT
+<DD> The NeXT defaults are read, looking for a value for "NewsHost"
+for application name "WorldWideWeb", then for a global default, then
+for application named "News". 
+</DL>
+
+<H2>All other cases</H2>
+<H3>Set an environment variable</H3>You can set the environment variable NNTPSERVER to be the internet
+address of the server. You can do this in your .login file. (On VMS,
+use a logical name, on  VM/CMS, the CENV globalv table).
+<H3>Use a file</H3>The file /usr/local/lib/rn/server will be read if it exists and no
+environment variable is defined.  It should contain the single line
+containing the name of the news server.  This filename may be overridden
+at compile time by defining the SERVER_FILE symbol to be the quoted
+string.
+<H3>At compile time</H3>If you are installing www for several people, you can set the default
+by defining the variable DEFAULT_NEWS_HOST to be the quoted string
+of the server name on the command line fo the compilation of the HTNews.c
+module  For example, use the option (check your own compiler's command
+line syntax)
+<XMP>
+			-DDEFAULT_NEWS_HOST="mynewshost.domain"
+
+</XMP>
+<H3>Use a domain name alias</H3>If  no other deafult news host is found, the software looks for a
+machine with name or alias "news" in the local domain. If your domain
+has a single news server which you would like to use as a default,
+and the person in charge of the domain name registration agrees, then
+make an alias "news" for the server. This will have the managemnt
+advantage that the administration can move the news server without
+any trouble later.  (This is the way it is done at CERN).
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A>

@@ -1,0 +1,16 @@
+<TITLE>Installation -- /User</TITLE>
+<NEXTID 10>
+<H1>Installing te basic httop daemon</H1>The usual way to install a daemon is to either run it from the bootstrap
+command file (for example /etc/rc) so that it runs continuously, or
+to set up the internet daemon (inetd) to run it when a call comes
+in. <P>
+Remember to make a <A NAME=5 HREF="RuleFile.html">rule file</A> unless you explicitly supress it with
+the -R option.
+<H2><A NAME=2>Using the Internet daemon</A></H2>There is a csh script to do this for a BSD unix system. You might
+want to edit it to run on other systems. <P>
+Otherwise, just follow the <A NAME=9 HREF="Inetd.html">instructions for installing a server under
+the internet daemon</A>.
+<H2>Log file</H2>If  a log file is required,  make sure that the user name under which
+the daemon is run  has the right to write the file
+<ADDRESS><A NAME=0 HREF="../../../TBL_Disclaimer.html">Tim BL</A></A>
+</ADDRESS>

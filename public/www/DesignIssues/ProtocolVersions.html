@@ -1,0 +1,77 @@
+<TITLE>ProtocolVersions -- /DesignIssues</TITLE>
+<NEXTID 12>
+<ADDRESS>(part of <A NAME=10 HREF=../Implementation/DesignNotes.html>Design Notes</A> ) 92.06.11 RC
+</ADDRESS>
+<H1>From Version to Version of HTTP</H1>
+<H2>Current version of HTTP</H2>I propose 0.9 as the number of the <A NAME=3 HREF=HTTP0.9Summary.html>current version</A> .
+<H2>Compatibility</H2>Today (June 1992) WWW is used in a community of highly computer literate
+people. The cost of making all users adopt a new, incompatible version
+of the browser and/or the server is not very high, neither in effort
+nor in inconvenience.<P>
+Nevertheless, I will propose to go to a new version in a compatible
+way. [Absolutely -- we can require complete back-compatibility for
+both clients and servers - Tim]
+<H2>Imperatives</H2>Browsers and servers must have a few <A NAME=8 HREF=HTTP0.9Summary.html#1>characteristics</A> that must be
+kept over all versions.
+<H2>What has a version?</H2>A version is associated with the HTTP protocol used in the exchange
+between servers and browsers.  Because two agents on two different
+machines are involved, there can be two different implementations
+of the protocol at work. The version of the browser or the server
+refers to its capabilities in displaying or providing, not to the
+protocol. Perhaps a Browser or server should be characterised by both
+numbers:  Linemode 3.4/2.0 would mean browser version 3.4 using HTTP
+2.0. [Hang on -- let's not complicate things unduly. The software
+has a version number, and so does the protocol but they're nothing
+to do with each other]<P>
+An HTTP version number consists of 
+<UL>
+<LI>an integer indicating the set of features,
+<LI>a dot,
+<LI>an integer indicating the level, whereby the differences between,
+say, 2.01 and 2.02 must be such that ANY two version 2 implementations
+must be able to communicate without problems.
+</UL>[So you require back-compatibility between "major" versions number
+before the dot changing] and both-ways compatibility between "minor"
+versions? -- DEC jargon]
+<H2>Aims</H2>In a new version of HTTP, there can be added features, but there can
+also be a lack of deprecated ones. Communication between a browser
+using version n and a server using version m should in some sense
+be possible.<P>
+It is reasonable to require that an agent using version n+1 also still
+knows how to handle version n but does not have to know version n-1.
+<H2>Forwards</H2>There are three disjoint elements:
+<UL>
+<LI>the WWW data model, which today consists of documents which may have
+explicit links and/or be queryable with text-based queries. [Was:
+maybe I'd prefer to call data bases, since an index is a reference
+table built from a data base to ease access to it)."    An index can
+be many <A NAME=9 HREF=WhatIsAnIndex.html>things</A> ] There is no reason why other types should not be
+added, such as time-indefinite communications (eg. a telnet session,
+TV or process control).[Is this really different from a document?]
+<LI>the HTTP protocol, which should be defined outside the document contents.
+It needs to evolve and expand.
+<LI>the HTML markup which is today the only implemented format we accept
+for the document contents. Here certainly we want more.
+</UL>The next releases should distinguish these cleanly. One way is to
+talk HTTP over a control connection and documents over a data connection.
+<H2>Pragmatism</H2>Having suggested a split of control and data, I realise that at present
+this is too much, and so we must keep going on one connection. [Ample
+justification for this is the difference in reponse time from HTTP
+servers and FTP servers -- the latter using 2 connections] That implies
+though that we must do our own transmission protocol inside HTTP,
+ie. when we send, say, binary data, then because we mix HTTP and data
+on the same connection, we have to do things inside HTTP like "here
+follows 3406 bytes of binary data" because otherwise we are not guaranteed
+to be able to distinguish between HTTP controls and document data.
+<H2>Proposed modifications</H2>
+<H3>Version 1.0:</H3>The HTTP version number is sent in every communication, by the browser
+after the argument to GET, by the server in a tag at the start. [I
+don't see the reason for this version.]
+<H3>Version 2.0:</H3>The HTTP version number is sent at the start of every communication.<P>
+The HTTP commands are not in HTML; however, they are mixed in with
+the data stream. [I would say they envelop the data stream. I think
+it is important to keep the TOEOF style as an option because it is
+so practical]<P>
+See also <A NAME=4 HREF=ProtocolProblems.html>problems to solve</A> , a way of communicating <A NAME=6 HREF=Protocolcomms.html>with different
+versions</A> and a <A NAME=7 HREF=CompatibleProof.html>proof</A> that the new version is backwards compatible.<P>
+<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#Cailliau>RC</A>

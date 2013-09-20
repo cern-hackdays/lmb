@@ -1,0 +1,54 @@
+<TITLE>Installation -- /User</TITLE>
+<NEXTID 8>
+<H1>Installing a daemon under inetd</H1>The usual way to install a daemon is to either run it from the bootstrap
+command file (for example /etc/rc) so that it runs continuously, or
+to set up the internet daemon (inetd) to run it when a call comes
+in. <P>
+There is a csh script to do all this for BSD systems, which should
+be run from the directory in which you have compiled the daemon.
+<H2></H2>Copy the daemon program or shell script (<A NAME=6 HREF="Guide.html"> httpd</A> in this example) into
+a suitable directory such as /usr/etc/httpd.  Protect it from anyone
+writing to it except root.<P>
+Put "http" in the /etc/services file, or use the name of a specific
+service of your own if you want to use have a special port number.<P>
+ (Exceptions: on a NeXT, see  using the <A NAME=3 HREF="NetInfo.html">NetInfomanager</A> . On any machine
+running NIS (yellow pages), see  specicial instructions ). <P>
+For example,
+<XMP>www		80/tcp			# WorldWideWeb server
+
+</XMP>Put a line in the internet daemon configuration file, /etc/inetd.conf.
+For example,
+<LISTING>www	stream	tcp	nowait	nobody	/usr/etc/httpd		httpd -l /private/adm/httpd-log.txt
+
+</LISTING>(That was all one line.) Here "www" is used as a link between the
+services file and inetd.conf: it could have been any identifier. "nobody"
+is the user name under which you want the daemon to run, which determines
+what privileges it has for example to read data. The inted.conf format
+varies from system to system so copy the format of other lines in
+your version.<P>
+Note: there seem to be, on the NeXT at least, a limit of 4 arguments
+passed across by inetd!When you have updated inted.conf, find out
+which process is running inetd, and send it a "HUP" signal.  On BSD
+unix (For system V, use ps-el for ps aux) this looks like:
+<XMP>		
+		> ps aux | grep inetd | grep -v grep
+		root        85   0.0  0.9 1.24M  304K ?  S     0:01 /usr/etc/inetd
+		> kill -HUP 85
+		>
+
+
+</XMP>
+<H2>Also remember for httpd:</H2>You must make or copy a rule file /etc/httpd.conf, unless you have
+used the -r option to change its location, or -R to disable it.<P>
+The -r option tells the daemon which rule file to use.  See <A NAME=1 HREF="RuleFile.html">rule files</A>
+.<P>
+If  a log file is required,  make sure that the user name under which
+the daemon is run (the 5th field in the line above) has the right
+to write the file.<P>
+Test the server with the line mode browser by giving its address explicitly:
+<XMP>			www http://myhost.dom.ain:80/junkdocumentname
+
+</XMP>If it doesn't work, you have probably missed something. See notes
+on <A NAME=4 HREF="Debugging.html">debugging</A> .
+<ADDRESS><A NAME=0 HREF="../../../TBL_Disclaimer.html">Tim BL</A>
+</ADDRESS>

@@ -1,0 +1,40 @@
+<TITLE>UseOfCVS -- /Project</TITLE>
+<NEXTID 4>
+<H1>Use of CVS</H1>
+<H2>History</H2>of <A NAME=3 HREF=../IntroCVS.html>introducing CVS</A> in WWW code management
+<H2>Short Description</H2>Code management in WWW is done with tools to be found in the directory
+hypertext/WWW/CodeManagexec.<P>
+CVS (Concurrent Versions System) is installed there, with all its
+sources. <P>
+CVS keeps all versions and all branches of a particular source file
+"f.c" in a single file "f.c,v". This file has a structure which uses
+the differences from version to version, so that it takes up much
+less space than the corresponding set of versions. Access to versions
+is through a command "check out" and a new version is incorporated
+into this file through a command "check in".<P>
+The set of all ",v" files used for an application is called its "repository".
+The repository is structured as a hierarchy of directories, just like
+the sources for the application would be.<P>
+You never touch the repository except through commands given to CVS.<P>
+Normally you will start work by checking out of the repository a complete
+set of source files into your private work space. CVS will extract
+the sources and create the necessary directory structure in your space.<P>
+Development can then go on independently of any other person working
+on the same version: each developer has his own private copies.<P>
+When you have work ready, you will check in your files: CVS will incorporate
+the changes of all modified files into the repository as a new version.<P>
+More important: when a different developer has checked in some work
+(e.g. a bug fix), you can incorporate that into your current work
+*without* having to check in, by the "update" operation. Developers
+synchronise once in a while through updates.<P>
+There are also various means of identifying important versions.
+<H2>WWW installation</H2>The directory CVSROOT is where CVS stores its bookkeeping files.<P>
+The directory CVSRepository is where CVS stores the sources in the
+RCS format, i.e. one file for all versions and branches of each source
+file.<P>
+Please do not touch CVSROOT nor CVSRepository, they are to be maintained
+by use of CVS commands only.
+<H2>CVS manual</H2>The <A NAME=1 HREF=CVSman.html>CVS</A> and <A NAME=2 HREF=RCSman.html>RCS</A> manuals are in the web.<P>
+(Note: Terry Hung introduced it at SLAC, but I believe we got it from
+the "standard" sources: prep.ai.mit.edu.)<P>
+<A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#Cailliau> RC</A>

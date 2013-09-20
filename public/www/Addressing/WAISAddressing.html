@@ -1,0 +1,32 @@
+<TITLE>WAISAddressing -- /Addressing</TITLE>
+<NEXTID 9>
+<H1>W3 addresses for WAIS servers</H1>Servers using the WAIS (<A NAME=2 HREF=../../Products/WAIS/Overview.html>"Wide Area Information Systems"</A>) protocols
+from Thinking Machines may be accessed as part of the web using addresses
+of the form (see <A NAME=8 HREF=BNF.html#105>BNF description</A>)<P>
+w a i s : / / hostport / database ...<P>
+Access (currently) goes through a gateway which stores the "source"
+files which contain the descriptions of WAIS servers. This address
+corresponds to the address of an index. To this may optionally be
+appended either a search string or a document identifier.<P>
+Note that changes have been proposed to WAIS document id format, so
+this representation of them may have to change with that format. Currently
+the WAIS document address necessary for retrieval by a client requires
+the following information, which is orginally provided by the server
+in the hit list.
+<DL>
+<DT><A NAME=5 HREF=BNF.html#102>Document format</A>
+<DD>This is normally "TEXT" but other formats such as PS,
+GIF, exist.
+<DT><A NAME=6 HREF=BNF.html#107>Document length</A>
+<DD>This is needed by the client who must loop to retrie
+the whole document in slices.
+<DT><A NAME=7 HREF=BNF.html#99>Document identifier</A>
+<DD>This is an entity consisting of numerically tagged
+fields. the binary representation used by WAIS is transformed for
+readability into  a sequence of  fields each consisting of a decimal
+tag, an equals sign (=) , the field value, and a semicolon. Within
+the field value, hex <A NAME=1 HREF=Escaping.html>escaping</A> is used for otherwise illegal characters.
+</DL>
+See also: Other <A NAME=3 HREF=Addressing.html>W3 address formats</A>, <A NAME=4 HREF=BNF.html#105>BNF definition</A>.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A><P>

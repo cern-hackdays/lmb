@@ -1,0 +1,46 @@
+<TITLE>W3 address syntax for Gopher documents</TITLE>
+<NEXTID 10>
+<H1>Gopher addressing</H1>Gopher addresses indicate that the gopher protocol should be used
+to access the information.  The Gopher protocol is a simple internet
+protocol similar to <A NAME=1 HREF=HTTPAddressing.html>HTTP</A> . It allows the transfer of menus or plain
+text files.  (HTTP expresses both menus and plain text files as special
+cases of hypertext files). See the gopher protocol <A NAME=6 HREF=../../Gopher/gopher_protocol/protocol.rtf>notes</A> .   <P>
+The syntax is, with [] indicating optional parts (see <A NAME=8 HREF=BNF.html#72>BNF</A> )
+<XMP>		gopher:// hostname [: port ] [/gtype/ [selector] ] [ ? search ]
+
+</XMP>There should be no spaces. For example, the following are valid addresses:
+<XMP>		gopher://gopher.micro.umn.edu:70
+		gopher://gopher.micro.umn.edu:70/1/
+		gopher://gopher.micro.umn.edu:70
+
+</XMP>The W3 address for a gopher item may be derived from the fields of
+a gopher menu line which has the format
+<DL>
+<DT><A NAME=4 HREF=BNF.html#43>host</A>
+<DD> This is the name of the server in internet form. A numeric form
+(e.g. 128.141.201.74) may be used, by the domain name form (e.g. info.cern.ch)
+is preferred. The hostname is mandatory.
+<DT><A NAME=3 HREF=BNF.html#7>port</A>
+<DD> This is a numeric port number. If a non-numeric string is used,
+it must be a defined service name. Note that as there is no central
+repository for service names (they are defined locaaly for each host),
+a service name is NOT an appropriate way to specify a port number
+for a hypertext address. If the port number is omitted the preceding
+colon must also be omitted. In this case, port number 70 is assumed.
+<DT><A NAME=7 HREF=BNF.html#70>gtype</A>
+<DD> This is a gopher item type number, a (hopefully printable!)
+ASCII character.  Currently these types are all ASCII decimal digit
+characters. Character "0" (hex 30)  signifies a plain text file. Character
+"1" signifies a Menu.  Character "7" signifies a searchable index.
+ Character "8" should not be used in a W3 address: use <A NAME=2 HREF=TelnetAddressing.html>telnet addressing</A>
+instead.  In general W3 terms, the type is the first part of the path.
+The rest of the path is the gopher selector string. The type field
+is a hint to the client as to how to represent the anchor, and how
+to follow it.
+<DT><A NAME=9 HREF=BNF.html#75>selector</A>
+<DD> This is the string to be sent to the gopher server to identify
+the information required.
+</DL>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

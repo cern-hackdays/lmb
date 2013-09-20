@@ -1,0 +1,19 @@
+<TITLE>HTML Design Constraints</TITLE>
+<NEXTID 1>
+<H1>Design Constraints</H1>When designing the <A NAME=0 HREF=HTML.html>HTML</A> document type, consideration was given to
+a certain simplicity in order to allow many browsers and hopefully
+editors to be developed on many platforms.
+<H2>Lack of nesting</H2>Many text editing systems (Microsoft Word, The NeXT text object, the
+Mac text object, etc) handle text in a variety of styles but do not
+have any concept of nestable structure in the SGML sense.<P>
+The constraint here is therefore that HTML be able to be mapped into
+a sequence of paragraphs of styled text, and that if that text is
+edited that the editor should be able to map the sequence of styles
+back onto a sequence of elements in a well-defined way. This allows
+some limited trivial nesting (eg LI within UL) but no general nesting,
+as a finite and small set of styles is used. In particular, the styles
+are not parameterized by the nesting level.
+<H2>Logical Markup</H2>It is required that HTML be a common language between all platforms.
+This implies no device-specific markup, or anything which requires
+control over fonts or colors, for example.  This is in keeping with
+the SGML ideal.</A>

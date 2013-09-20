@@ -1,0 +1,58 @@
+<TITLE>Installing the Mail Robot</TITLE>
+<NEXTID 3>
+<H1>Installation</H1>Here are the steps necessary to install the <A NAME=0 HREF=Overview.html>Mail Robot</A> product on
+your unix system.
+<H2>Customisation</H2>Set up the variables in <A NAME=1 HREF=Implementation/listserv.h>listserv.h</A> and <A NAME=2 HREF=Implementation/CommonMakefile>CommonMakefile</A> to suit your
+site.
+<DL>
+<DT>POSTMASTER
+<DD> The address from which messages appear to come. Why not
+listserv? Perhaps to prevent mail loops.
+<DT>SECUREWWW
+<DD> The executable W3 line mode browser (v1.3 or later, so as
+to have the -listrefs option). This is a separate product. For security,
+www should be writable only by root.
+<DT>SERVERDIR
+<DD> The directory in which you want to put your mailing lists
+and help about them.
+</DL>
+
+<H2>Compile the programs</H2>Everything compiled on AEM's MicroVax II running ULTRIX 3.0 then TBL's
+NeXT without any problem at all. Your results may vary.
+<H2>Create your SERVDIR</H2>wherever you specified in listserv.h. Install a HELP file, perhaps
+using the example-files/HELP in this directory as a template.
+<H2>Set up an alias "listserv"</H2>Make an alias in your /etc/aliases (or /etc/sendmail/aliases, whatever
+you have) that points to this program, for example:
+<XMP>
+		listserv:	"|/usr/local/mail/listserv"
+		robot:		"|/usr/local/mail/listserv"
+
+
+</XMP>
+<H2>For each mailing list</H2>Create a name.info file giving a bit of information about that mailing
+list. see the *.info files in the example-files subdirectory.<P>
+Create a name file in the same directory, consisting of email addresses
+one to a line of subscribers to a group. If it is for a brand-new
+group, create an empty file. Remember that this file must be writable
+by the mail daemon. The name of the file is just the name of the group.<P>
+Depending on how you have your mailing lists set up, you may need
+to add an alias to the /etc/aliases file for each of the mailing lists.
+For example:
+<XMP>	real-recipes: :include:/usr/local/mail/maillists/recipes
+
+</XMP>So sending mail to real-recipes actually goes to each of the subscribers
+listed in /usr/local/mail/maillists/recipes
+<H2>Install listserv</H2>Install in the appropriate directory.  Edit the CommonMakefile and
+then
+<XMP>		make install
+
+</XMP>
+<H2>Run newaliases</H2>This gets sendmail to read the changes in /etc/aliases.
+<XMP>		newaliases
+
+</XMP>
+<H2>Try it out</H2>Send mail to listserv with body
+<XMP>
+		HELP
+
+</XMP>for example.

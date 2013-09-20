@@ -1,0 +1,100 @@
+<TITLE>Notation -- /WWW</TITLE>
+<NEXTID 4>
+<H1>Notation</H1>
+<H2><A NAME=1>A. BNF notation for syntax</A></H2>This section has three parts:<P>
+(a) a straight copy of a section of RFC #822	Standard for ARPA Internet
+Text Messages,  August 13, 1982,<P>
+(b) changes and additions to (a),<P>
+(c) a set of rules that we use everywhere and that are listed here
+once.
+<H2>(a) NOTATIONAL CONVENTIONS</H2>This specification uses an augmented Backus-Naur Form (BNF) notation.
+The differences from standard BNF involve naming rules and indicating
+repetition and "local" alternatives. 
+<H3>1. RULE NAMING </H3>Angle brackets
+<XMP>				"<" and ">"
+</XMP>are not used, in general. The name of a rule is simply the name itself,
+rather than
+<XMP>				<name>
+</XMP>Quotation-marks enclose literal text (which may be upper and/or lower
+case). Certain basic rules are in uppercase, such as SPACE, TAB, CRLF,
+DIGIT, ALPHA, etc. Angle brackets are used in rule definitions, and
+in the rest of this document, whenever their presence will facilitate
+discerning the use of rule names.(Note for WWW: we never use them)
+<H3>2. RULE1 / RULE2: ALTERNATIVES</H3>Elements separated by slash ("/") are alternatives. Therefore "foo
+/ bar" will accept foo or bar. NOTE: this rule is changed to use the
+vertical bar character "|" instead of slash, since the syntax for
+directory paths uses slashes heavily.
+<H3>3. (RULE1 RULE2): LOCAL ALTERNATIVES</H3>Elements enclosed in parentheses are treated as a single element.
+Thus, "(elem (foo | bar) elem)" allows the token sequences "elem foo
+elem" and "elem bar elem". 
+<H3>4. *RULE: REPETITION </H3>The character "*" preceding an element indicates repetition. The full
+form is:
+<XMP>
+ 		<l>*<m>element
+
+</XMP>indicating at least l and at most m occurrences of element. Default
+values are 0 and infinity so that "*(element)" allows any number,
+including zero; "1*element" requires at least one; and "1*2element"
+allows one or two. 
+<H3>5. [RULE]: OPTIONAL </H3>Square brackets enclose optional elements; "[foo bar]" is equivalent
+to "*1(foo bar)". 
+<H3>6. NRULE: SPECIFIC REPETITION</H3>
+<XMP>
+		"<n>(element)" </XMP>is equivalent to 
+<XMP>
+		"<n>*<n>(element)"
+</XMP>that is, exactly n occurrences of (element). Thus 2DIGIT is a 2-digit
+number, and 3ALPHA is a string of three alphabetic characters. 
+<H3>7. #RULE: LISTS </H3>A construct "#" is defined, similar to "*", as follows:
+<XMP>
+ 		<l>#<m>element
+
+</XMP>indicating at least l and at most m elements, each separated by one
+or more commas (","). This makes the usual form of lists very easy;
+a rule such as '(element *("," element))' can be shown as "1#element".
+Wherever this construct is used, null elements are allowed, but do
+not contribute to the count of elements present. That is, "(element),,(element)"
+is permitted, but counts as only two elements. Therefore, where at
+least one element is required, at least one non-null element must
+be present. Default values are 0 and infinity so that "#(element)"
+allows any number, including zero; "1#element" requires at least one;
+and "1#2element" allows one or two. 
+<H3>8. ; COMMENTS </H3>A semi-colon, set off some distance to the right of rule text, starts
+a comment that continues to the end of line. This is a simple way
+of including useful notes in parallel with the specifications.
+<H2>(b) Changes and additions</H2>1) nonterminals are written starting with a capital and having capitals
+at embedded word starts, as in:
+<XMP>		RuleOfTerminalsAndNonTerminals
+
+</XMP>2) a rule is written as
+<XMP>		NonTerminal ::= RuleOfTerminalsAndNonTerminals
+
+</XMP>3) because the slash is heavily used in directory path names, the
+alternatives are separated by a vertical bar "|" rather than a slash.<P>
+4) sometimes it is necessary to specify a layout character sequence,
+such as newline. We have here adopted the conventions used in C strings:
+<XMP>		\n	newline
+		\r	carriage-return
+		\t	tab
+		\b	backspace
+		\f	form feed
+
+</XMP>5) because the angle brackets are used by SGML, we will never use
+angle brackets to indicate nonterminals, but always use the way of
+writing nonterminals given above.
+<H2>(c) General rules</H2>HTTP data are written in line format, ie. line breaks are significant.
+<H3>Line breaks</H3>
+<XMP>		CrLf ::= \r\n
+</XMP><A NAME=3>
+<H3>Strings:</A></H3>The purpose of a string is to allow any sequence of printable characters
+and the space to be transmitted. A string is a sequence of ASCII characters,
+written using C's notation for strings. Thus, a string is surrounded
+by double-quote characters and excludes control characters. <P>
+If a double-quote character is used inside a string, it must appear
+as the sequence \" (backslash followed by double quote). <P>
+A control character can be represented by a backslash followed by
+its ASCII sequence number in octal notation.<P>
+The NUL is not representable.
+<XMP>
+
+</XMP><A NAME=0 HREF=http://info.cern.ch/hypertext/WWW/People.html#Cailliau>RC</A></A>
