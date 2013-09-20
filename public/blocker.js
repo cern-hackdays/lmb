@@ -1,7 +1,7 @@
 var blocker = (function () {
 
   var position = 0,
-      speed = 1,
+      speed = 6,
       length = 80 * 24 / speed,
       ch = 0,
       stspeed = 0, // ALWAYS KEEP AT ZERO!
