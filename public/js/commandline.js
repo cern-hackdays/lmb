@@ -1,10 +1,21 @@
+var cmd = document.querySelector('#cmd-input'),
+    cursor = document.querySelector('#cmd-cursor'),
+    promptElement = document.querySelector('.cmd-prompt'),
+    cursors = {
+      37: 'left',
+      38: 'up',
+      39: 'right',
+      40: 'down'
+    },
+    typingTimer = null;
+
 function setPrompt ($) {
 	var prompt = "";
 
-	if (document.querySelectorAll('isindex').length > 0){
+	if (document.querySelectorAll('isindex').length){
 		prompt = prompt + 'K &lt;keywords&gt;, ';
 	}
-	if (document.querySelectorAll('a').length > 0){
+	if (document.querySelectorAll('a').length){
 		prompt = prompt + '&lt;ref.number&gt;, ';
 	}
 	if (history.length > 1){
@@ -19,9 +30,13 @@ function setPrompt ($) {
 	if (prompt.length <= 47){
 		prompt = prompt + 'Quit, ';
 	}
+	
 	prompt = prompt + 'or Help: ';
-
-	document.querySelector('.cmd-prompt').innerHTML = prompt;
+	
+	promptElement.innerHTML = prompt;
+	
+	// Adjust style
+	cursor.style.left = promptElement.textContent.length + 1 + 'ch';
 }
 
 function run(command, e) {
@@ -37,24 +52,6 @@ function run(command, e) {
   // else don't prevent default
 }
 
-function getValue() {
-  return cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'];
-}
-
-function setValue(v) {
-  cmd[cmd.nodeName == 'INPUT'? 'value' : 'innerHTML'] = v;
-}
-
-var cmd = document.querySelector('#cmd-input'),
-    cursor = document.querySelector('#cmd-cursor'),
-    cursors = {
-      37: 'left',
-      38: 'up',
-      39: 'right',
-      40: 'down'
-    },
-    typingTimer = null;
-
 function typing() {
   clearTimeout(typingTimer);
 
@@ -65,20 +62,20 @@ function typing() {
 }
 
 cmd.oninput = function () {
-	cursor.style.marginLeft = getValue().length + 'ch';
+	cursor.style.marginLeft = cmd.value.length + 'ch';
 	console.log(cursor.style.marginLeft, 'weee');
 }
 
 cmd.onkeydown = function (e) {
   typing();
 
-  var val = getValue();
+  var val = cmd.value;
 
   if (e.keyCode === 13 && val) {
     e.preventDefault();
     e.stopPropagation();
     run(val, e);
-    setValue(val);
+    cmd.value = val;
   }
   else if (cursors[e.keyCode]) {
     // junk it and don't allow
@@ -94,10 +91,7 @@ document.documentElement.onkeydown = function (e) {
   }
 };
 
-document.documentElement.onclick = function () {
-  cmd.focus();
-};
-
+document.documentElement.onclick = 
 document.documentElement.onfocus = function () {
   cmd.focus();
 }
@@ -120,7 +114,7 @@ var commands = {
   help: function () {
 	// LMB had help in the compiled code, contained logic
 	// Using static file for now
-	window.location = '/help.html';
+	window.location = '/www/help.html';
   },
   home: function () {
     // TODO
@@ -184,14 +178,15 @@ window.onload = function () {
   var lineHeight = parseFloat(getComputedStyle(document.body).lineHeight);
 
   document.getElementById('lmb-footer').style.paddingBottom = innerHeight - 24 * lineHeight;
+
+  // Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
+  (window.adjustFontSize = function (){
+    var maxLineHeight = innerHeight / 25,
+        size = Math.floor(maxLineHeight / 1.5);
+    document.documentElement.style.fontSize = size  + 'px';
+
+    blocker.size(size * 1.5);
+  })();
+
+  addEventListener('resize', adjustFontSize);
 };
-
-// Make sure 24 lines fit on the viewport and make the font-size as large as possible for that
-(window.adjustFontSize = function (){
-  var maxLineHeight = innerHeight / 25,
-      size = Math.floor(maxLineHeight / 1.5);
-	document.documentElement.style.fontSize = size  + 'px';
-  blocker.size(size * 1.5);
-})();
-
-addEventListener('resize', adjustFontSize);
