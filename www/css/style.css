@@ -131,6 +131,38 @@ a:hover {
 	font-size: 1.4em;
 }
 
+.bookmarklets .d1, .bookmarklets .d2 {  
+	border: 1px solid #ddd;
+	padding: 20px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	min-height: 200px;
+	background-color: #fff;
+}
+
+.bookmarklets h4 { 
+	border-bottom: 1px dotted #ddd;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.bookmarklets a { 
+	text-align: center;
+	display: block;
+}
+
+.bookmarklets input { 
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid #ddd;
+	font-size: 1.6rem;
+}
+
+.bookmarklets input:hover { 
+	cursor: text;
+}
+
 
 cite, nav, footer p{
 	font-family: 'PT Sans Caption', sans-serif;
