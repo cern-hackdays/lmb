@@ -1,10 +1,10 @@
 function setPrompt ($) {
 	var prompt = "";
 
-	if (document.querySelectorAll('isindex').length > 0){
+	if (document.querySelectorAll('isindex').length){
 		prompt = prompt + 'K &lt;keywords&gt;, ';
 	}
-	if (document.querySelectorAll('a').length > 0){
+	if (document.querySelectorAll('a').length){
 		prompt = prompt + '&lt;ref.number&gt;, ';
 	}
 	if (history.length > 1){
@@ -19,11 +19,13 @@ function setPrompt ($) {
 	if (prompt.length <= 47){
 		prompt = prompt + 'Quit, ';
 	}
+	
 	prompt = prompt + 'or Help: ';
 
 	document.querySelector('.cmd-prompt').innerHTML = prompt;
 	
 	// Adjust style
+	console.log(prompt.length, prompt.length + 1 + 'ch');
 	cursor.style.left = prompt.length + 1 + 'ch';
 }
 
