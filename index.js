@@ -24,6 +24,10 @@ function proxy(req, res, next) {
 
   if (url.pathname === '/www/proxy') {
     var url = url.query.url;
+
+    if (!url) {
+      return next();
+    }
     var base = urlparse.parse(url).protocol + '//' + urlparse.parse(url).hostname
 
     request(url, function (error, response, body) {

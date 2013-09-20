@@ -61,6 +61,8 @@ cmd.oninput = function () {
 	console.log(cursor.style.marginLeft, 'weee');
 }
 
+cmd.oninput = updateCursor;
+
 cmd.onkeydown = function (e) {
   typing();
 
@@ -70,7 +72,8 @@ cmd.onkeydown = function (e) {
     e.preventDefault();
     e.stopPropagation();
     run(val, e);
-    cmd.value = val;
+    cmd.value = '';
+    updateCursor();
   }
   else if (cursors[e.keyCode]) {
     // junk it and don't allow
@@ -86,7 +89,7 @@ document.documentElement.onkeydown = function (e) {
   }
 };
 
-document.documentElement.onclick = 
+document.documentElement.onclick =
 document.documentElement.onfocus = function () {
   cmd.focus();
 }
@@ -152,6 +155,9 @@ commands.t = commands.top;
 commands.T = commands.top;
 commands.q = commands.quit;
 commands.Quit = commands.quit;
+commands.Back = commands.back;
+commands.B = commands.back;
+commands.b = commands.back;
 
 // restore the super old html tags
 'plaintext listing h0 hp1 hp2'.replace(/\w+/g, function (a) {
@@ -178,6 +184,11 @@ window.onload = function () {
   (window.adjustFontSize = function (){
     var maxLineHeight = innerHeight / 25,
         size = Math.floor(maxLineHeight / 1.5);
+
+    if (size % 2 !== 0) {
+      size--;
+    }
+
     document.documentElement.style.fontSize = size  + 'px';
 
     blocker.size(size * 1.5);
