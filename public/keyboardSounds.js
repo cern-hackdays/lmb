@@ -5,7 +5,7 @@ var sounds = {
 		sounds.injectAudioElements();
 	},
 	
-	soundFiles: ["sounds/key1.mp3", "sounds/key3.mp3", "sounds/key2.mp3"], //urls of the sounds we're playing
+	soundFiles: ["sounds/key1.wav", "sounds/key2.wav", "sounds/key3.wav", "sounds/key4.wav", "sounds/key5.wav"], //urls of the sounds we're playing
 	
 	playKeyboardSound: function() {
 		//play a random sound from the recorded sounds from the keyboard
