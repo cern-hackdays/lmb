@@ -10,7 +10,7 @@ function setPrompt ($) {
 	if (history.length > 1){
 		prompt = prompt + 'Back, ';
 	}
-	/* 
+	/*
 		if (!end_of_file){
 			printf("&lt;RETURN&gt; for more, ");
 			length_of_prompt = length_of_prompt + 19;
@@ -64,7 +64,7 @@ var cmd = document.querySelector('#cmd-input'),
 
 function typing() {
   clearTimeout(typingTimer);
-  
+
   typingTimer = setTimeout(function () {
     cursor.className = 'wait';
   }, 200);
@@ -78,7 +78,7 @@ cmd.oninput = function () {
 
 cmd.onkeydown = function (e) {
   typing();
-  
+
   var val = getValue();
 
   if (e.keyCode === 13 && val) {
@@ -143,8 +143,8 @@ var commands = {
   recall: function () {
     // TODO list history of visited urls
     // localStorage
-	// output with 2 blank lines then 
-	//             HISTORY OF PREVIOUS NODES :- 
+	// output with 2 blank lines then
+	//             HISTORY OF PREVIOUS NODES :-
 	// then 3 blank lines then
 	//      %2d)       %s
 	// where %2d is a number and %s is the title,
@@ -197,8 +197,8 @@ window.onload = function () {
 (window.adjustFontSize = function (){
   var maxLineHeight = innerHeight / 25,
       size = Math.floor(maxLineHeight / 1.5);
-  document.documentElement.style.fontSize = size  + 'px';
-  blocker.size(size);
+	document.documentElement.style.fontSize = size  + 'px';
+  blocker.size(size * 1.5);
 })();
 
 addEventListener('resize', adjustFontSize);
