@@ -23,7 +23,7 @@ img, video, audio, svg, canvas, iframe, isindex {
 */
 
 html, body, head, title,
-h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
+h0, h1, h2, h3, h4, h5, h6, p, ul, li, ol, pre, table,
 div, section, aside, header, footer, dl {
 	display: block;
 }
@@ -60,19 +60,21 @@ head {
 	background: black;
 }
 
-title {
+h0, title {
 	/*padding-bottom: 1em;*/
 	/* one line of space after title - using padding, since line
 	   must always appear. if h1 next, should show 2 blank lines */
 	text-align: right;
 }
 
+title + h0 {}
+
 body {
 	/*padding-top: 1.5em;*/
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 0;
+	margin: 0;
 }
 
 h1 {
@@ -85,13 +87,29 @@ h2 {
 	text-transform: uppercase; /* only h1, h2 all caps */
 }
 
+h3 {
+	margin: 0 2ch;
+}
+
+h4 {
+	margin: 0 4ch;
+}
+
+h5 {
+	margin: 0 6ch;
+}
+
+h6 {
+	margin: 0 8ch;
+}
+
 a {
 	text-decoration: none;
 	color: inherit;
 }
 
 p {
-	margin-top: 1.5em;
+	margin: 1.5em 3ch 0 3ch;
 	/* paragraph has one line after... but <P> was used more as a
 	   separator than a wrapper... so using margin-top instead    */
 }
