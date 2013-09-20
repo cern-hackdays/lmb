@@ -131,6 +131,8 @@ a:hover {
 	font-size: 1.4em;
 }
 
+.bookmarklets { text-align: center; }
+
 .bookmarklets .d1, .bookmarklets .d2 {  
 	border: 1px solid #ddd;
 	padding: 20px;
@@ -147,8 +149,15 @@ a:hover {
 }
 
 .bookmarklets a { 
-	text-align: center;
-	display: block;
+	font-family: 'PT Sans Narrow', sans-serif;
+	border-radius: 10px; 
+	padding: 5px 10px;
+	border: 1px solid #ddd;
+}
+
+.bookmarklets a:hover { 
+	background-color: #ddd;
+	text-decoration: none;
 }
 
 .bookmarklets input { 
@@ -156,7 +165,7 @@ a:hover {
 	box-sizing: border-box;
 	padding: 10px;
 	border: 1px solid #ddd;
-	font-size: 1.6rem;
+	font-size: 1.2rem;
 }
 
 .bookmarklets input:hover { 
