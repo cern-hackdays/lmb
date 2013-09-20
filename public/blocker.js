@@ -2,7 +2,7 @@ var blocker = (function () {
 
   var position = 0,
       length = 80 * 24,
-      speed = 4,
+      speed = 5,
       ctx;
 
   function init() {
