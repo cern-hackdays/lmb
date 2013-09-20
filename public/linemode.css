@@ -183,48 +183,8 @@ button {display: none}
 
 #cmd-cursor {
 	display: block;
-  margin-left: -1px; /* sit over the real cursor in content editable */
-
+	margin-left: -1px; /* sit over the real cursor in content editable */
+	
 	background: hsl(150, 100%, 50%);
 	box-shadow: 0 0 1px;
-}
-
-#cmd-cursor.wait {
-  -webkit-animation: blink 2s linear 0s infinite;
-  -moz-animation: blink 2s linear 0s infinite;
-  -ms-animation: blink 2s linear 0s infinite;
-  -o-animation: blink 2s linear 0s infinite;
-  animation: blink 2s linear 0s infinite;
-}
-
-@-webkit-keyframes blink {
-  0%   { background: #0a0 }
-  47%  { background: hsl(150, 100%, 50%); }
-  50%  { background: #000; box-shadow: none; }
-  97%  { background: #000; box-shadow: none; }
-  100% { background: hsl(150, 100%, 50%); }
-}
-
-@-moz-keyframes blink {
-  0%   { background: #0a0 }
-  47%  { background: hsl(150, 100%, 50%); }
-  50%  { background: #000; box-shadow: none; }
-  97%  { background: #000; box-shadow: none; }
-  100% { background: hsl(150, 100%, 50%); }
-}
-
-@-ms-keyframes blink {
-  0%   { background: #0a0 }
-  47%  { background: hsl(150, 100%, 50%); }
-  50%  { background: #000; box-shadow: none; }
-  97%  { background: #000; box-shadow: none; }
-  100% { background: hsl(150, 100%, 50%); }
-}
-
-@-o-keyframes blink {
-  0%   { background: #0a0 }
-  47%  { background: hsl(150, 100%, 50%); }
-  50%  { background: #000; box-shadow: none; }
-  97%  { background: #000; box-shadow: none; }
-  100% { background: hsl(150, 100%, 50%); }
 }
