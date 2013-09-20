@@ -40,7 +40,7 @@ var servedir = module.exports = function (routerPath, root, handler) {
     // yes. hard coded. nasty. filth. just remember to remove me when you go
     // viral. -- anon.
     if (file === 'public/www/') {
-      file = 'public/www/default.html';
+      file = 'public/www/index.html';
     }
 
     fs.exists(file, function(exists) {
