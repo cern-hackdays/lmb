@@ -167,11 +167,7 @@ hp1, hp2 {
 }
 
 
-form {display: none}
-
-input {display: none}
-
-button {display: none}
+form, input, button, select {display: none}
 
 #command {
 	position: fixed;
