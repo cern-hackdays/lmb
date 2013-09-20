@@ -163,13 +163,14 @@ button {display: none}
 
 #command {
 	position: fixed;
+	display: block;
 	top: 36em; /* 24 lines */
 	left: 50%;
 	right: 50%;
 	margin: 0 -40ch;
 	height: 9999px;
 	background: black;
-  display: inline-block;
+	white-space: nowrap;
 }
 
 #command input {
