@@ -34,7 +34,7 @@ a, b, strong, em, i, span {
 
 html {
 	background: black;
-	width: 60em; /* fallback, temp, change it when we have the actual font */
+	width: 44em; /* .55 * 80 */
 	width: 80ch;
 	height: 37.5em; /* 25 lines */
 	margin: 0 auto;
@@ -72,7 +72,7 @@ title + h0 {
 	position:absolute;
 	top:0;
 	background: black;
-	width: 60em; /* fallback, temp, change it when we have the actual font */
+	width: 44em; /* fallback, temp, change it when we have the actual font */
 	width: 80ch;
 }
 
@@ -95,18 +95,22 @@ h2 {
 }
 
 h3 {
+	margin: 0 1.1em;
 	margin: 0 2ch; /* h3 indents 2 chars */
 }
 
 h4 {
+	margin: 0 2.2em;
 	margin: 0 4ch; /* h4 indents 4 chars */
 }
 
 h5 {
+	margin: 0 3.3em;
 	margin: 0 6ch; /* h5 indents 6 chars */
 }
 
 h6 {
+	margin: 0 4.4em;
 	margin: 0 8ch; /* h6 indents 8 chars */
 }
 
@@ -142,6 +146,7 @@ dt {
 }
 
 dd {
+	width: 27.5em;
 	width: 50ch;
 }
 
@@ -174,6 +179,7 @@ button {display: none}
 	top: 36em; /* 24 lines */
 	left: 50%;
 	right: 50%;
+	margin: 0 -22em;
 	margin: 0 -40ch;
 	height: 9999px;
 	background: black;
@@ -182,6 +188,7 @@ button {display: none}
 
 #command input {
 	display: inline-block;
+	width: 28.05em;
 	width: 51ch; /* 80 - 29 */
 	background: black;
 	border: 0;
@@ -208,6 +215,7 @@ button {display: none}
 
 #cmd-cursor {
 	position: absolute;
+	left: 19.8em; /* .55 * 36 */
 	left: 36ch;
 	margin-left: -1px; /* sit over the real cursor in content editable */
 	background: hsl(150, 100%, 50%);
