@@ -133,6 +133,7 @@ commands.Quit = commands.quit;
 });
 
 blocker(); // do the character by character "rendering"
+cmd.focus(); // force focus to the contenteditable
 
 window.onload = function () {
 
