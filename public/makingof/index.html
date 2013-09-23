@@ -87,15 +87,15 @@
 
 					<p><strong>In short</strong>: We wrote an old browser in a new browser. Here are the details.</p>
 
-					<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
+					<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p>
 
 					<p>In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline). But, importantly, we leave the script, link and style elements in place. <em>Why?</em> we hear you ask. Because, dear reader, the original line mode browser would display contents of those tags. Its parsing rule was to strip the start and end tags off unknown elements, but display their content inline. So it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them. It may look messy but we're being as true as possible to the way the line-mode browser worked.</p>
-					
+
 					<p>After the DOM is modified like this, we add links to the CSS and JavaScript files that drive the emulation, then serialise the document back into a string, and then send this to the browser.</p>
 
 					<p>The browser then parses the document, applies the CSS and runs the JavaScript, so you the user can experience the awesomeness that was the line mode browser.</p>
 
-					<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Technically, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
+					<p>The CSS was used for 90% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS was used for visual tricks and runs the command line fixed to the bottom of the content. Technically, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
 
 <p>In addition we use the HTML5 audio element to bring you the sound of the keyboard (we even recorded the sounds of typing on an old IBM RS6000 keyboard we had at our disposal to work with an early version of the browser).</p>
 
