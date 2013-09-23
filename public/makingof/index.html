@@ -105,7 +105,9 @@
 					<h3>What hacks did we use?</h3>
 					<p>Hacks! We do not hack. OK, maybe we did some hacky things, but thankfully nothing particularly grubby.</p>
 					<p>As mentioned, we used some JavaScript for calculating certain aspects of the page layout. We'd have preferred to have done this in pure CSS.</p>
-					
+					<p>Actually, there's one hack that was pretty cool. As mentioned, the original browser parsed and then drew to the screen character by character. Which basically means you see the browser draw, quite quickly, but still very noticeably, each character to the screen,. We wanted to emulate this, as it is as much a part of the original experience as the monochrome screen, or monospace font used.</p>
+					<p>Our original idea was to use CSS animations for this. But, this would require wrapping every individual character in a <code>span</code> element, then showing each character one by one.</p>
+					<p>Then in most likely a caffeine fuelled brainstorm, we came up with the idea of covering the document with a black, opaque <code>canvas</code>, then repeatedly erasing a rectangle the size of a character column by column, line by line. This works really well because it's a monospace font, all displayed at the same font size, so we don't need to measure the size of each character we're erasing, as each will be identical in size. This ended up being far less work than the original approach, and aftr a bit of tweaking, works like a charm.</p>
 					<h3>Will what we built today be usable in 10 years? </h3>
 					<p>We hope so! One of the things we wanted to do is emulate how the line-mode browser would handle today’s web content. Even though, technically, the original line-mode terminals would choke on today's heavy pages — we're averaging about 1.2MB of content per page.</p>
 
