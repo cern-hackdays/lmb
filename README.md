@@ -10,6 +10,7 @@ CERN Line Mode Browser simulation.
 
 1. Clone this repo
 2. Run `node .`
+3. Open `http://localhost:8000/` in your browser
 
 # Contrib
 
