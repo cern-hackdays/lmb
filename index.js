@@ -35,7 +35,7 @@ function proxy(req, res, next) {
       base = response.request.uri.href;
       res.writeHead(200, { 'content-type': 'text/html' });
       if (!error && response.statusCode == 200) {
-        var html = inject(body.replace(/&/g, '&amp;'), base);
+        var html = inject(body, base);
         res.write(html);
         res.end();
       } else {
