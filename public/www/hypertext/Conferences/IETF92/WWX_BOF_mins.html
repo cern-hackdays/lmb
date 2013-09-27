@@ -1,0 +1,161 @@
+<TITLE>WWX_BOF_mins -- /IETF92</TITLE>
+<NEXTID 13>
+<H1>WAIS-W3-x.500 BOF Minutes</H1>BOF at the March 1992 <A NAME=4 HREF=IETF-9203.html>IETF</A> , on the evening of March 18.
+<H2>Summary</H2>This meeting followed discussion at the <A NAME=7 HREF=LivingDocuments.html>"living documents" BOF</A> the
+previous evening, and was more focussed in its discussion.<P>
+The WAIS, World-Wide Web, Prospero systems for network information
+retrieval (NIR) were presented (the Gopher protocol was presented
+in plenary the following day).  The x500 directory was presented in
+the light of NIR needs, as were two proposals to use the directory
+to refer to documents. A discussion followed as to how to allow these
+systems to inter-operate, and on requirements for name spaces. A working
+group was proposed to define the format for a generalized printable
+format for a name or address in any of these systems.
+<DL>
+<DT>Chair
+<DD> Steve Kille, UCL and  ISODE consortium
+<DT>Present
+<DD> See list <A NAME=3 HREF=../../WWW/Administration/Mailing/ietf-wwx-bof>ietf-wwx-bof@info.cern.ch</A> .
+</DL>
+These minutes are available in hypertext form using WWW as	http://info.cern.ch./hypertext/Conferences/IETF92/WWX_BOF_mins.html
+as well as through the normal channels.
+<H2>WAIS</H2>John Curran of BBN presented the WAIS protocol, in the absence of
+anyone from Thinking Machines Corporation who were originally responsible
+for it.  The WAIS model is of a number of servers, each of which serves
+a number of databases, each of which contains a number of documents.
+ Client software allows many databases to be searched at the same
+time.  The server keeps an inverted full text index for each database,
+so the search is very fast.  Non-text files may also be served: recent
+extensions allow indexing of text files in new formats.  The files
+indexed need not be copied, but the index is of the same order of
+size as the files.<P>
+Many databases exist, but there is no scalable way of finding them
+(TMC currently keeps a master index). Use of x500 was discussed.<P>
+The WAIS protocol is an extended subset of Z3950. The differences
+were discussed:  WAIS allows relevance feedback ("Give me a document
+like this one") , and  specifies how a query should be formulated.
+ WAIS and Z39.50 have the same presentation layer. 
+<H2>Documents in the Directory</H2>Wengiyk Yeongpresented his paper OSI-DS-22, <A NAME=9 HREF=//uu.psi.com/wp/nir.txt>"Representing public archives in the
+directory"</A>. His project puts information about documents, including
+the network address for retrieval, into the directory. He currently
+has RFCs and FYI documents in, but would like to move on to other
+internet archives.  He concluded that he needed a more sophisticated
+approach. It was difficult to characterize arbitrary archives, with
+too little information about them. (See <A NAME=10 HREF=IAFA-BOF.html>IAFA WG</A>).
+<H2>The World-Wide Web</H2>Tim Berners-Lee presented the World Wide Web (w3) and discussed requirements
+for interworking between the systems.  The W3 project was initially
+funded to provide an information infrastructure to the world-wide
+community of high energy physicists.  The data model is of documents
+which are hypertext and/or searchable indexes.  The philosophy behind
+it is that a user should be able to point and click on phrase or a
+word within a document and the associated document would be retrieved
+from wherever in the world and presented to the user in an appropriate
+format - without the user having to be aware of where the document
+is located or what the access method is.  These details are hidden
+in the hypertext links.  There were server programs for many information
+servers, gateways to WAIS, Archie and gopher and client programs for
+various user machines.  <P>
+The W3 clients use several protocols for accessing documents (FTP,
+NNTP, WAIS, Gopher, and W3's own "HTTP") although this is hidden from
+the user. The HTTP protocol is a simple stateless search/retrieve
+protocol running over TCP.  As originally conceived but not yet implemented,
+it included authentication and data format negotiation.Tim discussed the differences between WWW, WAIS, Archie, Gopher and
+Prospero systems.<P>
+The need for a  Universal Document Identifier (UDI) for describing
+the address or, given a directory, name, for a document whatever is
+access protocol was discussed, as outlined in OSI-DS-XX.  Each application
+ uses a "handle" for a file which can be prefixed by the particular
+protocol name to generate a universal address. <P>
+Most systems (WAIS excepted) are extensible, entertaining document
+addresses which refer to other systems.  WAIS indexes currently can
+only refer to documents in the same database, let alone with other
+retrieval methods. There is a need for WAIS to be more flexible. John
+Curran said he would bring this to the attention of the WAIS community.<P>
+Addresses would not in the long term be suitable for references to
+documents, so it was hoped that some sort of directory service, operating
+within the UDI framework, would be incorporated.<P>
+More information:	telnet info.cern.ch.   Client and server code is
+available by anonymous FTP from info.cern.ch.<P>
+Mailing lists:  www-talk@info.cern.ch, www-interest@info.cern.ch<P>
+Discussion document:   <A NAME=11 HREF=//cs.ucl.ac.uk/osi-ds/osi-ds-29-00.txt>OSI-DS-29</A>
+<H2>Representing the Real World in the Directory</H2>Paper: <A NAME=12 HREF=//cs.ucl.ac.uk/osi-ds/osi-ds-25-00.txt>OSI-DS-25</A>Steve Kille discussed this paper "Representing the Real World in an
+X.500 Directory".<P>
+A Listing Service may be used to group like information items together
+for example to provide a Yellow Pages Service.<P>
+Such a service could for example provide for members of a special
+interest group, or could group documents on a particular subject.Services such as Archie could be considered to be Listing Services.
+One imagines an information Universe in which Information Brokers
+provide different subject based (say) views via their listing service.
+One would then need to locate the various listing services (using
+a mechanism such as a directory?) 
+<H2>UK British Library Project</H2>Paul Barker described a project, sponsored by the British Library,
+to represent grey literature (unpublished research papers) in the
+Directory.  The project is thought to be unlikely to succeed - but
+one of the aims is to demonstrate whether or not it is possible. 
+They will take the (UK) MARC records and model these within X.500.
+ They might also consider trying to provide a listing service so that
+the documents might be retrieved more readily by subject area.
+<H2>Prospero</H2>Cliff Neuman described Prospero.  It follows a file system model,
+rather than the hypertext model.  It is built on UDP for speed.  It
+has the notion of a Directory which contains links to other objects
+(other directories or files).  It returns the link to the information
+object and then automatically retrieves the file by another mechanism
+by the appropriate access method (Archie, WAIS, nntp, WWW - soon!,
+NFS, ftp etc.) It has been used very successfully to access the archie
+database. <P>
+Cliff stated that he expected to be able to use X.500 to translate
+between the document ID and how to get the document.<P>
+With Prospero the user has his own view of the global information
+base (or has a view built for him).  Cliff thought there should be
+multiple name spaces - but the difficulty would be that these would
+need representing near the top of the directory tree.  With multiple
+user chosen views - this would be difficult to manage.  Also two users
+might refer to an object by different handles which would be relative
+to their individual name spaces - difficult when passing references
+(say in a mail message) from one person to the other.<P>
+The concept of "Closure":  Each object has a related name space. All
+references within the object are resolved using the context of the
+name space. Name spaces themselves have global network addresses,
+but the user doesn't see that. <P>
+More information:  info-prospero@isi.edu
+<XMP> 
+</XMP>
+<H2>System 33</H2>Larry Masinter talked about a project at Xerox PARC. This has the
+concepts:
+<DL>
+<DT>HANDLE
+<DD>32 byte number (is a content ID). In fact this contains hints
+for finding the document.
+<DT>FILE Location  (6 part)
+<DD> Protocol; Host; Path; piece; format; timeout
+<DT>Description
+<DD> (normal "Catalogue" information: Name, Author, etc) 
+</DL>
+There is format negotiation when a document is retrieved. It is not
+simple in reality to categorize data formats as there is such a plethora
+of different varieties.<P>
+Gateways provide access between systems not sharing transport protocols.<P>
+Also considered Access Control.  ACL is part of description.  The
+Server exploits multiple protocols for Search and retrieve.<P>
+There is a problem with dealing with different types of document (applications
+for jobs, product specs, memos, contracts, faxes, etc. ) It is difficult
+to normalize the attributes of a general document.
+<H2>Summing up</H2>Tim Berners-Lee summed up by saying that all applications described
+used resolvable document address, and so for interworking, we need
+a universal representation for such a network object address. With
+the coming of  directories, names should increasingly be used in place
+of network addresses. The Universal Document Identifier was intended
+to be able to hold either an name or address for any access protocol.
+ (This is not the same as "USDN" a document serial  number which is
+not resolvable, but only one of which exists for each document). <P>
+ In discussion, Steve Kille suggested should be a WG on details of
+UDIs  and a separate one for USDN.  A comment was that the W3 data
+model encompasses those of the other systems.    John Curran insisted
+on a better term than "UDI", suggesting "Document Access Token". <P>
+Peter Deutch's need for a USDN is to be able to determine the equivalence
+of two USDN. Chris Weider agreed to co-author a document on the issues.
+Jill Foster suggested a pilotproject to put UDI's in the directory for a set of documents and to
+have the gopher, Prospero, archie, and Prospero people try to utilise
+these.[These minutes have been largely built from Jill Foster's <A NAME=5 HREF=WWX_BOF.html>report</A> and
+Karen Sollins' <A NAME=8 HREF=WWX_BOF_Sollins.html>notes</A> for which I am most grateful, though errors in
+the above are probably mine. <A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL]</A></A>

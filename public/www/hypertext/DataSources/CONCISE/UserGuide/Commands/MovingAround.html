@@ -1,0 +1,35 @@
+<TITLE>Moving around</TITLE>
+<NEXTID 1>
+<H1>Moving around</H1>There are two types of information you can get in CONCISE: the first
+is an overview of the information; this sends you a summary, who wrote
+the information, when it was written, and various details of a similar
+nature. The second is the information itself; this is a file (potentially
+large) containing information about the subject in question. The commands
+to get these types of information, `overview' and `info' are discussed
+in 5.4.<P>
+The basic way to do anything on the CONCISE service is to go to the
+place, and then perform the action. For example, suppose an overview
+of netnews is required. Netnews is located at /Services/netnews. The
+`goto' command will move you around, the `<A NAME=0 HREF=Information.html>overview</A>' command can be
+used to get an overview, so the following commands will retrieve the
+overview on electronic mail:
+<XMP>
+
+		start
+		goto /Services/netnews
+		overview
+
+</XMP>A message may have a number of commands in it, so you can move around
+several times in one message. Before CONCISE starts to obey the commands
+you have sent, it puts you at the top of the information, that is
+at one level above COSINE, Networks and Services. From there you can
+go anywhere you want.<P>
+Commands that allow movement around the different items are:
+<DL>
+<DT>goto
+<DD> goes straight to the item specified;
+<DT>top
+<DD> goes to the top of the information, ie. where you start from;
+<DT>up
+<DD> moves up one level from where you are, eg. if you are at /Services/netnews
+and you use the `up' command, you will got to /Services.

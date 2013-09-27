@@ -1,0 +1,47 @@
+<TITLE>ADVANCED TOPICS -- CONCISE USER GUIDE</TITLE>
+<H1>ADVANCED TOPICS</H1>
+<H2>Multiple Commands</H2>The `index' and `find' commands return a list. If you want to apply
+some command to each of the items on the list, then you can use the
+extension `+'. For example, suppose there are twelve items under the
+/COSINE/specs item, and you want to perform the `overview' command
+on them all, then you can use the `index' command to get the list,
+and the extension `+ overview' to get the overview of each of them.
+This is a lot easier than sending a `goto' and an `overview' twelve
+times. Try sending the following commands:
+<XMP>
+			start
+			goto /COSINE/specs
+			index + overview
+
+</XMP>You will be sent a message with an overview of each of the items under
+/COSINE/specs.
+<H2>Limiting the Size of the Result</H2>Some mail systems are not capable of handling large messages. If you
+are using one of these systems, you may find that when you get a large
+file back from CONCISE something goes wrong. If you find that there
+is a problem with large files, you can limit the size of the returned
+result by using the `max-size' command. For example, to limit the
+size of a returned message to 150000 characters (about 2000 lines)
+use the following command at the beginning of your message:
+<XMP>
+			start
+			max-size 150000
+
+</XMP>The result will be sent back in a series of messages, each of which
+is no bigger than 150000 characters.
+<H2>Personal reminders</H2>If you store the commands that you send to the CONCISE service, you
+may wish to annotate them with your own comments, in order to remind
+you what it is for. (This is analogous to putting comments into a
+computer program.) This can be done by putting `//' at the begining
+of a line. All subsequent text on the line will be ignored by CONCISE
+but may be useful to you eg.
+<XMP>
+	start
+	// CONCISE commands to return indexes of the top three levels
+	// This may return a large file as a result.
+	
+	top
+	max-size 500000
+	index + index + index
+
+
+

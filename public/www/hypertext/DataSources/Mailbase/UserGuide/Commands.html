@@ -1,0 +1,201 @@
+<TITLE>Overview -- /UserGuide</TITLE>
+<NEXTID 2>
+<H1>MAILBASE COMMANDS</H1>Mailbase responds to commands sent as electronic mail messages to
+the address 'mailbase@uk.ac.newcastle'<P>
+ It is *important* that commands be sent *only* to this address! Do
+not send commands to any of the mail distribution lists (for example,
+the lis-it list mentioned above) which are managed by Mailbase.<P>
+Commands sent to Mailbase are executed in sequence until a terminator,
+or an error, is found.  A mail message reporting success or failure
+is then returned to you.  More than one command may appear in any
+one mail message to Mailbase, but each command must be on a separate
+line. Except when stated otherwise, commands may appear in any order,
+and they may be in UPPER, lower, or MiXeD case.<P>
+ Problems or queries relating to Mailbase commands should be sent
+as an electronic mail message to 'mailbase-request@uk.ac.newcastle'
+(see "<A NAME=1 HREF=Addresses.html>Addresses</A>").<P>
+ The Mailbase commands are:<P>
+ 
+<XMP>   help                           review <listname>
+   describe <commandname>         send <listname> <filename>
+   index [<listname>]             statistics [command | list]
+   line-limit <number>            stop
+   listme                         subscribe <listname> <firstname> <lastname>
+   lists [full]                   unsubscribe <listname>
+ 
+</XMP>These are described in full below, and also in the Mailbase Reference<P>
+Card.
+<XMP> 
+</XMP>
+<H2>2.1 Getting Help from Mailbase</H2>
+<XMP> 
+</XMP>If you already use Mailbase (by being a member of a list), sending
+an electronic mail message containing the command help to Mailbase
+will result in a brief summary of Mailbase commands being sent to
+you by return.  If you do not already use Mailbase, the help command
+will send you a copy of this, the User Guide.
+<XMP> 
+</XMP>If you already use Mailbase and you wish to obtain a copy of this
+User Guide by electronic mail, send this command to Mailbase
+<XMP> 
+      			send mailbase userhelp
+ 
+</XMP>Information about a specific command may be retrieved by sending a
+'describe' command.<P>
+ For example, sending the command 'describe describe' to Mailbase
+will result in the following message being sent to you
+<XMP> 
+   Name:      describe
+   Example:   describe subscribe
+   Syntax:    describe command
+   Description:   This command gives a description of individual Mailbase
+                  commands. The word "describe"  may be abbreviated to "des".
+   See also:   "help"
+ 
+</XMP>Problems or queries that require human intervention should be addressed
+to mailbase-request@uk.ac.newcastle
+<XMP> 
+ 
+</XMP>
+<H2>2.2 Information on Current Discussions</H2>
+<XMP> 
+</XMP>To find out the names of the discussion lists currently managed by
+Mailbase, send the command 'lists' or 'lists full'.  The command alone
+will return a list of all the current Mailbase discussion lists; the
+option 'full' adds a short description of each one.<P>
+More detailed information about an individual list may be obtained
+by sending a 'review' command.  For example,
+<XMP> 
+      review lis-it
+ 
+</XMP>returns the names of owners and members of the list, a brief description
+of the list's purpose and details about its access facilities, which
+are marked 'yes' if they are available to non-members and 'no' if
+not. These are:
+<DL>
+<DT>Subscribe direct:
+<DD> If 'no', non-members must send an e-mail message
+to the list owner, asking to be added to the list.
+<DT> Contribute mail:
+<DD> If 'no', you must join the list before sending mail
+to it.
+<DT> Request review:
+<DD> If 'no', you must join the list in order to request
+review information.
+<DT> Request files:
+<DD> If 'no', you must join the list in order to retrieve
+any files which are associated with it.
+<DT> Archive:
+<DD> If 'no', list contributions are not stored in an archive
+file.
+</DL>
+
+<XMP> 
+ 
+</XMP>
+<H2>2.3 Subscribing to Discussions</H2>
+<XMP> 
+</XMP>Note: 'subscribe' is the name chosen for the command: it does not
+mean that you have to pay a subscription fee!<P>
+ If the list you wish to join is open for direct subscription, send
+the following command to Mailbase
+<XMP> 
+      subscribe <listname> <firstname> <surname>
+ 
+</XMP>For example,
+<XMP> 
+      subscribe lis-it Fred Smith
+ 
+</XMP>would add your name (Fred Smith) and mail address (taken from your
+message header) to the lis-it discussion list.<P>
+ If the list you wish to use is closed for direct subscription, you
+will be asked to send a message to
+<XMP> 
+      <listname>-request@uk.ac.newcastle
+ 
+</XMP>(where listname is the chosen list).  For example: lis-it-request@uk.ac.newcastle
+<XMP> 
+ 
+</XMP>
+<H2>2.4 Checking your Membership of Discussion Lists</H2>
+<XMP> 
+</XMP>To obtain a list of the discussion lists of which you are a member,
+send the following command to Mailbase
+<XMP> 
+      listme
+ 
+ 
+</XMP>
+<H2>2.5 Leaving Discussions</H2>
+<XMP> 
+</XMP>To leave a discussion list, send an 'unsubscribe' command to Mailbase.
+For example,
+<XMP> 
+      unsubscribe lis-it
+ 
+</XMP>would remove your name from the lis-it list.
+<XMP> 
+ 
+</XMP>
+<H2>2.6 Retrieving Files via Electronic Mail</H2>
+<XMP> 
+</XMP>Many discussion lists have files associated with them.  To find out
+which lists these are, send the following command to Mailbase
+<XMP> 
+      index
+ 
+</XMP>To find out what files are associated with a particular list, attach
+the list name to the command.  For example,
+<XMP> 
+      index lis-it
+ 
+</XMP>will tell you which files are associated with the lis-it list. The
+index contains information about the size of files.  The files themselves
+may be retrieved with the command
+<XMP> 
+      send <listname> <filename>
+ 
+</XMP>For example,
+<XMP> 
+      send lis-it 12-1990
+ 
+</XMP>will retrieve the file called 12-1990 (the archive file containing
+all contributions sent to this list during December 1990) which belongs
+to the lis-it list.  We recommend that you retrieve and read some
+archive files before you start contributing to discussions.<P>
+If a file is larger than 100,000 characters (approximately 5000 lines),
+it may be necessary to retrieve it in several pieces.  Do this by
+preceding the send command with a 'line-limit' command. For example,
+<XMP> 
+      line-limit 2000
+      send nisp assess.txt
+ 
+</XMP>would retrieve the file 'assess.txt', associated with the  nisp  list,
+in the form of several pieces, each containing a maximum of 2000 lines.
+<XMP> 
+ 
+</XMP>
+<H2>2.7 Information on Use of Mailbase</H2>
+<XMP> 
+</XMP>To obtain some statistical information about the use which has been
+made of Mailbase, use the statistics command, which has the form
+<XMP> 
+      statistics [ command | list ]
+ 
+</XMP>The 'command' option gives statistics about commands and 'list' about
+lists. If no options are given you will receive both command and list
+information.
+<XMP> 
+ 
+</XMP>
+<H2>2.8 Mail with Signatures</H2>
+<XMP> 
+</XMP>If your electronic mail messages end with a signature, terminate your
+Mailbase commands with the command
+<XMP> 
+      stop
+ 
+</XMP>This prevents Mailbase from attempting to interpret your signature
+as a series of commands.
+<XMP> 
+</XMP>

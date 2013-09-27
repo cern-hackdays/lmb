@@ -1,0 +1,45 @@
+<TITLE>Argosi -- /Demonstrations</TITLE>
+<NEXTID 1>
+<H1>The use of FTAM to access graphical pictures across WANs </H1>
+<H2></H2>The demonstration is of the use of file ACCESS in FTAM (as opposed
+to simple file TRANSFER) to access graphical information. It uses
+a newly-developed FTAM Document Type which allows remote access to
+individual graphical pictures stored within a complete sequence of
+pictures in the ISO standard Computer Graphics Metafile (CGM -- ISO
+8632).  This allows a remote application to retrieve the exact information
+it requires, thus minimising the amount of data that is transferred
+over the network. The demonstration shows that this means that useful
+distribution of graphics over even a low-bandwidth network (such as
+between European national X.25 PDNs) is possible.<P>
+The demonstration takes the form of an application which provides
+up-to-date road-traffic information in a graphical form. The user
+of the application is shown a European road map, upon which he or
+she can plot a route between a number of cities. The application then
+uses FTAM to consult a number of sites, each of which stores and maintains
+a set of "traffic difficulties" pertaining to its local geographical
+environment. These difficulties are stored at each site in graphical
+form ie as individual pictures in one or more CGMs Each picture represents
+the current traffic difficulties pertaining to a small part of the
+area for which the site is responsible. The application selects only
+those pictures that are relevant to the user's planned route, retrieves
+these, and displays them graphically as an overlay on the road map,
+along the route chosen. The user can then zoom and pan over the route
+to inspect the difficulties, or if necessary can consult further to
+try to find a more trouble-free route.<P>
+The new FTAM Document Type which allows structured access to the CGM
+has been developed by the Esprit II project ARGOSI. This has as its
+aims:
+<UL>
+<LI>an advancement of the state of the art in the transfer of graphical
+information across international networks;
+<LI>an improvement to the quality and applicability of standards in this
+area.
+</UL>The Document Type has been submitted for international standardisation
+through EWOS. The project also modified three implementations of FTAM
+to handle the new Document Type: commercial implementations from Marben
+and Tecsiel, and the ISODE public-domain implementation. In the latter
+case the modification also included the addition of two-level hierarchical
+access with FTAM. This feature was lacking in the standard release
+of ISODE FTAM, which can support the transfer only of complete files.
+It is intended that the resulting code will be put into the public
+domain.

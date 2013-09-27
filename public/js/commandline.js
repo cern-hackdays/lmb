@@ -32,7 +32,7 @@ function setPrompt ($) {
 
 	// Adjust style
 	// cursor.style.left = ((promptElement.textContent.length + 1) * .55) + 'em';
- cursor.style.left = ((promptElement.textContent.length + 1) * .5) + 'em';
+ cursor.style.left = (((promptElement.textContent.length + 1) * .5) | 0) + 'em';
 }
 
 function run(command, e) {
@@ -166,6 +166,17 @@ commands.b = commands.back;
 'plaintext listing h0 hp1 hp2'.replace(/\w+/g, function (a) {
   document.createElement(a);
 });
+
+var e = 'img,video,audio,svg,canvas,iframe'.split(',');
+for(var i=0; i<e.length; i++){
+  var elements = document.getElementsByTagName(e[i]);
+  for (var j=0; j < elements.length; j++){
+    while(elements[j].lastChild) {
+      elements[j].parentNode.insertBefore(elements[j].lastChild, elements[j]);
+    }
+  }
+}
+
 
 cmd.focus(); // force focus to the contenteditable
 

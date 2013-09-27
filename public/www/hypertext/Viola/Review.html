@@ -1,0 +1,101 @@
+<TITLE>Review -- /Viola</TITLE>
+<NEXTID 5>
+<H1>An updated quick look at ViolaWWW</H1><A NAME=3 HREF=../WWW/Status.html#35>
+This W3 browser</A> for X11 workstations is based on the
+<a href=http://xcf.berkely.edu/ht/projects/viola/overview.html>Viola</a> hypertext
+environment.  Viola uses X11 intrinsics, but does not need motif. I tested
+it using a NeXT with CubeX, in grayscale and color versions.
+We've also now run it on Sun4 and decstation.
+This is an update of my
+<A HREF=Review_0.html>earlier review</A>.
+(Sometimes there are problems with fonts which cause it to hang on startup, for example
+under openwindows. See the
+<A NAME=1 HREF=http://xcf.berkeley.edu/ht/projects/viola/violaWWW/todo.html>
+bug list</A>
+for details of problems of particular platforms.)<P>
+Pei Wei, Viola's author, is finishing his degree at UC Berkley, and
+will be with O'Reilly Associates where he will continue to work on Viola.<P>
+Here are my personal comments on a (May 15)  test version. See also:<A NAME=2 HREF=AtCERN.html>
+running it at CERN</A> , <A NAME=4 HREF=../Erwise/vsViola.html>comparison with Erwise</A>.
+<H2>Summary</H2>Features of the browser are:
+<UL>
+<LI>Multifont text
+<LI>Links highlighted with "button" boxes, single click to jump
+<LI>"Home", "Back" and "Forward"  buttons
+<LI>Single window operation plus "clone" of a copy of any document in
+another window.
+<LI>A History window with list of documents visited.
+<LI>A "bookmark" facility
+<LI>Online help buttons
+<LI>Searching of remote index: input field at bottom of window
+</UL>
+The bugs reported in the last review have been fixed, and there is now
+online documentation available especially on
+<a href=http://xcf.berkeley.edu/ht/projects/viola/overview.html>
+viola in general</a>
+from Pei's server in Berkeley.
+</UL>
+<H2>Look and Feel</H2>The overall look was very good to my particular taste: I'm no great
+fan of motif LAF, anyway.  The "feel" is also good, apart from the
+speed of display which is just slow enough to be frustrating if you're
+used to something faster.   The  old1.0 version was much faster, but
+monofont. The multifont text is certainly worth the wait unless its
+only a phone number you're after.<P>
+The formatting of the text is very good: the styles are clear and
+distinct, apart from the List style (LI) which looks too much like
+normal text. It could do with being indented and a bit of white space
+inserted between list elements.<P>
+<H2>Ease of use</H2>The program has to be installed, coming with three parts: a binary,
+a directory full of  viola scripts, and a shell script to define an
+environment variable to point to the viola script directory.  Once
+this has been set up,  all you have to type is "vw" and the program
+starts from a default home page just as the line mode browser does.
+That's three keystrokes, and it's point-and-click from then on!<P>
+Cut and paste don't seem to work yet although one seems to be able
+to select text, which is then underlined.. more features in the pipeline,
+I suspect.
+<H2>Bells and Whistles</H2>The arrow buttons along the top margin look like "Previous", "Back"
+and "Next", but don't work in quite the same way as in the NeXT and
+line mode browsers.  The left and right arrows move though the history of
+where you've been. The up arrow is quite confusing in that it means
+"go to where I was last" litterally, so using it twice brings
+you back to the same place.
+At any time, if you follow a link, the new document is put on the end of the history
+so you loose your place. This can be confusing if you're not using the history
+window.
+If you are using the history window, the confusing element is that the same
+document appears more than once in it if you have visited it more than once.
+This means the history window can become quite large if you wander around a lot.
+I've used the word confusing, but once you know how it works, its fine to use.
+<p>
+The function of "Next" meaning the next article
+in a list is not available.
+<H3>Hidden documentation</H3>You have to be inquisitive to find out that there's documentation
+about Viola hidden under the globe icon.   It is more obvious that
+help resides under the big question mark.  In both cases, the program
+intelligently checks for a local copy of the help before going off
+to California for the original.  It then caches a copy in /usr/tmp.
+Nice point.  I suggest a link from
+the help into the "About Viola" documents.
+<H3>See the hypertext markup</H3>Other gadgets are at the bottom of the window: three small icons tucked
+in after the index search field.  The history feature and "print"
+buttons don't quite work in practice, but are close to working. 
+<H3></H3>The third is is source viewer which allows you to see the HTML source
+of a document in a separate window. This is useful for information
+providers, and also for explaining how WWW works!<P>
+Cloning<P>
+There is a little "clone" button (an icon of tearing a sheet off a
+pad) which allow one to make a copy, in another window, of a document.
+This is not a complete clone, as the window does not have any buttons
+(except for "clone"!). Therefore, if it is an index, you can't search
+it (pity),. You can, however, follow links with it -- but the referenecd
+document is brought up in the orinial, unique "master" window.  The
+clone window is nicely unclutteretd as a result, though.
+<H2>Conclusion</H2>A very neat browser useable by anyone: very intuitive and straightforward.
+The extra features are probably more than 90% of "real" users will
+actually use, but just the things which an experienced user will want.
+I'm looking forward to the minor bugs with the scroll bar and color
+working being cleared up.<P>
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch./hypertext/TBL_Disclaimer.html>Tim BL</A></A>
+</ADDRESS>

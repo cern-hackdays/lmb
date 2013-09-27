@@ -1,0 +1,56 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 3>
+<H1>Record types</H1>Each <A NAME=1 HREF=help.html>WHOIS</A> database record has a field saying what type of record
+it is. The main NIC database contains records for individuals, domains,
+groups, hosts, networks, organizations, PSNs (formerly called IMPs),
+ TACs, and gateways.  It is advantageous to specify which type of
+record you are looking for since then WHOIS can present fewer, closer
+matches, and can also perform extra searches on fields specific to
+ that record type, fields not ordinary searched in a general lookup.
+ To search for a specific type of record, put one of the following
+keywords (shown with their minimum abreviation in all CAPS) before
+your target: 
+<DL>
+<DT>Arpanet
+<DD> This finds only "host" records which are on net 10, the ARPANET.
+See below for a description of "hosts". 
+<DT> DOmain
+<DD> Finds a domain record.  Searches the usual places plus the
+domain-name field ("COM", "MIT.EDU", etc). You can match on any pre-dot
+portion of a domain name (that part of the name that precedes the
+dot).  That is, "DOM MIT" would find MIT.EDU. 
+<DT>Gateway
+<DD> Finds gateway records.  Searches the same places as  host,
+below. 
+<DT> HOst
+<DD> Finds records for "hosts", meant more as "machines". Host records
+are found, as well as PSNs, TACs, and gateways.  Looks in the hostname,
+nicknames, net-address, and domain-name fields, with bonus pre-dot
+AND pre-dash matching (i.e. matches text before the '.' or '-' in
+the  name)!  For example, "ho rutgers" finds RUTGERS.EDU,  RUTGERS-GW.RUTGERS.EDU,
+and RED.RUTGERS.EDU, the last one found because RED's name field is
+"Rutgers University. 
+<DT> MIlnet
+<DD> Like Arpanet, this keywords says to find only hosts that 
+are on net 26, the MILNET. 
+<DT> NEtwork
+<DD> Finds network records.  Looks in net-name ("ARPANET",  "S1NET",
+etc) and net-number ("10.0.0.0", "128.15.0.0",  etc), with pre-dot
+matching on net number: "net 10"  and "net 128.15" are eqvivalent
+to the above.  "net 128"  finds all networks with a first octet of
+128. 
+<DT> Organization or Group 
+<DD> Finds org/group records.  Looks in the usual
+places plus nicknames.  Examples: "org rfc", "o net-sponsors". 
+<DT> PSn
+<DD> Finds PSN records.  Checks the usual places plus nicknames, 
+PSN name, and PSN number.  PSN names are like SRI51 and  ROCK-ISLAND;
+"psn 1" will find you OBERURSEL-IMP (MILNET) and UCLA-IMP (ARPANET).
+
+<DT> Tac
+<DD> Finds TAC records.  Looks in all the host places plus TAC-number,
+which is the BBN-assigned small number identifier for that TAC. 
+</DL>
+__________________________________________________________<A NAME=2 HREF=help.html#3>Whois online help</A>
+<ADDRESS>
+</ADDRESS></A>

@@ -1,0 +1,379 @@
+<TITLE>Overview -- /Hyperbole</TITLE>
+<NEXTID 19>
+<H1>Hyperbole Draft Report</H1>
+<ADDRESS>Bob Weiner<P>			    rsw@cs.brown.edu<P>			    Brown University<P>		     Copyright (C) 1991 Bob Weiner<P>			      May 23, 1991
+</ADDRESS>[This work is supported by Motorola Inc.] <P>
+See also: <A NAME=18 HREF=../Overview.html>Other hypertext products</A>
+<H2>Outline</H2>
+<UL>
+<LI><A NAME=2 HREF=#1>Overview</A>
+<LI><A NAME=17 HREF=#16>Research Issues Hyperbole Can Address</A>
+<LI><A NAME=14 HREF=#13>Key Features of Hyperbole</A>
+<LI><A NAME=11 HREF=#12>Secondary Features</A>
+<LI><A NAME=10 HREF=#9>Prototype Utilities</A>
+<LI><A NAME=8 HREF=#7>Comparison to Other Systems</A>
+<LI><A NAME=6 HREF=#5>Availability</A>
+<LI><A NAME=4 HREF=#3>Conclusion</A>
+</UL>
+<H2><A NAME=1>Overview</A></H2>Hyperbole is a flexible, extensible personal information manager (PIM).
+Although it is only a two-month-old prototype, it has already proven
+to be quite powerful, with a number of important features absent from
+many research and commercial systems aimed at similar problems.<P>
+It represents a synthesis and entension of ideas in user-centered
+information access that we have developed over the last two years.
+It is only the first step towards a distributed multi-media architecture
+that we refer to as a Personalized Information Environment (PIE).
+This report discusses Hyperbole; our ideas on PIEs are discussed separately
+and are the subject of current research work.<P>
+Hyperbole brings the techniques of associative information management
+offered by hypertext systems to the domain of PIMs.  Hypertext is
+a concern that seeks to establish meaningful, easy to follow associations
+among independent and related pieces of text, supporting non-linear
+flow and browsing of information.<P>
+Hyperbole allows one to use any comfortable tools to generate information.
+At any point the information can be easily integrated and further
+adapted for use within Hyperbole, which runs on top of the popular
+GNU Emacs text editor, available on any UNIX system.<P>
+Rather than the structured approach taken by most PIMs, Hyperbole
+offers an open framework under which many styles of information and
+task management can be performed.  A mode for entering form-based
+information will be integrated in the near future.<P>
+Hyperbole adds an associative linking facility on top of the standard
+UNIX file system, allowing people to quickly obtain information without
+regard to its storage location.  This facility is quite powerful when
+coupled with a wide-area network, such as the Internet.  Then information
+on a computer in Sweden can be made as easily accessible as that on
+the user's local computer.  As the Internet moves to a fully transparent
+file management model, remote file access will become even easier.<P>
+A Hyperbole user need learn only three new concepts, all of which
+are quite simple and familiar to a user of any hypertext system. The
+first concept is buttons.  Buttons provide the user's gateway to information.
+Therefore, they can be embedded within whatever textual information
+the user uses.<P>
+The second concept is referents.  Referents are informational destinations.
+They come in a number of different types as explained later.  Most
+referents are information nodes, chunks of information to which a
+user wants access.<P>
+The final concept is links.  Links provide an information transport
+mechanism by connecting buttons to referents.  (We have a basic design
+for an interface which allows linkage to and from graphic objects
+but have not yet started implementing it.)<P>
+With these concepts, information access is greatly simplified.  A
+user simply selects a pre-designed button which causes a traversal
+of a link to the associated referent.<P>
+To manage information, one need only select a label for a button,
+select a referent and ask the system to create a link.  A user can
+create a number of explicit links per minute.  But Hyperbole also
+supports implicit links, links that are implicit in a particular document
+structure, e.g. a hypertext  imported from another system or references
+in an annotated bibliography.  Once Hyperbole is set up to recognize
+a format, a user can traverse implicit links without any prior effort.<P>
+Hyperbole is highly interactive.  Once a link is created, it may be
+immediately tested by selecting the associated button.  There is never
+a need to get into or out of a special mode, though a read-only browser
+mode will be provided for those who want it.  All of Hyperbole's features
+are always available within the editor without interfering with any
+editor functionality.  Link modification and deletion are quick and
+easy.<P>
+Hyperbole provides flexible information access.  It supports the features
+available on a user's display.  From a terminal, all operations are
+available from the keyboard.  On a workstation, a two key mouse interface
+is used, complete with multi-windowed menu operation and button highlighting.
+Hyperbole leaves all information in its original place and format,
+so one need not use a special program just to take quick peeks at
+information.
+<H2><A NAME=16>Research Issues Hyperbole Can Address</A></H2>
+<H3>How can computers improve personal management of information, especially
+in a distributed environment?</H3>Hyperbole provides an experimental platform for managing information
+and for building targeted information manager front ends.  Since many
+people will likely want to use it, it will help answer questions that
+we may pose and test in this area.
+<H3>How effective a technique is personally tailored associative data
+management?</H3>Does little structure lead to disorganization or does it encourage
+use, thereby encouraging people to put information on line and organize
+it at their own pace, according to their own needs?
+<H3>What tools and techniques are needed to manage personal hyper-information
+spaces (hyperbases)?</H3>Hypertext systems have only recently begun to emerge from the research
+environs into limited commercial usage.  Many unanswered questions
+remain including:
+<UL>
+<LI>What kinds of navigational tools and techniques are needed?
+<LI>What kinds of display and compositional abstractions can help people
+perform useful semantic analyses of their information?
+<LI>What kinds of linkages should be automated and which should be left
+to the user?
+</UL>
+<H3>How can collaborative, interactive information access aid workgroups?</H3>The shift from easily shareable resources on timeshared computers
+to the independently managed resources in PC and workstation networks
+has stimulated a large amount of research into computer-supported,
+cooperative work (CSCW) and groupware applications.  Typically such
+work is tested on the very groups that perform the development.  People
+so conscious of issues in group interaction are likely not to work
+in manners similar to the larger populace; they may, for example,
+be much more adept at sharing information.  They are also overly knowledgable
+in the workings of their system and may unconsciously modify their
+behavior to conform to its requirements.<P>
+The textual interface to Hyperbole is quite small and portable.  It
+has a core of only three files.  Thus, it can be delivered quite easily
+to a set of diverse groups for testing in unbiased locales.
+<H2><A NAME=13>Key Features of Hyperbole</A></H2>
+<H3>No Fixed Structure Model</H3>A number of hypertext systems impose a fixed structure on the nodes
+in their hypertexts.  A common limitation is to apportion information
+in screen-sized portions known as frames.  Apple's Hypercard, MaxThink's
+PC hypertext products, and Knowledge Management System's KMS all have
+this limitation.<P>
+In contrast, Hyperbole imposes no common structure on all hypertexts
+built with it.  Since it is intended as both a delivery tool and a
+research vehicle, it is meant to serve as a framework under which
+researchers or developers may try out and deliver hypertexts of varying
+formats and levels of structure.  Thus, Hyperbole hypertexts can be
+fashioned in the image of any of the above mentioned systems if so
+desired.  However, one can also include extremely lengthy<P>
+files as nodes, allowing the user to freely move through such files
+as he sees fit.  In hypertext terminology, Hyperbole supports both
+fine-grained and course-grained links.<P>
+Some systems also define intra-node structure, a carry-over from paper
+forms and the record-field structure of databases.  Hypercard uses
+fields nested within cards to support form completion applications.<P>
+Clearly there is a need for a mix of structure and non-structure.
+Hypercard descended from an initial rolodex-type system prototype,
+so let us look at this application.  We have seen over ten rolodex
+systems across a range of platforms and all of have used the card-field
+metaphor.  There are a number of problems that this kind of setup
+cannot handle.  Consider an entry for a dialup computer with twelve
+different phone numbers.  Most rolodexes would only permit two numbers
+per entry. And what about the person with two home phones, a work
+phone, a cellular phone, a pager and a fax number?  We are forced
+to place much of this information in an unstructured information field,
+if available.  And then we lose the advantage of structured fields,
+such as autodial support invoked by selecting a telephone field.<P>
+Hyperbole puts the work burden on the machine rather than the user
+for such a task.  The user can enter any information he wants in any
+order as a rolodex record.  Pattern matching is then used to extract
+phone numbers, electronic-mail addresses, etc. from the entries. A
+primitive form interface exists to demonstrate that Hyperbole can
+be used to imitate the more structured interfaces when needed.  We
+conclude that people should be able to get structure when they want
+it and totally avoid it when it is of little or no use to them.<P>
+Our design philosophy is heavily user-centered for two reasons.  We
+seek to demonstrate the important productivity impact that easily
+learned interfaces can have in information intensive tasks.  We further
+want to make the system appealing enough to encourage widespread adoption
+as both an end-user tool and a framework for targeting specific information
+delivery applications.
+<H3>Collaboration</H3>A special facility allows two users to collaborate by following Hyperbole
+links in lock step, as long as they both have access to any files
+referenced by the links.  Where one goes, so does the other.  The
+facility generalizes to support broadcast to any number of users.
+Speed over a LAN is quite good.  Here is an actual sample from a Hyperbole
+demonstration:
+<XMP>	One can collaborate  with  another  person  across  the
+	network by traversing nodes  together.   Simply  select
+	<<collaborate>>.  Later  one  can  <<disconnect>>  from
+	collaboration.   This  can  be  either  a  master-slave
+	relationship   when   only   the   master   issues  the
+	collaboration command and the slave follows along or it
+	can  be  a  peer-to-peer  relation  when   both   issue
+	collaboration commands to each other.  Then either host
+	can  traverse  nodes  and  update  the other's display.
+	Many  other  systems  permit  only   the   master-slave
+	relation  or  require  that  both  users  have   bitmap
+	displays.  With this interface, one person can be on  a
+	bitmap display and the other on a character terminal or
+	any other combination of the two.
+
+</XMP>Consider how voice broadcast facilities are used by police and firemen
+working on common problems.  When one person obtains new information
+or happens upon a critical situation, he can quickly broadcast this
+to his fellow workers.  A similar need arises when a group of distributed
+people are working on a common information intensive task, e.g. performing
+background research for an upcoming trial, analyzing news reports
+for emerging trends, or performing a walkthrough of a software design.<P>
+Hyperbole's collaboration facility can be used as a rapid broadcast
+mechanism in such instances.  Unlike other computer-based broadcast
+facilities, it does not present a short, out of context message. Instead
+it can show critical information with surrounding context and embedded
+hyper-buttons to further guide the readers to either more expansive
+or deeper material.
+<H3>Mailable Links</H3>Links may be created when one is composing mail within Emacs.  Anyone
+to whom the mail is sent may then follow such links, assuming he has
+Hyperbole installed and has access to the associated material.<P>
+Mail links remain invisible so neither the creator nor the receiver
+ever sees them.  Each only sees the buttons embedded within messages.
+From a user perspective, mail links look exactly like any other Hyperbole
+links.<P>
+Buttons embedded within Subject lines may be selected from both the
+messages themselves and any Subject summary listings in which they
+appear.
+<H3>Mode-Specific Button Handling</H3>Hyperbole supports multiple button representations in files.  Thus,
+an electronic mail message file could contain standard Hyperbole buttons
+but could also have its "From: " address treated as an implicit button
+which displays any rolodex entry corresponding to the address. Similarly,
+selection of a reference such as "see page 26" within a document could
+display that page.<P>
+Implicit buttons are useful in files in which a number of buttons
+perform the same action.  In such cases, it would be wasteful to record
+individual links; instead one procedure serves all similar buttons
+in the file.  This technique is useful when large button menus are
+built, e.g. to give access to the UNIX manual pages via a set of summary
+description lines, one per manual topic.<P>
+The implication is that instead of developing completely independent
+development and browsing environments for application specific tasks,
+one could much more quickly add a special mode or two that interfaces
+to Hyperbole.  This kind of strategy, besides saving time, leaves
+the rest<P>
+of a user's custom environment available to him, while interacting
+with the special modes.  This helps minimize learning time.  It represents
+a tool-based strategy familiar to UNIX shell users.
+<H3>Complete, Mature Programming Language</H3>Hyperbole is written in Lisp, which means that the entirety of the
+Lisp language is available for extending its functionality.  Since
+Lisp is interpreted, extensions may be immediately tested in a bottom-up
+fashion.  Even with interpretation, link traversal and creation are
+both<P>
+quite fast.<P>
+Hyperbole supports procedural links which evaluate arbitrary Lisp
+expressions whenever their corresponding buttons are selected.  Since
+many users will not know Lisp, an alternative, the keyboard macro
+link, is provided.  The user simply tells the system to watch and
+to save the<P>
+keystrokes to whatever he does until he issues a stop command.  The
+resulting macro may then be used as the target of a link.
+<H3>Arbitrary External Calls</H3>External call interfaces are available to allow a Hyperbole link to
+execute any sequence of shell commands or to redirect input and output
+to a batch or even window-based program.
+<H3>Terminal/Workstation/Mainframe Portability and Access</H3>Since Hyperbole is layered on top of GNU Emacs, it is portable across
+over 30 different brands of computers, from low-end to high-end machines.
+<H3>No Data Format Conversions Necessary</H3>All Hyperbole link data is stored in an ASCII format, as are Hyperbole
+buttons.  Links are stored outside of the files with which they are
+associated.  Button labels are simply arbitrary strings in a file<P>
+surrounded by special delimiters, e.g. >. The user need not worry
+about spacing or line breaks between words in a button label; the
+system normalizes the label text before it looks for the corresponding
+link.  So the effort to create and manage buttons<P>
+within bodies of text is minimal.
+<H2><A NAME=12>Secondary Features</A></H2>Integration of remote information access protocols is fairly straightforward.
+Hyperbole currently supports transparent Internet ftp services and
+we are examining other protocols that will enrich its<P>
+ability to deal with heterogenous machines and networks.<P>
+Button creation and deletion is provided.  Modification is not yet
+available.  It represents a rather simple addition.<P>
+A history mechanism is included.  It simply returns the user to his
+site prior to following the last link.  It can also jump back any
+number of links with one command.<P>
+Under the X window version of Emacs known as Epoch, hyper-buttons
+can be highlighted in any desired color so that they are easy to see.
+When a button is selected, it flashes to give the user feedback on
+his selection.<P>
+Both a mouse-based and key-based interfaces are provided.  Commands
+may be selected from a  menu.<P>
+The following link types are currently provided with more being developed:
+<DL>
+<DT>DirLink 
+<DD>references a UNIX directory
+<DT>
+<DD>
+<DT>ExecLink
+<DD> executes an arbirary Lisp form, e.g. a shell command
+<DT>
+<DD>
+<DT>FileLink 
+<DD>references a UNIX file
+<DT>
+<DD>
+<DT>LinkLink
+<DD> references another HyperLink
+<DT>
+<DD>
+<DT>MacroLink
+<DD> replays a 'watch-what-I-do' keyboard macro
+<DT>
+<DD>
+<DT>MailLink
+<DD> references a UNIX electronic mail message
+<DT>
+<DD>
+<DT>MenuLink
+<DD> references a menu of buttons
+<DT>
+<DD>
+<DT>RegionLink
+<DD> references a non-delimited segment of text within a larger
+unit of text, such as a file
+<DT>
+<DD>
+<DT>SectionLink
+<DD> references a delimited segment of text within a larger
+unit of text, such as a file
+</DL>
+Implicit links are presently handled in a special manner.  They can
+be of any of the above types.  Global buttons, which may be selected
+within any working context will be added in the near future.
+<H2><A NAME=9>Prototype Utilities</A></H2>
+<H3>Auto and Manual Dialer</H3>We have put together a popup telephone keypad of buttons that can
+emit actual touchtones from a workstation.  This is coupled with an
+auto-dialer facility that will extract an appropriate telephone number
+from a rolodex when given a person's name.  With a little more work,
+it will store prefix codes for calling cards, etc., so that one could
+simply select a name, hold the phone near the computer speaker and
+have it autodial for you.  Adaptation for use with other dialing devices<P>
+would not be difficult.
+<H3>Annotated Bibliography Browser</H3>References to sources within a bibliography, e.g. [Diamond90] may
+be selected and the corresponding reference displayed in another window.
+<H2><A NAME=7>Comparison to Other Systems</A></H2>
+<XMP>Feature Key:
+
++=Can issues commands to other programs to work with such data, thus can
+link to it, but doesn't manage it internally.  So it could link to a
+picture but not an element of the picture, nor could it do anything with
+the picture.
+Y=Yes, N=No, S=Somewhat
+
+System Key:
+A=Hyperbole            B=Lotus' Agenda         C=Engelbart's NLS/Augment
+D=Brown's Intermedia   E=KM Systems' KMS       F=Apple's Hypercard
+G=Xerox' Notecards     H=U.of Kent UNIX Guide
+
+			    A  B  C  D  E  F  G  H
+                            ======================
+Works on Basic Machine:     Y  Y  N  N  Y  Y  N  Y   (UNIX or Mac/PC)
+Provides multiple views:    N  Y  Y  N  N  N  Y  Y   (of same data)
+Executable Links:           Y  N  Y  N  Y  Y  Y  Y
+Search/Filtering Features:  Y  Y  Y  Y  Y  Y  Y  Y
+Manages data in place:      Y  N  Y  N  N  N  N	 Y   (doesn't convert format)
+Unlimited Node Size:        Y  N  Y  Y  N  N  N  Y
+Links in E-mail:	    Y  N  Y  Y  Y  N  N  Y   (can mail links to people)
+Full Programming Lang:      Y  S  Y  N  N  S  Y  Y
+Architecture Portable:      Y  N  N  N  Y  N  N  Y   (automatic or transparent)
+Data Versioning:            N  N  Y  N  Y  N  S  N
+Graphical Relations View:   N  Y  N  Y  N  N  Y	 N   (for aiding orientation)
+Links to graphics:          N+ N  N+ Y  Y  Y  Y  Y
+Implicit/Automatic Links:   Y  Y  Y  Y  Y  N  Y  Y
+Warm and Hot Links:         S  S  Y  S  Y  S  Y  Y
+Multi-User Access:          Y  N  Y  Y  Y  Y  Y  Y
+Region-based linking:	    Y  N  Y  Y  N  N  N  Y
+Typed Links:                Y  N  Y  N  N  N  Y  S   (S=built-in types only)
+Distributed Data Storage:   Y  N  Y  S  Y  N  N  Y
+			    ----------------------   (score is sum of 'Y's
+                           13. 6 14  9 11  6 10. 15.  plus .5 for each 'S';
+                            5                 5   5   read score vertically)
+
+
+</XMP>Of the four no answers in the Hyperbole column, we plan to remove
+all of them aside from the data versioning one.  Interestingly, the
+two systems with scores higher than Hyperbole have been developed
+over lengthy periods.  NLS/Augment is a timeshared system developed
+over a more than<P>
+twenty year period.  It is no longer in general use but represents
+the most sophisticated hypermedia working environment to date.  The
+Guide system has been developed for the last nine years at the University
+of Kent at Canterbury in England.  A Scottish company, Office Workstations
+Ltd. has marketed their own derivative versions for Macs and PCs since
+1986.
+<H2><A NAME=5>Availability</A></H2>A first release of Hyperbole should be available by September 1991.
+We would hope by then to also be able to include a useful set of personal
+productivity templates with which people can start.
+<H2><A NAME=3>Conclusion</A></H2>Hyperbole presents a working prototype of a powerful personal information
+manager.  It offers extremely intuitive browsing capabilities and
+excellent extensibility to meet specific application demands.  It
+will server as a basis for further research on large-scale free text
+and graphics management and delivery.

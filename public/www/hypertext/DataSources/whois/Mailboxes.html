@@ -1,0 +1,28 @@
+<TITLE>(No title)</TITLE>
+<NEXTID 2>
+<H1>Mailboxes</H1>Mailbox is one of the fields routined checked in a general search,
+and  if your target contains an '@', it is the ONLY field tried.
+Input of  "joe" would find mailboxes "joe@..." and "joe%...". <P>
+Mailboxes are stored in the database with the host part canonicalized,
+ that is, made official.  If you use a non-official hostname or 
+nickname, it is automatically canonicalized for you before the search.
+ If the named host is not known, the search is performed anyway on
+the exact target string. <P>
+You may search for mailboxes any of three ways: 
+<DL>
+<DT>user@
+<DD> Looks for mailboxes with a username part of 
+<DD> "user" on any
+host. This is a fast search. 
+<DT>@host
+<DD> Finds ALL mailboxes on host "host".  This is  a SLOW search.
+
+<DT>user@host
+<DD> Looks for an exact mailbox match, user andhost parts both.
+This is fastest. 
+</DL>
+__________________________________________________________
+<ADDRESS><A NAME=1 HREF=help.html#3>Whois online help</A>
+</ADDRESS>
+<ADDRESS>
+</ADDRESS></A>

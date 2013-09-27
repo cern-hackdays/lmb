@@ -1,0 +1,160 @@
+<TITLE>C9_Outline -- /Courses</TITLE>
+<NEXTID 1>Outline - Robert.Akscyn@zog.cs.cmu.edu
+<XMP>Here is the working outline for the course:
+
+Data Model Design Issues
+   Node design issues
+     What is the appropriate data model for a node?
+       What types of objects may nodes contain?
+         (Text, Graphics, Images, Audio,...)
+       What properties may these objects have? (color, etc)
+     What size should a node be?
+     What types of nodes should there be?
+     What sort of data object should be used as the source for a link?
+     What sort of data object should be used as the destination for a link?
+     How can nodes be aggregated into larger structures?
+     How can nodes be composed from other objects?
+       From other nodes
+       From other databases/files
+       How kept current?
+     How can versioning be supported? (Time versions, object variants)
+   Link design issues
+     What types of links should there be?
+       unidirectional, bidirectional
+       cold, warm, hot
+     Should a link have internal structure?
+     Should links have multiple destinations?
+
+User Interface Design Issues
+  Target users (novice, casual, expert)
+  System Performance Issues
+    How does System response affect user performance?
+  What style of user interface should be used?
+    Direct maniplation, ...
+      Degree of directness
+  How should nodes be presented on the display?
+    Space multi-plexing or time multiplexing
+    Number of windows
+    Types of windows
+    Overlapping or non-overlapping
+  How should a link source/destination be presented on the display?
+    (Icons, highlighting, blinking, face types, underlining, ...)
+  How fast should the system respond when following a link?
+    Time to access and display new node in same document
+    Time to access and display new node in new document
+    Time to access, load, and initiate execution of programs
+  How should the system support browsing?
+  Should graphical views of the database structure be provided?
+    What types? How should they be constructed? Maintained?
+  How can disorientation be reduced? (other than overviews)
+  How can the user search other than by browsing?
+    What types of queries can be specified?
+      Boolean, non-boolean
+      Exact match, best match, first match, ranked matches
+    How are the queries specified? (forms, example items, ...)
+    What types of searches can be performed?
+      Keyword search
+      Full-text search
+      Concept search
+      Structure search
+    What scopes for searching are available?
+      (Current document, Current hierarchy, Whole database, ...)
+    How is scope specified?
+    How is search performed (interactive, background batch, ...)
+    How are the search results provided (temporary|persistent; highlighting)
+  How can the user interface be tailored?
+    What features can be tailored? (e.g., defaults for newly created items)
+    How does the user specify the changes?
+    When do they take affect (immediately, next session, ...)
+    Multiple levels of functionality (how controlled?)
+
+Application Design/Support Issues
+  How should the system support authoring?
+    What tools can be used to make authors more productive
+      Schemas
+      Palattees
+      Grids/Gravity
+      Scaffolding
+      Formatting tools
+    How does the user change properties of objects?
+      How are properties of objects examined?
+   Domain specific versus Domain General
+   Support for specific domains
+     Software engineering
+     Electronic publishing (e.g., creating documents from hypertext)
+     Office information systems
+     Project management
+     Database system
+     Front-end to other systems (e.g.,databases)
+     Personal information manager
+   Support for collaboration
+     How can information be jointly authored and shared by multiple users?
+     How can interference among multiple users be reduced?
+       How is interference handled when it occurs?
+     How can access to sensitive data be restricted?
+     How can communication be supported?
+     How can annotation be supported?
+     How does the system support individual work?
+     How does the system provide for mutual intelligibility?
+  
+ 
+
+Script Language Design Issues
+  Target users (Novice, Casual, Expert)
+  Syntax of script language
+  Interpretation vs. Pre-Compiled vs. Runtime-Compiled
+  Ease of creation and maintenance
+    How are scripts represented?
+    How are scripts edited?
+  Loading and Execution
+  Error handling
+  On-line help and reference manuals
+  On-line libraries of code
+  
+ 
+
+Implementation issues
+  Platforms supported
+    Platform classes (pc versus workstation)
+    Operating systems
+    Graphical user interfaces
+    File systems
+  Distributed database (locking, ...)
+  Replication
+  Backup and Archiving
+  Splitting and merging multiple databases
+  Printing languages
+  Fonts
+  Color
+  Display device dependencies
+  Internal versus external link storage
+  Storage representation formats (binary, ASCII)
+  
+ 
+
+Integration Issues
+   Integration with other programs
+   Integration with other databases
+   Integration with other hypertext systems
+   Importing text files
+   Importing graphics files
+   Exporting to other formats
+   Control of external devices (Videodisk)
+   Use of standards
+     XII, Motif, Open Look, HyTime
+  
+ 
+
+Questions
+
+1. What is your background?
+2. Why are you taking the course?
+3. What areas of design of hypertext technology are you most interested in?
+4. What design tradeoff do you find most problematic?
+5. What do you hope to get out of the course?
+6. What particualr design issues would you like to see be addressed?
+7. Would you rather I favor breadth or depth?
+8. What recommendations do you have for the course?
+
+
+</XMP>

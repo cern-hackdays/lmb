@@ -1,0 +1,21 @@
+<TITLE>UsingAliases -- /LineMode</TITLE>
+<NEXTID 2>
+<H1>Using aliases</H1>Under unix, you can set up your own www command using an alias, even
+if you do not have system privileges.  (See <A NAME=1 HREF=Installation_VMS.html>seperate info for VMS</A>
+).<P>
+The commands below are for the C shell (csh). If you are using the
+korn shell, you will replace the space between the name and value
+of an alias with an equals "=" sign.<P>
+To define the www command, simply make an alias to the executable
+file (www) in the directory in which you have put it.
+<XMP>			alias www  /path/path/path/Implementaion/machine/www
+
+</XMP>If you want to make a special command to point directly to a particular
+hypertext document, then you must find its hypertext address. You
+then define an alias giving that address as a first parameter to "www".
+<XMP>			alias xfind www http://crnvmc/FIND/pub+user\?
+
+</XMP>Note the backslash (\) used to prevent the question mark (here part
+of the address of the FIND index) from being interpreted by the shell.
+_________________________________________________________________
+<ADDRESS><A NAME=0 HREF=http://info.cern.ch/hypertext/TBL_Disclaimer.html>Tim BL</A>

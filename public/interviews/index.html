@@ -31,7 +31,7 @@
 				<h2>Those involved with this project</h2>
 				<nav>
 					<ul>
-						<li class="lmb lmblaunch"><a href="http://line-mode.cern.ch/www/TheProject.html">Launch Line Mode Browser</a></li>
+						<li class="lmb lmblaunch"><a href="/www/hypertext/WWW/TheProject.html">Launch Line Mode Browser</a></li>
 						<li><a href="../">Home</a></li>
 						<li class="selected"><a href="../interviews/">Interviews</a></li>
 						<li><a href="../makingof/">Making of</a></li>
@@ -42,6 +42,121 @@
 				<div class="d-all">
 					<p class="standfirst">Interviews with the web developers, designers, writers, and archivists who flew in from Wales, Philadelphia, Brighton, Athens, Nairobi, San Francisco, Rekjavik, France, and farther.</p>
 				</div>
+
+
+				<article class="testimony d-all">
+					<h3>Remy Sharp</h3>
+					<div class="member-data">
+						<figure><img src="../img/remy.jpg" alt="Remy Sharp" /></figure>
+						<dl class="vcard">
+							<dt>Name:</dt>
+							<dd class="fn">Remy Sharp</dd>
+							<dt>Nationality:</dt>
+							<dd>British</dd>
+							<dt>Travelled from:</dt>
+							<dd>Brighton, UK</dd>
+							<dt>Profession:</dt>
+							<dd>Web developer, self-employed</dd>
+						</dl>
+					</div>
+					<div class="qs-and-as">
+            <p class="question">Why did you come to the CERN line-mode browser hack days?</p>
+            <p>Well, mostly to play at CERN! And the history of it: getting to play with code in really tight constraints – trying to replicate something that's tucked away and not really used anymore. It's just cool that the people who gave us the web as it is today were there 20 years ago doing sort of what we're doing today. And of course a couple of days hacking is always fun!</p>
+            <p class="question">What was your focus during the hack days?</p>
+            <p>My role was the coding part. I have a lot of experience writing Javascript-based applications. I could see how Javascript could solve a lot of the problems to replicate this old browser. So I worked on the back end server that allows you to visit any other website and get it into the line-mode browser.</p>
+						<p>I also worked on some of the effects in the line-mode browser. We're quite pleased with the cursor rendering on the screen replicating the old terminal. Using new technology to be able to do that, and tricking the browser into thinking it's doing that.</p>
+						<p class="question">Did any parts of the hack jump out as particularly challenging?</p>
+						<p>The way I think of it is like this: Today's society is all automatic-focus cameras. And the expensive ones are the old, manual-focus cameras that you had all this control over. But 25-30 years ago you couldn't get an automatic camera – it was too hard. Those folk who were writing code were able to put pixels in specific points, and for us to replicate that today is difficult. Today, it's really easy to make text flow perfectly and expand to the screen, but what we want to do is make it fit into an 80-by-24-character spot and get the positioning absolutely right. We want the cursor to blink, we want it to render character by character – that kind of stuff is really hard now.</p>
+						<p>We're in this kind of automatic, easy time, so the hard part was making the browser not work as well as it does today. The hard part was making it work as badly as it did in the olden days. Which is just ridiculous fun!</p>
+						<p class="question">How do you feel about the result?</p>
+						<p>I'm really pleased with what we've got now. There's bits that I know aren't perfect and I know I want to do more work on, but it's a bit like an artist – they see mistakes in their work but other people might not see that. I think what we've got creates a bit of an experience. People will be able to view their own homepage, and view the first website as well. I think it looks really good at the moment.</p>
+						<p>And it was really cool to come along and be here where the web was created, and then come to the LHC and be amazed by wires and metal. I'm kind of in awe of it – it's all sinking in slowly.</p>
+					</div>
+       </article>
+
+
+				<article class="testimony d-all">
+					<h3>Brian Leroux</h3>
+					<div class="member-data">
+						<figure><img src="../img/interview-brian.jpg" alt="Brian Leroux" /></figure>
+						<dl class="vcard">
+							<dt>Name:</dt>
+							<dd class="fn">Brian Leroux</dd>
+							<dt>Nationality:</dt>
+							<dd>Canadian</dd>
+							<dt>Travelled from:</dt>
+							<dd>San Francisco, USA, by a roundabout route</dd>
+							<dt>Profession:</dt>
+							<dd>PhoneGap project at Abobe systems</dd>
+						</dl>
+					</div>
+					<div class="qs-and-as">
+            <p class="question">Why did you come to the line-mode browser hack days?</p>
+            <p>To see CERN mostly! [laughs] I was also interested in the origins of the web and the line-mode browser. I'm a vintage-computing geek and digging into that code was a huge treat. To be able to meet some of the originators and be at the place where it happened is a humbling experience given what I do for a living.</p>
+
+						<p class="question">What sparked your interest in vintage computers?</p>
+						<p>I guess because I had some of them as a kid and now they're considered old. I've seen where it all started – I collect old books. There's an awesome bookstore in Portland called Powell's Technical Books. Well, nowadays you don't really need to buy a book; you can just get the digital edition or whatever. But if you go to Powell's there's these old computing textbooks that are, like, 30 years old, and you can get them for a buck or two. It's where it all came from.</p>
+						<p>A lot of computer scientists don't realize that our craft hasn't changed very much. Things have gotten better, things have gotten prettier, but the underpinning to everything we do has been figured out for a very long time. Looking back we can learn about a lot of how we can move stuff forward.</p>
+
+						<p class="question">Were you using the line-mode browser back in the day?</p>
+						<p>Definitely not! My first browser was probably Mosaic. I remember when I first saw the web, it would have been in late 90s and I thought it sort of sucked. I was using BBS's back then and they had almost richer graphics at the time. I'm ashamed to admit it, but I remember saying to a friend "I just don't get it!" [laughs.]But I get it now!</p>
+
+						<p class="question">It's day two of the hack days – what have you built?</p>
+						<p>I paired with Remy on the server stuff. It was built in 2 days. We had to do a lot of basically dumbing the browser down and turn it into what it was like in its original form. We did a mini node module that stripped a lot of the browser capabilities and allowed us to proxy. Browsers today have a "same origin" policy so you can't just request any website from a website. So we circumvented the complete model of web security! Which may come back to bite us – hopefully not! [laughs]</p>
+
+						<p class="question">Looking back at the old code, what were the things that jumped out?</p>
+						<p>When we first started, we got an early copy of the original browser. I started to read the source and there was surprisingly little of it. And I found what I think could be the first declaration of a style sheet. The first web browser didn't have style sheets - there was a block, a set of structs that would denote what the indentation would be for different elements: like an h0, an h1 or whatever. Well, we found that and we couldn't believe they called it a stylesheet. This was way before CSS! That was one of the cool moments for sure.</p>
+
+						<p class="question">What do you want people to take away from the experience of the line-mode browser?</p>
+						<p>I think they should just start poking around in this old code themselves. Especially if you're a programmer, recognize that browsers since the very beginning were fundamentally open source. That's a huge opportunity even today. You can participate in the web in a very open way. Anybody can jump in and read the source, and contribute to the web and make it better. I think that's a powerful thing. </p>					
+					</div>
+				</article>
+
+
+
+				<article class="testimony d-all">
+					<h3>John Allsopp</h3>
+					<div class="member-data">
+						<figure><img src="../img/john.jpg" alt="John Allsopp" /></figure>
+						<dl class="vcard">
+							<dt>Name:</dt>
+							<dd class="fn">John Allsopp</dd>
+							<dt>Nationality:</dt>
+							<dd>Australian</dd>
+							<dt>Travelled from:</dt>
+							<dd>Sydney, Australia</dd>
+							<dt>Profession:</dt>
+							<dd>Web developer and conference organizer</dd>
+						</dl>
+					</div>
+					<div class="qs-and-as">
+						<p class="question">Why did you come to the CERN line-mode browser hack days?</p>
+						<p>I was invited to this fantastic hack event to recreate one of the very earliest browsers. We're creating a simulation of the experience of using that browser to give people who haven't used it or the old-style terminals a sense of what using the web was like 20 years ago. It tries to reproduce early web pages as authentically as possible, as well as taking modern pages and simulating what they would have looked like 20 years ago.</p>
+						
+						<p class="question">How different are those two displays?</p>
+						<p>In a way, they couldn't be more different. When we think of computing now, we think of graphical user interfaces, images – we think of drawing to a pixel-based high-density screen. Back then, the monitors were capable of drawing characters to a screen. There were no different fonts, no colours – not even greyscale. It was either black and white, or green and black. There was no mouse, no touch – in many ways you couldn't have a more different experience. Except maybe using punch cards [laughs].</p>
+							
+						<p class="question">So why go back to that?</p>
+						<p>George Santayana observed: "Those who forget history are condemned to repeat it." It's worth revisiting where we've come from to firstly understand what went into creating earlier technologies, and also to appreciate how far we've come.</p>
+						<p>I mean, you hear modern web developers complaining about [browser] compatibilities. And as someone who's been doing this for more than 20 years – the problems that we face as developers today on the web are so minimal compared to the challenges we used to have, that it's good to remind people how good we have it these days.</p>
+						 
+						<p  class="question">What are you concentrating on in the next two days?</p>
+						<p>One of the things I bring to the table is that I've probably been using the web as long if not longer than all the people here. I have first-hand experience with these sorts of devices. The web was invented around 1990 and became more widely used between '91 and '93. But it 1985 I was using [computing devices such as terminals] at my first year of university studying computer science.</p>
+						<p>Hopefully I can also bring experience of solving problems with CSS and JavaScript to the problems of emulating what the early web was like.</p>
+						
+						<p class="question">What do you hope people will take away from the experience of using the line-mode browser?</p>
+            <p>Hopefully people will think a little about the longevity of the web, the simplicity with which it started and how it has incrementally become better over time. I think we can learn something from that and apply it to solving all kinds of complex problems.</p>
+            <p>There's a term we used to use in the old days: "Trying to boil the ocean". You see that when people try to solve the entire problem rather than breaking problems into parts that each deliver benefits that you can iterate on. You learn as you go.</p>
+            
+						<p class="question">So iteration is important?</p>
+						<p>When the web was first released, hypertext as a concept had been around for more than 20 years. People had built sophisticated hypertext systems. Tim Berners-Lee proposed a paper about the WWW for Hypertext '91, a conference for hypertext theory and research. It was rejected! It was considered very simple in comparison with what hypertext systems were supposed to do.</p>
+            <p>There's a lesson to learn in starting simply and humbly, and iterating on top of that. We should be in awe of how far so many people have brought the web since that time. We collectively have made the web what it is today. It's amazing to see how far we've come.</p>
+            <p>It's a bit like archaeology – we've been diving through the source code and finding elements. I thought I had a pretty encyclopedic knowledge of the web and its history. But today for example I discovered the &lt;HP1&gt; element in HTML – the "highlighted phrase" element – never heard of it! It's been fascinating to do some spelunking and recover some of that history. It's only been 20 years and we've almost forgotten it. It's about keeping the history alive.</p>
+						
+						<p class="question">Anything else you'd like to add?</p>	
+						<p>It's been a fantastic couple of days working with some amazing people. This is incredibly valuable and I look forward to people getting their hands on what we've done. It's all been done in the open, very much in the spirit of the web that we're celebrating here 20 years after the technology was put in the public domain. What we build is all on Github. I'd love people to take what we've done and continue to refine it.</p>
+					</div>
+				</article>
 
 
 				<article class="testimony d-all">
@@ -290,7 +405,7 @@
 					<div class="qs-and-as">
 						<p class="question">Why did you come to the CERN line-mode browser development days?</p>
  
-						<p>I'm here to recreate the first web pages and the early web browsers. I'm here to be part of 
+						<p>I'm here to recreate the first web pages and the early line-mode browser. I'm here to be part of 
 							something important for the web and for my profession as a web designer and developer.  </p>
  
 						<p class="question">Why is recreating the line-mode browser important?</p>

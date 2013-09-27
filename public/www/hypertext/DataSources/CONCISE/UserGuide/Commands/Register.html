@@ -1,0 +1,34 @@
+<TITLE>Automatic Flagging of New Information: CONCISE USER GUIDE</TITLE>
+<H1>Flagging of New Information</H1>
+<XMP>
+NOTE: **********************************************************
+The commands discussed in this section are not yet available on
+CONCISE. They will be available in the next release.
+****************************************************************
+
+</XMP>You may wish to be told when there is new information, or when something
+is updated. To do this, go to the place of interest and use the `register'
+command. There are two forms of this command: `register update' and
+`register new'. The first is used to tell you when a particular item
+of information has been updated. The second is used to tell you when
+any new information is added beneath a particular category. For example,
+to be told when the information on the NISS information service is
+updated, send the following commands:
+<XMP>
+			start
+			goto /Services/niss
+			register update
+
+</XMP>Every time the information on the NISS information service is<P>
+updated (ie changed) you will now be sent a message to tell you<P>
+about it. Later you may want to stop these messages being sent to<P>
+you, so send the following:
+<XMP>
+			start
+			goto /Services/niss
+			deregister update
+
+
+</XMP>Then you will no longer get the messages telling you about changes.
+<XMP>ÿ
+</A></XMP>

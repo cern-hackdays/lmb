@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+
 <meta charset=utf-8 />
 <meta name="author" content="CERN LineMode Crew 2013" />
 <meta name="description" content="All about remaking the line mode browser." />
@@ -18,13 +18,13 @@
 
 </head>
 <body style="background-color: #f7f7f7">
-	
+
 	<div class="headfill" style="background-image: url(../img/makingof-header.jpg);"></div>
 
 	<div class="wrapper">
-				
+
 		<div id="content" class="clearfix">
-		
+
 			<section class="d-all">
 				<!--h4 class="date">Geneva, 30 April 2013</h4-->
 
@@ -32,7 +32,7 @@
 				<h2>Rebuilding 20 year old software in a modern day browser</h2>
 				<nav>
 					<ul>
-						<li class="lmb lmblaunch"><a href="http://line-mode.cern.ch/www/TheProject.html">Launch Line Mode Browser</a></li>
+						<li class="lmb lmblaunch"><a href="/www/hypertext/WWW/TheProject.html">Launch Line Mode Browser</a></li>
 						<li><a href="../">Home</a></li>
 						<li><a href="../interviews/">Interviews</a></li>
 						<li class="selected"><a href="../makingof/">Making of</a></li>
@@ -44,19 +44,19 @@
 					<div class="d-all">
 						<p class="standfirst">In late September, 2013, twelve web developers, designers, writers, standardistas, and technologists descended upon CERN — the birthplace of WWW and HTTP and the web browser — to spend two days rebuilding the line-mode browser. This is our story.</p>
 					</div>
-					
+
 				</article>
-				
-				
+
+
 				<article class="d-all">
 
 					<h3>Preservationistas</h3>
 
-					<p>We hear you ask: <em>This is silly; rebuild a 20 year old browser? Why?</em></p> 
+					<p>We hear you ask: <em>This is silly; rebuild a 20 year old browser? Why?</em></p>
 
 					<p>Computers are simultaneously boosted and hindered by their rapid obsolescence. So while the line-mode browser is a mere 20 years old (as of the writing of this), it's only viewable (and barely usable) on the odd terminal here in the closet of CERN. We've come so far in so few years that we're on the cusp of not being able to interact with the very software that got us here. As folks who believe deeply in — and owe much to — the web, this pains us. In rebuilding / simulating this origin browser, we hope to achieve a few goals.</p>
 
-					<p>First, we want to provide <strong>context for the web of today</strong>. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualatative differences between then and now are shocking. It's nice to be able to time-travel back and peek at our roots.</p>
+					<p>First, we want to provide <strong>context for the web of today</strong>. From where did it come? Out of what did it grow? Despite being only 20 years old, the qualitative differences between then and now are shocking. It's nice to be able to time-travel back and peek at our roots.</p>
 
 					<p>Which brings us to the second reason: we want <strong>a version of the line-mode browser that anyone can run</strong> and, furthermore, point at contemporary websites. Our line-mode browser simulator not only allows you to view the first web pages ever placed online (on these very servers!), but will also render — as accurately as possible — any other website to which it's pointed. It may not always be pretty, but it's usually entertaining. (And heck, the web was never really meant to be that pretty, right?<sup>1</sup>)</p>
 
@@ -87,15 +87,15 @@
 
 					<p><strong>In short</strong>: We wrote an old browser in a new browser. Here are the details.</p>
 
-					<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p> 
+					<p>The approach we centered on was to use a proxy Node server. This allowed us to request arbitrary web resources (we’d run into CORS problems with many sites).</p>
 
 					<p>In the node app, we manipulate the DOM, disabling scripts and style (linked, embedded and inline). But, importantly, we leave the script, link and style elements in place. <em>Why?</em> we hear you ask. Because, dear reader, the original line mode browser would display contents of those tags. Its parsing rule was to strip the start and end tags off unknown elements, but display their content inline. So it would display the content of style, link and script elements, but would not be affected by them, which is why we disabled them. It may look messy but we're being as true as possible to the way the line-mode browser worked.</p>
-					
+
 					<p>After the DOM is modified like this, we add links to the CSS and JavaScript files that drive the emulation, then serialise the document back into a string, and then send this to the browser.</p>
 
 					<p>The browser then parses the document, applies the CSS and runs the JavaScript, so you the user can experience the awesomeness that was the line mode browser.</p>
 
-					<p>The CSS was used for 99% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS runs the command line fixed to the bottom of the content. Technically, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
+					<p>The CSS was used for 90% of the appearance of the document, with JavaScript used for some positional aspects. For example, JS was used for visual tricks and runs the command line fixed to the bottom of the content. Technically, this would be possible with CSS, but the required features, including viewport units aren’t supported across all widely used browsers.</p>
 
 <p>In addition we use the HTML5 audio element to bring you the sound of the keyboard (we even recorded the sounds of typing on an old IBM RS6000 keyboard we had at our disposal to work with an early version of the browser).</p>
 
@@ -105,7 +105,9 @@
 					<h3>What hacks did we use?</h3>
 					<p>Hacks! We do not hack. OK, maybe we did some hacky things, but thankfully nothing particularly grubby.</p>
 					<p>As mentioned, we used some JavaScript for calculating certain aspects of the page layout. We'd have preferred to have done this in pure CSS.</p>
-					
+					<p>Actually, there's one hack that was pretty cool. As mentioned, the original browser parsed and then drew to the screen character by character. Which basically means you see the browser draw, quite quickly, but still very noticeably, each character to the screen,. We wanted to emulate this, as it is as much a part of the original experience as the monochrome screen, or monospace font used.</p>
+					<p>Our original idea was to use CSS animations for this. But, this would require wrapping every individual character in a <code>span</code> element, then showing each character one by one.</p>
+					<p>Then in most likely a caffeine fuelled brainstorm, we came up with the idea of covering the document with a black, opaque <code>canvas</code>, then repeatedly erasing a rectangle the size of a character column by column, line by line. This works really well because it's a monospace font, all displayed at the same font size, so we don't need to measure the size of each character we're erasing, as each will be identical in size. This ended up being far less work than the original approach, and after a bit of tweaking, works like a charm.</p>
 					<h3>Will what we built today be usable in 10 years? </h3>
 					<p>We hope so! One of the things we wanted to do is emulate how the line-mode browser would handle today’s web content. Even though, technically, the original line-mode terminals would choke on today's heavy pages — we're averaging about 1.2MB of content per page.</p>
 
@@ -121,14 +123,14 @@
 				</div>
 			</section>
 		</div>
-		
+
 		<footer>
 			<p>For press enquiries, please contact the CERN press office at <a href="mailto:press@cern.ch">press@cern.ch</a></p>
 			<hr/>
 			<p><a href="http://cern.ch/copyright">© Copyright CERN 2013</a></p>
-		
+
 		</footer>
-	
+
 	</div>
 </body>
 </html>
