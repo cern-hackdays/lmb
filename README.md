@@ -13,5 +13,6 @@ CERN Line Mode Browser simulation.
 
 # Contrib
 
-Add your HTML, CSS, and JavaScript to `./public`. You can make a proxy call by requesting anything at `./proxy?url=http://example.com`.
+Add your HTML, CSS, and JavaScript to `./public`. You can make a proxy call by requesting anything at 
+`http://localhost:8000/www/proxy?url=http://example.com`.
 
