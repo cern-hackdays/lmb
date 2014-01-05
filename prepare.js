@@ -7,16 +7,16 @@ module.exports = function prepare ($, location) {
                      '<script src=/js/commandline.js></script>'].join('');
 
   // strip particular elements
-  $('style,iframe,frame,frameset,img,hr,br,video').remove();
+  $('iframe,frame,frameset,img,hr,br,video').remove();
+  $('script,style').each(function(){
+    var $this = $(this);
+    var $span = $('<span>');
+    $span.html($this.html());
+    $this.replaceWith($span);
+  });
   $('link[rel=stylesheet]').remove();
   $('[style]').each(function () {
     $(this).removeAttr('style');
-  });
-
-
-  // expose the content of scripts
-  $('script').each(function () {
-    $(this).attr('type', 'text/plain');
   });
 
 

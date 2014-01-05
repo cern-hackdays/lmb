@@ -30,7 +30,10 @@ var linemoder = {
 
 		for (var i=0; i < styleSheets.length; i++) {
 			if ((' ' + styleSheets[i].className + ' ').indexOf(' ignore ') === -1) {
-				styleSheets[i].parentNode.removeChild(styleSheets[i]);
+				var styleSheet = styleSheets[i];
+				var span = document.createElement('span');
+				span.innerHTML = styleSheet.innerHTML;
+				styleSheet.parentNode.replaceChild(span, styleSheet);
 			}
 		};
 
@@ -52,7 +55,10 @@ var linemoder = {
 		for (var i=0; i < scripts.length; i++) {
 			if ((' ' + scripts[i].className + ' ').indexOf(' ignore ') === -1) {
 				//don't remove this script
-				scripts[i].parentNode.removeChild(scripts[i])
+				var script = scripts[i];
+				var span = document.createElement('span');
+				span.innerHTML = script.innerHTML;
+				script.parentNode.replaceChild(span, script);
 			}
 		};
 
