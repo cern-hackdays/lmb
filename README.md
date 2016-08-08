@@ -1,6 +1,6 @@
 # Line Mode Browser
-  
-CERN Line Mode Browser simulation. 
+
+CERN Line Mode Browser simulation.
 
 # Prereq
 
@@ -8,8 +8,10 @@ CERN Line Mode Browser simulation.
 
 # Install
 
-1. Clone this repo
-2. Run `node .`
+1. Clone this repo and `cd` into it
+2. Run `npm install` to install dependencies
+3. Run `node .` to start the server
+4. Open `http://localhost:8000/` in your browser
 
 # Contrib
 
