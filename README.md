@@ -2,7 +2,7 @@
 
 # Line Mode Browser
   
-> The line-mode browser, launched in 1992, was the first readily accessible1 browser for what we now know as the world wide web. It was not, however, the world’s first web browser. The very first web browser was called WorldWideWeb and was created by Tim Berners-Lee in 1990.
+> The line-mode browser, launched in 1992, was the first readily accessible browser for what we now know as the world wide web. It was not, however, the world’s first web browser. The very first web browser was called WorldWideWeb and was created by Tim Berners-Lee in 1990.
 
 This repository holds a mirror of CERN's Line Mode Browser simulation.
 
